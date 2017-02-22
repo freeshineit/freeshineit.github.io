@@ -1,0 +1,109 @@
+@font-face {
+  font-family: 'shine-font';
+  src:  url('../fonts/icomoon/shine-font.eot?cii4u1');
+  src:  url('../fonts/icomoon/shine-font.eot?cii4u1#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon/shine-font.ttf?cii4u1') format('truetype'),
+    url('../fonts/icomoon/shine-font.woff?cii4u1') format('woff'),
+    url('../fonts/icomoon/shine-font.svg?cii4u1#shine-font') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'shine-font' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-qq:before {
+  content: "\e907";
+}
+.icon-wechat:before {
+  content: "\e90e";
+}
+.icon-app:before {
+  content: "\e900";
+}
+.icon-css:before {
+  content: "\e901";
+}
+.icon-git:before {
+  content: "\e902";
+}
+.icon-html:before {
+  content: "\e903";
+}
+.icon-java:before {
+  content: "\e904";
+}
+.icon-jquery:before {
+  content: "\e905";
+}
+.icon-js:before {
+  content: "\e906";
+}
+.icon-linux:before {
+  content: "\e8d9";
+}
+.icon-markman:before {
+  content: "\e908";
+}
+.icon-mysql:before {
+  content: "\e909";
+}
+.icon-nodejs:before {
+  content: "\e90a";
+}
+.icon-ps:before {
+  content: "\e90b";
+}
+.icon-tomcat:before {
+  content: "\e90c";
+}
+.icon-vuejs:before {
+  content: "\e90d";
+}
+.icon-email:before {
+  content: "\e945";
+}
+.icon-location:before {
+  content: "\e947";
+}
+.icon-mobile:before {
+  content: "\e958";
+}
+.icon-user:before {
+  content: "\e971";
+}
+.icon-tool:before {
+  content: "\e996";
+}
+.icon-arrow-up:before {
+  content: "\ea50";
+  font-size:30px;
+}
+.icon-google:before {
+  content: "\ea8c";
+}
+.icon-facebook:before {
+  content: "\ea91";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
+.icon-sina:before {
+  content: "\ea9a";
+}
+.icon-github:before {
+  content: "\eab0";
+}
+
