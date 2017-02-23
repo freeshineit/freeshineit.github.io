@@ -327,7 +327,7 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 }
 .fh5co-cover.fh5co-cover-sm {
-  height: 600px;
+  height: 800px;
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover.fh5co-cover-sm {
@@ -336,7 +336,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-cover.fh5co-cover-sm .display-t,
 .fh5co-cover.fh5co-cover-sm .display-tc {
-  height: 600px;
+  height: 750px;
   display: table;
   width: 100%;
 }
@@ -474,6 +474,10 @@ h1, h2, h3, h4, h5, h6, figure {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.fh5co-contact-info ul li.user:before {
+  font-size: 30px;
+  content: "\e971";
+}
 .fh5co-contact-info ul li.address:before {
   font-size: 30px;
   content: "\e947";
@@ -598,6 +602,7 @@ h1, h2, h3, h4, h5, h6, figure {
   padding: 7em 0;
   clear: both;
 }
+
 @media screen and (max-width: 768px) {
   #fh5co-services,
   #fh5co-started,
@@ -1707,4 +1712,40 @@ h1, h2, h3, h4, h5, h6, figure {
   color:#FFF;
 }
 
+.resume-college-img img{
+  width:100%;
+}
+
+.resume-college{
+  padding-top:20px;
+}
+
+.shine-face{
+  width: 100px;height: 100px;
+  transition: transform 2s;
+  -moz-transition: transform 2s;  
+  -webkit-transition:transform 2s; 
+  -o-transition: transform 2s;  
+}
+
+.shine-face:hover{
+  transform: rotateY(360deg);
+  -webkit-transform: rotateY(360deg);
+  -moz-transform: rotateY(360deg);
+}
+.banner-content{
+  margin-top:50px;
+  clear: both;
+}
+.banner-content img{
+  width:100%;
+
+}
+.banner-content li{
+  list-style: none;
+  background-repeat: no-repeat;
+  height: 100%;
+  // width: 100%;
+  background-size:cover;
+}
 /*# sourceMappingURL=style.css.map */
