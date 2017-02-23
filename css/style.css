@@ -494,6 +494,10 @@ h1, h2, h3, h4, h5, h6, figure {
   font-size: 23px;
   content: "\eab0";
 }
+.fh5co-contact-info ul li.wechat:before {
+  font-size: 23px;
+  content: "\e90e";
+}
 
 #fh5co-header .display-tc,
 #fh5co-counter .display-tc,
