@@ -12,7 +12,7 @@
     function getQuota(){
         //todo 设置额度 并检测是否可激活
         //额度
-        var quota =  $.app.Util.StorageGetter('quota') || Math.random() * 1000000 | 0,
+        var quota =  $.app.Util.StorageGetter('quota') || Math.random() * 200000 | 0,
             baseEDu = $.app.Util.StorageGetter('base_edu') || 100000; //可激活的额度的标准
         $.app.Util.StorageSetter('quota',quota);
         $('#count').animateNumber({ number: quota});
