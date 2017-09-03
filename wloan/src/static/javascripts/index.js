@@ -16,6 +16,9 @@
                 username = $.trim($('.login').find('#username').val());
                 wxname   = $.trim($('.login').find('#wxname').val());
 
+                $.app.Util.StorageGetter('quota'),
+                $.app.Util.StorageGetter('wx_name');
+
             if(username == ""){
                 $.DialogByZ.Alert({Title: "提示", Content: "姓名不可以为空",BtnL:"确定",FunL:alerts})
             }else if(wxname == ""){
