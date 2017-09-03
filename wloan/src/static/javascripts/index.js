@@ -16,8 +16,7 @@
                 username = $.trim($('.login').find('#username').val());
                 wxname   = $.trim($('.login').find('#wxname').val());
 
-                $.app.Util.StorageGetter('quota'),
-                $.app.Util.StorageGetter('wx_name');
+
 
             if(username == ""){
                 $.DialogByZ.Alert({Title: "提示", Content: "姓名不可以为空",BtnL:"确定",FunL:alerts})
@@ -26,6 +25,7 @@
             }else{
                 $.app.Util.StorageSetter('user_name',username);
                 $.app.Util.StorageSetter('wx_name',wxname);
+                $.app.Util.StorageRemove('quota'),
 
                 $.app.loading.checked($(".login"),function(){
                     window.location.href = './wloan_result.html'
