@@ -1,0 +1,81 @@
+
+
+.wloan-reuslt-title{
+    font-size: 18px;
+    color: #898989;
+    margin-top: 100px;
+    margin-bottom: 10px;
+
+}
+.wloan-reuslt-title h2{
+    font-weight: normal;
+}
+/****************/
+.wloan-edu{
+    font-size: 40px;
+    font-weight: 700;
+    color: #000;
+}
+
+.wloan-edu .wloan-edu-bk{
+    width: 80%;
+    height: 100px;
+    margin: 0 auto;
+    background: url(../images/result-bk.jpg);
+}
+
+.wloan-edu .wloan-edu-bk #count{
+    margin-left: 5px;
+}
+.wloan-edu .wloan-edu-bk p{
+    line-height: 95px;
+}
+
+/********/
+
+.borrow-money-container{
+    height: 300px;
+}
+
+.total-text{
+    padding:30px 10px;
+    font-size: 18px;
+
+}
+
+.total-text .total{
+    font-weight: bolder;
+}
+
+.borrow-money{
+    width: 100px;
+    height: 100px;
+    background: #e8bb2c;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    line-height: 100px;
+    margin: 0 auto;
+}
+
+.footer-container{
+    position: absolute;
+    height: 20%;
+    background: #ecedef;
+    width: 100%;
+    bottom:0;
+    border-top:1px solid #ccc;
+    font-size: 16px;
+}
+
+.footer-container p{
+    position: absolute;
+    width: 100%;
+    bottom: 10%;
+}
+.footer-container .notice{
+    font-size: 18px;
+    color: #000;
+    transform: translate(0,-30px);
+    -webkit-transform: translate(0,-30px); /* Safari and Chrome */
+}
