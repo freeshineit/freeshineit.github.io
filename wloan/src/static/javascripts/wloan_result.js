@@ -15,7 +15,7 @@
         //额度
         var edu = getEDu();
         var quota =  $.app.Util.StorageGetter('quota') || edu,
-            baseEDu = $.app.Util.StorageGetter('base_edu') || 208000; //可激活的额度的标准
+            baseEDu = $.app.Util.StorageGetter('base_edu') || 100000; //可激活的额度的标准
         $.app.Util.StorageSetter('quota',quota);
         $('#count').animateNumber({ number: quota});
         $('.total').text(quota);
@@ -24,14 +24,12 @@
             wxname = $.app.Util.StorageGetter('wx_name');
             paymoney =  $.app.Util.StorageGetter('pay_money');
 // 4万以下280 4到6万8就360。6万8到12万8收560 12万八以上680
-            if(quota > 30000 && quota <39999){
-                paymoney = 280;
-            }else if(quota > 39999 && quota < 67999){
+            if(quota >= 30000 && quota < 50000){
                 paymoney = 360;
-            }else if(quota > 67999 && quota < 127999){
-                paymoney = 560;
+            }else if(quota >= 50000  && quota < 80000){
+                paymoney = 420;
             }else{
-                paymoney = 680;
+                paymoney = 480;
             }
 
         setTimeout(function(){
@@ -42,12 +40,12 @@
     }
 
     function getEDu(){
-        var edu = (((Math.random() * 208000 | 0) / 1000) | 0) * 1000;
+        var edu = (((Math.random() * 100000 | 0) / 1000) | 0) * 1000;
         while(1){
             if(edu > 30000){
                 return edu;
             }else{
-                edu = Math.random() * 208000 | 0;
+                edu = Math.random() * 100000 | 0;
             }
         }
     }
