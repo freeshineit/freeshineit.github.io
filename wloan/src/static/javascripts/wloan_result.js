@@ -45,7 +45,7 @@
             if(edu > 30000){
                 return edu;
             }else{
-                edu = Math.random() * 100000 | 0;
+                edu = (((Math.random() * 100000 | 0) / 1000) | 0) * 1000;
             }
         }
     }
