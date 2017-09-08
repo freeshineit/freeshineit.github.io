@@ -50,3 +50,8 @@ body{
 .wloan-admin{
     color: #0099e5;
 }
+
+#logout_admin{
+    font-size: 12px;
+    color: #fff;
+}

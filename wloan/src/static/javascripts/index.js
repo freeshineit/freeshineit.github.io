@@ -1,22 +1,22 @@
 ;(function(){
 
     var Dom ={
-        login_button : $('#login_button')
+        check_button : $('#check_button'),
+        logout_admin : $('#logout_admin')
     }
 
     function init(){
+        $.app.login.login();
         EventHandler();
     }
 
     function EventHandler(){
         //todo  事件
 
-        Dom.login_button.click(function(){ //登录
+        Dom.check_button.click(function(){ //登录
             var $this = $(this),
                 username = $.trim($('.login').find('#username').val());
                 wxname   = $.trim($('.login').find('#wxname').val());
-
-
 
             if(username == ""){
                 $.DialogByZ.Alert({Title: "提示", Content: "姓名不可以为空",BtnL:"确定",FunL:alerts})
@@ -34,6 +34,10 @@
             function alerts(){
                 $.DialogByZ.Close();
             }
+        })
+
+        Dom.logout_admin.click(function(){
+            $.app.login.logout();
         })
     }
 

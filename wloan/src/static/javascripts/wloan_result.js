@@ -5,6 +5,7 @@
     }
 
     function init(){
+        $.app.login.login();
         $.app.login.checked();
         getQuota();
     }
