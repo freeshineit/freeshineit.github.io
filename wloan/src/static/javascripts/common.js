@@ -51,7 +51,7 @@
                 var username = $.app.Util.StorageGetter('admin_user_name'),
                     password = $.app.Util.StorageGetter('admin_password');
 
-                if(!(username && password)){
+                if(!(username == 'admin' && password == 'fzzx101')){
                     window.location.href = '../view/admin.html';
                     return ;
                 }

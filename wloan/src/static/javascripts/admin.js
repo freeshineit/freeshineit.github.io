@@ -2,7 +2,7 @@
 
     const  USER = {
         name:'admin',
-        password:"tj940224"
+        password:"fzzx101"
     }
            
     var Dom ={
