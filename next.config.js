@@ -3,7 +3,7 @@
 const isProd = process.env.NODE_ENV === "production";
 
 const withMDX = require("@next/mdx")({
-  extension: /\.mdx?$/,
+  extension: /\.mdx?$/
 });
 
 module.exports = withMDX({
@@ -11,6 +11,7 @@ module.exports = withMDX({
   assetPrefix: isProd ? "http://www.baiud.com" : "",
   pageExtensions: ["ts", "tsx", "md", "mdx"],
   api: {
-    bodyParser: false,
+    bodyParser: false
   },
+  generateEtags: false
 });

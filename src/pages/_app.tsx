@@ -1,8 +1,7 @@
 import { NextComponentType } from "next";
 import { AppContext, AppProps } from "next/app";
 // import "../styles/bootstrap.min.css";
-// import "../styles/app.scss";
-
+import "../styles/app.scss";
 export interface ModifiedAppInitialProps<A = { [key in string]: string }> {
   appProps: A;
 }

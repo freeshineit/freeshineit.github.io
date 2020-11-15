@@ -1,0 +1,26 @@
+@import "@styles/common/theme.scss";
+
+.layout {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  height: $header-height;
+  background-color: black;
+  color: #fff;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+}
+
+.footer {
+  display: flex;
+  height: $footer-height;
+  background-color: black;
+  color: #fff;
+}

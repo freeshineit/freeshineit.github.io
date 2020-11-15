@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
+import ShineShao from "@components/ShineShao";
 
 const IndexPage = () => (
   <Layout title="Home | Next.js + TypeScript Example">
@@ -8,6 +9,7 @@ const IndexPage = () => (
       <Link href="/about">
         <a>About</a>
       </Link>
+      <ShineShao />
     </p>
   </Layout>
 );
