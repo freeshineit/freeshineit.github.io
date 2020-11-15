@@ -1,7 +1,16 @@
+import React from "react";
+import { MDXProvider } from "@mdx-js/react";
+
 import { NextComponentType } from "next";
 import { AppContext, AppProps } from "next/app";
-// import "../styles/bootstrap.min.css";
+import Layout from "../components/Layout";
+import Code from "../components/Code";
 import "../styles/app.scss";
+// import "prismjs/themes/prism-tomorrow.css";
+
+const components = {
+  code: Code
+};
 export interface ModifiedAppInitialProps<A = { [key in string]: string }> {
   appProps: A;
 }
@@ -16,8 +25,31 @@ const AppCom: NextComponentType<
   AppContext,
   ModifiedAppInitialProps,
   ExtendedAppProps
-> = ({ Component, pageProps, appProps }) => {
-  return <Component {...appProps} {...pageProps} />;
+> = ({ Component, pageProps }) => {
+  let style: React.CSSProperties = {
+    width: 800,
+    margin: "0 auto"
+  };
+
+  let Com = () => (
+    <MDXProvider components={components}>
+      <div style={{ maxWidth: 800, fontSize: 14 }}>
+        <Component {...pageProps} />
+      </div>
+    </MDXProvider>
+  );
+
+  // 用来区分 文件类型
+  if (Component.displayName === "tsx") {
+    Com = () => <Component {...pageProps} />;
+    style = {};
+  }
+
+  return (
+    <Layout style={style}>
+      <Com />
+    </Layout>
+  );
 };
 
 export default AppCom;

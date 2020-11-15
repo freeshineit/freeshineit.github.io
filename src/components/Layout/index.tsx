@@ -20,14 +20,16 @@ const Layout: FC<ILayoutProps> = ({
     : styles.layout;
 
   return (
-    <div className={classNames} style={style}>
+    <div className={classNames}>
       <Head>
-        <title>{title}</title>
+        <title>ShineShao Bolg</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Header className={styles.header} />
-      <main className={styles.main}>{children}</main>
+      <div className={styles.main} style={style}>
+        {children}
+      </div>
       <Footer className={styles.footer} />
     </div>
   );

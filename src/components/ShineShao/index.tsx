@@ -1,4 +1,6 @@
 import React, { FC } from "react";
+import Const from "@constant/index";
+
 import styles from "./ShineShao.module.scss";
 
 interface IShineShao {
@@ -16,7 +18,11 @@ const ShineShao: FC<IShineShao> = ({
     ? `${styles.ShineShao} ${className}`
     : styles.ShineShao;
 
-  return <img src={src} alt="ShineShao" className={classNames} style={style} />;
+  return (
+    <a href={Const.github} target="_block">
+      <img src={src} alt="ShineShao" className={classNames} style={style} />
+    </a>
+  );
 };
 
 export default React.memo(ShineShao);

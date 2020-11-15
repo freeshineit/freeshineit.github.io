@@ -23,7 +23,8 @@
       "*": ["*"],
       "@styles/*": ["src/styles/*"],
       "@components/*": ["src/components/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@constant/*": ["src/constant/*"]
     }
   },
   "exclude": ["node_modules"],

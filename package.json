@@ -8,14 +8,17 @@
     "type-check": "tsc"
   },
   "dependencies": {
-    "@mdx-js/loader": "^1.6.21",
+    "@mdx-js/react": "^1.6.21",
     "@next/mdx": "^10.0.1",
     "next": "latest",
+    "prism-react-renderer": "^1.1.1",
+    "prismjs": "^1.22.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "sass": "^1.29.0"
   },
   "devDependencies": {
+    "@mdx-js/loader": "^1.6.21",
     "@types/node": "^12.12.21",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",

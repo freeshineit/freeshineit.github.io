@@ -4,7 +4,6 @@
 import { NextComponentType } from "next";
 import { AppContext, AppProps } from "next/app";
 // import "../styles/bootstrap.min.css";
-
 import "../styles/app.scss";
 export interface ModifiedAppInitialProps<A = { [key in string]: string }> {
   appProps: A;
@@ -37,15 +36,11 @@ export default AppCom;
 ```
 
 ```ts
-const ss = "12341";
+const ss = '12341
 ```
 
 ```js
-const ss = "12341";
-const ss = "12341";
-const ss = "12341";
-const ss = "12341";
-const ss = "12341";
+const ss = '12341
 ```
 
 ```go
