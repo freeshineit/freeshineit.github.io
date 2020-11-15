@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "next",
-    "build": "next build && next export -o docs",
+    "build": "node scripts/build.js",
     "start": "next start",
     "type-check": "tsc"
   },
@@ -12,13 +12,35 @@
     "@next/mdx": "^10.0.1",
     "next": "latest",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "sass": "^1.29.0"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
+    "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
+    "shelljs": "^0.8.4",
     "typescript": "4.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">= 11"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.+(ts|tsx|js|jsx)": [
+      "prettier --write"
+    ],
+    "*.+(json|css|scss|md)": [
+      "prettier --write"
+    ]
+  }
 }
