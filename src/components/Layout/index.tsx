@@ -9,12 +9,7 @@ interface ILayoutProps extends CommponentCommProps {
   title?: string;
 }
 
-const Layout: FC<ILayoutProps> = ({
-  className,
-  style,
-  title = "This is the default title",
-  children
-}) => {
+const Layout: FC<ILayoutProps> = ({ className, style, children }) => {
   const classNames = className
     ? `${styles.layout} ${className}`
     : styles.layout;
