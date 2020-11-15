@@ -1,9 +1,9 @@
-name: Next.js Typescript Redux Koa starter
+name: FreeShineit Blog
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
