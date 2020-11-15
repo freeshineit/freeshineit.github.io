@@ -8,7 +8,7 @@ const withMDX = require("@next/mdx")({
 
 module.exports = withMDX({
   // Use the CDN in production and localhost for development.
-  assetPrefix: isProd ? "http://www.baiud.com" : "",
+  assetPrefix: isProd ? "" : "",
   pageExtensions: ["ts", "tsx", "md", "mdx"],
   api: {
     bodyParser: false
