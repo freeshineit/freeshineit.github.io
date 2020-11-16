@@ -1,10 +1,6 @@
-import Highlight, {
-  defaultProps,
-  Language,
-  PrismTheme
-} from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/github";
-// import theme from "./theme";
+import Highlight, { defaultProps, Language } from "prism-react-renderer";
+// import theme from "prism-react-renderer/themes/github";
+// import "prismjs/themes/prism-okaidia.css";
 
 interface ICode {
   children?: any;
@@ -12,19 +8,27 @@ interface ICode {
 }
 
 function Code({ children, className }: ICode) {
-  const language = className.replace(/language-/, "") as Language;
+  const language = className
+    ? (className.replace(/language-/, "") as Language)
+    : ("" as Language);
   return (
     <Highlight
       {...defaultProps}
-      theme={theme as PrismTheme}
       code={children.trim()}
+      // theme={theme}
       language={language}
     >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+      {({
+        className,
+        // style,
+        tokens,
+        getLineProps,
+        getTokenProps
+      }) => (
         <pre
           className={`${className} pre-tag`}
           style={{
-            ...style,
+            // ...style,
             overflow: "scroll",
             marginTop: 20,
             marginBottom: 20,
@@ -32,9 +36,9 @@ function Code({ children, className }: ICode) {
           }}
         >
           {tokens.map((line, i) => (
-            <div key={i} {...getLineProps({ line, key: i })}>
+            <div key={i} {...getLineProps({ line, key: i })} style={{}}>
               {line.map((token, key) => (
-                <span key={key} {...getTokenProps({ token, key })} />
+                <span key={key} {...getTokenProps({ token, key })} style={{}} />
               ))}
             </div>
           ))}

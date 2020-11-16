@@ -6,6 +6,8 @@ import Layout from "../components/Layout";
 import components from "@components/MDXComponent/index";
 
 import "../styles/app.scss";
+import "../styles/MarkDown.scss";
+import "../styles/prism.css";
 
 export interface ModifiedAppInitialProps<A = { [key in string]: string }> {
   appProps: A;
@@ -22,23 +24,24 @@ const AppCom: NextComponentType<
   ModifiedAppInitialProps,
   ExtendedAppProps
 > = ({ Component, pageProps }) => {
-  let style: React.CSSProperties = {
-    width: 800,
-    margin: "0 auto"
-  };
+  let style: React.CSSProperties = {};
 
-  let Com = () => (
-    <MDXProvider components={components}>
-      <div style={{ maxWidth: 800, fontSize: 14 }} className="mdx-box">
-        <Component {...pageProps} />
-      </div>
-    </MDXProvider>
-  );
+  let Com = () => <Component {...pageProps} />;
 
   // 用来区分 文件类型
-  if (Component.displayName === "tsx") {
-    Com = () => <Component {...pageProps} />;
-    style = {};
+  // @ts-ignore
+  if (Component.isMDXComponent) {
+    Com = () => (
+      <MDXProvider components={components}>
+        <div style={{ maxWidth: 800, fontSize: 14 }} className="mdx-box">
+          <Component {...pageProps} />
+        </div>
+      </MDXProvider>
+    );
+    style = {
+      width: 800,
+      margin: "0 auto"
+    };
   }
 
   return (

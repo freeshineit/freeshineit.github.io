@@ -1,5 +1,11 @@
 ## Hooks
 
+# Below is a JSX block
+
+<div style={{ padding: '10px 30px', backgroundColor: 'tomato' }}>
+  <h2>Try making this heading have the color green</h2>
+</div>
+
 ```tsx
 import { NextComponentType } from "next";
 import { AppContext, AppProps } from "next/app";
