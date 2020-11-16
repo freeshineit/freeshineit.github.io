@@ -1,5 +1,10 @@
-import Highlight, { defaultProps, Language } from "prism-react-renderer";
+import Highlight, {
+  defaultProps,
+  Language,
+  PrismTheme
+} from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/github";
+// import theme from "./theme";
 
 interface ICode {
   children?: any;
@@ -11,13 +16,13 @@ function Code({ children, className }: ICode) {
   return (
     <Highlight
       {...defaultProps}
-      theme={theme}
+      theme={theme as PrismTheme}
       code={children.trim()}
       language={language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
-          className={className}
+          className={`${className} pre-tag`}
           style={{
             ...style,
             overflow: "scroll",

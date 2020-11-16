@@ -1,16 +1,12 @@
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
-
 import { NextComponentType } from "next";
 import { AppContext, AppProps } from "next/app";
 import Layout from "../components/Layout";
-import Code from "../components/Code";
-import "../styles/app.scss";
-// import "prismjs/themes/prism-tomorrow.css";
+import components from "@components/MDXComponent/index";
 
-const components = {
-  code: Code
-};
+import "../styles/app.scss";
+
 export interface ModifiedAppInitialProps<A = { [key in string]: string }> {
   appProps: A;
 }
@@ -33,7 +29,7 @@ const AppCom: NextComponentType<
 
   let Com = () => (
     <MDXProvider components={components}>
-      <div style={{ maxWidth: 800, fontSize: 14 }}>
+      <div style={{ maxWidth: 800, fontSize: 14 }} className="mdx-box">
         <Component {...pageProps} />
       </div>
     </MDXProvider>
