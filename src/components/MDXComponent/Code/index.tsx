@@ -2,6 +2,8 @@ import Highlight, { defaultProps, Language } from "prism-react-renderer";
 // import theme from "prism-react-renderer/themes/github";
 // import "prismjs/themes/prism-okaidia.css";
 
+import styles from "./Code.module.scss";
+
 interface ICode {
   children?: any;
   className: string;
@@ -18,17 +20,11 @@ function Code({ children, className }: ICode) {
       // theme={theme}
       language={language}
     >
-      {({
-        className,
-        // style,
-        tokens,
-        getLineProps,
-        getTokenProps
-      }) => (
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
-          className={`${className} pre-tag`}
+          className={`${styles.pre} pre-tag ${className} `}
           style={{
-            // ...style,
+            ...style,
             overflow: "scroll",
             marginTop: 20,
             marginBottom: 20,
