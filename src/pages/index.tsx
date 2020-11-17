@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Index.module.scss";
 import ShineShao from "@components/ShineShao";
+import Const from "@constant/index";
 
 const bgList = [1, 2, 3];
 
@@ -32,9 +33,9 @@ const Index = () => {
             <Link href="/blog">
               <a>BLOG</a>
             </Link>
-            <Link href="/blog">
-              <a>GITHUB</a>
-            </Link>
+            <a target="_block" href={Const.github}>
+              GITHUB
+            </a>
           </div>
         </div>
       </div>
