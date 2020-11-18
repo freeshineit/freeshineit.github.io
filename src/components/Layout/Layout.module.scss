@@ -14,7 +14,8 @@
   justify-content: center;
 
   .container {
-    width: 1000px;
+    // width: 1000px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,6 +44,24 @@
   display: flex;
   flex: 1;
   flex-direction: column;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  @media screen and (min-width: 900px) {
+    width: 700px;
+  }
+
+  @media only screen and (min-width: 641px) and (max-width: 899px) {
+    width: 500px;
+  }
+
+  @media (max-width: 640px) {
+    padding: 0 1.3em;
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 .footer {

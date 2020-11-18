@@ -13,7 +13,6 @@ export default class MyDocument extends Document {
             rel="shortcut icon"
             href="https://www.nextjs.cn/static/favicon/favicon.ico"
           />
-          <style>{`body { margin: 0 } /* custom! */`}</style>
         </Head>
         <body className="custom_class">
           <Main />

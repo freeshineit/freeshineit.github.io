@@ -1,5 +1,13 @@
 ## 主要内容
 
+[baidu](wwww.baidu.com)
+
+<del> 234512 </del>
+
+~~234512~~
+
+`javascript` javascriptjavascriptjavascriptjavascript
+
 > #### Markdown*是什么*？
 >
 > #### *谁*创造了它？
