@@ -12,6 +12,7 @@
   background-color: black;
   color: #fff;
   justify-content: center;
+  width: 100%;
 
   .container {
     // width: 1000px;
@@ -45,22 +46,29 @@
   flex: 1;
   flex-direction: column;
 
-  * {
-    box-sizing: border-box;
-  }
+  :global {
+    * {
+      box-sizing: border-box;
+    }
 
-  @media screen and (min-width: 900px) {
-    width: 700px;
-  }
+    .mdx-box {
+      margin: 0 auto;
+      @media screen and (min-width: 900px) {
+        width: 700px;
+        box-sizing: border-box;
+      }
 
-  @media only screen and (min-width: 641px) and (max-width: 899px) {
-    width: 500px;
-  }
+      @media only screen and (min-width: 641px) and (max-width: 899px) {
+        width: 500px;
+        box-sizing: border-box;
+      }
 
-  @media (max-width: 640px) {
-    padding: 0 1.3em;
-    width: 100%;
-    box-sizing: border-box;
+      @media (max-width: 640px) {
+        padding: 0 1.2em;
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
   }
 }
 
@@ -71,6 +79,7 @@
   color: #fff;
   justify-content: center;
   align-items: center;
+  width: 100%;
 
   a {
     color: #fff;

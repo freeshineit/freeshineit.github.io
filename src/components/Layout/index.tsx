@@ -15,7 +15,7 @@ const Layout: FC<ILayoutProps> = ({ className, style, children }) => {
     : styles.layout;
 
   return (
-    <div className={classNames}>
+    <div className={classNames} style={{ width: "100%" }}>
       <Head>
         <title>ShineShao Bolg</title>
         <meta charSet="utf-8" />
