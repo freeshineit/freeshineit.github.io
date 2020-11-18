@@ -1,0 +1,15 @@
+$blockquote-color: var(--purple);
+
+.Blockquote {
+  margin: 0;
+
+  font-size: 0.9em;
+  overflow: auto;
+  background: rgb(251, 249, 253);
+  color: rgb(106, 115, 125);
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 15px 20px;
+  line-height: 27px;
+  border-left: 3px solid $blockquote-color;
+}

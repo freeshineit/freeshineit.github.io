@@ -1,14 +1,14 @@
-import A from "./A";
-import Blockquote from "./Blockquote";
+import A from "./A/index";
+import Blockquote from "./Blockquote/index";
 import Code from "./Code";
-import Delete from "./Delete";
-import Em from "./Em";
-import H1 from "./H1";
-import H2 from "./H2";
-import H3 from "./H3";
-import H4 from "./H4";
-import H5 from "./H5";
-import H6 from "./H6";
+import Delete from "./Delete/index";
+import Em from "./Em/index";
+import H1 from "./H1/index";
+import H2 from "./H2/index";
+import H3 from "./H3/index";
+import H4 from "./H4/index";
+import H5 from "./H5/index";
+import H6 from "./H6/index";
 import Hr from "./Hr";
 import Img from "./Img";
 // import InlineCode from "./InlineCode";
@@ -28,7 +28,7 @@ const components = {
   a: A,
   blockquote: Blockquote,
   code: Code,
-  delete: Delete,
+  del: Delete,
   em: Em,
   h1: H1,
   h2: H2,
