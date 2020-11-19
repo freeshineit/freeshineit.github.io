@@ -30,7 +30,7 @@ const Index = () => {
           <ShineShao className={styles.face} />
           <h3> I'm ShineShao， FE Developer</h3>
           <div className={styles.links}>
-            <Link href="/blog">
+            <Link href="/readme">
               <a>BLOG</a>
             </Link>
             <a target="_block" href={Const.github}>
