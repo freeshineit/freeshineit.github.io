@@ -7,7 +7,7 @@ const Ul = (props: any) => {
 
   const defaultClassName = "ul-tag";
 
-  const classNames = cls(styles.P, defaultClassName, className);
+  const classNames = cls(styles.Ul, defaultClassName, className);
 
   return <ul {...rest} className={classNames} />;
 };

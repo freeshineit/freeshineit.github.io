@@ -9,8 +9,8 @@ const Nav: INav[] = [
     name: "Home"
   },
   {
-    href: "/about",
-    name: "About"
+    href: "/readme",
+    name: "README"
   }
 ];
 

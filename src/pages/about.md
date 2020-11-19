@@ -2,6 +2,10 @@
 
 # Below is a JSX block
 
+# Below is a JSX block
+
+# Below is a JSX block
+
 <div style={{ padding: '10px 30px', backgroundColor: 'tomato' }}>
   <h2>Try making this heading have the color green</h2>
 </div>
@@ -42,11 +46,11 @@ export default AppCom;
 ```
 
 ```ts
-const ss = '12341
+const ss = "12341";
 ```
 
 ```js
-const ss = '12341
+const ss = "12341";
 ```
 
 ```go

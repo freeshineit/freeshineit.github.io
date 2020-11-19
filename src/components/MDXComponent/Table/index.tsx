@@ -9,7 +9,11 @@ const Table = (props: any) => {
 
   const classNames = cls(styles.P, defaultClassName, className);
 
-  return <table {...rest} className={classNames} />;
+  return (
+    <section className={styles.tableContainer}>
+      <table {...rest} className={classNames} />
+    </section>
+  );
 };
 
 export default Table;
