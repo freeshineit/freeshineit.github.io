@@ -17,6 +17,7 @@ export default class MyDocument extends Document {
         <body className="custom_class">
           <Main />
           <NextScript />
+          <script src="/static/js/heading.js"></script>
         </body>
       </Html>
     );

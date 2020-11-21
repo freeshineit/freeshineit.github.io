@@ -5,7 +5,7 @@ import { AppContext, AppProps } from "next/app";
 
 import "../styles/app.scss";
 import "../styles/MarkDown.scss";
-import "../styles/prism.css";
+import "../styles/prism.scss";
 
 import Layout from "../components/Layout";
 import components from "@components/MDXComponent/index";

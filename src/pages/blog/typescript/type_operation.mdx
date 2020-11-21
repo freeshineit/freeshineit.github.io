@@ -1,3 +1,15 @@
+import MDXContentx from "../../../components/MDXContent";
+
+export const meta = {
+  title: "Typescript 类型操作",
+  description: "Typescript 类型操作 Type Interface Generics ",
+  date: "Aug 04, 2020"
+};
+
+export default ({ children }) => (
+  <MDXContentx meta={meta}>{children}</MDXContentx>
+);
+
 ## Typescript 类型操作
 
 - Partial (部分, 把所有字段转为可选字段)
@@ -159,7 +171,7 @@ type TRecord = Record<keyof record, string>;
 type Ta = Record<"a" | "b" | "c" | 1, number>;
 ```
 
-- Exclude(排除,从 T 中排除那些可分配给 U 的类型)
+- Exclude(排除,从 T 中排除那些可分配给 U 的类型，)
 
 ```ts
 /**
@@ -174,7 +186,7 @@ example:
 type T = Exclude<1 | 2, 1 | 3>; // -> 2
 ```
 
-- Extract(提取,从 T 中提取可分配给 U 的类型)
+- Extract(提取,从 T 中提取可分配给 U 的类型， 交集)
 
 ```ts
 /**
@@ -242,22 +254,35 @@ interface Persion<T> {
 
 - extends
 
-- 判断
+- keyof (对于任何类型 `T`， `keyof T`的结果为 `T`上已知的公共属性名的联合)
 
-- keyof
+```ts
+interface Person {
+  name: string;
+  age: number;
+}
+
+type p = keyof Person; // -> p = 'name' | 'age'
+```
 
 - typeof
-
-- 交叉类型 (交叉类型是将多个类型合并为一个类型)
 
 ```ts
 
 ```
 
+- 交叉类型 (交叉类型是将多个类型合并为一个类型)
+
+```ts
+interface;
+```
+
 - 联合类型 (联合类型表示一个值可以是几种类型之一,用竖线`｜`分隔每个类型)
 
 ```ts
-
+function getNum(num: number | string): number {
+  return +num;
+}
 ```
 
 - 索引类型
@@ -274,35 +299,36 @@ interface Persion<T> {
 
 - @4.1
 
-  ```ts
+```ts
   // @4.1
-  type Getters<T> = {
-    [K in keyof T as `get${capitalize K}`]: () => T[K]
-  }
+type Getters<T> = {
+  //
+  [K in keyof T as `get${capitalize K}`]: () => T[K]
+}
 
-  interface Person {
-    name: string;
-    age: number;
-    location: string;
-  }
+interface Person {
+	name: string;
+	age: number;
+	location: string;
+}
 
-  /**
-   * LazyPerson 结果
-   * {
-   *   name: string
-   *   age: number
-   *   location: string
-   *   getName: () => string
-   *   getAge: () => number
-   *   getLocation: () => string
-   * }
-   */
-  type LazyPerson = Getters<Person>;
-  ```
+/**
+* LazyPerson 结果
+* {
+*   name: string
+*   age: number
+*   location: string
+*   getName: () => string
+*   getAge: () => number
+*   getLocation: () => string
+* }
+*/
+type LazyPerson = Getters<Person>;
+```
 
 - React 中的类型约束
 
-  - FC
+  - FC (函数组件类型)
 
   ```tsx
   interface FunctionComponent<P = {}> {
@@ -322,6 +348,8 @@ interface Persion<T> {
 
   - useState
 
+    React 中使用`useState`方法去设置 state
+
   ```tsx
   function useState<S>(
     initialState: S | (() => S)
@@ -330,7 +358,7 @@ interface Persion<T> {
 
 - Next.js 中的类型约束
 
-  - NextPage (page 组件返回的类型)
+  - NextPage (page 组件的类型)
 
   ```tsx
   /**
@@ -364,10 +392,10 @@ interface Persion<T> {
   export type GetServerSidePropsContext<
     Q extends ParsedUrlQuery = ParsedUrlQuery
   > = {
-    req: IncomingMessage;
-    res: ServerResponse;
-    params?: Q;
-    query: ParsedUrlQuery;
+    req: IncomingMessage; // http.IncomingMessage
+    res: ServerResponse; // http.ServerResponse
+    params?: Q; // 参数
+    query: ParsedUrlQuery; // 请求search参数
     preview?: boolean;
     previewData?: any;
     resolvedUrl: string;
@@ -400,5 +428,3 @@ interface Persion<T> {
     defaultLocale?: string;
   };
   ```
-
-[baidu](https://www.baid.com)

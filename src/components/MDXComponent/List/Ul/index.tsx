@@ -9,8 +9,6 @@ const Ul = (props: any) => {
 
   const classNames = cls(styles.Ul, defaultClassName, className);
 
-  console.log(rest);
-
   return <ul {...rest} className={classNames} />;
 };
 

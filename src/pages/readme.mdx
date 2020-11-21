@@ -1,3 +1,15 @@
+import MDXContentx from "../components/MDXContent";
+
+export const meta = {
+  title: "Markdown 语法",
+  description: "ShineShao Blog Markdown 语法",
+  date: "2020-11-22"
+};
+
+export default ({ children }) => (
+  <MDXContentx meta={meta}>{children}</MDXContentx>
+);
+
 # Markdown 语法
 
 ## 有序列表
@@ -18,11 +30,23 @@
   - 无序列表
   - 无序列表
 
+## 标题
+
+### Heading H3
+
+#### Heading H4
+
 ## 引用
 
 使用`>`开头
 
-> 对于美德，我们仅止于认识是不够的，我们还必须努力培养它，运用它，或是采取种种方法，以使我们成为良善之人。 **——亚里士多德**
+> 对于美德，我们仅止于认识是不够的，我们还必须努力培养它，运用它，或是采取种种方法，以使我们成为良善之人。 --莎士比亚
+
+> > 黑夜无论怎样悠长，白昼总会到来。
+
+> > > To be or not to be,that's a question. --莎士比亚
+
+**——亚里士多德**
 
 ## 粗体
 
@@ -77,10 +101,10 @@ _斜体_
 
 ```
 
-| 表头   |  表头  |   表头 |
-| :----- | :----: | -----: |
-| 单元格 | 单元格 | 单元格 |
-| 单元格 | 单元格 | 单元格 |
+| 表头   |           表头           |                     表头 |
+| :----- | :----------------------: | -----------------------: |
+| 单元格 |          单元格          | 单元格单元格单元格单元格 |
+| 单元格 | 单元格单元格单元格单元格 |                   单元格 |
 
 ## 代码块
 
@@ -104,6 +128,72 @@ func main () {
 ## 普通文本
 
 每个人都会有缺陷，就像被上帝咬过的苹果，有的人缺陷比较大，正是因为上帝特别喜欢他的芬芳。
+
+## checkbox
+
+- [ ] 任务一 未做任务 `- + 空格 + [ ]`
+- [x] 任务二 已做任务 `- + 空格 + [x]`
+
+```markdown
+- [ ] 任务一 未做任务 `- + 空格 + [ ]`
+- [x] 任务二 已做任务 `- + 空格 + [x]`
+```
+
+## 注释
+
+```markdown
+[//]: # "注释"
+
+<!-- html注释-->
+```
+
+[//]: # "注释"
+
+<!-- html注释-->
+
+## 特殊字符
+
+```markdown
+&nbsp; 空格
+&lt; <
+&gt; >
+&amp; &
+&yen; ¥
+&copy; ©
+&reg; ®
+&deg;C °C
+&plusmn; ±
+&times; ×
+&divide; ÷
+m&sup2; m²
+m&sup3; m³
+```
+
+&nbsp;
+&lt;
+&gt;
+&amp;
+&yen;
+&copy;
+&reg;
+&deg;C
+&plusmn;
+&times;
+&divide;
+m&sup2;
+m&sup3;
+
+## details
+
+<details>
+  <summary>展开</summary>
+  Something small enough to escape casual notice.
+</details>
+
+## 表情
+
+🐶 👍
+😁 🔕
 
 ## 脚注
 

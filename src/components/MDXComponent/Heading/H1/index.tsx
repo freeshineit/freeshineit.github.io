@@ -7,8 +7,6 @@ const H1 = (props: any) => {
 
   const defaultClassName = "h1-tag";
 
-  console.log(props);
-
   const classNames = cls(styles.H1, defaultClassName, className);
 
   return <h1 {...rest} className={classNames} />;
