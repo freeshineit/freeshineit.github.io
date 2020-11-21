@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 import styles from "./Layout.module.scss";
+import { CommponentCommProps } from "src/@types";
 
 interface ILayoutProps extends CommponentCommProps {
   title?: string;

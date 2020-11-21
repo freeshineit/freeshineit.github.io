@@ -3,6 +3,7 @@ import Link from "next/link";
 import Nav from "./nav";
 import ShineShao from "@components/ShineShao";
 import styles from "./Layout.module.scss";
+import { CommponentCommProps } from "src/@types";
 
 interface IHeaderProps extends CommponentCommProps {}
 

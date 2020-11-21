@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import Const from "@constant/index";
+import { CommponentCommProps } from "src/@types";
 
 interface IFooterProps extends CommponentCommProps {}
 

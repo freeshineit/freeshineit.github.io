@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { CommponentCommProps } from "src/@types";
 // import Link from "next/link";
 
 interface ISiderProps extends CommponentCommProps {}
