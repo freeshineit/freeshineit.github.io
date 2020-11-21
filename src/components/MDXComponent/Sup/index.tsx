@@ -7,7 +7,7 @@ const Sup = (props: any) => {
 
   const defaultClassName = "sup-tag";
 
-  const classNames = cls(styles.P, defaultClassName, className);
+  const classNames = cls(styles.Sup, defaultClassName, className);
 
   return <sup {...rest} className={classNames} />;
 };

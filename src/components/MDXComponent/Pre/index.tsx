@@ -7,7 +7,7 @@ const Pre = (props: any) => {
 
   const defaultClassName = "pre-tag";
 
-  const classNames = cls(styles.P, defaultClassName, className);
+  const classNames = cls(styles.Pre, defaultClassName, className);
 
   return (
     <div {...rest} className={classNames} style={style}>

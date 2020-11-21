@@ -7,7 +7,7 @@ const Td = (props: any) => {
 
   const defaultClassName = "td-tag";
 
-  const classNames = cls(styles.P, defaultClassName, className);
+  const classNames = cls(styles.Td, defaultClassName, className);
 
   return <td {...rest} className={classNames} />;
 };

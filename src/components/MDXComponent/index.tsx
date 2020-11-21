@@ -1,28 +1,29 @@
-import A from "./A/index";
-import Blockquote from "./Blockquote/index";
+import A from "./A";
+import Blockquote from "./Blockquote";
 import Code from "./Code";
-import Delete from "./Delete/index";
-import Em from "./Em/index";
-import H1 from "./H1/index";
-import H2 from "./H2/index";
-import H3 from "./H3/index";
-import H4 from "./H4/index";
-import H5 from "./H5/index";
-import H6 from "./H6/index";
+import Delete from "./Delete";
+import Em from "./Em";
+import H1 from "./Heading/H1";
+import H2 from "./Heading/H2";
+import H3 from "./Heading/H3";
+import H4 from "./Heading/H4";
+import H5 from "./Heading/H5";
+import H6 from "./Heading/H6";
 import Hr from "./Hr";
 import Img from "./Img";
 // import InlineCode from "./InlineCode";
-import Li from "./Li";
-import Ol from "./Ol";
+import Li from "./List/Li";
+import Ol from "./List/Ol";
 import P from "./P";
 import Pre from "./Pre";
 import Strong from "./Strong";
-import Sup from "./Sup";
-import Table from "./Table";
-import Td from "./Td";
+import Sup from "./Sup/";
+import Table from "./Table/Table";
+import Th from "./Table/Th";
+import Td from "./Table/Td";
 // import ThematicBreak from "./ThematicBreak";
-import Tr from "./Tr";
-import Ul from "./Ul";
+import Tr from "./Table/Tr";
+import Ul from "./List/Ul";
 
 const components = {
   a: A,
@@ -46,6 +47,7 @@ const components = {
   strong: Strong,
   sup: Sup,
   table: Table,
+  th: Th,
   td: Td,
   // ThematicBreak,
   tr: Tr,

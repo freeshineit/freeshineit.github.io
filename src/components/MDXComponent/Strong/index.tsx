@@ -7,7 +7,7 @@ const Strong = (props: any) => {
 
   const defaultClassName = "strong-tag";
 
-  const classNames = cls(styles.P, defaultClassName, className);
+  const classNames = cls(styles.Strong, defaultClassName, className);
 
   return <strong {...rest} className={classNames} />;
 };

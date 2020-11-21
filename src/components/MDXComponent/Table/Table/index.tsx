@@ -7,7 +7,7 @@ const Table = (props: any) => {
 
   const defaultClassName = "table-tag";
 
-  const classNames = cls(styles.P, defaultClassName, className);
+  const classNames = cls(styles.Table, defaultClassName, className);
 
   return (
     <section className={styles.tableContainer}>
