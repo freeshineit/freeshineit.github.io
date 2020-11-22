@@ -51,8 +51,27 @@
     }
   }
 
-  h3 {
-    font-size: 40px;
+  @media screen and (min-width: 900px) {
+    h3 {
+      font-size: 40px;
+    }
+  }
+
+  @media only screen and (min-width: 641px) and (max-width: 899px) {
+    width: 500px;
+    box-sizing: border-box;
+    h3 {
+      font-size: 30px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    padding: 0 1.2em;
+    width: 100%;
+    box-sizing: border-box;
+    h3 {
+      font-size: 20px;
+    }
   }
 
   .links {

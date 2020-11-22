@@ -4,6 +4,17 @@
   font-size: 15px;
   color: rgb(74, 74, 74);
   line-height: 1.75em;
-  font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light,
-    "PingFang SC", Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: var(--font-family-sans-serif);
+}
+
+code {
+  font-size: 14px;
+  overflow-wrap: break-word;
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin-right: 2px;
+  margin-left: 2px;
+  word-break: break-all;
+  color: var(--theme-code-color);
+  background-color: var(--theme-code-bg-color);
 }

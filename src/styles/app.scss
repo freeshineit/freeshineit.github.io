@@ -1,6 +1,56 @@
+@import "./common/theme.scss";
+
+html[data-theme="light"] {
+  --theme-primary: #6610f2;
+  --theme-background: #fff;
+  --theme-link-color: rgb(9, 211, 172);
+  --theme-heading-color: #000000;
+  --theme-text-color: #1b1f22;
+  --theme-list-color: #1b1f22;
+  --theme-code-color: #1b1f22;
+  --theme-code-bg-color: #eaedf0;
+  --theme-border-color: #dadde1;
+  --theme-hr-color: #1b1f22;
+  --theme-table-color: "";
+  --theme-table-border-color: "";
+  --theme-table-th-color: "";
+  --theme-table-tr-color: "";
+  --theme-table-td-color: "";
+  --font-family-sans-serif: Optima-Regular, Optima, PingFangSC-light,
+    PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
+}
+
+html[data-theme="dark"] {
+  --theme-primary: #6610f2;
+  --theme-background: rgb(24, 25, 26);
+  --theme-link-color: rgb(9, 211, 172);
+  --theme-heading-color: #ffffff;
+  --theme-text-color: #f5f6f7;
+  --theme-list-color: #f5f6f7;
+  --theme-code-color: #f5f6f7;
+  --theme-code-bg-color: #444950;
+  --theme-border-color: #606770;
+  --theme-hr-color: #fff;
+  --theme-table-color: "";
+  --theme-table-border-color: "";
+  --theme-table-th-color: "";
+  --theme-table-tr-color: "";
+  --theme-table-td-color: "";
+  --font-family-sans-serif: Optima-Regular, Optima, PingFangSC-light,
+    PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--theme-background);
 }
 
 #__next {
@@ -9,47 +59,15 @@ body {
 }
 
 a,
-a:active,
-a:hover {
+a:active {
   text-decoration: none;
 }
 
-// MDXComponent css
-
-:root {
-  --blue: #007bff;
-  --indigo: #6610f2;
-  --purple: #6f42c1;
-  --pink: #e83e8c;
-  --red: #dc3545;
-  --orange: #fd7e14;
-  --yellow: #ffc107;
-  --green: #28a745;
-  --teal: #20c997;
-  --cyan: #17a2b8;
-  --white: #fff;
-  --gray: #6c757d;
-  --gray-dark: #343a40;
-  --primary: #007bff;
-  --secondary: #6c757d;
-  --success: #28a745;
-  --info: #17a2b8;
-  --warning: #ffc107;
-  --danger: #dc3545;
-  --light: #f8f9fa;
-  --dark: #343a40;
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+a:hover {
+  text-decoration: underline;
 }
 
+// MDXComponent css
 h1 {
   font-size: 2.2em;
 }
