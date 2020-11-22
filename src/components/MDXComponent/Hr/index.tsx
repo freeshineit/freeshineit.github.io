@@ -9,7 +9,7 @@ const Hr = (props: any) => {
 
   const classNames = cls(styles.Hr, defaultClassName, className);
 
-  return <hr {...rest} className={classNames} />;
+  return <div {...rest} className={classNames} />;
 };
 
 export default Hr;

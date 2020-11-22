@@ -1,5 +1,8 @@
-.Ul {
-  padding-left: 25px;
+.Ul,
+.Ol {
+  padding-left: 24px;
+
+  color: var(--theme-text-color);
 
   // :global {
   //   &.contains-task-list {

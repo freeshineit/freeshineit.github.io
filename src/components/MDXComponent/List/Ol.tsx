@@ -1,5 +1,5 @@
 //
-import styles from "./Ol.module.scss";
+import styles from "./List.module.scss";
 import cls from "classnames";
 
 const Ol = (props: any) => {

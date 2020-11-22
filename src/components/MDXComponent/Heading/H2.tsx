@@ -1,5 +1,5 @@
 //
-import styles from "./H2.module.scss";
+import styles from "./Heading.module.scss";
 import cls from "classnames";
 
 const H2 = (props: any) => {

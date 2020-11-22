@@ -1,5 +1,5 @@
 //
-import styles from "./Tr.module.scss";
+import styles from "./Table.module.scss";
 import cls from "classnames";
 
 const Tr = (props: any) => {

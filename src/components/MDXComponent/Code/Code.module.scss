@@ -13,4 +13,22 @@
     background-repeat: no-repeat;
     background-position: 16px center;
   }
+
+  .language {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 0.4rem 0.5rem;
+    color: #fff;
+    border-radius: 4px;
+    display: none;
+    font-size: 0.8em;
+  }
+
+  &:hover {
+    .language {
+      display: inline-block;
+    }
+  }
 }

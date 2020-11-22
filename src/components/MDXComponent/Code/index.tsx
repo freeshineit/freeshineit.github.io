@@ -31,10 +31,17 @@ function Code({ children, className }: ICode) {
             padding: 16
           }}
         >
+          {language ? (
+            <span className={styles.language}>{language}</span>
+          ) : null}
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })} style={{}}>
               {line.map((token, key) => (
-                <span key={key} {...getTokenProps({ token, key })} style={{}} />
+                <span
+                  key={key}
+                  {...getTokenProps({ token, key })}
+                  style={{ display: "inline-block" }}
+                />
               ))}
             </div>
           ))}

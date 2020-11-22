@@ -1,5 +1,5 @@
 //
-import styles from "./H5.module.scss";
+import styles from "./Heading.module.scss";
 import cls from "classnames";
 
 const H5 = (props: any) => {
