@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Nav from "./nav";
 import ShineShao from "@components/ShineShao";
 import styles from "./Layout.module.scss";
@@ -58,6 +59,8 @@ const Theme: FC<ITheme> = ({ className }) => {
 };
 
 const Header: FC<IHeaderProps> = ({ className, style }) => {
+  const router = useRouter();
+
   return (
     <header className={className} style={style}>
       <div className={styles.container}>
@@ -68,6 +71,9 @@ const Header: FC<IHeaderProps> = ({ className, style }) => {
                 <Link href={n.href}>
                   <a>{n.name}</a>
                 </Link>
+                {router.pathname === n.href ? (
+                  <span className={styles.dot}></span>
+                ) : null}
               </li>
             ))}
           </ul>
@@ -81,4 +87,4 @@ const Header: FC<IHeaderProps> = ({ className, style }) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

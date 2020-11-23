@@ -38,6 +38,17 @@
 
     li {
       padding: 8px 14px;
+      position: relative;
+
+      .dot {
+        position: absolute;
+        height: 6px;
+        width: 6px;
+        background-color: #5900ff;
+        bottom: 10px;
+        right: 4px;
+        border-radius: 50%;
+      }
     }
 
     .left {
