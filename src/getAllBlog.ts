@@ -1,5 +1,5 @@
 import { IMeta } from "src/@types";
-
+import dayjs from "dayjs";
 export interface ImportAll {
   link: string;
   module: {
@@ -17,11 +17,25 @@ export interface ImportAll {
 // @ts-ignore
 function importAll(r) {
   // @ts-ignore
-  return r.keys().map(fileName => {
+  const bs = r.keys().map(fileName => {
     return {
       link: fileName.substr(1).replace(/(\.md|\.mdx)$/, ""),
       module: r(fileName)
     };
+  });
+
+  return bs.sort((a: ImportAll, b: ImportAll) => {
+    if (a.module.meta.date == null && b.module.meta.date) {
+      return -1;
+    }
+
+    console.log(
+      a.module.meta.date,
+      b.module.meta.date,
+      dayjs(a.module.meta.date + "") < dayjs(b.module.meta.date + "")
+    );
+
+    return dayjs(a.module.meta.date) > dayjs(b.module.meta.date) ? -1 : 1;
   });
 }
 
