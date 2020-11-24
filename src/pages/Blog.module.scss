@@ -1,0 +1,12 @@
+.Blog {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.BlogItem {
+  color: var(--theme-text-color);
+
+  a {
+    color: var(--theme-primary);
+  }
+}
