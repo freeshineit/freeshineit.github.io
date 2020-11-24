@@ -10,7 +10,7 @@ export default function IndexPage() {
         <div className={styles.BlogItem} key={link}>
           <h2 className="">{meta.title}</h2>
           <p>{meta.description}</p>
-          <p>{meta.date}</p>
+          <p>{meta.date} 😄</p>
           <Link href={"/blog" + link}>
             <a>Read more &rarr;</a>
           </Link>
