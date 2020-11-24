@@ -1,6 +1,7 @@
 // next.config.js
 const slug = require("remark-slug");
 const link = require("rehype-autolink-headings");
+const path = require("path");
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -19,5 +20,8 @@ module.exports = withMDX({
   api: {
     bodyParser: false
   },
-  generateEtags: false
+  generateEtags: false,
+  sassOptions: {
+    includePaths: [path.join(__dirname, "src/styles")]
+  }
 });
