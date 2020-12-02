@@ -1,0 +1,62 @@
+import MDXContentx from "../../../components/MDXContent";
+
+export const meta = {
+  title: "Git 小技巧",
+  description: "Git ,git, git 小技巧, git aliases",
+  date: "2020-12-02"
+};
+
+export default ({ children }) => (
+  <MDXContentx meta={meta}>{children}</MDXContentx>
+);
+
+# git 小技巧
+
+```shell
+# discard 丢弃缓存
+git reset HEAD
+
+# 丢弃指定文件缓存
+git reset HEAD <file>
+
+# 撤销最新的commit
+git reset HEAD^
+
+# 修改最新的一次commit 日志
+git commit --amend
+## 或者使用别名
+git ca
+
+```
+
+### 使用`;` 执行多条命令
+
+```shell
+git add .; git status
+```
+
+### 配置命令别名（[Aliases](https://git-scm.com/book/zh-tw/v2/Git-%E5%9F%BA%E7%A4%8E-Git-Aliases)）
+
+git 默认配置了部分别名，可以使用`git config --list` 查看
+
+```shell
+# 部分默认别名使用
+# git commit -m
+git cm
+
+# git log --stat --abbrev-commit
+git ll
+
+# git diff
+git d
+```
+
+配置别名命令
+
+```shell
+# 配置别名命令
+git config --global alias.st status
+
+# 使用 git st 相当于 git status
+git st
+```
