@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ImportAll, blogs } from "../getAllBlog";
-
 import styles from "./Blog.module.scss";
 
 export default function IndexPage() {
