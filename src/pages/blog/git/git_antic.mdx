@@ -3,7 +3,8 @@ import MDXContentx from "@components/MDXContent";
 export const meta = {
   title: "Git 小技巧",
   description: "Git ,git, git 小技巧, git aliases",
-  date: "2020-12-02"
+  date: "2020-12-02",
+  update_date: "2021-04-05"
 };
 
 export default ({ children }) => (
@@ -39,24 +40,42 @@ git add .; git status
 
 git 默认配置了部分别名，可以使用`git config --list` 查看
 
-```shell
-# 部分默认别名使用
+```bash
 # git commit -m
+# git config --global alias.cm commit -m
 git cm
 
 # git log --stat --abbrev-commit
+# git config --global alias.ll log --stat --abbrev-commit
 git ll
 
 # git diff
+# git config --global alias.d diff
 git d
 ```
 
 配置别名命令
 
-```shell
+```bash
 # 配置别名命令
 git config --global alias.st status
 
 # 使用 git st 相当于 git status
 git st
+```
+
+git log 别名配置
+
+```bash
+# git l
+git config --global alias.l "log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'"
+
+# git ll
+git config --global alias.ll "log --stat --abbrev-commit"
+
+# git lg
+git config --global alias.l "log --color --graph --pretty=format:'%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+
+# git llg
+git config --global alias.l "log --color --graph --pretty=format:'%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an <%ae>%Creset %C(bold green)%cr (%ci)' --abbrev-commit"
 ```
