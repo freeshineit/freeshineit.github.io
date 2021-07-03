@@ -1,1 +1,0 @@
-_N_E=(window.webpackJsonp_N_E=window.webpackJsonp_N_E||[]).push([[10],{XKqj:function(n,_,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/blog/next.config",function(){return o("1pcn")}])}},[["XKqj",0,1,2,4]]]);
