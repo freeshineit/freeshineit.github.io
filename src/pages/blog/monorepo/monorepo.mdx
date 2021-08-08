@@ -1,0 +1,48 @@
+import MDXContentx from "@components/MDXContent";
+
+export const meta = {
+  title: "论monorepo的重要性 （前端）",
+  description: "针对多仓库项目，论monorepo的重要性",
+  date: "2021-08-05"
+};
+
+export default ({ children }) => (
+  <MDXContentx meta={meta}>{children}</MDXContentx>
+);
+
+## What 什么是 [monorepo](https://en.wikipedia.org/wiki/Monorepo) （更新中。。。）
+
+在版本控制系统中，monorepo（“mono”表示“single”，repo 是“repository”的缩写）是一种软件开发策略，其中许多项目的代码存储在同一个存储库中。
+截至 2017 年，这种软件工程实践的各种形式已经有 20 多年的历史，但一般概念直到最近才被命名。已经做出了许多尝试来区分单片应用程序和其他较新形式的 monorepos
+
+![monorepo](https://miro.medium.com/max/1342/0*IEZfA4r0aqc7lDrJ.jpeg)
+
+## 谁在用 monorepo
+
+国外 谷歌、Facebook、微软、优步、Airbnb 和 Twitter 都采用了非常大型的 Monorepo，它们采用不同的策略来扩展构建系统和版本控制软件，并进行大量代码和日常更改。
+国内 阿里巴巴、字节、 腾讯等也在使用。并且 github 上非常只能只能的项目像 react, babel , vue 等前端项目都在使用 monorepo。
+
+## monorepo 的解决方案
+
+- Google 的 [Bazel](https://bazel.build/)
+- Facebook 的 [Buck](https://buck.build/)
+- Twitter 的 [Pants](https://www.pantsbuild.org/)
+- [Lerna](https://lerna.js.org/)
+- Facebook 的前端 [yarn](https://yarnpkg.com/features/workspaces) 脚架
+- [npm@7 workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) 及以上
+
+## monorepo 的优缺点
+
+- 优点
+
+- 缺点
+
+## 为什么要用 monorepo
+
+## 什么时候用 monorepo
+
+## 在什么地方用 monorepo
+
+## monorepo 实践
+
+## 总结
