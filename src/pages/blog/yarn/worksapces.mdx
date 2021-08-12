@@ -179,7 +179,8 @@ mkdir packages
   在`nextjs-app`根目录下新建创建`next.config.js`文件
 
   ```js
-  const withTM = require("next-transpile-modules")(["@mono/common"]); // pass the modules you would like to see transpiled
+  // pass the modules you would like to see transpiled
+  const withTM = require("next-transpile-modules")(["@mono/common"]);
   module.exports = withTM();
   ```
 
