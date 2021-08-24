@@ -29,11 +29,11 @@ function importAll(r) {
       return -1;
     }
 
-    console.log(
-      a.module.meta.date,
-      b.module.meta.date,
-      dayjs(a.module.meta.date + "") < dayjs(b.module.meta.date + "")
-    );
+    // console.log(
+    //   a.module.meta.date,
+    //   b.module.meta.date,
+    //   dayjs(a.module.meta.date + "") < dayjs(b.module.meta.date + "")
+    // );
 
     return dayjs(a.module.meta.date) > dayjs(b.module.meta.date) ? -1 : 1;
   });
