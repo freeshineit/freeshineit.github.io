@@ -10,6 +10,13 @@ const Footer: FC<IFooterProps> = ({ className, style }) => (
     <a href={Const.github} target="_block">
       ShineShao
     </a>
+    <a
+      href="https://github.com/freeshineit/freeshineit.github.io/issues"
+      target="_blank"
+      style={{ marginLeft: 20 }}
+    >
+      issues
+    </a>
   </footer>
 );
 
