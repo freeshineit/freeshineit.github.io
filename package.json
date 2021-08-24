@@ -42,7 +42,7 @@
     "*.+(ts|tsx|js|jsx)": [
       "prettier --write"
     ],
-    "*.+(json|css|scss|md)": [
+    "*.+(json|css|scss|md|mdx)": [
       "prettier --write"
     ]
   }
