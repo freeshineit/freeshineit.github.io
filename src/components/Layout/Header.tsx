@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Nav from "./nav";
@@ -14,13 +14,33 @@ interface ITheme extends CommponentCommProps {}
 
 const Theme: FC<ITheme> = ({ className }) => {
   // @ts-ignore
-  let localTheme = "light";
+  let localTheme: string = null;
   if (typeof window === "object") {
     localTheme = (window as any).localStorage.getItem("theme");
   }
   const [theme, setTheme] = useState<TTheme>(localTheme as TTheme);
 
-  const setHtmlTheme = (theme: TTheme) => {
+  useEffect(() => {
+    if (typeof window === "object") {
+      const mediaQueryListDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      );
+
+      if (
+        mediaQueryListDark.matches &&
+        (localTheme === null || localTheme === "dark")
+      ) {
+        // 系统当前是亮色(dark)主题
+        setTheme("dark");
+        setHtmlTheme("dark");
+      } else {
+        setTheme("light");
+        setHtmlTheme("light");
+      }
+    }
+  }, []);
+
+  const setHtmlTheme = useCallback((theme: TTheme) => {
     if (typeof window === "object") {
       const html = document.getElementsByTagName("html")[0];
       html.setAttribute("data-theme", theme);
@@ -28,28 +48,13 @@ const Theme: FC<ITheme> = ({ className }) => {
       return html;
     }
     return null;
-  };
-
-  useEffect(() => {
-    if (typeof window === "object") {
-      const mediaQueryListDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      );
-      const html = setHtmlTheme(theme);
-      if (mediaQueryListDark.matches) {
-        // 系统当前是亮色(dark)主题
-        setTheme("dark");
-        html?.setAttribute("data-theme", "dark");
-      }
-    }
-    return () => {};
   }, []);
 
-  const handleChangeTheme = () => {
+  const handleChangeTheme = useCallback(() => {
     const t = theme == "dark" ? "light" : "dark";
     setTheme(t);
     setHtmlTheme(t);
-  };
+  }, [theme]);
 
   return (
     <div onClick={handleChangeTheme} className={className}>
