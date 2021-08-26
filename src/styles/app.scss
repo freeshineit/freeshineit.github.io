@@ -1,5 +1,6 @@
 @import "./common/theme.scss";
 
+// 浏览器主题
 html[data-theme="light"] {
   --theme-primary: #6610f2;
   --theme-background: #fff;
