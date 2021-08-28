@@ -16,9 +16,14 @@ export interface ImportAll {
  */
 // @ts-ignore
 function importAll(r) {
+  console.log(r.keys());
+
+  const fileKeys = r.keys().filter((p: string) => !/^src/.test(p));
+
   // @ts-ignore
-  const bs = r.keys().map(fileName => {
+  const bs = fileKeys.map(fileName => {
     return {
+      // fileName.substr(1) 移除路径中第一个字符`.`
       link: fileName.substr(1).replace(/(\.md|\.mdx)$/, ""),
       module: r(fileName)
     };
@@ -28,13 +33,6 @@ function importAll(r) {
     if (a.module.meta.date == null && b.module.meta.date) {
       return -1;
     }
-
-    // console.log(
-    //   a.module.meta.date,
-    //   b.module.meta.date,
-    //   dayjs(a.module.meta.date + "") < dayjs(b.module.meta.date + "")
-    // );
-
     return dayjs(a.module.meta.date) > dayjs(b.module.meta.date) ? -1 : 1;
   });
 }
