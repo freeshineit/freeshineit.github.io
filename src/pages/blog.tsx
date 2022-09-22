@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ImportAll, blogs } from "../getAllBlog";
+import { MONTH } from "../constant";
 import styles from "./Blog.module.scss";
 
 export default function IndexPage() {
@@ -7,6 +8,11 @@ export default function IndexPage() {
     <div className={styles.Blog}>
       {blogs.map(({ link, module: { meta } }: ImportAll, index: number) => {
         const date = meta.date.split("-");
+        let month = "";
+
+        try {
+          month = MONTH[+date[1] - 1];
+        } catch (error) {}
 
         const randomCover = [
           "/static/images/bg/1.jpeg",
@@ -48,7 +54,7 @@ export default function IndexPage() {
               <div className={styles.dateWrapper}>
                 <span className={styles.date}>
                   <span className={styles.dateDay}>{date[2] || ""}</span>
-                  <span className={styles.dateMonth}>{date[1] || ""}</span>
+                  <span className={styles.dateMonth}>{month}</span>
                 </span>
               </div>
             </div>
