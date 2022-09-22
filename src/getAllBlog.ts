@@ -16,7 +16,7 @@ export interface ImportAll {
  */
 // @ts-ignore
 function importAll(r) {
-  console.log(r.keys());
+  // console.log(r.keys());
 
   const fileKeys = r.keys().filter((p: string) => !/^src/.test(p));
 
