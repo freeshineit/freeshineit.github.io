@@ -26,7 +26,8 @@
       "@utils/*": ["src/utils/*"],
       "@constant/*": ["src/constant/*"],
       "@hooks/*": ["src/hooks/*"]
-    }
+    },
+    "incremental": true
   },
   "exclude": ["node_modules"],
   "include": ["**/*.ts", "**/*.tsx"]
