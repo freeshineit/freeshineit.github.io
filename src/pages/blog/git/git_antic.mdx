@@ -4,7 +4,7 @@ export const meta = {
   title: "Git 小技巧",
   description: "Git 小技巧, git aliases",
   date: "2020-12-02",
-  update_date: "2021-04-05"
+  update_date: "2022-09-30"
 };
 
 export default ({ children }) => (
@@ -12,6 +12,17 @@ export default ({ children }) => (
 );
 
 # git 小技巧
+
+```shell
+# rebase
+git rebase master
+
+# 解决冲突后
+git add .
+
+# continue
+git rebase --continue
+```
 
 ```shell
 # discard 丢弃缓存
