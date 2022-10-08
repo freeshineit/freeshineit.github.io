@@ -1,4 +1,4 @@
-import MDXContentx from "@components/MDXContent";
+import MDXContent from "@components/MDXContent";
 
 export const meta = {
   title: "Typescript 类型操作",
@@ -7,7 +7,7 @@ export const meta = {
 };
 
 export default ({ children }) => (
-  <MDXContentx meta={meta}>{children}</MDXContentx>
+  <MDXContent meta={meta}>{children}</MDXContent>
 );
 
 ## Typescript 类型操作
@@ -417,14 +417,13 @@ type LazyPerson = Getters<Person>;
   - GetStaticPropsContext （getStaticProps 函数的参数类型）
 
   ```ts
-  export type GetStaticPropsContext<
-    Q extends ParsedUrlQuery = ParsedUrlQuery
-  > = {
-    params?: Q;
-    preview?: boolean;
-    previewData?: any;
-    locale?: string;
-    locales?: string[];
-    defaultLocale?: string;
-  };
+  export type GetStaticPropsContext<Q extends ParsedUrlQuery = ParsedUrlQuery> =
+    {
+      params?: Q;
+      preview?: boolean;
+      previewData?: any;
+      locale?: string;
+      locales?: string[];
+      defaultLocale?: string;
+    };
   ```
