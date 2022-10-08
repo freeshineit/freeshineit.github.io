@@ -59,12 +59,13 @@ export default function IndexPage() {
               </div>
             </div>
             <div className={styles.info}>
-              <h2 className="">{meta.title}</h2>
+              <Link href={"/blog" + link}>
+                <a>
+                  <h2 className="">{meta.title}</h2>
+                </a>
+              </Link>
               <p>{meta.description}</p>
               <p>{meta.date} 😄</p>
-              <Link href={"/blog" + link}>
-                <a>Read more &rarr;</a>
-              </Link>
             </div>
           </div>
         );
