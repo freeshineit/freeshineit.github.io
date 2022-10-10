@@ -27,7 +27,7 @@ const AppCom: NextComponentType<
   let style: React.CSSProperties = {};
 
   let Com = () => <Component {...pageProps} />;
-  let mainClasName = "";
+  let mainClassName = "";
 
   // 用来区分 文件类型
   // @ts-ignore
@@ -43,11 +43,11 @@ const AppCom: NextComponentType<
       margin: "0 auto"
     };
 
-    mainClasName = "main-mdx";
+    mainClassName = "main-mdx";
   }
 
   return (
-    <Layout style={style} className={mainClasName}>
+    <Layout style={style} className={mainClassName}>
       <Com />
     </Layout>
   );
