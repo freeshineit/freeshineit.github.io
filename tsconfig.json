@@ -24,6 +24,7 @@
       "@styles/*": ["src/styles/*"],
       "@components/*": ["src/components/*"],
       "@utils/*": ["src/utils/*"],
+      "@constant": ["src/constant/index.ts"],
       "@constant/*": ["src/constant/*"],
       "@hooks/*": ["src/hooks/*"]
     },
