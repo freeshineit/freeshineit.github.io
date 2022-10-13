@@ -1,18 +1,24 @@
 import { IMeta } from "src/@types";
 import MDXHead from "../MDXHead";
+import Cover from "@components/Cover";
+import styles from "./Content.module.scss";
 
-interface IMDXContenxProps {
+interface IMDXContentProps {
   children: any;
   meta: IMeta;
 }
 
-function MDXContenx({ children, meta }: IMDXContenxProps) {
+function MDXContent({ children, meta }: IMDXContentProps) {
   return (
     <>
       <MDXHead meta={meta} />
-      <article>{children}</article>
+      <div className={styles.content}>
+        <Cover meta={meta} />
+        <h1 className={styles.title}>{meta.title}</h1>
+        <article>{children}</article>
+      </div>
     </>
   );
 }
 
-export default MDXContenx;
+export default MDXContent;

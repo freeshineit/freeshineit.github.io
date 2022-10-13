@@ -1,17 +1,19 @@
 import MDXContentCom from "@components/MDXContent";
+import { RandomCover } from "@constant";
 
 export const meta = {
   title: "Git 小技巧",
   description: "Git 小技巧, git aliases",
   date: "2020-12-02",
-  update_date: "2022-09-30"
+  update_date: "2022-09-30",
+  cover: RandomCover[0]
 };
 
 export default ({ children }) => (
   <MDXContentCom meta={meta}>{children}</MDXContentCom>
 );
 
-# git 小技巧
+# shell
 
 ```shell
 # rebase

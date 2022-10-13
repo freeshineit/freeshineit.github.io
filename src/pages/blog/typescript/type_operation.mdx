@@ -1,16 +1,18 @@
 import MDXContentCom from "@components/MDXContent";
+import { RandomCover } from "@constant";
 
 export const meta = {
   title: "Typescript 类型操作",
   description: "Typescript 类型操作 Type Interface Generics ",
-  date: "2020-11-21"
+  date: "2020-11-21",
+  cover: RandomCover[1]
 };
 
 export default ({ children }) => (
   <MDXContentCom meta={meta}>{children}</MDXContentCom>
 );
 
-## Typescript 类型操作
+## Ts 类型操作
 
 - Partial (部分, 把所有字段转为可选字段)
 

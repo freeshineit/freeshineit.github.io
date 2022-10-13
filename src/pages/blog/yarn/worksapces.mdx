@@ -1,16 +1,18 @@
 import MDXContentCom from "@components/MDXContent";
+import { RandomCover } from "@constant";
 
 export const meta = {
   title: "yarn workspaces",
   description: "前端 yarn workspaces 应用",
-  date: "2021-08-05"
+  date: "2021-08-05",
+  cover: RandomCover[2]
 };
 
 export default ({ children }) => (
   <MDXContentCom meta={meta}>{children}</MDXContentCom>
 );
 
-# Yarn Workspaces
+## 说明
 
 [yarn Workspaces](https://yarnpkg.com/features/workspaces) 旨在简化 monorepos 的使用，以更具声明性的方式解决 yarn 链接的主要用例之一。简言之，它们允许您的多个项目一起生活在同一个存储库中，并相互交叉引用——对一个项目的源代码的任何修改都会立即应用于其他项目。
 
