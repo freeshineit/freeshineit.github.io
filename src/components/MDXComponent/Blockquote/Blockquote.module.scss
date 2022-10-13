@@ -11,4 +11,8 @@ $blockquote-color: var(--purple);
   padding: 15px 20px;
   line-height: 27px;
   border-left: 6px solid var(--theme-border-color);
+
+  p {
+    margin: 0;
+  }
 }
