@@ -62,7 +62,7 @@ fn handler(mut stream: TcpStream) -> Result<(), std::io::Error> {
 
 > cargo run
 
-> curl http://localhost:8080/index.html?query=str&id=100 -H "Content-Type: application/json" -X POST -d '{"productId": 123456, "quantity": 100}'
+> curl http://localhost:8080/index.html?query=str&id=100 -H "Content-Type: application/json" -X POST -d '\{"productId": 123456, "quantity": 100\}'
 
 ## request
 
