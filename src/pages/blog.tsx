@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ImportAll, blogs } from "../getAllBlog";
-import { MONTH } from "../constant";
+import { MONTH, RandomCover } from "../constant";
 import styles from "./Blog.module.scss";
 
 export default function IndexPage() {
@@ -14,21 +14,13 @@ export default function IndexPage() {
           month = MONTH[+date[1] - 1];
         } catch (error) {}
 
-        const randomCover = [
-          "/static/images/bg/1.jpeg",
-          "/static/images/bg/2.jpeg",
-          "/static/images/bg/3.jpeg"
-        ];
-
         return (
           <div className={styles.BlogItem} key={link}>
             <div className={styles.coverWrapper}>
               <div
                 className={styles.cover}
                 style={{
-                  backgroundImage: `url(${
-                    meta.cover || randomCover[index % 3]
-                  })`
+                  backgroundImage: `url(${meta.cover})`
                 }}
               />
               <div className={styles.coverBg} />
