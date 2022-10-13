@@ -7,5 +7,5 @@ export interface IMeta {
   title: string; // "Blog Title",
   description: string; // "Blog Description",
   date: string; // "Blog Create Date",
-  cover?: string; // "Blog cover"
+  cover: string; // "Blog cover"
 }
