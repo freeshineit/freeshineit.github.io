@@ -23,9 +23,9 @@ function Code({ children, className }: ICode) {
 
   const [copied, setCopied] = useState(false);
 
-  const codeRef = useRef<HTMLDivElement>();
+  const codeRef = useRef<HTMLDivElement>(null);
 
-  const handleCopySuccess = useCallback(e => {
+  const handleCopySuccess = useCallback(() => {
     setCopied(true);
   }, []);
 

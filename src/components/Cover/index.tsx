@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { MONTH, RandomCover } from "@constant";
+import { MONTH } from "@constant";
 import { IMeta } from "src/@types";
 import Photographer from "@components/Photographer";
 import styles from "./Cover.module.scss";

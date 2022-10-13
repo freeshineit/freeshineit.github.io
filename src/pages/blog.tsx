@@ -7,7 +7,7 @@ import styles from "./Blog.module.scss";
 export default function IndexPage() {
   return (
     <div className={styles.Blog}>
-      {blogs.map(({ link, module: { meta } }: ImportAll, index: number) => {
+      {blogs.map(({ link, module: { meta } }: ImportAll) => {
         const date = meta.date.split("-");
         let month = "";
 
