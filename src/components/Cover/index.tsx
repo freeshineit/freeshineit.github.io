@@ -1,6 +1,7 @@
 import { useMemo } from "react";
-import { MONTH } from "@constant";
+import { MONTH, RandomCover } from "@constant";
 import { IMeta } from "src/@types";
+import Photographer from "@components/Photographer";
 import styles from "./Cover.module.scss";
 
 interface CoverProps {
@@ -50,6 +51,7 @@ export default function Cover({ meta }: CoverProps) {
           </span>
         </div>
       </div>
+      <Photographer cover={meta.cover} />
     </div>
   );
 }
