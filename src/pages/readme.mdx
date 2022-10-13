@@ -1,16 +1,15 @@
 import MDXContentCom from "../components/MDXContent";
-
+import { RandomCover } from "@constant";
 export const meta = {
   title: "Markdown 语法",
   description: "ShineShao Blog Markdown 语法",
-  date: "2020-11-22"
+  date: "2020-11-22",
+  cover: RandomCover[0]
 };
 
 export default ({ children }) => (
   <MDXContentCom meta={meta}>{children}</MDXContentCom>
 );
-
-# Markdown 语法
 
 ## 有序列表
 
