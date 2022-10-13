@@ -43,5 +43,7 @@ const Index = () => {
   );
 };
 
-Index.displayName = "tsx";
+Index.displayName = "home";
+Index.isTsxComponent = true;
+
 export default Index;
