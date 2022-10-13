@@ -2,7 +2,6 @@ import React, { useRef, useCallback, useMemo, useState } from "react";
 import cls from "classnames";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
 // import theme from "prism-react-renderer/themes/github";
-// import "prismjs/themes/prism-okaidia.css";
 import ReactClipboardjs from "react-clipboardjs-copy";
 
 import styles from "./Code.module.scss";
