@@ -17,9 +17,6 @@ module.exports = withMDX({
   // Use the CDN in production and localhost for development.
   assetPrefix: isProd ? "/" : "/",
   pageExtensions: ["ts", "tsx", "md", "mdx"],
-  api: {
-    bodyParser: false
-  },
   generateEtags: false,
   sassOptions: {
     includePaths: [path.join(__dirname, "src/styles")]
