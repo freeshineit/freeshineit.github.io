@@ -31,7 +31,7 @@ javascript 在底层存储变量的时候,会在变量的机器码的低位(前�
  * typeof直接根据变量值得内存标识符进行判断并返回的是对应字符串形式的值。
  *
  * 实现：
- * 1. 简历一个枚举对象
+ * 1. 创建一个枚举对象
  * 2. 利用 Object.prototype.toString.call 来获取类型
  * 3. 再对 Number, String, Boolean 对象进行特殊处理
  *
