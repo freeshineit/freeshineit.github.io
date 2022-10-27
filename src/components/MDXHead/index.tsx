@@ -1,9 +1,8 @@
 import React, { FC } from "react";
 import Head from "next/head";
-import { IMeta } from "src/@types";
 
 interface IMDXHeadProps {
-  meta: IMeta;
+  meta: BLOG.IMeta;
 }
 
 const MDXHead: FC<IMDXHeadProps> = ({ meta }) => (

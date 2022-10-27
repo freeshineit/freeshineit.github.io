@@ -1,8 +1,7 @@
 import React, { FC } from "react";
 import Const from "@constant/index";
-import { ComponentCommProps } from "src/@types";
 
-interface IFooterProps extends ComponentCommProps {}
+interface IFooterProps extends BLOG.ComponentCommProps {}
 
 const Footer: FC<IFooterProps> = ({ className, style }) => (
   <footer className={className} style={style}>

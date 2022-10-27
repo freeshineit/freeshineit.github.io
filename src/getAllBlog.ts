@@ -1,10 +1,9 @@
-import { IMeta } from "src/@types";
 import dayjs from "dayjs";
 export interface ImportAll {
   link: string;
   module: {
     default: any;
-    meta: IMeta;
+    meta: BLOG.IMeta;
   };
 }
 

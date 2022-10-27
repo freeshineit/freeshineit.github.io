@@ -4,13 +4,12 @@ import { useRouter } from "next/router";
 import Nav from "./nav";
 import ShineShao from "@components/ShineShao";
 import styles from "./Layout.module.scss";
-import { ComponentCommProps } from "src/@types";
 
-interface IHeaderProps extends ComponentCommProps {}
+interface IHeaderProps extends BLOG.ComponentCommProps {}
 
 type TTheme = "dark" | "light";
 
-interface ITheme extends ComponentCommProps {}
+interface ITheme extends BLOG.ComponentCommProps {}
 
 const Theme: FC<ITheme> = ({ className }) => {
   // @ts-ignore

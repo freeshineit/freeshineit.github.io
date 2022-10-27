@@ -4,9 +4,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 import styles from "./Layout.module.scss";
-import { ComponentCommProps } from "src/@types";
 
-interface ILayoutProps extends ComponentCommProps {
+interface ILayoutProps extends BLOG.ComponentCommProps {
   title?: string;
 }
 
