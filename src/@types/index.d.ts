@@ -1,8 +1,11 @@
-export interface CommponentCommProps {
+export interface ComponentCommProps {
   className?: string;
   style?: React.CSSProperties;
 }
 
+/**
+ * 元信息
+ */
 export interface IMeta {
   title: string; // "Blog Title",
   description: string; // "Blog Description",

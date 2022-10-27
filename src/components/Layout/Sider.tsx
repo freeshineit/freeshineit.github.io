@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import { CommponentCommProps } from "src/@types";
+import { ComponentCommProps } from "src/@types";
 // import Link from "next/link";
 
-interface ISiderProps extends CommponentCommProps {}
+interface ISiderProps extends ComponentCommProps {}
 
 const Sider: FC<ISiderProps> = ({ className, style }) => (
   <aside className={className} style={style}>
