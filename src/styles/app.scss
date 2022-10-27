@@ -14,11 +14,14 @@ html[data-theme="light"] {
   --theme-code-bg-color: #eaedf0;
   --theme-border-color: #dadde1;
   --theme-hr-color: #1b1f22;
-  --theme-table-color: "";
-  --theme-table-border-color: "";
-  --theme-table-th-color: "";
-  --theme-table-tr-color: "";
-  --theme-table-td-color: "";
+  --theme-table-color: #fff;
+  --theme-table-border-color: #1b1f22;
+  --theme-table-th-color: #fff;
+  --theme-table-tr-color: #fff;
+  --theme-table-td-color: #fff;
+  --theme-details-color: #1b1f22;
+  --theme-blockquote-border-color: rgb(9, 211, 172);
+  --theme-blockquote-bg-color: #1b1f22;
   --font-family-sans-serif: Optima-Regular, Optima, PingFangSC-light,
     PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia, Times,
     "Times New Roman", serif;
@@ -35,11 +38,14 @@ html[data-theme="dark"] {
   --theme-code-bg-color: #444950;
   --theme-border-color: #606770;
   --theme-hr-color: #fff;
-  --theme-table-color: "";
-  --theme-table-border-color: "";
-  --theme-table-th-color: "";
-  --theme-table-tr-color: "";
-  --theme-table-td-color: "";
+  --theme-table-color: #fff;
+  --theme-table-border-color: #fff;
+  --theme-table-th-color: #fff;
+  --theme-table-tr-color: #fff;
+  --theme-table-td-color: #fff;
+  --theme-details-color: #fff;
+  --theme-blockquote-border-color: rgb(9, 211, 172);
+  --theme-blockquote-bg-color: #1b1f22;
   --font-family-sans-serif: Optima-Regular, Optima, PingFangSC-light,
     PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia, Times,
     "Times New Roman", serif;

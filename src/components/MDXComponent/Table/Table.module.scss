@@ -9,6 +9,7 @@
   margin: 15px auto; /*外边距*/
   border-collapse: collapse; /*使用单一线条的边框*/
   empty-cells: show; /*单元格无内容依旧绘制边框*/
+  background: var(--theme-table-color);
 }
 
 .Th {
@@ -17,10 +18,14 @@
   padding: 0 10px; /*内边距*/
   font-weight: bold; /*加粗*/
   text-align: center !important; /*内容居中，加上 !important 避免被 Markdown 样式覆盖*/
-  background: rgba(158, 188, 226, 0.2); /*背景色*/
+  background: var(
+    --theme-table-th-color
+  ); //rgba(158, 188, 226, 0.2); /*背景色*/
 }
 
 .Tr {
+  background: var(--theme-table-tr-color);
+
   &:nth-child(2n) {
     background: rgba(158, 188, 226, 0.12);
   }

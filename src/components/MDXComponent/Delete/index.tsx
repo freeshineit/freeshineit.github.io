@@ -1,5 +1,4 @@
 //
-import styles from "./Delete.module.scss";
 import cls from "classnames";
 
 const Delete = (props: any) => {
@@ -7,7 +6,7 @@ const Delete = (props: any) => {
 
   const defaultClassName = "del-tag";
 
-  const classNames = cls(styles.Delete, defaultClassName, className);
+  const classNames = cls(defaultClassName, className);
 
   return <del {...rest} className={classNames} />;
 };

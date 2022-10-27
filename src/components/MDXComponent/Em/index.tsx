@@ -1,14 +1,12 @@
 //
 import cls from "classnames";
 
-import styles from "./Em.module.scss";
-
 const Em = (props: any) => {
   const { className, ...rest } = props;
 
   const defaultClassName = "em-tag";
 
-  const classNames = cls(styles.Em, defaultClassName, className);
+  const classNames = cls(defaultClassName, className);
 
   return <em {...rest} className={classNames} />;
 };

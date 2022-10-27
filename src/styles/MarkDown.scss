@@ -1,11 +1,11 @@
 // @import "./common/theme.scss";
 
-.mdx-box {
-  font-size: 15px;
-  color: rgb(74, 74, 74);
-  line-height: 1.75em;
-  font-family: var(--font-family-sans-serif);
-}
+// .mdx-box {
+//   font-size: 15px;
+//   color: rgb(74, 74, 74);
+//   line-height: 1.75em;
+//   font-family: var(--font-family-sans-serif);
+// }
 
 code {
   font-size: 14px;
@@ -17,4 +17,8 @@ code {
   word-break: break-all;
   color: var(--theme-code-color);
   background-color: var(--theme-code-bg-color);
+}
+
+details {
+  color: var(--theme-details-color);
 }
