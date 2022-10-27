@@ -21,5 +21,6 @@ export const RandomCover = [
 ];
 
 export default {
-  github: "https://github.com/freeshineit"
+  github: "https://github.com/freeshineit",
+  author: "ShineShao"
 };
