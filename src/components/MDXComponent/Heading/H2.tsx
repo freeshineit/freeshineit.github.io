@@ -10,8 +10,6 @@ const H2 = (props: any) => {
 
   const classNames = cls(styles.H2, defaultClassName, className);
 
-  console.log(children, rest);
-
   return (
     <h2 {...rest} className={classNames}>
       <Link href={`#${rest.id}`}>
