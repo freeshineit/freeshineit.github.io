@@ -1,6 +1,5 @@
 // next.config.js
 const slug = require("remark-slug");
-const link = require("rehype-autolink-headings");
 const path = require("path");
 
 const isProd = process.env.NODE_ENV === "production";
@@ -9,7 +8,7 @@ const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [slug],
-    rehypePlugins: [link]
+    rehypePlugins: []
   }
 });
 
