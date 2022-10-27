@@ -34,9 +34,7 @@ const AppCom: NextComponentType<
   if (Component.isMDXComponent) {
     Com = () => (
       <MDXProvider components={components}>
-        <div className="mdx-box">
-          <Component {...pageProps} />
-        </div>
+        <Component {...pageProps} />
       </MDXProvider>
     );
     style = {
