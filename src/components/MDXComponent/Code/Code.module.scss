@@ -50,4 +50,16 @@
       align-items: center;
     }
   }
+
+  :global {
+    .inserted-sign.inserted {
+      background-color: #033a16;
+      color: #aff5b4;
+    }
+
+    .deleted-sign.deleted {
+      background-color: #67060c;
+      color: #ffdcd7;
+    }
+  }
 }
