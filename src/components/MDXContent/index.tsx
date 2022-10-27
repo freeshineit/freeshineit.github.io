@@ -1,7 +1,7 @@
 import React from "react";
 import MDXHead from "@components/MDXHead";
 import Cover from "@components/Cover";
-import Anchors from "@components/Anchors";
+// import Anchors from "@components/Anchors";
 
 import styles from "./Content.module.scss";
 
@@ -11,43 +11,43 @@ interface IMDXContentProps {
 }
 
 function MDXContent({ children, meta }: IMDXContentProps) {
-  let anchors: Array<{
-    url: string;
-    text: React.ReactNode;
-    depth: number;
-  }> = React.Children.toArray(children)
-    .filter((child: any) => {
-      if (child.props?.mdxType) {
-        return ["h1", "h2", "h3", "Challenges", "Recap"].includes(
-          child.props.mdxType
-        );
-      }
-      return false;
-    })
-    .map((child: any) => {
-      // if (child.props.mdxType === "Challenges") {
-      //   return {
-      //     url: "#challenges",
-      //     depth: 0,
-      //     text: "Challenges"
-      //   };
-      // }
-      // if (child.props.mdxType === "Recap") {
-      //   return {
-      //     url: "#recap",
-      //     depth: 0,
-      //     text: "Recap"
-      //   };
-      // }
-      return {
-        url: "#" + child.props.id,
-        depth:
-          (child.props?.mdxType &&
-            parseInt(child.props.mdxType.replace("h", ""), 0)) ??
-          0,
-        text: child.props.children
-      };
-    });
+  // let anchors: Array<{
+  //   url: string;
+  //   text: React.ReactNode;
+  //   depth: number;
+  // }> = React.Children.toArray(children)
+  //   .filter((child: any) => {
+  //     if (child.props?.mdxType) {
+  //       return ["h1", "h2", "h3", "Challenges", "Recap"].includes(
+  //         child.props.mdxType
+  //       );
+  //     }
+  //     return false;
+  //   })
+  //   .map((child: any) => {
+  //     // if (child.props.mdxType === "Challenges") {
+  //     //   return {
+  //     //     url: "#challenges",
+  //     //     depth: 0,
+  //     //     text: "Challenges"
+  //     //   };
+  //     // }
+  //     // if (child.props.mdxType === "Recap") {
+  //     //   return {
+  //     //     url: "#recap",
+  //     //     depth: 0,
+  //     //     text: "Recap"
+  //     //   };
+  //     // }
+  //     return {
+  //       url: "#" + child.props.id,
+  //       depth:
+  //         (child.props?.mdxType &&
+  //           parseInt(child.props.mdxType.replace("h", ""), 0)) ??
+  //         0,
+  //       text: child.props.children
+  //     };
+  //   });
 
   return (
     <>
