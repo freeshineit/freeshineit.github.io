@@ -74,27 +74,6 @@
   flex-direction: column;
 
   width: 100%;
-
-  :global {
-    .mdx-box {
-      margin: 0 auto;
-      @media screen and (min-width: 900px) {
-        width: 700px;
-        box-sizing: border-box;
-      }
-
-      @media only screen and (min-width: 641px) and (max-width: 899px) {
-        width: 500px;
-        box-sizing: border-box;
-      }
-
-      @media (max-width: 640px) {
-        padding: 0 1.2em;
-        width: 100%;
-        box-sizing: border-box;
-      }
-    }
-  }
 }
 
 .footer {

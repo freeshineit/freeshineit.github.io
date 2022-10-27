@@ -1,20 +1,60 @@
-import { IMeta } from "src/@types";
-import MDXHead from "../MDXHead";
+import React from "react";
+import MDXHead from "@components/MDXHead";
 import Cover from "@components/Cover";
+import Anchors from "@components/Anchors";
+
 import styles from "./Content.module.scss";
 
 interface IMDXContentProps {
   children: any;
-  meta: IMeta;
+  meta: BLOG.IMeta;
 }
 
 function MDXContent({ children, meta }: IMDXContentProps) {
+  let anchors: Array<{
+    url: string;
+    text: React.ReactNode;
+    depth: number;
+  }> = React.Children.toArray(children)
+    .filter((child: any) => {
+      if (child.props?.mdxType) {
+        return ["h1", "h2", "h3", "Challenges", "Recap"].includes(
+          child.props.mdxType
+        );
+      }
+      return false;
+    })
+    .map((child: any) => {
+      // if (child.props.mdxType === "Challenges") {
+      //   return {
+      //     url: "#challenges",
+      //     depth: 0,
+      //     text: "Challenges"
+      //   };
+      // }
+      // if (child.props.mdxType === "Recap") {
+      //   return {
+      //     url: "#recap",
+      //     depth: 0,
+      //     text: "Recap"
+      //   };
+      // }
+      return {
+        url: "#" + child.props.id,
+        depth:
+          (child.props?.mdxType &&
+            parseInt(child.props.mdxType.replace("h", ""), 0)) ??
+          0,
+        text: child.props.children
+      };
+    });
+
   return (
     <>
       <MDXHead meta={meta} />
+      <Cover meta={meta} />
+      {/* <Anchors anchors={anchors} /> */}
       <div className={styles.content}>
-        <Cover meta={meta} />
-        <h1 className={styles.title}>{meta.title}</h1>
         <article>{children}</article>
       </div>
     </>
