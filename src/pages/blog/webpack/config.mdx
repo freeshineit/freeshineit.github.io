@@ -122,7 +122,9 @@ export interface WebpackOptions {
    */
   performance?: Performance;
   /**
-   * Add additional plugins to the compiler.
+   * https://webpack.docschina.org/configuration/plugins/#plugins
+   * 向编译器添加其他插件.
+   * webpack-cli 会在数组的最前面插入 CLIPlugin 的实例
    */
   plugins?: Plugins;
   /**
