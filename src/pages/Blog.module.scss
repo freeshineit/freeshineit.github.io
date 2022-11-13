@@ -20,9 +20,9 @@ $cover-height: 200px;
   .coverWrapper {
     position: relative;
     height: $cover-height;
-    margin-left: -10px;
-    margin-top: -10px;
-    margin-right: -10px;
+    margin-left: -20px;
+    margin-top: -20px;
+    margin-right: -20px;
     overflow: hidden;
   }
 
@@ -119,5 +119,16 @@ $cover-height: 200px;
     a {
       color: var(--theme-primary);
     }
+  }
+}
+
+.page {
+  display: flex;
+  justify-content: space-between;
+
+  a.disable {
+    cursor: not-allowed;
+    text-decoration: none;
+    color: #aaa;
   }
 }

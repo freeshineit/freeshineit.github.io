@@ -1,13 +1,49 @@
+import { useState, useMemo, useCallback } from "react";
+import cls from "classnames";
 import Link from "next/link";
 import { ImportAll, blogs } from "../getAllBlog";
 import { MONTH } from "@constant";
 import Photographer from "@components/Photographer";
 import styles from "./Blog.module.scss";
 
+const limit = 7;
+
 export default function IndexPage() {
+  const [page, setPage] = useState(0);
+
+  const pages = useMemo<Array<ImportAll[]>>(() => {
+    const len = Array.from(blogs as ImportAll[]).length;
+    let arr: Array<ImportAll[]> = [];
+    for (let i = 0; i < len; ) {
+      arr.push(blogs.slice(i, (i = i + limit)));
+    }
+    return arr;
+  }, []);
+
+  const handlePrePage = useCallback(() => {
+    if (page > 0) {
+      setPage(page - 1);
+      window?.scrollTo({
+        left: 0,
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  }, [page]);
+  const handleNextPage = useCallback(() => {
+    if (page < pages.length - 1) {
+      setPage(page + 1);
+      window?.scrollTo({
+        left: 0,
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  }, [page]);
+
   return (
     <div className={styles.Blog}>
-      {blogs.map(({ link, module: { meta } }: ImportAll) => {
+      {pages[page].map(({ link, module: { meta } }: ImportAll) => {
         const date = meta.date.split("-");
         let month = "";
 
@@ -45,6 +81,23 @@ export default function IndexPage() {
           </div>
         );
       })}
+      {/* page */}
+      <div className={styles.page}>
+        <a
+          href="javascript:;"
+          className={cls({ [styles.disable]: page === 0 })}
+          onClick={handlePrePage}
+        >
+          上一页
+        </a>
+        <a
+          href="javascript:;"
+          className={cls({ [styles.disable]: page === pages.length - 1 })}
+          onClick={handleNextPage}
+        >
+          下一页
+        </a>
+      </div>
     </div>
   );
 }
