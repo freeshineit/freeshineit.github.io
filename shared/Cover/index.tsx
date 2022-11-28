@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { MONTH } from "@constant";
-import Photographer from "@components/Photographer";
+import Photographer from "@shared/Photographer";
 import styles from "./Cover.module.scss";
 
 interface CoverProps {

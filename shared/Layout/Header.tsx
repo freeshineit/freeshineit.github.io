@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Nav from "./nav";
-import ShineShao from "@components/ShineShao";
+import ShineShao from "@shared/ShineShao";
 import styles from "./Layout.module.scss";
 
 interface IHeaderProps extends BLOG.ComponentCommProps {}

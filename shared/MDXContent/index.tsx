@@ -1,7 +1,7 @@
 import React from "react";
-import MDXHead from "@components/MDXHead";
-import Cover from "@components/Cover";
-// import Anchors from "@components/Anchors";
+import MDXHead from "@shared/MDXHead";
+import Cover from "@shared/Cover";
+// import Anchors from "@shared/Anchors";
 
 import styles from "./Content.module.scss";
 
