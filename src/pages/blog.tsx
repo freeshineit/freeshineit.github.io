@@ -3,7 +3,7 @@ import cls from "classnames";
 import Link from "next/link";
 import { ImportAll, blogs } from "../getAllBlog";
 import { MONTH } from "@constant";
-import Photographer from "@components/Photographer";
+import Photographer from "@shared/Photographer";
 import styles from "./Blog.module.scss";
 
 const limit = 7;

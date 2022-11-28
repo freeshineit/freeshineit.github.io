@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Index.module.scss";
-import ShineShao from "@components/ShineShao";
+import ShineShao from "@shared/ShineShao";
 import Const from "@constant/index";
 
 const bgList = [1, 2, 3];

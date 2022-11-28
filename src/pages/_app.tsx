@@ -7,8 +7,8 @@ import "../styles/app.scss";
 import "../styles/MarkDown.scss";
 import "../styles/prism.scss";
 
-import Layout from "../components/Layout";
-import components from "@components/MDXComponent/index";
+import Layout from "@shared/Layout";
+import components from "@shared/MDXComponent/index";
 
 export interface ModifiedAppInitialProps<A = { [key in string]: string }> {
   appProps: A;
