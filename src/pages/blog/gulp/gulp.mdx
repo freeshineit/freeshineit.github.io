@@ -22,7 +22,8 @@ var util = require("util");
 // undertaker类继承于node核心类eventemitter
 var Undertaker = require("undertaker");
 // https://www.npmjs.com/package/vinyl-fs
-// vinyl是vitual file formate虚拟文件格式，用于描述一个文件。它有两个主要的属性，path属性和contents属性。每一个Vinyl实例代表一个独立的文件、目录或者symlink符号连接。
+// vinyl是vitual file formate虚拟文件格式，用于描述一个文件。
+// 它有两个主要的属性，path属性和contents属性。每一个Vinyl实例代表一个独立的文件、目录或者symlink符号连接。
 var vfs = require("vinyl-fs");
 // https://www.npmjs.com/package/glob-watcher
 // 观察globs并在更改时执行一个函数，并使用智能默认值取消绑定和排队。
@@ -112,7 +113,8 @@ Gulp.prototype.watch = function (glob, opt, task) {
   }
 
   // watch() 方法时通过 `events` 参数进行指定。
-  // 可用的事件有 'add'、'addDir'、'change'、'unlink'、'unlinkDir'、'ready'、'error'。此外，还有一个 'all' 事件，它表示除 'ready' 和 'error' 之外的所有事件。
+  // 可用的事件有 'add'、'addDir'、'change'、'unlink'、'unlinkDir'、'ready'、'error'。
+  // 此外，还有一个 'all' 事件，它表示除 'ready' 和 'error' 之外的所有事件。
   return watch(glob, opt, fn);
 };
 
