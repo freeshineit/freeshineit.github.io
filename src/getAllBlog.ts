@@ -30,7 +30,7 @@ function importAll(r) {
 
   // 按时间排序
   return bs.sort((a: ImportAll, b: ImportAll) => {
-    if (a.module.meta.date == null && b.module.meta.date) {
+    if (a.module.meta?.date == null && b.module.meta?.date) {
       return -1;
     }
     return dayjs(a.module.meta.date) > dayjs(b.module.meta.date) ? -1 : 1;
