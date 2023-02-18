@@ -502,8 +502,6 @@ libs:
     aos: /libs/aos/aos.css
     animate: /libs/animate/animate.min.css # V3.5.1
     lightgallery: /libs/lightGallery/css/lightgallery.min.css # V1.10.0
-    aplayer: /libs/aplayer/APlayer.min.css
-    dplayer: /libs/dplayer/DPlayer.min.css
     gitalk: /libs/gitalk/gitalk.css
     jqcloud: /libs/jqcloud/jqcloud.css
     tocbot: /libs/tocbot/tocbot.css
@@ -527,8 +525,6 @@ libs:
     snow: /libs/others/snow.js
     tcaptcha: /libs/others/TencentCaptcha.js
     busuanzi: /libs/others/busuanzi.pure.mini.js
-    aplayer: /libs/aplayer/APlayer.min.js
-    meting: /libs/aplayer/Meting.min.js
     dplayer: /libs/dplayer/DPlayer.min.js
     crypto: /libs/cryptojs/crypto-js.min.js
     echarts: /libs/echarts/echarts.min.js
