@@ -39,7 +39,7 @@ menu:
 # Website start time.
 # 站点运行开始时间.
 time:
-  enable: false
+  enable: true
   year: 2023 # 年份
   month: 02 # 月份
   date: 18 # 日期
@@ -279,27 +279,12 @@ myGallery:
 # 设置在归档页面中是否显示'文章日历'控件
 postCalendar: true
 
-changyan:
-  enable: false
-  appId:
-  conf:
 # Whether to display fork me on github icon and link, default true, You can change it to your repo address
 # 配置是否在 header 中显示 fork me on github 的图标，默认为true，你可以修改为你的仓库地址.
 githubLink:
   enable: true
   url: https://github.com/freeshineit/freeshineit.github.io
   title: Fork Me
-
-# The password verification feature of read post. To use this feature,
-# activate the configuration item and write the 'password' key and Cipher in the post's Front-matter.
-# Note: In order to ensure that the original password will not be leaked to the web page,
-# the password of the article must be encrypted by 'SHA256' so that it will not be cracked.
-# 阅读文章的密码验证功能，如要使用此功能请激活该配置项，并在对应文章的Front-matter中写上'password'的键和加密后的密文即可.
-# 请注意：为了保证密码原文不会被泄露到网页中，文章的密码必须是通过'SHA256'加密的，这样就不会被破解.
-verifyPassword:
-  enable: false
-  promptMessage: 请输入访问本文章的密码
-  errorMessage: 密码错误，将返回主页！
 
 # busuanzi(http://busuanzi.ibruce.info/) website statistics
 # 不蒜子(http://busuanzi.ibruce.info/) 网站统计
@@ -344,7 +329,6 @@ libs:
     jqcloud: /libs/jqcloud/jqcloud.css
     tocbot: /libs/tocbot/tocbot.css
     prism: /libs/prism/prism.min.css
-    mermaid: /libs/mermaid/mermaid.min.css
     fancybox: /libs/fancybox/jquery.fancybox.css
     justifiedGallery: /libs/justifiedGallery/justifiedGallery.min.css
   js:
@@ -366,7 +350,6 @@ libs:
     tocbot: /libs/tocbot/tocbot.min.js
     canvas_nest: /libs/background/canvas-nest.js
     instantpage: /libs/instantpage/instantpage.js
-    mermaid: /libs/mermaid/mermaid.min.js
     fancybox: /libs/fancybox/fancybox.js
     justifiedGallery: /libs/justifiedGallery/justifiedGallery.min.js
     prism: /libs/prism/prism.min.js
@@ -517,35 +500,3 @@ bbtime:
   appId: # 你的appId
   appKey: # 你的appKey
   serverURLs: # https://你的api
-
-# 图表绘制插件
-# 建议更换更换hexo-renderer-markdown-it引擎。参考下面链接
-# https://github.com/hexojs/hexo-renderer-markdown-it
-# https://github.com/hexojs/hexo-renderer-markdown-it/wiki/Advanced-Configuration
-# 使用教程： https://blog.17lai.site/posts/cf0f47fd/#Mermaid
-# 安装配置方法
-# yarn remove hexo-renderer-marked
-# yarn add hexo-renderer-markdown-it hexo-tag-mermaid
-# 注意：hexo-renderer-markdown-it 比默认引擎更快，可选择插件较多，请认真看上面两个链接教程。
-# mermaid语法教程 https://mermaid-js.github.io/mermaid/#/
-# 使用方法：
-# 在post文章中填写mermaid语句，需要使用{% mermaid %} 包裹
-# {% mermaid %}
-# [mermaid 语句正文]
-# {% endmermaid %}
-# 样例如下所示：
-# {% mermaid %}
-# graph TD
-#     A[Christmas] -->|Get money| B(Go shopping)
-#     B --> C{Let me think}
-#     C -->|One| D[Laptop]
-#     C -->|Two| E[iPhone]
-#     C -->|Three| F[Car]
-# {% endmermaid %}
-# mermaid chart。 依赖hexo-tag-mermaid
-mermaid: ## mermaid url https://github.com/knsv/mermaid
-  enable: false # default false
-  version: "latest" # default v7.1.2
-  options:
-    # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
-    #startOnload: true  // default true

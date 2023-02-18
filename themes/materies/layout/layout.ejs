@@ -19,15 +19,6 @@
     <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.lightgallery) %>"></script>
     <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.matery) %>"></script>
 
-    <% if (theme.mermaid.enable) { %>
-        <!-- <script src='https://unpkg.com/mermaid@<%= theme.mermaid.version %>/dist/mermaid.min.js'></script> -->
-        <script src='<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.mermaid) %>'></script>
-        <script>
-          if (window.mermaid) {
-            mermaid.initialize({theme: 'forest'});
-          }
-        </script>
-    <% } %>
 
     <% if (theme.translate.enable) { %>
         <script type="text/javascript" src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.sc2tc) %>"></script>
