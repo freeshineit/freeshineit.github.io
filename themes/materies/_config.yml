@@ -358,7 +358,6 @@ libs:
     lightgallery: /libs/lightGallery/js/lightgallery-all.min.js # V1.10.0
     typed: /libs/typed/typed.js
     clicklove: /libs/others/clicklove.js
-    star: /libs/others/star.js
     busuanzi: /libs/others/busuanzi.pure.mini.js
     dplayer: /libs/dplayer/DPlayer.min.js
     crypto: /libs/cryptojs/crypto-js.min.js
@@ -429,16 +428,6 @@ featureImages:
 reprint:
   enable: true # whether enable reprint section 是否启用“转载规则限定模块”
   default: cc_by
-
-# DaoVoice online contact
-daovoice:
-  enable: false
-  app_id:
-
-# Tidio online contact
-tidio:
-  enable: false
-  public_key:
 
 # 腾讯兔小巢，见https://txc.qq.com/
 tuxiaochao:

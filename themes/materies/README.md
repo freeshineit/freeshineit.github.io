@@ -24,7 +24,6 @@
 - Can be set to do password verification when reading a post
 - Integrated [Busuanzi Statistics](http://busuanzi.ibruce.info/), `Google Analytics` and post word count statistics.
 - Support the `emoji` emoticon and use the `markdown emoji` grammar to directly generate the corresponding emoticon.
-- Support [DaoVoice](http://www.daovoice.io/), [Tidio](https://www.tidio.com/) online chat.
 
 ## Contributor
 
@@ -399,14 +398,6 @@ feed:
 ```
 
 Execute `hexo clean && hexo g` to regenerate the blog file, and then you can see the `atom.xml` file in the `public` folder, indicating that you have successfully installed.
-
-### [DaoVoice](http://www.daovoice.io/) online chat (Optional)
-
-Go to the official website of [DaoVoice](http://www.daovoice.io/), register and get the `app_id`. Fill the `app_id` into the the theme `_config.yml` file.
-
-### [Tidio](https://www.tidio.com/) online chat (Optional)
-
-Go to the official website of [Tidio](https://www.tidio.com/), register and get the `Public Key`. Fill the `Public Key` into the the theme `_config.yml` file.
 
 ### Modify website footer
 
