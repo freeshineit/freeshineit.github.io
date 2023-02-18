@@ -322,7 +322,7 @@ search:
 
 ### 中文链接转拼音（建议安装）
 
-如果你的文章名称是中文的，那么 Hexo 默认生成的永久链接也会有中文，这样不利于 `SEO`，且 `gitment` 评论对中文链接也不支持。我们可以用 [hexo-permalink-pinyin](https://github.com/viko16/hexo-permalink-pinyin) Hexo 插件使在生成文章时生成中文拼音的永久链接。
+如果你的文章名称是中文的，那么 Hexo 默认生成的永久链接也会有中文，这样不利于 `SEO` [hexo-permalink-pinyin](https://github.com/viko16/hexo-permalink-pinyin) Hexo 插件使在生成文章时生成中文拼音的永久链接。
 
 安装命令如下：
 
@@ -647,7 +647,7 @@ tags:
 - 我的项目
 - 我的技能
 - 我的相册
-- `Gitment` 和 `disqus` 评论配置
+- `disqus` 评论配置
 - [不蒜子统计](http://busuanzi.ibruce.info/)和谷歌分析（`Google Analytics`）
 - 默认特色图的集合。当文章没有设置特色图时，本主题会根据文章标题的 `hashcode` 值取余，来选择展示对应的特色图
 

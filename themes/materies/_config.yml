@@ -334,20 +334,6 @@ myGallery:
 # 设置在归档页面中是否显示'文章日历'控件
 postCalendar: true
 
-# https://github.com/utterance/utterances 是个 GitHub App，它的权限仅限于某个仓库。像 hugo hexo 这种静态页面类型的博客，clientID/clientSecret 泄露是不可避免的。我认为较好的解决方式是像 utteras 这种 GitHubApp，只有一个仓库的读写权限，将破坏降到最小。
-
-# 当初多说国内最大都倒了，livere不一定靠谱。
-
-# the Gitment config，default disabled
-# Gitment 评论模块的配置，默认为不激活
-gitment:
-  enable: false
-  owner:
-  repo:
-  oauth:
-    clientId:
-    clientSecret:
-
 # disqus config, default disabled
 # Disqus评论模块的配置，默认为不激活
 disqus:
