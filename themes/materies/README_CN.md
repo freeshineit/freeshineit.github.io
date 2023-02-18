@@ -140,26 +140,7 @@ layout: "contact"
 
 > **注**：本留言板功能依赖于第三方评论系统，请**激活**你的评论系统才有效果。并且在主题的 `_config.yml` 文件中，第 `19` 至 `21` 行的“**菜单**”配置，取消关于留言板的注释即可。
 
-### 新建友情链接 friends 页（可选的）
 
-`friends` 页是用来展示**友情链接**信息的页面，如果在你的博客 `source` 目录下还没有 `friends/index.md` 文件，那么你就需要新建一个，命令如下：
-
-```bash
-hexo new page "friends"
-```
-
-编辑你刚刚新建的页面文件 `/source/friends/index.md`，至少需要以下内容：
-
-```yaml
----
-title: friends
-date: 2018-12-12 21:25:30
-type: "friends"
-layout: "friends"
----
-```
-
-同时，在你的博客 `source` 目录下新建 `_data` 目录，在 `_data` 目录中新建 `friends.json` 文件，文件内容如下所示：
 
 ```json
 [{
@@ -226,9 +207,6 @@ menu:
   About:
     url: /about
     icon: fas fa-user-circle
-  Friends:
-    url: /friends
-    icon: fas fa-address-book
 ```
 
 #### 二级菜单配置方法
@@ -257,9 +235,6 @@ menu:
   About:
     url: /about
     icon: fas fa-user-circle-o
-  Friends:
-    url: /friends
-    icon: fas fa-address-book
   Medias:
     icon: fas fa-list
     children:

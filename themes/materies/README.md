@@ -137,48 +137,6 @@ layout: "contact"
 
 > **Note**：The message board depends on a third-party comment system, please **activate** your comment system to be effective. And in the theme's `_config.yml` file, the "**menu**" of the `19` to `21` line is configured, and the comment about the message board could be canceled.
 
-### new friends link page (Optional)
-
-The `friends` page is a page for displaying **Friendly Links** information. If you don't have a `friends/index.md` file in your blog's `source` directory, then you need to create a new one. The command is as follows:
-
-```bash
-hexo new page "friends"
-```
-
-Edit the file `/source/friends/index.md` you just created, at least you need the following:
-
-```yaml
----
-title: friends
-date: 2018-12-12 21:25:30
-type: "friends"
-layout: "friends"
----
-```
-
-Also, create a new `_data` directory in your blog's `source` directory and a new `friends.json` file in the `_data` directory. The contents of the file is as follows:
-
-```json
-[{
-    "avatar": "http://image.luokangyuan.com/1_qq_27922023.jpg",
-    "name": "MaJang",
-    "introduction": "I am not a master, just looking for the master's footsteps.",
-    "url": "http://luokangyuan.com/",
-    "title": "Read More"
-}, {
-    "avatar": "http://image.luokangyuan.com/4027734.jpeg",
-    "name": "Blinkfox",
-    "introduction": "Hello, I'm blinkfox, I like programming.",
-    "url": "https://blinkfox.github.io/",
-    "title": "Visit Blog"
-}, {
-    "avatar": "http://image.luokangyuan.com/avatar.jpg",
-    "name": "ja_rome",
-    "introduction": "Ordinary steps can also go out of the great journey.",
-    "url": "https://me.csdn.net/jlh912008548",
-    "title": "Read More"
-}]
-```
 ### new 404 page
 
 If the `source` directory of your blog doesn't have `404.md` file, you need create a new one using:
@@ -223,9 +181,6 @@ menu:
   About:
     url: /about
     icon: fas fa-user-circle
-  Friends:
-    url: /friends
-    icon: fas fa-address-book
 ```
 
 #### Secondary menu configuration method
@@ -254,9 +209,6 @@ menu:
   About:
     url: /about
     icon: fas fa-user-circle
-  Friends:
-    url: /friends
-    icon: fas fa-address-book
   Medias:
     icon: fas fa-list
     children:
