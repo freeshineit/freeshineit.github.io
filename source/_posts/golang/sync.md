@@ -13,7 +13,7 @@ image: /images/20200421200902.jpg  #设置本地图片
 
 ### [sync.WaitGroup](https://golang.org/pkg/sync/#WaitGroup)
 
-```bash
+```go
 package main
 
 import (
@@ -43,7 +43,7 @@ func SyncWaitGroup() {
 
 ```
 
-### [Channels](https://blog.golang.org/pipelines)
+### [Channel](https://blog.golang.org/pipelines)
 
 ```go
 package main
