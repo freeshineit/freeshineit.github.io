@@ -22,7 +22,7 @@
 - TOC
 - Can be set append the copyright information when copying the content of the post
 - Can be set to do password verification when reading a post
-- Comment module of [Gitalk](https://gitalk.github.io/), [Gitment](https://imsun.github.io/gitment/), [Valine](https://valine.js.org/) and [Disqus](https://disqus.com/).(Gitalk is recommended)
+- Comment module of [Gitalk](https://gitalk.github.io/), [Gitment](https://imsun.github.io/gitment/) and [Disqus](https://disqus.com/).(Gitalk is recommended)
 - Integrated [Busuanzi Statistics](http://busuanzi.ibruce.info/), `Google Analytics` and post word count statistics.
 - Support music playback and video playback on the homepage
 - Support the `emoji` emoticon and use the `markdown emoji` grammar to directly generate the corresponding emoticon.
@@ -629,7 +629,7 @@ You can modify some custom modification in `_config.yml` as follows:
 - My Projects
 - My Skills
 - My Gallery
-- Gitalk, Gitment, Valine and Disqus
+- Gitalk, Gitment and Disqus
 - [Busuanzi Statistics](http://busuanzi.ibruce.info/) And Google Analytics
 - The map of default featured pictures. The theme will take remainder according to `hashcode` of the post title if the post does not set featured pictures.
 

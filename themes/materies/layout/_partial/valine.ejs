@@ -1,17 +1,4 @@
 <style>
-    .valine-card {
-        margin: 1.5rem auto;
-    }
-
-    .valine-card .card-content {
-        padding: 20px 20px 5px 20px;
-    }
-
-    #vcomments textarea {
-        box-sizing: border-box;
-        background: url("<%- url_for(theme.valine.background) %>") 100% 100% no-repeat;
-    }
-
     #vcomments p {
         margin: 2px 2px 10px;
         font-size: 1.05rem;
@@ -61,16 +48,21 @@
         list-style-type: circle;
     }
 
-    #vcomments table, th, td {
+    #vcomments table,
+    th,
+    td {
         padding: 12px 13px;
         border: 1px solid #dfe2e5;
     }
 
-    #vcomments table, th, td {
+    #vcomments table,
+    th,
+    td {
         border: 0;
     }
 
-    table tr:nth-child(2n), thead {
+    table tr:nth-child(2n),
+    thead {
         background-color: #fafafa;
     }
 
@@ -173,7 +165,8 @@
         color: #e8eaf6;
     }
 
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    #vcomments [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
         position: inherit;
         margin-left: -1.3rem;
         margin-right: 0.4rem;
@@ -205,12 +198,15 @@
         padding: .2em;
     }
 
-    #vcomments table, th, td {
+    #vcomments table,
+    th,
+    td {
         padding: 12px 13px;
         border: 1px solid #dfe2e5;
     }
 
-    table tr:nth-child(2n), thead {
+    table tr:nth-child(2n),
+    thead {
         background-color: #fafafa;
     }
 
@@ -223,7 +219,8 @@
         min-width: 80px;
     }
 
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    #vcomments [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
         position: inherit;
         margin-left: -1.3rem;
         margin-right: 0.4rem;
@@ -233,74 +230,3 @@
         visibility: visible;
     }
 </style>
-
-<div class="card valine-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="vcomments" class="card-content" style="display: grid">
-    </div>
-</div>
-
-<script src="<%- theme.jsDelivr.url %><%- url_for('/libs/valine/av-min.js') %>"></script>
-<script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.valine) %>"></script>
-<script>
-    new Valine({
-        el: '#vcomments',
-        appId: '<%- theme.valine.appId %>',
-        appKey: '<%- theme.valine.appKey %>',
-        serverURLs: '<%= theme.valine.serverURLs %>',
-        notify: '<%- theme.valine.notify %>' === 'true',
-        verify: '<%- theme.valine.verify %>' === 'true',
-        visitor: '<%- theme.valine.visitor %>' === 'true',
-        avatar: '<%- theme.valine.avatar %>',
-        pageSize: '<%- theme.valine.pageSize %>',
-        lang: '<% if (config.language == "zh-CN") {  %>zh-cn<% } else { %>en<% } %>',
-        placeholder: '<%= theme.valine.placeholder %>'
-    });
-</script>
-
-<!--酷Q推送-->
-<% if (theme.valine.coolpushkey && theme.valine.coolpushkey > 1) { %>
-<script>
-    var pushLink ="https://push.xuthus.cc/send/<%- theme.valine.coolpushkey %>";
-    var siteName = "<%- config.title %>'s Blog";
-    var valineButton=document.getElementsByClassName("vsubmit vbtn")[0];
-    var title = siteName + "上又有新评论啦~!\n";
-  
-    function send_valine() {
-      //获取元素信息
-      var pagename = document.title;
-      var pageurl = document.URL;
-      var pushtime = new Date();
-      var vnick = document.getElementsByClassName("vnick vinput")[0].value;
-      var vmail = document.getElementsByClassName("vmail vinput")[0].value;
-      var vlink = document.getElementsByClassName("vlink vinput")[0].value;
-      var veditor = document.getElementsByClassName("veditor vinput")[0].value;
-      content =
-        title +
-        "昵称：" + vnick +
-        "\n邮箱：" + vmail +
-        "\n网站地址：" + vlink +
-        "\n文章标题：" + pagename +
-        "\n评论内容：" + veditor +
-        "\n文章链接：" + pageurl +
-        "\n评论时间" + pushtime.toLocaleString() + "\n";
-      var httpRequest = new XMLHttpRequest(); //第一步：创建需要的对象
-      httpRequest.open("POST", pushLink, true); //第二步：打开连接
-      httpRequest.setRequestHeader(
-        "Content-type",
-        "application/json"
-      ); //设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
-      httpRequest.send(content); //发送请求 
-    }
-  
-    document.body.addEventListener('click', function(e) {
-    if(e.target.className.indexOf('vsubmit') === -1) {
-      return;
-    }
-    send_valine();
-  })
-</script>
-<% } %>

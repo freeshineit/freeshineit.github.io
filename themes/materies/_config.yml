@@ -338,8 +338,6 @@ postCalendar: true
 
 # https://github.com/utterance/utterances 是个 GitHub App，它的权限仅限于某个仓库。像 hugo hexo 这种静态页面类型的博客，clientID/clientSecret 泄露是不可避免的。我认为较好的解决方式是像 utteras 这种 GitHubApp，只有一个仓库的读写权限，将破坏降到最小。
 
-# valine是使用的免费的leancloud开发版资源，即使数据丢了leancloud也不用负任何的责任。此外valine的src目录已在1.4.0后停止更新。。。薛定谔的开源。
-
 # 当初多说国内最大都倒了，livere不一定靠谱。
 
 # disqus被墙了。
@@ -380,29 +378,11 @@ livere:
   uid:
 
 # 腾讯人机验证
-# 注意：目前只适配和测试了valine，其它评论系统未调试验证！
 # 介绍: https://cloud.tencent.com/document/product/1110/36841
 # 管理验证码: https://console.cloud.tencent.com/captcha/graphical
 tcaptcha:
   enable: true
   appid: xxxxxxxxxx # 你的appid
-
-# The configuration of the Valine comment module is not activated by default.
-# To use it, activate the configuration item and set appId and appKey.
-# Valine 评论模块的配置，默认为不激活，如要使用，就请激活该配置项，并设置 appId 和 appKey.
-# valine:
-#   enable: false
-#   appId: # 必填
-#   appKey: # 必填
-#   serverURLs: # 必填 https://你的api
-#   notify: false
-#   verify: false
-#   visitor: true
-#   avatar: "mm" # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
-#   pageSize: 10
-#   placeholder: "just go go" # Comment Box placeholder
-#   background: /medias/comment_bg.png
-#   coolpushkey:
 
 # The configuration of the Waline comment module is not activated by default.
 # To use it, activate the configuration item.
@@ -425,16 +405,6 @@ githubLink:
   enable: true
   url: https://github.com/freeshineit/freeshineit.github.io
   title: Fork Me
-
-# The configuration of the Twikoo comment module is not activated by default.
-# To use it, activate the configuration item and set envId.
-# Twikoo 评论模块的配置，默认为不激活，如要使用，就请激活该配置项，并设置环境 ID envId.
-# See: https://twikoo.js.org
-twikoo:
-  enable: false
-  envId: twikoo-1gs9l0fb17e7897a # 环境 ID，搭建教程：https://twikoo.js.org/quick-start.html
-  # region: ap-guangzhou # 环境地域，默认为 ap-shanghai
-  # path: 'window.location.pathname' # 自定义文章路径
 
 # The password verification feature of read post. To use this feature,
 # activate the configuration item and write the 'password' key and Cipher in the post's Front-matter.
@@ -512,10 +482,7 @@ libs:
     crypto: /libs/cryptojs/crypto-js.min.js
     echarts: /libs/echarts/echarts.min.js
     gitalk: /libs/gitalk/gitalk.min.js
-    valine: /libs/valine/Valine.min.js # 若想保持最新版，请替换为 https://unpkg.com/valine/dist/Valine.min.js  默认为 /libs/valine/Valine.min.js
-    minivaline: /libs/minivaline/MiniValine.js # latest
     waline: /libs/waline/Waline.min.js # 若想保持最新版，请替换为 https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js 默认为(1.5.2版本) /libs/valine/Valine.min.js
-    twikoo: /libs/twikoo/twikoo.all.min.js # 若想保持最新版，请替换为 https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js  默认为 /libs/twikoo/twikoo.all.min.js
     jqcloud: /libs/jqcloud/jqcloud-1.0.4.min.js
     tocbot: /libs/tocbot/tocbot.min.js
     canvas_nest: /libs/background/canvas-nest.js

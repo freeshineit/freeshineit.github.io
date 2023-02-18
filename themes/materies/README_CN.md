@@ -25,7 +25,7 @@ QQ 交流群1（已满）: [`926552981`](https://jq.qq.com/?_wv=1027&k=5zMDYHT) 
 - `TOC` 目录
 - 可设置复制文章内容时追加版权信息
 - 可设置阅读文章时做密码验证
-- [Gitalk](https://gitalk.github.io/)、[Gitment](https://imsun.github.io/gitment/)、[Valine](https://valine.js.org/) 和 [Disqus](https://disqus.com/) 评论模块（推荐使用 `Gitalk`）
+- [Gitalk](https://gitalk.github.io/)、[Gitment](https://imsun.github.io/gitment/)、 和 [Disqus](https://disqus.com/) 评论模块（推荐使用 `Gitalk`）
 - 集成了[不蒜子统计](http://busuanzi.ibruce.info/)、谷歌分析（`Google Analytics`）和文章字数统计等功能
 - 支持在首页的音乐播放和视频播放功能
 - 支持`emoji`表情，用`markdown emoji`语法书写直接生成对应的能**跳跃**的表情。
