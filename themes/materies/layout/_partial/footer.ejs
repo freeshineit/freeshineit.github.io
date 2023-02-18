@@ -1,9 +1,9 @@
-<footer class="page-footer bg-color">
+<footer class="page-footer bg-color" style="min-height: 280px">
 
     <div class="container row center-align"
          style="margin-bottom: <% if (theme.time.enable) { %>15<% } else { %>0<% } %>px !important;">
-        <div class="col s12 social-link" style="height: 40px"><%- partial('_partial/social-link') %></div>
-        <div class="col s12 copy-right">
+        <div class="col s12 social-link" style="height: 100px; line-height: 100px; margin-bottom: 20px"><%- partial('_partial/social-link') %></div>
+        <div class="col s12 copy-right" style="line-height: 30px; margin-bottom: 10px">
             Copyright&nbsp;&copy;
             <% if (theme.time.year !== new Date().getFullYear()) { %>
                 <span id="year"><%- theme.time.year %>-<%- new Date().getFullYear() %></span>
