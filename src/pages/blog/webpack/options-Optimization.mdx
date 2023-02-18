@@ -1,0 +1,210 @@
+import MDXContentCom from "@shared/MDXContent";
+import { RandomCover } from "@constant";
+export const meta = {
+  title: "webpack options Optimization",
+  description: "webpack options Optimization",
+  date: "2022-11-13",
+  cover: "/static/images/webpack.png"
+};
+
+export default ({ children }) => (
+  <MDXContentCom meta={meta}>{children}</MDXContentCom>
+);
+
+##
+
+```ts
+// https://webpack.docschina.org/configuration/optimization/ 中文
+/**
+ * Enables/Disables integrated optimizations.
+ * 启用/禁用集成优化。
+ */
+export interface Optimization {
+  /**
+   * Check for incompatible wasm types when importing/exporting from/to ESM.
+   * 从ESM导入/导出到ESM时，请检查不兼容的wasm类型。
+   */
+  checkWasmTypes?: boolean;
+  /**
+   * Define the algorithm to choose chunk ids (
+   *    named: readable ids for better debugging,
+   *    deterministic: numeric hash ids for better long term caching,
+   *    size: numeric ids focused on minimal initial download size,
+   *    total-size: numeric ids focused on minimal total download size,
+   *    false: no algorithm used, as custom one can be provided via plugin).
+   * 告知 webpack 当选择模块 id 时需要使用哪种算法
+   * 定义用于选择块ids的算法（
+   *    natural：按使用顺序的数字 id
+   *    named：可读id以更好地调试，
+   *    deterministic(确定性)：数字哈希id以更好的长期缓存，
+   *    size：关注最小初始下载大小的数字id，
+   *    total-size：关注最大总下载大小的数值id，
+   *    false：不使用算法，因为可以通过插件提供自定义算法 默认值）。
+   */
+  chunkIds?:
+    | "natural"
+    | "named"
+    | "deterministic"
+    | "size"
+    | "total-size"
+    | false;
+  /**
+   * Concatenate modules when possible to generate less modules, more efficient code and enable more optimizations by the minimizer.
+   * 尽可能串联模块，以生成更少的模块、更高效的代码，并通过最小化器实现更多优化。
+   */
+  concatenateModules?: boolean;
+  /**
+   * Emit assets even when errors occur. Critical errors are emitted into the generated code and will cause errors at runtime.
+   * 即使发生错误，也会发射资源。关键错误被发送到生成的代码中，并将在运行时导致错误。
+   */
+  emitOnErrors?: boolean;
+  /**
+   * Also flag chunks as loaded which contain a subset of the modules.
+   * 包含模块子集的块标记为已加载
+   */
+  flagIncludedChunks?: boolean;
+  /**
+   * Creates a module-internal dependency graph for top level symbols, exports and imports, to improve unused exports detection.
+   * 为顶级符号、导出和导入创建模块内部依赖关系图，以改进未使用的导出检测。
+   */
+  innerGraph?: boolean;
+  /**
+   * Rename exports when possible to generate shorter code (
+   *  depends on optimization.usedExports and optimization.providedExports, true/
+   *  "deterministic": generate short deterministic names optimized for caching,
+   *  "size": generate the shortest possible names).
+   * 尽可能重命名导出以生成更短的代码（取决于optimization.usedExports和optimisation.providedExports，true/
+   *  “确定性”：生成针对缓存优化的短确定性名称，
+   *  “大小”：生成尽可能短的名称）。
+   */
+  mangleExports?: ("size" | "deterministic") | boolean;
+  /**
+   * Reduce size of WASM by changing imports to shorter strings.
+   * 在设置为 true 时，告知 webpack 通过将导入修改为更短的字符串，来减少 WASM 大小。这会破坏模块和导出名称。
+   * 默认false
+   */
+  mangleWasmImports?: boolean;
+  /**
+   * Merge chunks which contain the same modules.
+   * 合告知 webpack 合并含有相同模块的 chunk。将 optimization.mergeDuplicateChunks 设置为 false 以禁用这项优化。
+   * 默认 true
+   */
+  mergeDuplicateChunks?: boolean;
+  /**
+   * Enable minimizing the output. Uses optimization.minimizer.
+   * 启用最小化输出。使用optimization.minimizer。
+   * 告知 webpack 使用 TerserPlugin 或其它在 optimization.minimizer定义的插件压缩 bundle。
+   * 默认 true
+   */
+  minimize?: boolean;
+  /**
+   * Minimizer(s) to use for minimizing the output.
+   * 允许你通过提供一个或多个定制过的 TerserPlugin 实例，覆盖默认压缩工具(minimizer)。
+   */
+  minimizer?: ("..." | WebpackPluginInstance | WebpackPluginFunction)[];
+  /**
+   * Define the algorithm to choose module ids (
+   *  natural: numeric ids in order of usage,
+   *  named: readable ids for better debugging,
+   *  hashed: (deprecated) short hashes as ids for better long term caching,
+   *  deterministic: numeric hash ids for better long term caching,
+   *  size: numeric ids focused on minimal initial download size,
+   *  false: no algorithm used, as custom one can be provided via plugin).
+   * 定义用于选择模块ID的算法（
+   *  自然：按使用顺序排列的数字ID，
+   *  命名为：可读ID以便更好地调试，
+   *  哈希：（不推荐使用）短哈希作为ID以便更好的长期缓存，
+   *  确定性：数字哈希ID以便更好长期缓存，
+   *  大小：数字ID侧重于最小的初始下载大小，
+   *  false：不使用算法，因为可以通过插件提供自定义算法）。
+   *
+   * 告知 webpack 当选择模块 id 时需要使用哪种算法。将 optimization.moduleIds 设置为 false 会告知 webpack 没有任何内置的算法会被使用，但自定义的算法会由插件提供。
+   */
+  moduleIds?: "natural" | "named" | "hashed" | "deterministic" | "size" | false;
+  /**
+   * Avoid emitting assets when errors occur (deprecated: use 'emitOnErrors' instead).
+   * 避免在发生错误时发出assets（不推荐使用：改用“emitOnErrors”）。
+   */
+  noEmitOnErrors?: boolean;
+  /**
+   * Set process.env.NODE_ENV to a specific value.
+   * 设置process.env。NODE_ENV设置为特定值。
+   */
+  nodeEnv?: false | string;
+  /**
+   * Generate records with relative paths to be able to move the context folder.
+   * 生成具有相对路径的记录，以便能够移动上下文文件夹。
+   */
+  portableRecords?: boolean;
+  /**
+   * Figure out which exports are provided by modules to generate more efficient code.
+   * 找出模块提供哪些导出以生成更高效的代码。
+   * 告知 webpack 去确定那些由模块提供的导出内容，为 export * from ... 生成更多高效的代码。
+   * 默认 optimization.providedExports 会被启用。
+   */
+  providedExports?: boolean;
+  /**
+   * Use real [contenthash] based on final content of the assets.
+   * 在处理静态资源后添加额外的哈希编译，以获得正确的静态资源内容哈希。
+   * 如果 realContentHash 设置为 false，内部数据用于计算哈希值，当静态资源相同时，它可以改变。
+   */
+  realContentHash?: boolean;
+  /**
+   * Removes modules from chunks when these modules are already included in all parents.
+   * 当模块已包含在所有父模块中时，从块中删除这些模块。
+   * 如果模块已经包含在所有父级模块中，告知 webpack 从 chunk 中检测出这些模块，或移除这些模块。
+   * 将 optimization.removeAvailableModules 设置为 true 以启用这项优化。在 production 模式 中默认会被开启。
+   */
+  removeAvailableModules?: boolean;
+  /**
+   * Remove chunks which are empty.
+   * 移除空的块
+   * 如果 chunk 为空，告知 webpack 检测或移除这些 chunk。将 optimization.removeEmptyChunks 设置为 false 以禁用这项优化。
+   * 默认 true
+   */
+  removeEmptyChunks?: boolean;
+  /**
+   * Create an additional chunk which contains only the webpack runtime and chunk hash maps.
+   * 创建一个仅包含webpack运行时和区块哈希映射的额外区块。
+   * 将 optimization.runtimeChunk 设置为 true 或 'multiple'，会为每个入口添加一个只含有 runtime 的额外 chunk。此配置的别名如下：
+   *
+   * 默认 false
+   */
+  runtimeChunk?: OptimizationRuntimeChunk;
+  /**
+   * Skip over modules which contain no side effects when exports are not used (false: disabled, 'flag': only use manually placed side effects flag, true: also analyse source code for side effects).
+   * 跳过不使用导出时不包含副作用的模块（false：禁用，“flag”：仅使用手动放置的副作用标志，true：还分析源代码的副作用）。
+   * 告知 webpack 去辨识 package.json 中的 副作用 标记或规则，以跳过那些当导出不被使用且被标记不包含副作用的模块。
+   */
+  sideEffects?: "flag" | boolean;
+  /**
+   * Optimize duplication and caching by splitting chunks by shared modules and cache group.
+   * 通过按共享模块和缓存组拆分块来优化复制和缓存。
+   * 对于动态导入模块，默认使用 webpack v4+ 提供的全新的通用分块策略(common chunk strategy)。请在 SplitChunksPlugin 页面中查看配置其行为的可用选项。
+   */
+  splitChunks?: false | OptimizationSplitChunksOptions;
+  /**
+   * Figure out which exports are used by modules to mangle export names, omit unused exports and generate more efficient code (
+   *  true: analyse used exports for each runtime,
+   *  "global": analyse exports globally for all runtimes combined).
+   * 找出模块使用哪些导出来修改导出名称、省略未使用的导出并生成更高效的代码（
+   *  true：分析每个运行时使用的导出，
+   *  “全局”：分析所有运行时的全局导出）。
+   * 告知 webpack 去决定每个模块使用的导出内容。
+   * 这取决于 optimization.providedExports 选项。
+   * 由 optimization.usedExports 收集的信息会被其它优化手段或者代码生成使用，比如未使用的导出内容不会被生成，当所有的使用都适配，导出名称会被处理做单个标记字符。 在压缩工具中的无用代码清除会受益于该选项，而且能够去除未使用的导出内容。
+   * 默认 true
+   */
+  usedExports?: "global" | boolean;
+}
+```
+
+```js
+// https://webpack.docschina.org/configuration/optimization/#optimizationusedexports
+module.exports = {
+  //...
+  optimization: {
+    usedExports: false
+  }
+};
+```

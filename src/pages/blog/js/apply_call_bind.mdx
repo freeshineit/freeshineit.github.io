@@ -1,0 +1,77 @@
+import MDXContentCom from "@shared/MDXContent";
+import { RandomCover } from "@constant";
+
+export const meta = {
+  title: "javascript apply,call和bind 改变this 的指向，和继承的实现",
+  description:
+    "apply,call和bind 改变this 的指向，和继承的实现, apply,call和bind的共同点和不同点",
+  date: "2022-10-28",
+  cover: "https://miro.medium.com/max/1400/1*M_GDn6RXZSZC66kvrMHh5Q.png"
+};
+
+export default ({ children }) => (
+  <MDXContentCom meta={meta}>{children}</MDXContentCom>
+);
+
+## apply 原理
+
+[apply]() xxxx
+
+## apply 实现
+
+```ts
+/**
+ *
+ */
+function _apply(_this: any, args: any[]) {}
+
+(function () {
+  // npx ts-node app/typeof.ts
+  // 如果有错 会有打印
+  const assert = require("assert");
+})();
+```
+
+## call 原理
+
+[call]() xxxx
+
+## call 实现
+
+```ts
+/**
+ *
+ */
+function _call(_this: any, ...args: any[]) {}
+
+(function () {
+  // npx ts-node app/typeof.ts
+  // 如果有错 会有打印
+  const assert = require("assert");
+})();
+```
+
+## bind 原理
+
+[bind]() xxxx
+
+## bind 实现
+
+```ts
+/**
+ *
+ */
+function _bind(_this: any, ...args: any[]) {}
+
+(function () {
+  // npx ts-node app/typeof.ts
+  // 如果有错 会有打印
+  const assert = require("assert");
+})();
+```
+
+## apply, call 和 bind 共同点
+
+## apply, call 和 bind 不同点
+
+如有考虑不完善的地方请帮忙指出进行完善[issues](https://github.com/freeshineit/freeshineit.github.io/issues)， 谢谢 🙏

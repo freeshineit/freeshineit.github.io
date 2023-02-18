@@ -1,0 +1,34 @@
+import MDXContentCom from "@shared/MDXContent";
+import { RandomCover } from "@constant";
+export const meta = {
+  title: "web 页面优化",
+  description: "web 页面优化",
+  date: "2022-11-18",
+  cover: RandomCover[0]
+};
+
+export default ({ children }) => (
+  <MDXContentCom meta={meta}>{children}</MDXContentCom>
+);
+
+## web 页面优化
+
+- 压缩 `js`/`css`/`html`/图片，减少请求流量
+- 合并小文件都一个文件中，减少请求数
+- 静态资源使用 CDN
+- 图片尽量使用 `webp`等压缩效果比较好的图片格式 ， 可以使用`picture`标签
+- 服务端开启 `gzip`等压缩
+- 使用[PWA](https://web.dev/i18n/zh/progressive-web-apps/)
+- 使用缓存
+- 图片懒加载/使用雪碧图/使用 svg
+- 使用 `js` 懒加载/预加载
+- 减少 dom 的层级嵌套
+- 避免 table 布局
+- css3 开启 GPU 加速
+- 避免重定向
+- 接口使用异步请求
+- 尽量减少请求
+- 如果有必要可以使用`Workers`
+- 避免/减少重排与重绘
+
+https://www.51cto.com/article/707579.html

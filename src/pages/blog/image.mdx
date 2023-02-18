@@ -1,0 +1,40 @@
+import MDXContentCom from "@shared/MDXContent";
+import { RandomCover } from "@constant";
+export const meta = {
+  title: "Image 图片",
+  description: "图片数据存储 色彩通道 大小计算 压缩等",
+  date: "2021-07-03",
+  cover: RandomCover[0]
+};
+
+export default ({ children }) => (
+  <MDXContentCom meta={meta}>{children}</MDXContentCom>
+);
+
+{/* https://developer.mozilla.org/zh-CN/docs/Web/Media/Formats/Image_types */}
+
+## Image 图片
+
+## PNG (png8/png24)
+
+Portable Network Graphics 便携式网络图像
+
+## JPEG
+
+Joint Photographic Expert Group image 联合影像专家小组图像
+
+## WEBP
+
+Web Picture format 万维网图像格式
+
+## SVG
+
+Scalable Vector Graphics 可缩放矢量图形
+
+## AVIF
+
+AV1 Image File Format AV1 图像文件格式
+
+## BMP
+
+Bitmap file 位图文件
