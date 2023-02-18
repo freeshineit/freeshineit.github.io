@@ -5,7 +5,7 @@ keywords: markdown, document
 categories:
 - 技术
 - markdown
-image: /images/20200421200902.jpg  #设置本地图片
+img: /images/mac.jpeg  #设置本地图片
 ---
 
 ## 有序列表

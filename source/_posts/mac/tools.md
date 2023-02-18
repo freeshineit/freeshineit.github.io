@@ -5,7 +5,7 @@ tags: [mac, 工具]  #设置标签
 keywords: mac, 工具
 categories:
 - 技术
-image: /images/mac.jpg  #设置本地图片
+img: /images/mac.jpeg  #设置本地图片
 ---
 
 ## [homebrew](https://brew.sh/)
