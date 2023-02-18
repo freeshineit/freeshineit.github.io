@@ -231,21 +231,6 @@ postInfo:
 clicklove:
   enable: true
 
-# | 文件名             | 说明                   |
-# | :----------------- | :--------------------- |
-# | sakura-small.js    | 少量樱花               |
-# | sakura-half.js     | 樱花相对原效果数量减半 |
-# | sakura-reduce.js   | 樱花相对原效果减少1/4  |
-# | sakura.js          | 樱花数量不变（原效果） |
-# 默认事sakura.js，如需修改，请到下面地址修改
-# libs
-#   js:
-#     sakura: /libs/others/sakura-reduce.js
-# 是否激活页面樱花效果, 只在桌面版网页启用特效
-# 下面三种特效建议选择一种就够了，
-sakura:
-  enable: false
-
 # 是否激活页面鼠标星星跟随效果, 只在桌面版网页启用特效
 mouseStar:
   enable: false
@@ -520,9 +505,7 @@ libs:
     lightgallery: /libs/lightGallery/js/lightgallery-all.min.js # V1.10.0
     typed: /libs/typed/typed.js
     clicklove: /libs/others/clicklove.js
-    sakura: /libs/others/sakura.js
     star: /libs/others/star.js
-    snow: /libs/others/snow.js
     tcaptcha: /libs/others/TencentCaptcha.js
     busuanzi: /libs/others/busuanzi.pure.mini.js
     dplayer: /libs/dplayer/DPlayer.min.js
