@@ -365,9 +365,6 @@ libs:
     jqcloud: /libs/jqcloud/jqcloud-1.0.4.min.js
     tocbot: /libs/tocbot/tocbot.min.js
     canvas_nest: /libs/background/canvas-nest.js
-    ribbon: /libs/background/ribbon.min.js
-    ribbonRefresh: /libs/background/ribbon-refresh.min.js
-    ribbon_dynamic: /libs/background/ribbon-dynamic.js
     instantpage: /libs/instantpage/instantpage.js
     mermaid: /libs/mermaid/mermaid.min.js
     fancybox: /libs/fancybox/fancybox.js
@@ -438,28 +435,11 @@ canvas_nest:
   zIndex: -1 # 背景的 z-index 属性，css 属性用于控制所在层的位置, 默认: -1.
   count: 99 # 线条的总数量, 默认: 99
 
-# 背景静止彩带.
-ribbon:
-  enable: false
-  size: 150 # 彩带大小, 默认: 90.
-  alpha: 0.6 # 彩带透明度 (0 ~ 1), 默认: 0.6.
-  zIndex: -1 # 背景的z-index属性，css属性用于控制所在层的位置, 默认: -1.
-  clickChange: false # 设置是否每次点击都更换彩带.
-
-# 背景动态彩带.
-ribbon_dynamic:
-  enable: false
-
 # sharejs文章分享模块.
 # 支持顺序，可选项目为twitter, facebook, google, qq, qzone, wechat, weibo, douban, linkedin.
 sharejs:
   enable: true
-  sites: twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin
-
-# addthis文章分享模块.
-addthis:
-  enable: false
-  pubid: # 前往https://www.addthis.com/获取
+  sites: twitter,facebook,qq,qzone,wechat,weibo,douban,linkedin
 
 # 打字效果副标题.
 # 如果有符号 ‘ ，请在 ’ 前面加上 \
