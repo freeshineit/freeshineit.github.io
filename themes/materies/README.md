@@ -22,7 +22,6 @@
 - TOC
 - Can be set append the copyright information when copying the content of the post
 - Can be set to do password verification when reading a post
-- Comment module of [Gitalk](https://gitalk.github.io/), [Gitment](https://imsun.github.io/gitment/) and [Disqus](https://disqus.com/).(Gitalk is recommended)
 - Integrated [Busuanzi Statistics](http://busuanzi.ibruce.info/), `Google Analytics` and post word count statistics.
 - Support music playback and video playback on the homepage
 - Support the `emoji` emoticon and use the `markdown emoji` grammar to directly generate the corresponding emoticon.
@@ -558,7 +557,7 @@ Everything in the Front-matter option is **not required**. But I still recommend
 
 > **Note**: 
 > 1. post's featured picture will take remainder if not writing the `img` property, and choose the featured picture of theme to let all of post's picture **have their own characteristics**.
-> 2. The value of `date` should try to ensure that each article is unique, because `Gitalk` and `Gitment` recognize `id` in this topic are uniquely identified by the value of `date`.
+> 2. The value of `date` should try to ensure that each article is unique, because `Gitment` recognize `id` in this topic are uniquely identified by the value of `date`.
 > 3. If you want to set the ability to read the verification password for the article, you should not only set the value of the password with SHA256 encryption in Front-matter, but also activate the configuration in the theme `_config.yml`.
 > 4. you can define reprint policy for a single article in the front-matter of the specific md file using this key: reprintPolicy
 
@@ -629,7 +628,7 @@ You can modify some custom modification in `_config.yml` as follows:
 - My Projects
 - My Skills
 - My Gallery
-- Gitalk, Gitment and Disqus
+-  Gitment and Disqus
 - [Busuanzi Statistics](http://busuanzi.ibruce.info/) And Google Analytics
 - The map of default featured pictures. The theme will take remainder according to `hashcode` of the post title if the post does not set featured pictures.
 

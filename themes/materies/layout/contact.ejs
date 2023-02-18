@@ -33,10 +33,6 @@
 
         <!--其他评论card-->
         <div class="card">
-            <% if (theme.gitalk && theme.gitalk.enable) { %>
-                <%- partial('_partial/gitalk') %>
-            <% } %>
-
             <% if (theme.gitment.enable) { %>
                 <%- partial('_partial/gitment') %>
             <% } %>
