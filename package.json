@@ -2,7 +2,7 @@
   "name": "freeshineit.github.io",
   "version": "1.0.0",
   "scripts": {
-    "build": "hexo generate",
+    "build": "hexo generate && node nojekyll.js",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "nodemon -e yml,ejs --ignore public/ -L --exec 'hexo server'"
@@ -25,6 +25,8 @@
     "hexo-wordcount": "^6.0.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "rimraf": "^4.1.2",
+    "shelljs": "^0.8.5"
   }
 }
