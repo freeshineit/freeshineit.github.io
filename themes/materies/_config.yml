@@ -221,7 +221,7 @@ mySkills:
   data:
     Javascript:
       background: "linear-gradient(to right, #FF0066 0%, #FF00CC 100%)"
-      percent: 85%
+      percent: 90%
     Typescript:
       background: "linear-gradient(to right, #9900FF 0%, #CC66FF 100%)"
       percent: 90%
