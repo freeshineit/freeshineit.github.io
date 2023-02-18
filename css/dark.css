@@ -61,9 +61,18 @@ body.DarkMode td,
 body.DarkMode p,
 body.DarkMode pre,
 body.DarkMode .markmap-container svg g div,
-body.DarkMode .read .bg-cover .description {
-    color: rgba(255, 255, 255, 0.6); /*.85为透明度，可依据需求修改*/
+body.DarkMode .read .bg-cover .description{
+    color: rgba(255, 255, 255, 0.9); /*.85为透明度，可依据需求修改*/
 }
+
+body.DarkMode .sidenav {
+    background-color: #282c34;
+}
+
+body.DarkMode .toc-widget {
+    color: rgba(255, 255, 255, 0.9); /*.85为透明度，可依据需求修改*/
+}
+
 body.DarkMode .fArticleTitle, body.DarkMode .fArticleAuthor, body.DarkMode .fArticleUpdate {
     color: rgba(255, 255, 255, 0.6) !important;
 }
@@ -86,7 +95,7 @@ body.DarkMode .prev-next .article-badge {
     background-color: rgba(255, 255, 255, 0.6);
 }
 body.DarkMode header .side-nav .menu-list a {
-    color: rgba(255, 255, 255, 0.6) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
 }
 
 body.DarkMode .mobile-menu-list a i {
@@ -94,7 +103,6 @@ body.DarkMode .mobile-menu-list a i {
 }
 body.DarkMode .bg-color {
     background-image:linear-gradient(to right, #3b3b3b 0, rgb(59 59 59) 100%);
-    opacity:.8
 }
 body.DarkMode .progress-bar {
     background: linear-gradient(to right, #bf7030 0%, #dfc60d 100%);
@@ -117,7 +125,7 @@ body.DarkMode .modal,
 body.DarkMode .v[data-class="v"] .vcount,
 body.DarkMode header .side-nav,
 body.DarkMode header .side-nav .menu-list .m-nav-show {
-    filter: invert(0.8);
+    /* filter: invert(0.8); */
 }
 
 body.DarkMode .reward-tabs img {
@@ -231,11 +239,9 @@ body.DarkMode header .brand-logo .logo-img {
     filter: brightness(0.8) !important;
 }
 body.DarkMode .toc-widget .toc-list-item {
-    color:#000
+    color: rgba(255,255,255,0.85)
 }
-body.DarkMode .toc-title {
-    color:#666 !important
-}
+
 /*toc目录滤镜*/
 body.DarkMode .skillbar .skill-bar-percent {
     color: #000;

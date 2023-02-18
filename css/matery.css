@@ -139,6 +139,10 @@ code {
     cursor: pointer;
 }
 
+.code_copy:hover {
+    filter: invert(40%);
+}
+
 .codecopy_notice {
     position: absolute;
     top: 0.7rem;
@@ -259,7 +263,7 @@ mark {
     background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
 }
 
-.text-color {
+.text-color, .text-color i {
     color: #0f9d58 !important;
 }
 
@@ -1176,6 +1180,7 @@ article .article-tags .chip {
 
 
 #articleContent pre[class*=language-] {
+    padding-top: 40px !important;
     padding-left: 20px !important;
 }
 
@@ -1242,6 +1247,13 @@ article .article-tags .chip {
     border-collapse: collapse;
     border-spacing: 0;
     overflow: auto;
+}
+
+#articleContent table th[align="center"], #articleContent table td[align="center"] {
+    text-align: center;
+}
+#articleContent table th[align="right"], #articleContent table td[align="right"] {
+    text-align: right;
 }
 
 /**
@@ -2008,12 +2020,16 @@ p.search-result-summary{
     /* use this value to count block height */
     line-height: 1.5em;
     /* max-height = line-height (1.2) * lines max number (3) */
-    max-height: 4.5em;
+    height: 4.5em;
     /* fix problem when last visible word doesn't adjoin right side  */
     text-align: justify;
     /* place for '...' */
     margin-right: -1em;
     padding-right: 1em;
+}
+
+.prev-next .block-with-text  {
+    display: none;
 }
 
 /* create the ... style */
