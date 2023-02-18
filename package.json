@@ -1,50 +1,30 @@
 {
-  "name": "with-typescript",
-  "version": "0.0.1",
+  "name": "freeshineit.github.io",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "next",
-    "build": "node scripts/build.js",
-    "start": "next start",
-    "type-check": "tsc",
-    "postinstall": "husky install .husky"
+    "build": "hexo generate",
+    "clean": "hexo clean",
+    "deploy": "hexo deploy",
+    "server": "nodemon -e yml,ejs --ignore public/ -L --exec 'hexo server'"
+  },
+  "hexo": {
+    "version": "6.3.0"
   },
   "dependencies": {
-    "@mdx-js/react": "^1.6.22",
-    "@next/mdx": "^11.1.0",
-    "classnames": "^2.2.6",
-    "dayjs": "^1.10.6",
-    "next": "12.3.1",
-    "prism-react-renderer": "^1.1.1",
-    "react": "^17.0.2",
-    "react-clipboardjs-copy": "^2.0.0",
-    "react-dom": "^17.0.2",
-    "rehype-autolink-headings": "^5.0.1",
-    "remark-slug": "^6.0.0",
-    "sass": "^1.29.0"
+    "hexo": "^6.3.0",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-index": "^3.0.0",
+    "hexo-generator-search": "^2.4.3",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-markdown-it-plus": "^1.0.6",
+    "hexo-renderer-marked": "^6.0.0",
+    "hexo-renderer-stylus": "^2.1.0",
+    "hexo-server": "^3.0.0",
+    "hexo-wordcount": "^6.0.1"
   },
   "devDependencies": {
-    "@mdx-js/loader": "^1.6.21",
-    "@types/classnames": "^2.2.11",
-    "@types/node": "^12.12.21",
-    "@types/react": "^17.0.19",
-    "@types/react-dom": "^17.0.9",
-    "husky": "^7.0.2",
-    "lint-staged": "^10.5.1",
-    "prettier": "^2.1.2",
-    "rimraf": "^3.0.2",
-    "shelljs": "^0.8.5",
-    "typescript": "^4.8.3"
-  },
-  "license": "MIT",
-  "engines": {
-    "node": ">= 11"
-  },
-  "lint-staged": {
-    "*.+(ts|tsx|js|jsx)": [
-      "prettier --write"
-    ],
-    "*.+(json|css|scss|md|mdx)": [
-      "prettier --write"
-    ]
+    "nodemon": "^2.0.20"
   }
 }
