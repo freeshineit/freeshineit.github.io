@@ -428,7 +428,7 @@ reprint:
 
 #背景canvas-nest
 canvas_nest:
-  enable: false
+  enable: true
   color: 0,0,255 # 线条颜色, 默认: '0,0,0' ；三个数字分别为(R,G,B)，注意用,分割
   pointColor: 0,0,255 # 交点颜色, 默认: '0,0,0' ；三个数字分别为(R,G,B)，注意用,分割
   opacity: 0.7 # 线条透明度（0~1）, 默认: 0.5
@@ -467,11 +467,6 @@ subtitle:
     - 回首向来萧瑟处，无人等在灯火阑珊处。
     - Never really desperate, only the lost of the soul.
 
-# 手机二级菜单.
-navMenu:
-  mleft: false # 二级侧栏子菜单是否对齐左边
-  bgColor: " " # 二级侧栏子菜单背景颜色,留空即为全局背景色
-
 # 网页预加载.
 instantpage:
   enable: true
@@ -485,12 +480,6 @@ banner:
 # 显示在底部 footer 栏
 translate:
   enable: false
-
-#ICP备案信息尾部显示
-icp:
-  enable: false
-  url: # 备案链接
-  text: # 备案信息
 
 # CDN访问加速
 # 第一次使用本功能，一定要先配置url，再`hexo cl && hexo g && hexo d`部署到GitHub的仓库，注意！必须是GitHub的仓库！
@@ -508,12 +497,6 @@ jsDelivr:
 background:
   enable: false
   url: "https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg"
-
-# 说说 https://artitalk.js.org/
-artitalk:
-  enable: false
-  appId: # xxxxx
-  appKey: # xxxxxx
 
 # 哔哔功能配置
 # 登陆leancloud创建应用。进入应用后，点击创建 Class，将「 Class 名称」命名为 content
