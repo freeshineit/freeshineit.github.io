@@ -264,9 +264,6 @@ menu:
   Medias:
     icon: fas fa-list
     children:
-      - name: Music
-        url: /music
-        icon: fas fa-music
       - name: Movies
         url: /movies
         icon: fas fa-film
@@ -462,39 +459,6 @@ translate:
 
 在主题文件的 `source/medias/reward` 文件中，你可以替换成你的的微信和支付宝的打赏二维码图片。
 
-### 配置音乐播放器（可选的）
-
-要支持音乐播放，在主题的 `_config.yml` 配置文件中激活music配置即可：
-
-```yaml
-# 是否在首页显示音乐
-music:
-  enable: true
-  title:     	    # 非吸底模式有效
-    enable: true
-    show: 听听音乐
-  server: netease   # require music platform: netease, tencent, kugou, xiami, baidu
-  type: playlist    # require song, playlist, album, search, artist
-  id: 503838841     # require song id / playlist id / album id / search keyword
-  fixed: false      # 开启吸底模式
-  autoplay: false   # 是否自动播放
-  theme: '#42b983'
-  loop: 'all'       # 音频循环播放, 可选值: 'all', 'one', 'none'
-  order: 'random'   # 音频循环顺序, 可选值: 'list', 'random'
-  preload: 'auto'   # 预加载，可选值: 'none', 'metadata', 'auto'
-  volume: 0.7       # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
-  listFolded: true  # 列表默认折叠
-```
-
-> `server`可选`netease`（网易云音乐），`tencent`（QQ音乐），`kugou`（酷狗音乐），`xiami`（虾米音乐），
->
-> `baidu`（百度音乐）。
->
-> `type`可选`song`（歌曲），`playlist`（歌单），`album`（专辑），`search`（搜索关键字），`artist`（歌手）
->
-> `id`获取方法示例: 浏览器打开网易云音乐，点击我喜欢的音乐歌单，浏览器地址栏后面会有一串数字，`playlist`的`id`
->
-> 即为这串数字。
 
 ### 添加note
 
@@ -647,7 +611,6 @@ tags:
 - 我的项目
 - 我的技能
 - 我的相册
-- `disqus` 评论配置
 - [不蒜子统计](http://busuanzi.ibruce.info/)和谷歌分析（`Google Analytics`）
 - 默认特色图的集合。当文章没有设置特色图时，本主题会根据文章标题的 `hashcode` 值取余，来选择展示对应的特色图
 

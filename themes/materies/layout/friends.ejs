@@ -236,18 +236,7 @@
         <% } %>
 
         <div class="card">
-            <% if (theme.disqus.enable) { %>
-            <%- partial('_partial/disqus') %>
-            <% } %>
-
-            <% if (theme.livere && theme.livere.enable) { %>
-            <%- partial('_partial/livere') %>
-            <% } %>
-
-            <% if (theme.waline && theme.waline.enable) { %>
-                <%- partial('_partial/waline') %>
-            <% } %>
-
+        <!-- 评论 -->
         </div>
     </div>
 </main>

@@ -23,7 +23,6 @@
 - Can be set append the copyright information when copying the content of the post
 - Can be set to do password verification when reading a post
 - Integrated [Busuanzi Statistics](http://busuanzi.ibruce.info/), `Google Analytics` and post word count statistics.
-- Support music playback and video playback on the homepage
 - Support the `emoji` emoticon and use the `markdown emoji` grammar to directly generate the corresponding emoticon.
 - Support [DaoVoice](http://www.daovoice.io/), [Tidio](https://www.tidio.com/) online chat.
 
@@ -262,9 +261,6 @@ menu:
   Medias:
     icon: fas fa-list
     children:
-      - name: Music
-        url: /music
-        icon: fas fa-music
       - name: Movies
         url: /movies
         icon: fas fa-film
@@ -444,36 +440,6 @@ You can search social icons such as `fab fa-github` in [Font Awesome](https://fo
 
 > **Note**: The version of `Font Awesome` used by matery is `5.11.0`.
 
-### Configure music player (optional)
-
-To support music playing, you just need to activate music playing configuration in the theme's `_config.yml` file.
-
-```yaml
-# Whether to display the music
-music:
-  enable: true
-  title: 		   # non-fixed mode works
-    enable: true
-    show: Listen to music
-  server: netease   # require music platform: netease, tencent, kugou, xiami, baidu
-  type: playlist    # require song, playlist, album, search, artist
-  id: 503838841     # require song id / playlist id / album id / search keyword
-  fixed: false      # enable fixed mode
-  autoplay: false   # audio atuoplay
-  theme: '#42b983'
-  loop: 'all'       # player loop play, values: 'all', 'one', 'none'
-  order: 'random'   # player play order, values: 'list', 'random'
-  preload: 'auto'   # values: 'none', 'metadata', 'auto'
-  volume: 0.7       # default volume, notice that player will remember user setting, default volume will not work after user set volume themselves
-  listFolded: true  # indicate whether list should folded at first
-```
-
->`server` values :  `netease` (NetEase  cloud music) , `tencent` (QQMusic) , `kugou` (KuGouMusic) , `xiami`  
->(XiamMusic) , `baidu` (BaiduMusic)  
->`type` values : `song`  ,   `playlist` , `album` , `search` , `artist`  
->For example to get the `id`:open NetEase cloud music in the browser , click the playlist of my love , there will a string of  
->numbers  in the browser\`s address bar  ,  the `playlist`\`s `id` just is the string of numbers.
-
 ### add note
 
 > [demonstration](https://blog.17lai.site/posts/cf0f47fd/#tag-note)
@@ -614,7 +580,6 @@ You can modify some custom modification in `_config.yml` as follows:
 
 - Menu
 - My dream
-- Home music player and video player configuration
 - Whether to display the title of the recommended posts
 - `favicon` and `Logo`
 - profiles
@@ -627,7 +592,6 @@ You can modify some custom modification in `_config.yml` as follows:
 - My Projects
 - My Skills
 - My Gallery
--  Disqus
 - [Busuanzi Statistics](http://busuanzi.ibruce.info/) And Google Analytics
 - The map of default featured pictures. The theme will take remainder according to `hashcode` of the post title if the post does not set featured pictures.
 

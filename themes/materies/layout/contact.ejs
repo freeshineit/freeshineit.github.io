@@ -33,19 +33,6 @@
 
         <!--其他评论card-->
         <div class="card">
-            <% if (theme.disqus.enable) { %>
-                <%- partial('_partial/disqus') %>
-            <% } %>
-
-            <% if (theme.livere && theme.livere.enable) { %>
-                <%- partial('_partial/livere') %>
-            <% } %>
-
-            <% if (theme.waline && theme.waline.enable) { %>
-                <%- partial('_partial/waline') %>
-            <% } %>
-
-
             <% if (theme.changyan && theme.changyan.enable) { %>
                 <%- partial('_partial/changyan') %>
             <% } %>

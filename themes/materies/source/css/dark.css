@@ -111,14 +111,6 @@ body.DarkMode #rewardModal .fa-times,
 body.DarkMode #rewardModal .reward-title,
 body.DarkMode #vcomments ::placeholder,
 body.DarkMode #vcomments .vbtn,
-body.DarkMode #waline ::placeholder,
-body.DarkMode #waline .wl-header label ,
-body.DarkMode #waline .wl-header input,
-body.DarkMode #waline .wl-btn,
-body.DarkMode #waline .wl-footer .wl-action svg,
-body.DarkMode #waline .wl-reply svg,
-body.DarkMode #waline .wl-info span,
-body.DarkMode #waline .wl-info div,
 body.DarkMode .toc-widget,
 body.DarkMode .tag_share .chip,
 body.DarkMode .archive-container,
@@ -127,13 +119,6 @@ body.DarkMode .v[data-class="v"] .vcount,
 body.DarkMode header .side-nav,
 body.DarkMode header .side-nav .menu-list .m-nav-show {
     filter: invert(0.8);
-}
-body.DarkMode .waline-card .comment_headling span {
-    color: rgba(255, 255, 255, 0.6);
-}
-body.DarkMode #waline .wl-card .wl-meta span{
-    color: rgba(255, 255, 255, 0.6);
-    background: #666666;
 }
 
 body.DarkMode .reward-tabs img {
@@ -222,7 +207,6 @@ body.DarkMode header .brand-logo .logo-img {
 .DarkMode .read-more,
 .DarkMode #floating-toc-btn .btn-floating, 
 .DarkMode #vcomments .vtag, 
-.DarkMode #waline .v, 
 .DarkMode #cd-timeline,
 .DarkMode .V-badge, 
 .DarkMode .V-title-top, 
@@ -297,18 +281,6 @@ body.DarkMode {
     background-color: rgba(30, 30, 30);
 }
 
-body.DarkMode #vcomments textarea,
-body.DarkMode #waline textarea {
-    background: url(/medias_webp/simiao.webp) 100% 100% no-repeat;
-    box-sizing: border-box;
-    background-size: contain;
-    background-position: right;
-    background-color: rgba(255, 255, 255, 0);
-    resize: vertical;
-    caret-color: red;
-    color: #b8abab;
-    white-space: pre-line
-}
 /* 黑夜模式动画 */
 .Cuteen_DarkSky,
 .Cuteen_DarkSky:before {
