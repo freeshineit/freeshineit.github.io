@@ -1,11 +1,11 @@
 ---
 title: Markdown
+summary: Markdown 语法
 tags: [markdown]  #设置标签
 keywords: markdown, document
 categories:
-- 技术
 - markdown
-img: /images/mac.jpeg  #设置本地图片
+img: /images/cover/mac.jpg  #设置本地图片
 ---
 
 ## 有序列表
