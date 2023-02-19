@@ -5,7 +5,11 @@ keywords: gulp
 categories:
 - 技术
 - gulp
-image: /images/20200421200902.jpg  #设置本地图片
+img: /images/gulp.jpg  #设置本地图片
+coverImg: /images/gulp-banner.png
+
+summary: Gulp 源码分析, 每行代码的含义和执行过程。
+
 ---
 
 

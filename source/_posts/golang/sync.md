@@ -5,7 +5,9 @@ keywords: golang,sync,goroutine,channel
 categories:
 - 技术
 - golang
-image: /images/20200421200902.jpg  #设置本地图片
+
+img: /images/golang.jpg  #设置本地图片
+coverImg: /images/golang-banner.jpg  #设置本地图片
 ---
 
 
