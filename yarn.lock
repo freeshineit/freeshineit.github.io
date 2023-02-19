@@ -763,6 +763,11 @@ hexo-server@^3.0.0:
     picocolors "^1.0.0"
     serve-static "^1.14.1"
 
+hexo-theme-kong@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/hexo-theme-kong/-/hexo-theme-kong-0.1.0.tgz#d1ca8e7881567d936d20f9248c01d2234f5e57af"
+  integrity sha512-8qiGoW73P26maaT7RLgbGtBfO2DFblgbPdB63HPKiapsrvsJvn8OUr9dQaLnCjEzJ04wQlA9qoRK5bQQZiWXfg==
+
 hexo-util@^2.0.0, hexo-util@^2.1.0, hexo-util@^2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/hexo-util/-/hexo-util-2.7.0.tgz#13d09292e79d260db35399710b3e19f3995443a3"
