@@ -1,11 +1,11 @@
 ---
 title: Golang Sync
 summary: Golang 同步实现，两种方式 `sync.WaitGroup` 和 `channel`
-tags: [golang, goroutine, channel]  #设置标签
+tags: [Golang, goroutine, channel]  #设置标签
 date: 2023-02-18 09:00:00
 keywords: golang,sync,goroutine,channel
 categories:
-- golang
+- Golang
 
 img: /images/cover/golang.jpg  #设置本地图片
 coverImg: /images/cover/golang-banner.jpg  #设置本地图片

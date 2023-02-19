@@ -3,10 +3,10 @@ title: javascript instanceof 原理
 summary: javascript instanceof 原理, instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
 date: 2022-10-26 09:00:00
 
-tags: [javascript]  #设置标签
+tags: [Javascript]  #设置标签
 keywords: javascript, instanceof
 categories:
-- javascript
+- Javascript
   
 img: /images/cover/js.jpg  #设置本地图片
 coverImg: /images/cover/js-banner.jpg  #设置本地图片

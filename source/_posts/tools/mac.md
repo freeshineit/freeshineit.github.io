@@ -1,10 +1,10 @@
 ---
 title: Mac 工具
 summary: "Mac 工具 homebrew iTerm2 vim 让开发更快"
-tags: [mac, 工具]  #设置标签
-keywords: mac, 工具
+tags: [Mac, Tool]  #设置标签
+keywords: mac, tool
 categories:
-- tool
+- Tool
 date: 2023-02-18
 img: /images/cover/mac.jpg  #设置本地图片
 ---

@@ -1,11 +1,10 @@
 ---
 title: Yarn workspace
 summary: Yarn workspace 使用说明
-tags: [Yarn]  #设置标签
+tags: [Yarn, Tool]  #设置标签
 keywords: Yarn, workspace
 categories:
 - Yarn
-- tool
 date: 2021-08-05
 img: /images/cover/mac.jpg  #设置本地图片
 ---

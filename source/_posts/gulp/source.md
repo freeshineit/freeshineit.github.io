@@ -2,11 +2,10 @@
 title: Gulp 源码分析
 summary: Gulp 源码分析, 每行代码的含义和执行过程。
 
-tags: [gulp]  #设置标签
+tags: [Gulp, Tool]  #设置标签
 keywords: gulp
 categories:
-- gulp
-- tool
+- Gulp
 date: 2022-11-28
 img: /images/cover/gulp.jpg  #设置本地图片
 coverImg: /images/cover/gulp-banner.png

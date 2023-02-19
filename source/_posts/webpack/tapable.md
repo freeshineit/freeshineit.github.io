@@ -1,11 +1,11 @@
 ---
 title: tapable 使用随笔
 summary: The tapable package expose many Hook classes, which can be used to create hooks for plugins.tapable 是一个发布订阅模式的实现，它提供了很多应对业务的 hooks 实现和抽象。主要分为两大类同步和异步。
-tags: [webpack]  #设置标签
+tags: [Webpack]  #设置标签
 date: 2022-11-28
 keywords: webpack, tapable
 categories:
-- webpack
+- Webpack
 img: /images/cover/webpack.png  #设置本地图片
 coverImg: /images/cover/webpack-banner.png  #设置本地图片
 ---

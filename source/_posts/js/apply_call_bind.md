@@ -1,10 +1,10 @@
 ---
 title: javascript apply,call和bind
 summary: apply,call和bind 改变this 的指向，和继承的实现, apply,call和bind的共同点和不同点
-tags: [javascript]  #设置标签
+tags: [Javascript]  #设置标签
 keywords: javascript, apply, call, bind
 categories:
-- javascript
+- Javascript
   
 date: 2022-10-26 08:00:00
 img: /images/cover/js.jpg  #设置本地图片

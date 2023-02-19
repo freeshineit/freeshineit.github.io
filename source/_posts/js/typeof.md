@@ -1,10 +1,10 @@
 ---
 title: javascript typeof 原理
 summary: javascript typeof 原理, typeof 运算符返回一个字符串，表示操作数的类型
-tags: [javascript]  #设置标签
+tags: [Javascript]  #设置标签
 keywords: javascript, typeof
 categories:
-- javascript
+- Javascript
   
 date: 2022-10-25 08:00:00
 img: /images/cover/js.jpg  #设置本地图片

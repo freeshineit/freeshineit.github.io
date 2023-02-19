@@ -1,12 +1,11 @@
 ---
 title: Sass 语法
 summary: Sass 使用技巧和遇到的问题解决方案
-tags: [Sass]  #设置标签
+tags: [Sass, css]  #设置标签
 date: 2022-10-08
 keywords: Sass, Scss
 categories:
 - css
-- sass
 img: /images/cover/css.jpg  #设置本地图片
 coverImg: /images/cover/css-banner.jpg  #设置本地图片
 ---

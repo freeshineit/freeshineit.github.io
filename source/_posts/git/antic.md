@@ -1,12 +1,11 @@
 ---
 title: Git 常用命令
 summary: Git 常用命令, 丢弃缓存和配置命令别名等 
-tags: [Git]  #设置标签
+tags: [Git, Tool]  #设置标签
 date: 2023-02-18 08:00:00
 keywords: git
 categories:
 - git
-- tool
 img: /images/cover/git.jpg  #设置本地图片
 coverImg: /images/cover/git-banner.jpg  #设置本地图片
 ---

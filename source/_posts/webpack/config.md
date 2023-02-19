@@ -1,12 +1,11 @@
 ---
 title: webpack5 配置项
 summary: webpack5 配置项说明
-tags: [webpack5]  #设置标签
+tags: [Webpack5, Tool]  #设置标签
 date: 2022-11-13
 keywords: webpack
 categories:
-- webpack
-- tool
+- Webpack
 img: /images/cover/webpack.png  #设置本地图片
 coverImg: /images/cover/webpack-banner.png  #设置本地图片
 ---

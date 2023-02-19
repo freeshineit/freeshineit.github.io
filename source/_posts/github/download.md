@@ -1,12 +1,11 @@
 ---
 title: 下载github上项目指定的文件夹
 summary: 下载github上项目指定的文件夹 node实现和curl实现
-tags: [github]  #设置标签
+tags: [Github, got]  #设置标签
 date: 2022-02-09 09:00:00
 keywords: github
 categories:
-- github
-- git
+- Github
 img: /images/cover/github.jpg  #设置本地图片
 coverImg: /images/cover/github-banner.jpg  #设置本地图片
 ---
