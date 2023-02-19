@@ -2032,17 +2032,6 @@ p.search-result-summary{
     display: none;
 }
 
-/* create the ... style */
-.block-with-text:before {
-    /* points in the end */
-    content: '...';
-    /* absolute position */
-    position: absolute;
-    /* set position to right bottom corner of block */
-    right: 0.2em;
-    bottom: 0;
-}
-
 /* hide ... if we have text, which is less than or equal to max lines */
 .block-with-text:after {
     /* points in the end */

@@ -111,22 +111,6 @@ body.DarkMode span.bg-color {
     background-image:linear-gradient(to right, #282c34 0, rgba(52,50,50,0.7) 100%)
 }
 
-/* 背景颜色变黑色 */
-/* body.DarkMode #rewardModal .modal-content, */
-body.DarkMode #reward .reward-link,
-body.DarkMode #rewardModal .fa-times,
-body.DarkMode #rewardModal .reward-title,
-body.DarkMode #vcomments ::placeholder,
-body.DarkMode #vcomments .vbtn,
-body.DarkMode .toc-widget,
-body.DarkMode .tag_share .chip,
-body.DarkMode .archive-container,
-body.DarkMode .modal,
-body.DarkMode .v[data-class="v"] .vcount,
-body.DarkMode header .side-nav,
-body.DarkMode header .side-nav .menu-list .m-nav-show {
-    /* filter: invert(0.8); */
-}
 
 body.DarkMode .reward-tabs img {
     filter: invert(0.9) !important;
