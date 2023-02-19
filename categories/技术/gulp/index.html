@@ -29,7 +29,7 @@
 <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
 <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
 <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
 <link rel="stylesheet" type="text/css" href="/css/matery.css">
 <link rel="stylesheet" type="text/css" href="/css/my.css">
@@ -395,10 +395,10 @@
                 </a>
                 
                 
-                <a href="/categories/%E6%8A%80%E6%9C%AF/gulp/" title="gulp: 1">
+                <a href="/categories/%E6%8A%80%E6%9C%AF/golang/" title="golang: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            style="background-color: #F5EEF8;">gulp
+                             chip-default "
+                            style="background-color: #F5EEF8;">golang
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -422,10 +422,10 @@
                 </a>
                 
                 
-                <a href="/categories/%E6%8A%80%E6%9C%AF/golang/" title="golang: 1">
+                <a href="/categories/%E6%8A%80%E6%9C%AF/gulp/" title="gulp: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #FEF9E7;">golang
+                             chip-active "
+                            style="background-color: #FEF9E7;">gulp
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -447,8 +447,7 @@
                     <a href="/2023/02/19/gulp/source/">
                         <div class="card-image tag-image">
                             
-                            
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Gulp 源码分析">
+                            <img src="/images/gulp.jpg" class="responsive-img" alt="Gulp 源码分析">
                             
                             <span class="card-title">Gulp 源码分析</span>
                         </div>
@@ -456,10 +455,7 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Gulp&quot;use strict&quot;;
-
-var util &#x3D; require(&quot;util&quot;);
-&#x2F;&#x2F; https:&#x2F;&#x2F;www.npmjs.com&#x2
+                                Gulp 源码分析, 每行代码的含义和执行过程。
                             
                         </div>
                         <div class="publish-info">
@@ -761,6 +757,7 @@ $(function () {
             ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
             : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
             
+
             setTimeout(function () {
             $('.Cuteen_DarkSky').fadeOut(1e3, function () {
                 $(this).remove()

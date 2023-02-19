@@ -41,7 +41,7 @@ git reset HEAD
 <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
 <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
 <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
 <link rel="stylesheet" type="text/css" href="/css/matery.css">
 <link rel="stylesheet" type="text/css" href="/css/my.css">
@@ -653,19 +653,18 @@ git config --global alias.llg &quot;log --color --graph --pretty&#x3D;format:&#3
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/02/19/golang/sync/">
+                <a href="/2023/02/19/gulp/source/">
                     <div class="card-image">
                         
+                        <img src="/images/gulp.jpg" class="responsive-img" alt="Gulp 源码分析">
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Golang Sync">
-                        
-                        <span class="card-title">Golang Sync</span>
+                        <span class="card-title">Gulp 源码分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Gulp 源码分析, 每行代码的含义和执行过程。
                         
                     </div>
                     <div class="publish-info">
@@ -680,8 +679,8 @@ git config --global alias.llg &quot;log --color --graph --pretty&#x3D;format:&#3
                                     技术
                                 </a>
                             
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/golang/" class="post-category">
-                                    golang
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/gulp/" class="post-category">
+                                    gulp
                                 </a>
                             
                             
@@ -691,16 +690,8 @@ git config --global alias.llg &quot;log --color --graph --pretty&#x3D;format:&#3
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/golang/">
-                        <span class="chip bg-color">golang</span>
-                    </a>
-                    
-                    <a href="/tags/goroutine/">
-                        <span class="chip bg-color">goroutine</span>
-                    </a>
-                    
-                    <a href="/tags/channel/">
-                        <span class="chip bg-color">channel</span>
+                    <a href="/tags/gulp/">
+                        <span class="chip bg-color">gulp</span>
                     </a>
                     
                 </div>
@@ -718,7 +709,7 @@ git config --global alias.llg &quot;log --color --graph --pretty&#x3D;format:&#3
             data-repo-id="R_kgDOI5ZcuQ" data-category="Q&A" data-category-id="DIC_kwDOI5Zcuc4CT-sM"
             data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0"
             data-input-position="top" data-theme="light" data-lang="zh-CN"
-            data-loading="lazy" crossorigin="anonymous" async>
+            data-loading="lazy" crossorigin="anonymous" async id="giscus">
             </script>
         <!-- 评论 -->
         <div class="giscus"></div>
@@ -1098,6 +1089,7 @@ $(function () {
             ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
             : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
             
+
             setTimeout(function () {
             $('.Cuteen_DarkSky').fadeOut(1e3, function () {
                 $(this).remove()

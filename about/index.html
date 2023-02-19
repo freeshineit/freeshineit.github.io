@@ -29,7 +29,7 @@
 <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
 <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
 <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
 <link rel="stylesheet" type="text/css" href="/css/matery.css">
 <link rel="stylesheet" type="text/css" href="/css/my.css">
@@ -634,7 +634,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"技术","value":5},{"name":"gulp","value":1},{"name":"markdown","value":1},{"name":"git","value":1},{"name":"golang","value":1}],
+                data: [{"name":"技术","value":5},{"name":"golang","value":1},{"name":"markdown","value":1},{"name":"git","value":1},{"name":"gulp","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -658,7 +658,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["markdown","Git","golang","goroutine","channel","gulp","mac","工具"]
+                data: ["markdown","Git","gulp","golang","goroutine","channel","mac","工具"]
             }
         ],
         yAxis: [
@@ -875,6 +875,12 @@
             
             
             
+            <a href="/tags/gulp/">
+                <span class="chip center-align waves-effect waves-light chip-default">gulp</span>
+            </a>
+            
+            
+            
             <a href="/tags/golang/">
                 <span class="chip center-align waves-effect waves-light chip-default">golang</span>
             </a>
@@ -889,12 +895,6 @@
             
             <a href="/tags/channel/">
                 <span class="chip center-align waves-effect waves-light chip-default">channel</span>
-            </a>
-            
-            
-            
-            <a href="/tags/gulp/">
-                <span class="chip center-align waves-effect waves-light chip-default">gulp</span>
             </a>
             
             
@@ -1353,6 +1353,7 @@ $(function () {
             ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
             : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
             
+
             setTimeout(function () {
             $('.Cuteen_DarkSky').fadeOut(1e3, function () {
                 $(this).remove()

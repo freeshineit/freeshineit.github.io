@@ -29,7 +29,7 @@
 <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
 <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
 <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
 <link rel="stylesheet" type="text/css" href="/css/matery.css">
 <link rel="stylesheet" type="text/css" href="/css/my.css">
@@ -403,10 +403,19 @@
                 </a>
                 
                 
+                <a href="/tags/gulp/" title="gulp: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="gulp" style="background-color: #D5F5E3;">gulp
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/golang/" title="golang: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="golang" style="background-color: #D5F5E3;">golang
+                            data-tagname="golang" style="background-color: #E8F8F5;">golang
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -415,7 +424,7 @@
                 <a href="/tags/goroutine/" title="goroutine: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="goroutine" style="background-color: #E8F8F5;">goroutine
+                            data-tagname="goroutine" style="background-color: #FEF9E7;">goroutine
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -424,16 +433,7 @@
                 <a href="/tags/channel/" title="channel: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
-                            data-tagname="channel" style="background-color: #FEF9E7;">channel
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/gulp/" title="gulp: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="gulp" style="background-color: #F8F9F9;">gulp
+                            data-tagname="channel" style="background-color: #F8F9F9;">channel
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -472,8 +472,7 @@
                     <a href="/2023/02/19/golang/sync/">
                         <div class="card-image tag-image">
                             
-                            
-                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Golang Sync">
+                            <img src="/images/golang.jpg" class="responsive-img" alt="Golang Sync">
                             
                             <span class="card-title">Golang Sync</span>
                         </div>
@@ -768,6 +767,7 @@ $(function () {
             ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
             : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
             
+
             setTimeout(function () {
             $('.Cuteen_DarkSky').fadeOut(1e3, function () {
                 $(this).remove()
