@@ -66,7 +66,7 @@ body.DarkMode .read .bg-cover .description{
 }
 
 body.DarkMode .sidenav {
-    background-color: #282c34;
+    background-color: #000;
 }
 
 body.DarkMode .toc-widget {
@@ -102,7 +102,7 @@ body.DarkMode .mobile-menu-list a i {
     color: rgba(255, 255, 255, 0.6) !important;
 }
 body.DarkMode .bg-color {
-    background-image:linear-gradient(to right, #3b3b3b 0, rgb(59 59 59) 100%);
+    background: #000;
 }
 body.DarkMode .progress-bar {
     background: linear-gradient(to right, #bf7030 0%, #dfc60d 100%);
@@ -184,9 +184,6 @@ body.DarkMode #pv_container,
 body.DarkMode #sources_container, 
 body.DarkMode #map_container {
     filter: invert(1);
-}
-body.DarkMode header .brand-logo .logo-img {
-    display: none;
 }
 
 .DarkMode #readmode, 
