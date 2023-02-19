@@ -427,10 +427,10 @@ m&amp;sup3; m³</code></pre>
 <p><a href="LICENSE">MIT</a> © <a href="https://github.com/freeshineit">ShineShao</a></p>
 ]]></content>
       <categories>
-        <category>markdown</category>
+        <category>Markdown</category>
       </categories>
       <tags>
-        <tag>markdown</tag>
+        <tag>Markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -495,10 +495,10 @@ $offset: -32px;
 &#125;</code></pre>]]></content>
       <categories>
         <category>css</category>
-        <category>sass</category>
       </categories>
       <tags>
         <tag>Sass</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -565,10 +565,10 @@ git config --global alias.llg &quot;log --color --graph --pretty&#x3D;format:&#3
 ]]></content>
       <categories>
         <category>git</category>
-        <category>tool</category>
       </categories>
       <tags>
         <tag>Git</tag>
+        <tag>Tool</tag>
       </tags>
   </entry>
   <entry>
@@ -635,11 +635,11 @@ downloadExample();</code></pre>
 mkdir my-app &amp;&amp; curl https:&#x2F;&#x2F;codeload.github.com&#x2F;freeshineit&#x2F;next-examples&#x2F;tar.gz&#x2F;main | tar -xz -C my-app --strip&#x3D;2 next-examples-main&#x2F;with-typescript-eslint-jest-app</code></pre>
 ]]></content>
       <categories>
-        <category>github</category>
-        <category>git</category>
+        <category>Github</category>
       </categories>
       <tags>
-        <tag>github</tag>
+        <tag>Github</tag>
+        <tag>got</tag>
       </tags>
   </entry>
   <entry>
@@ -700,10 +700,10 @@ func Channel() &#123;
 </code></pre>
 ]]></content>
       <categories>
-        <category>golang</category>
+        <category>Golang</category>
       </categories>
       <tags>
-        <tag>golang</tag>
+        <tag>Golang</tag>
         <tag>goroutine</tag>
         <tag>channel</tag>
       </tags>
@@ -822,11 +822,11 @@ var inst &#x3D; new Gulp();
 module.exports &#x3D; inst;</code></pre>
 ]]></content>
       <categories>
-        <category>gulp</category>
-        <category>tool</category>
+        <category>Gulp</category>
       </categories>
       <tags>
-        <tag>gulp</tag>
+        <tag>Tool</tag>
+        <tag>Gulp</tag>
       </tags>
   </entry>
   <entry>
@@ -870,10 +870,10 @@ function _bind(_this: any, ...args: any[]) &#123;&#125;
 
 <h2 id="apply-call-和-bind-共同点"><a href="#apply-call-和-bind-共同点" class="headerlink" title="apply, call 和 bind 共同点"></a>apply, call 和 bind 共同点</h2><h2 id="apply-call-和-bind-不同点"><a href="#apply-call-和-bind-不同点" class="headerlink" title="apply, call 和 bind 不同点"></a>apply, call 和 bind 不同点</h2>]]></content>
       <categories>
-        <category>javascript</category>
+        <category>Javascript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
+        <tag>Javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -948,10 +948,10 @@ function _instanceof(instance: any, Func: any) &#123;
   assert.equal(o3 instanceof C, _instanceof(o3, C));
 &#125;)();</code></pre>]]></content>
       <categories>
-        <category>javascript</category>
+        <category>Javascript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
+        <tag>Javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -1062,77 +1062,10 @@ let point &#x3D; new Point();
 assert.equal(typeof Point, _typeof(Point));
 assert.equal(typeof point, _typeof(point));</code></pre>]]></content>
       <categories>
-        <category>javascript</category>
+        <category>Javascript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac 工具</title>
-    <url>/2023/02/18/mac/tools/</url>
-    <content><![CDATA[<h2 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a><a href="https://brew.sh/">homebrew</a></h2><p><a href="https://brew.sh/">homebrew</a> 安装 <code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</code></p>
-<ol>
-<li><p>安装插件</p>
-<ul>
-<li>安装 <a href="https://git-scm.com/">git</a></li>
-</ul>
-<p><code>brew install git</code></p>
-<ul>
-<li>安装 <a href="https://github.com/wting/autojump">autojump</a></li>
-</ul>
-<p><code>brew install autojump</code></p>
-<p>在 ~&#x2F;.zshrc 中找到<code>plugins</code> 添加 <code>autojump</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
-</li>
-</ol>
-<h2 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a><a href="https://iterm2.com/">iTerm2</a></h2><ol>
-<li><p>安装插件</p>
-<ul>
-<li>安装 <a href="https://ohmyz.sh/">oh-my-zsh</a> 主题</li>
-</ul>
-<pre class="language-bash" data-language="bash"><code class="language-bash">sh -c &quot;\$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;master&#x2F;tools&#x2F;install.sh)&quot;</code></pre>
-
-<ul>
-<li>安装 <a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a></li>
-</ul>
-<pre class="language-bash" data-language="bash"><code class="language-bash">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-autosuggestions $&#123;ZSH_CUSTOM:-~&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;plugins&#x2F;zsh-autosuggestions</code></pre>
-
-<p>在 ~&#x2F;.zshrc 中找到<code>plugins</code> 添加 <code>zsh-autosuggestions</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
-<ul>
-<li>安装 <a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a></li>
-</ul>
-<pre class="language-bash" data-language="bash"><code class="language-bash">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;plugins&#x2F;zsh-syntax-highlighting</code></pre>
-
-<p>在 ~&#x2F;.zshrc 中找到<code>plugins</code> 添加 <code>zsh-syntax-highlighting</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
-<p>最终结果</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash">plugins&#x3D;(
- git
- zsh-syntax-highlighting
- zsh-autosuggestions
- autojump
-)</code></pre></li>
-</ol>
-<h2 id="vim-配置"><a href="#vim-配置" class="headerlink" title="vim 配置"></a>vim 配置</h2><p>可以参考 阮一峰老师的 <a href="https://www.ruanyifeng.com/blog/2018/09/vimrc.html">Vim 配置入门</a></p>
-<p>在 <code>~/.vimrc</code> 配置 (如果没有请自建<code>touch ~/.vimrc</code>)</p>
-<p>我的基本设置</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash">set number
-syntax on
-set mouse&#x3D;a
-set encoding&#x3D;utf-8
-set autoindent
-set tabstop&#x3D;2
-set cursorline
-set ruler
-set showmatch
-set incsearch
-set hlsearch</code></pre>
-]]></content>
-      <categories>
-        <category>tool</category>
-      </categories>
-      <tags>
-        <tag>mac</tag>
-        <tag>工具</tag>
+        <tag>Javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -1252,6 +1185,73 @@ location ^~ &#x2F;api&#x2F; &#123;
       <tags>
         <tag>React</tag>
         <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac 工具</title>
+    <url>/2023/02/18/tools/mac/</url>
+    <content><![CDATA[<h2 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a><a href="https://brew.sh/">homebrew</a></h2><p><a href="https://brew.sh/">homebrew</a> 安装 <code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</code></p>
+<ol>
+<li><p>安装插件</p>
+<ul>
+<li>安装 <a href="https://git-scm.com/">git</a></li>
+</ul>
+<p><code>brew install git</code></p>
+<ul>
+<li>安装 <a href="https://github.com/wting/autojump">autojump</a></li>
+</ul>
+<p><code>brew install autojump</code></p>
+<p>在 ~&#x2F;.zshrc 中找到<code>plugins</code> 添加 <code>autojump</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
+</li>
+</ol>
+<h2 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a><a href="https://iterm2.com/">iTerm2</a></h2><ol>
+<li><p>安装插件</p>
+<ul>
+<li>安装 <a href="https://ohmyz.sh/">oh-my-zsh</a> 主题</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash">sh -c &quot;\$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;master&#x2F;tools&#x2F;install.sh)&quot;</code></pre>
+
+<ul>
+<li>安装 <a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a></li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-autosuggestions $&#123;ZSH_CUSTOM:-~&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;plugins&#x2F;zsh-autosuggestions</code></pre>
+
+<p>在 ~&#x2F;.zshrc 中找到<code>plugins</code> 添加 <code>zsh-autosuggestions</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
+<ul>
+<li>安装 <a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a></li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;plugins&#x2F;zsh-syntax-highlighting</code></pre>
+
+<p>在 ~&#x2F;.zshrc 中找到<code>plugins</code> 添加 <code>zsh-syntax-highlighting</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
+<p>最终结果</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">plugins&#x3D;(
+ git
+ zsh-syntax-highlighting
+ zsh-autosuggestions
+ autojump
+)</code></pre></li>
+</ol>
+<h2 id="vim-配置"><a href="#vim-配置" class="headerlink" title="vim 配置"></a>vim 配置</h2><p>可以参考 阮一峰老师的 <a href="https://www.ruanyifeng.com/blog/2018/09/vimrc.html">Vim 配置入门</a></p>
+<p>在 <code>~/.vimrc</code> 配置 (如果没有请自建<code>touch ~/.vimrc</code>)</p>
+<p>我的基本设置</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">set number
+syntax on
+set mouse&#x3D;a
+set encoding&#x3D;utf-8
+set autoindent
+set tabstop&#x3D;2
+set cursorline
+set ruler
+set showmatch
+set incsearch
+set hlsearch</code></pre>
+]]></content>
+      <categories>
+        <category>Tool</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
@@ -1493,9 +1493,9 @@ yarn workspaces run build</code></pre>
 ]]></content>
       <categories>
         <category>Yarn</category>
-        <category>tool</category>
       </categories>
       <tags>
+        <tag>Tool</tag>
         <tag>Yarn</tag>
       </tags>
   </entry>
@@ -2017,11 +2017,11 @@ export type WebpackPluginFunction &#x3D; (
 ) &#x3D;&gt; void;</code></pre>
 ]]></content>
       <categories>
-        <category>webpack</category>
-        <category>tool</category>
+        <category>Webpack</category>
       </categories>
       <tags>
-        <tag>webpack5</tag>
+        <tag>Tool</tag>
+        <tag>Webpack5</tag>
       </tags>
   </entry>
   <entry>
@@ -3045,10 +3045,10 @@ do &#123;
 <p><a href="https://www.cnblogs.com/dennisj/p/14606902.html">webpack 核心模块 tapable 源码解析</a></p>
 ]]></content>
       <categories>
-        <category>webpack</category>
+        <category>Webpack</category>
       </categories>
       <tags>
-        <tag>webpack</tag>
+        <tag>Webpack</tag>
       </tags>
   </entry>
 </search>
