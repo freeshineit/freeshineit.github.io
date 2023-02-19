@@ -1,0 +1,2100 @@
+<!DOCTYPE HTML>
+<html lang="default">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="webpack, tapable">
+    <meta name="description" content="The tapable package expose many Hook classes, which can be used to create hooks for plugins.tapable 是一个发布订阅模式的实现，它提供了很多应对业务的 hooks 实现和抽象。主要分为两大类同步和异步。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>tapable 使用随笔 | 三空</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">三空</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">三空</div>
+        <div class="logo-desc">
+            
+              黑夜给了我黑色的眼睛，我去用它寻找光明。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/freeshineit/freeshineit.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .DarkMode .github-corner svg {
+        color: rgb(59 59 59);
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+
+        0%,
+        to {
+            transform: rotate(0);
+        }
+
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/freeshineit/freeshineit.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+    data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+            d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+            fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+            d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+            fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/cover/webpack-banner.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">tapable 使用随笔</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/webpack/">
+                                <span class="chip bg-color">webpack</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/webpack/" class="post-category">
+                                webpack
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-11-28
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-02-19
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    32 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="tapable"><a href="#tapable" class="headerlink" title="tapable"></a>tapable</h2><p>The <a target="_blank" rel="noopener" href="https://github.com/webpack/tapable">tapable</a> package expose many Hook classes, which can be used to create hooks for plugins.</p>
+<p><code>tapable</code> 是一个发布订阅模式的实现，它提供了很多应对业务的 <code>hooks</code> 实现和抽象。主要分为两大类同步和异步。</p>
+<h2 id="Base-Hooks"><a href="#Base-Hooks" class="headerlink" title="Base Hooks"></a>Base Hooks</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/Hook.js?L25:1">Hooks</a></li>
+</ul>
+<p>继承 <code>Hooks</code> 的类需要自己实现<code>compile</code>抽象方法。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a></li>
+</ul>
+<p>继承<code>HookCodeFactory</code>类需要实现抽象方法<code>content</code>, 返回 <code>call</code>或<code>callAsync</code>或<code>promise</code> 的函数体的实现的代码字符串， 然后使用 <code>Function</code> 生成一个<code>call</code>或<code>callAsync</code>或<code>promise</code> 函数</p>
+<h2 id="SyncHook"><a href="#SyncHook" class="headerlink" title="SyncHook"></a>SyncHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncHook.js?L35:1">SyncHook</a> 按注册的回调函数串行之行。</p>
+<p>简单使用：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new SyncHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncHook&#96;的入参的数组有关系
+hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(1, arg1, arg2, arg3);
+  return &quot;fn0&quot;; &#x2F;&#x2F; 回调函数的返回值之间没有联系
+&#125;);
+hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(2, arg1, arg2, arg3);
+  return &quot;fn1&quot;;
+&#125;);
+hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(3, arg1, arg2, arg3);
+  return &quot;fn2&quot;;
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
+
+<p><code>call</code>由<a target="_blank" rel="noopener" href="https://sourcegraph.com/search?q=context:global+repo:%5Egithub%5C.com/webpack/tapable$+SyncHookCodeFactory&patternType=standard&sm=1">SyncHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
+&#x2F;&#x2F; 这段代码需要使用 &#96;Function&#96; 来生成&#96;call&#96;方法来执行
+&#x2F;&#x2F; 其中&#96;this._x&#96;就是注册的回调函数组成的数组
+&#x2F;&#x2F; 可以看出回调函数的调用就是把数组中的函数展开
+&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+var _fn0 &#x3D; _x[0];
+_fn0(arg3, arg2, arg1); &#x2F;&#x2F; 回调函数 fn0
+var _fn1 &#x3D; _x[1];
+_fn1(arg3, arg2, arg1); &#x2F;&#x2F; 回调函数 fn1
+var _fn2 &#x3D; _x[2];
+_fn2(arg3, arg2, arg1); &#x2F;&#x2F; 回调函数 fn2</code></pre>
+
+<h2 id="SyncBailHook"><a href="#SyncBailHook" class="headerlink" title="SyncBailHook"></a>SyncBailHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncBailHook.js?L40:1">SyncBailHook</a> 会对每次执行的结果进行检测，如果结果不是 <code>undefined</code> 就直接 <code>return</code> 了，后面的回调函数就没有机会执行了。</p>
+<p>简单使用：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncBailHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+&#x2F;&#x2F; 同步执行回调函数，回调函数返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了
+const hook &#x3D; new SyncBailHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncBailHook&#96;的入参的数组有关系
+hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+  return undefined;
+&#125;);
+hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+  &#x2F;&#x2F; 如果回调函数的返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了
+  return &quot;fn1&quot;;
+&#125;);
+hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+  return undefined;
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
+
+<p><code>call</code>由<code>SyncBailHookCodeFactory</code>的<code>content</code>实现, 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
+&#x2F;&#x2F; 参数和SyncHook是一致的，区别在于回调函数的返回值
+&#x2F;&#x2F; 如果回调函数的返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
+&#x2F;&#x2F; 就像一个有限的套娃🪆
+&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+var _fn0 &#x3D; _x[0];
+var _result0 &#x3D; _fn0(arg3, arg2, arg1);
+&#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
+if (_result0 !&#x3D;&#x3D; undefined) &#123;
+  return _result0;
+&#125; else &#123;
+  var _fn1 &#x3D; _x[1];
+  var _result1 &#x3D; _fn1(arg3, arg2, arg1);
+  &#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
+  if (_result1 !&#x3D;&#x3D; undefined) &#123;
+    return _result1;
+  &#125; else &#123;
+    var _fn2 &#x3D; _x[2];
+    var _result2 &#x3D; _fn2(arg3, arg2, arg1);
+    &#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
+    if (_result2 !&#x3D;&#x3D; undefined) &#123;
+      return _result2;
+    &#125; else &#123;
+    &#125;
+  &#125;
+&#125;</code></pre>
+
+<h2 id="SyncLoopHook"><a href="#SyncLoopHook" class="headerlink" title="SyncLoopHook"></a>SyncLoopHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncLoopHook.js?L35:1">SyncLoopHook</a> 会对每次执行的结果进行检测，如果结果不是 <code>undefined</code> 就不停循环第一个回调函数到当前回调函数，直至都返回 <code>undefined</code>。</p>
+<p>简单使用：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncLoopHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new SyncLoopHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+let _loop &#x3D; 4;
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncLoopHook&#96;的入参的数组有关系
+hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+  return undefined;
+&#125;);
+hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+  _loop &#x3D; _loop - 1;
+  &#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就不停循环 &#96;f0&#96; &#96;f1&#96;，直至都返回 &#96;undefined&#96;。
+  return _loop &gt; 0 ? _loop : undefined;
+&#125;);
+hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+  return undefined;
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
+
+<p><code>call</code>由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncLoopHook.js?L10:1">SyncLoopHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
+&#x2F;&#x2F; 参数和SyncHook是一致的，区别在于回调函数的返回值
+&#x2F;&#x2F; 如果结果不是 &#96;undefined&#96; 就不停循环第一个回调函数到当前回调函数，直至都返回 &#96;undefined&#96;
+&#x2F;&#x2F; 注意: 不返回&#96;undefined&#96;就不停循环，容易造成死循环
+&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+var _loop;
+do &#123;
+  _loop &#x3D; false;
+  var _fn0 &#x3D; _x[0];
+  var _result0 &#x3D; _fn0(arg3, arg2, arg1);
+  if (_result0 !&#x3D;&#x3D; undefined) &#123;
+    _loop &#x3D; true;
+  &#125; else &#123;
+    var _fn1 &#x3D; _x[1];
+    var _result1 &#x3D; _fn1(arg3, arg2, arg1);
+    if (_result1 !&#x3D;&#x3D; undefined) &#123;
+      _loop &#x3D; true;
+    &#125; else &#123;
+      var _fn2 &#x3D; _x[2];
+      var _result2 &#x3D; _fn2(arg3, arg2, arg1);
+      if (_result2 !&#x3D;&#x3D; undefined) &#123;
+        _loop &#x3D; true;
+      &#125; else &#123;
+        if (!_loop) &#123;
+        &#125;
+      &#125;
+    &#125;
+  &#125;
+&#125; while (_loop);</code></pre>
+
+<h2 id="SyncWaterfallHook"><a href="#SyncWaterfallHook" class="headerlink" title="SyncWaterfallHook"></a>SyncWaterfallHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncWaterfallHook.js?L44">SyncWaterfallHook</a> 会对每次执行的结果当成下一个回调函数的入参（<code>call</code>的入参 ），如果返回值是 <code>undefined</code>，使用上一个参数。</p>
+<p>简单使用：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncWaterfallHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new SyncWaterfallHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncWaterfallHook&#96;的入参的数组有关系
+hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+  return &quot;fn0-result&quot;;
+&#125;);
+hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+  return undefined;
+&#125;);
+hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+  return &quot;fn2&quot;;
+&#125;);
+hook.tap(&quot;fn3&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn3&quot;, arg1, arg2, arg3);
+  return &quot;fn3&quot;;
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+&#x2F;&#x2F; 执行结果：
+&#x2F;&#x2F; fn0 a b c
+&#x2F;&#x2F; fn1 fn0-result b c
+&#x2F;&#x2F; fn2 fn0-result b c
+&#x2F;&#x2F; fn3 fn2 b c</code></pre>
+
+<p><code>call</code>由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncWaterfallHook.js?L10:7">SyncWaterfallHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
+&#x2F;&#x2F; 参数和SyncHook是一致的，区别在于回调函数的返回值
+&#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
+&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+var _fn0 &#x3D; _x[0];
+var _result0 &#x3D; _fn0(arg1, arg2, arg3);
+if (_result0 !&#x3D;&#x3D; undefined) &#123;
+  &#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
+  arg1 &#x3D; _result0;
+&#125;
+var _fn1 &#x3D; _x[1];
+var _result1 &#x3D; _fn1(arg1, arg2, arg3);
+if (_result1 !&#x3D;&#x3D; undefined) &#123;
+  &#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
+  arg1 &#x3D; _result1;
+&#125;
+var _fn2 &#x3D; _x[2];
+var _result2 &#x3D; _fn2(arg1, arg2, arg3);
+if (_result2 !&#x3D;&#x3D; undefined) &#123;
+  &#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
+  arg1 &#x3D; _result2;
+&#125;
+var _fn3 &#x3D; _x[3];
+var _result3 &#x3D; _fn3(arg1, arg2, arg3);
+if (_result3 !&#x3D;&#x3D; undefined) &#123;
+  arg1 &#x3D; _result3;
+&#125;
+return arg1;</code></pre>
+
+<h2 id="AsyncSeriesHook"><a href="#AsyncSeriesHook" class="headerlink" title="AsyncSeriesHook"></a>AsyncSeriesHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L26:1">AsyncSeriesHook</a>异步串行</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new AsyncSeriesHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesHook&#96;的入参的数组有关系
+hook.tapAsync(&quot;fn0&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  setTimeout(() &#x3D;&gt; &#123;
+    console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+    callback();
+  &#125;, 1000);
+&#125;);
+hook.tapAsync(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  setTimeout(() &#x3D;&gt; &#123;
+    console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+    callback();
+  &#125;, 1000);
+&#125;);
+hook.tapAsync(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  setTimeout(() &#x3D;&gt; &#123;
+    console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+    callback(); &#x2F;&#x2F; 决定 &#96;callAsync&#96; 最后的实参callback是否会被调用
+  &#125;, 1000);
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.callAsync(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, () &#x3D;&gt; &#123;
+  console.log(&quot;AsyncSeriesHook async&quot;);
+&#125;);
+
+&#x2F;&#x2F; 执行结果：
+&#x2F;&#x2F; fn0 a b c
+&#x2F;&#x2F; fn1 a b c
+&#x2F;&#x2F; fn2 a b c
+&#x2F;&#x2F; AsyncSeriesHook async</code></pre>
+
+<p><code>callAsync</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L10:1">AsyncSeriesHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L276">callTapsSeries</a>实现。 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+function _next1() &#123;
+  var _fn2 &#x3D; _x[2];
+  _fn2(arg1, arg2, arg3, function (_err2) &#123;
+    &#x2F;&#x2F; ...
+  &#125;);
+&#125;
+function _next0() &#123;
+  var _fn1 &#x3D; _x[1];
+  _fn1(arg1, arg2, arg3, function (_err1) &#123;
+    &#x2F;&#x2F; ...
+    _next1();
+  &#125;);
+&#125;
+var _fn0 &#x3D; _x[0];
+_fn0(arg1, arg2, arg3, function (_err0) &#123;
+  &#x2F;&#x2F; ...
+  _next0();
+&#125;);</code></pre>
+
+<p><code>Promise</code> 方式</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesHook &#125; &#x3D; require(&quot;tapable&quot;);
+
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new AsyncSeriesHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesHook&#96;的入参的数组有关系
+hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
+
+<p><code>promise</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L10:1">AsyncSeriesHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L276">callTapsSeries</a>实现。 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+function _next1() &#123;
+  var _fn2 &#x3D; _x[2];
+  var _hasResult2 &#x3D; false;
+  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
+  _promise2.then(function (_result2) &#123;
+    _hasResult2 &#x3D; true;
+  &#125;);
+&#125;
+function _next0() &#123;
+  var _fn1 &#x3D; _x[1];
+  var _hasResult1 &#x3D; false;
+  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
+  _promise1.then(function (_result1) &#123;
+    _hasResult1 &#x3D; true;
+    _next1();
+  &#125;);
+&#125;
+var _fn0 &#x3D; _x[0];
+var _hasResult0 &#x3D; false;
+var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
+_promise0.then(function (_result0) &#123;
+  _hasResult0 &#x3D; true;
+  _next0();
+&#125;);</code></pre>
+
+<h2 id="AsyncSeriesBailHook"><a href="#AsyncSeriesBailHook" class="headerlink" title="AsyncSeriesBailHook"></a>AsyncSeriesBailHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesBailHook.js?L31">AsyncSeriesBailHook</a> 会对每次异步执行的结果进行检测，如果结果不是 <code>undefined</code> 就直接 <code>return</code> 了，后面的回调函数就没有机会执行了</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesBailHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new AsyncSeriesBailHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesBailHook&#96;的入参的数组有关系
+&#x2F;&#x2F; 串行调用
+hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+      resolve(12); &#x2F;&#x2F; 后面的回调不会执行
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+
+&#x2F;&#x2F; 执行结果：
+&#x2F;&#x2F; fn0 a b c
+&#x2F;&#x2F; fn1 a b c</code></pre>
+
+<p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+function _next1() &#123;
+  var _fn2 &#x3D; _x[2];
+  var _hasResult2 &#x3D; false;
+  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
+  &#x2F;&#x2F;...
+  _promise2.then(function (_result2) &#123;
+    _hasResult2 &#x3D; true;
+    if (_result2 !&#x3D;&#x3D; undefined) &#123;
+      return _result2;
+    &#125; else &#123;
+    &#125;
+  &#125;);
+&#125;
+function _next0() &#123;
+  var _fn1 &#x3D; _x[1];
+  var _hasResult1 &#x3D; false;
+  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
+  &#x2F;&#x2F;...
+  _promise1.then(
+    function (_result1) &#123;
+      _hasResult1 &#x3D; true;
+      if (_result1 !&#x3D;&#x3D; undefined) &#123;
+        return _result1;
+      &#125; else &#123;
+        return _next1();
+      &#125;
+    &#125;
+    &#x2F;&#x2F;...
+  );
+&#125;
+var _fn0 &#x3D; _x[0];
+var _hasResult0 &#x3D; false;
+var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
+&#x2F;&#x2F;...
+_promise0.then(
+  function (_result0) &#123;
+    _hasResult0 &#x3D; true;
+    if (_result0 !&#x3D;&#x3D; undefined) &#123;
+      return _result0;
+    &#125; else &#123;
+      return _next0();
+    &#125;
+  &#125;
+  &#x2F;&#x2F;...
+);</code></pre>
+
+<h2 id="AsyncSeriesLoopHook"><a href="#AsyncSeriesLoopHook" class="headerlink" title="AsyncSeriesLoopHook"></a>AsyncSeriesLoopHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesLoopHook.js?L26">AsyncSeriesLoopHook</a>会对每次异步执行的结果进行检测，如果结果不是 <code>undefined</code> 就不停循环第一个回调函数到当前回调函数，直至都返回 <code>undefined</code>。</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesLoopHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new AsyncSeriesLoopHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+let _loop &#x3D; 2; &#x2F;&#x2F; 循环两次
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesLoopHook&#96;的入参的数组有关系
+hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+      resolve(_loop &gt; 0 ? &quot;fn1 result&quot; : undefined);
+      _loop &#x3D; _loop - 1;
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+
+&#x2F;&#x2F; 执行结果
+&#x2F;&#x2F; fn0 a b c
+&#x2F;&#x2F; fn1 a b c
+&#x2F;&#x2F; fn0 a b c &#x2F;&#x2F; 循环
+&#x2F;&#x2F; fn1 a b c &#x2F;&#x2F; 循环
+&#x2F;&#x2F; fn0 a b c &#x2F;&#x2F; 循环
+&#x2F;&#x2F; fn1 a b c &#x2F;&#x2F; 循环
+&#x2F;&#x2F; fn2 a b c</code></pre>
+
+<p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
+<p><code>promise</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesLoopHook.js?L10:1">AsyncSeriesLoopHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L324:2">callTapsLooping</a>实现。 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+var _looper &#x3D; function () &#123;
+  var _loopAsync &#x3D; false;
+  var _loop;
+  do &#123;
+    _loop &#x3D; false;
+    function _next1() &#123;
+      var _fn2 &#x3D; _x[2];
+      var _hasResult2 &#x3D; false;
+      var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
+      &#x2F;&#x2F; 判断返回是不是promise
+      if (!_promise2 || !_promise2.then)
+        throw new Error(
+          &quot;Tap function (tapPromise) did not return promise (returned &quot; +
+            _promise2 +
+            &quot;)&quot;
+        );
+      _promise2.then(
+        function (_result2) &#123;
+          _hasResult2 &#x3D; true;
+          if (_result2 !&#x3D;&#x3D; undefined) &#123;
+            _loop &#x3D; true;
+            if (_loopAsync) _looper();
+          &#125; else &#123;
+            if (!_loop) &#123;
+            &#125;
+          &#125;
+        &#125;
+        &#x2F;&#x2F; ... reject 处理
+      );
+    &#125;
+    function _next0() &#123;
+      var _fn1 &#x3D; _x[1];
+      var _hasResult1 &#x3D; false;
+      var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
+      &#x2F;&#x2F; ...
+      _promise1.then(
+        function (_result1) &#123;
+          _hasResult1 &#x3D; true;
+          if (_result1 !&#x3D;&#x3D; undefined) &#123;
+            _loop &#x3D; true;
+            if (_loopAsync) _looper();
+          &#125; else &#123;
+            _next1();
+          &#125;
+        &#125;
+        &#x2F;&#x2F; ... reject 处理
+      );
+    &#125;
+    var _fn0 &#x3D; _x[0];
+    var _hasResult0 &#x3D; false;
+    var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
+    &#x2F;&#x2F; ...
+    _promise0.then(
+      function (_result0) &#123;
+        _hasResult0 &#x3D; true;
+        if (_result0 !&#x3D;&#x3D; undefined) &#123;
+          _loop &#x3D; true;
+          if (_loopAsync) _looper();
+        &#125; else &#123;
+          _next0();
+        &#125;
+      &#125;
+      &#x2F;&#x2F; ... reject 处理
+    );
+  &#125; while (_loop);
+  _loopAsync &#x3D; true;
+&#125;;
+_looper();</code></pre>
+
+<h2 id="AsyncSeriesWaterfallHook"><a href="#AsyncSeriesWaterfallHook" class="headerlink" title="AsyncSeriesWaterfallHook"></a>AsyncSeriesWaterfallHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesWaterfallHook.js?L34">AsyncSeriesWaterfallHook</a>会对每次执行异步函数的结果当成下一个回调函数的入参（<code>callAsync</code>&#x2F;<code>promise</code>的入参 ），如果返回值是 <code>undefined</code>，使用上一个参数。</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesWaterfallHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new AsyncSeriesWaterfallHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesWaterfallHook&#96;的入参的数组有关系
+hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+      resolve(&quot;fn1-result&quot;); &#x2F;&#x2F; 返回值作为fn2的第一个入参
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+
+&#x2F;&#x2F; 执行结果
+&#x2F;&#x2F; fn0 a b c
+&#x2F;&#x2F; fn1 a b c
+&#x2F;&#x2F; fn2 fn1-result b c</code></pre>
+
+<p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
+<p><code>promise</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesWaterfallHook.js?L10:1">AsyncSeriesWaterfallHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L276">callTapsSeries</a>实现。 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+function _next2() &#123;
+  var _fn3 &#x3D; _x[3];
+  var _hasResult3 &#x3D; false;
+  var _promise3 &#x3D; _fn3(arg1, arg2, arg3);
+  if (!_promise3 || !_promise3.then)
+    &#x2F;&#x2F; 判断返回是不是promise
+    throw new Error(
+      &quot;Tap function (tapPromise) did not return promise (returned &quot; +
+        _promise3 +
+        &quot;)&quot;
+    );
+  _promise3.then(
+    function (_result3) &#123;
+      _hasResult3 &#x3D; true;
+      if (_result3 !&#x3D;&#x3D; undefined) &#123;
+        arg1 &#x3D; _result3;
+      &#125;
+      return arg1;
+    &#125;
+    &#x2F;&#x2F; ...
+  );
+&#125;
+function _next1() &#123;
+  var _fn2 &#x3D; _x[2];
+  var _hasResult2 &#x3D; false;
+  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
+  &#x2F;&#x2F; ...
+  _promise2.then(function (_result2) &#123;
+    _hasResult2 &#x3D; true;
+    if (_result2 !&#x3D;&#x3D; undefined) &#123;
+      arg1 &#x3D; _result2;
+    &#125;
+    _next2();
+  &#125;);
+&#125;
+function _next0() &#123;
+  var _fn1 &#x3D; _x[1];
+  var _hasResult1 &#x3D; false;
+  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
+  &#x2F;&#x2F; ...
+  _promise1.then(
+    function (_result1) &#123;
+      _hasResult1 &#x3D; true;
+      if (_result1 !&#x3D;&#x3D; undefined) &#123;
+        arg1 &#x3D; _result1;
+      &#125;
+      _next1();
+    &#125;
+    &#x2F;&#x2F; ...
+  );
+&#125;
+var _fn0 &#x3D; _x[0];
+var _hasResult0 &#x3D; false;
+var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
+&#x2F;&#x2F; ...
+_promise0.then(
+  function (_result0) &#123;
+    _hasResult0 &#x3D; true;
+    if (_result0 !&#x3D;&#x3D; undefined) &#123;
+      arg1 &#x3D; _result0;
+    &#125;
+    _next0();
+  &#125;
+  &#x2F;&#x2F; ...
+);</code></pre>
+
+<h2 id="AsyncParallelHook"><a href="#AsyncParallelHook" class="headerlink" title="AsyncParallelHook"></a>AsyncParallelHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelHook.js?L26:1">AsyncParallelHook</a>并行执行, 不关心回调函数的返回值。</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncParallelHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+&#x2F;&#x2F; 并行执行 不关心回调函数的返回值。
+const hook &#x3D; new AsyncParallelHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncParallelHook&#96;的入参的数组有关系
+hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+      resolve(&quot;fn1-result&quot;);
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 500);
+  &#125;);
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+
+&#x2F;&#x2F; 执行结果
+&#x2F;&#x2F; fn2 a b c
+&#x2F;&#x2F; fn0 a b c
+&#x2F;&#x2F; fn1 a b c</code></pre>
+
+<p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
+<p><code>promise</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelHook.js?L10:1">AsyncParallelHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L376:2">callTapsParallel</a>实现。 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+do &#123;
+  var _counter &#x3D; 3;
+  var _done &#x3D; function () &#123;&#125;;
+  if (_counter &lt;&#x3D; 0) break;
+  var _fn0 &#x3D; _x[0];
+  var _hasResult0 &#x3D; false;
+  var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
+
+  &#x2F;&#x2F; 判断返回是不是promise
+  if (!_promise0 || !_promise0.then)
+    throw new Error(
+      &quot;Tap function (tapPromise) did not return promise (returned &quot; +
+        _promise0 +
+        &quot;)&quot;
+    );
+  _promise0.then(
+    function (_result0) &#123;
+      _hasResult0 &#x3D; true;
+      if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+    &#125;,
+    function (_err0) &#123;
+      if (_hasResult0) throw _err0;
+      if (_counter &gt; 0) &#123;
+        throw _err0;
+        _counter &#x3D; 0;
+      &#125;
+    &#125;
+  );
+  if (_counter &lt;&#x3D; 0) break;
+  var _fn1 &#x3D; _x[1];
+  var _hasResult1 &#x3D; false;
+  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
+  &#x2F;&#x2F; ...
+  _promise1.then(
+    function (_result1) &#123;
+      _hasResult1 &#x3D; true;
+      if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+    &#125;,
+    function (_err1) &#123;
+      if (_hasResult1) throw _err1;
+      if (_counter &gt; 0) &#123;
+        throw _err1;
+        _counter &#x3D; 0;
+      &#125;
+    &#125;
+  );
+  if (_counter &lt;&#x3D; 0) break;
+  var _fn2 &#x3D; _x[2];
+  var _hasResult2 &#x3D; false;
+  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
+  &#x2F;&#x2F; ...
+  _promise2.then(
+    function (_result2) &#123;
+      _hasResult2 &#x3D; true;
+      if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+    &#125;,
+    function (_err2) &#123;
+      if (_hasResult2) throw _err2;
+      if (_counter &gt; 0) &#123;
+        throw _err2;
+        _counter &#x3D; 0;
+      &#125;
+    &#125;
+  );
+&#125; while (false);</code></pre>
+
+<h2 id="AsyncParallelBailHook"><a href="#AsyncParallelBailHook" class="headerlink" title="AsyncParallelBailHook"></a>AsyncParallelBailHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelBailHook.js?L74:1">AsyncParallelBailHook</a> 只要回调函数的返回值不为 <code>undefined</code>, 就会忽略后面的回调函数执行, 直接跳跃到 <code>callAsync</code> 等触发函数绑定的回调函数, 然后执行这个被绑定的回调函数。</p>
+<p>使用和原理与 SyncBailHook 相似</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncParallelBailHook &#125; &#x3D; require(&quot;tabable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+&#x2F;&#x2F; 并行执行 不关心回调函数的返回值。
+const hook &#x3D; new AsyncParallelBailHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncParallelBailHook&#96;的入参的数组有关系
+hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+      resolve(&quot;fn1-result&quot;);
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 500);
+  &#125;);
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+
+&#x2F;&#x2F; 执行结果
+&#x2F;&#x2F; fn2 a b c
+&#x2F;&#x2F; fn0 a b c
+&#x2F;&#x2F; fn1 a b c</code></pre>
+
+<p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
+<p><code>promise</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelBailHook.js?L10:1">AsyncParallelBailHookCodeFactory</a>的<code>content</code>实现。 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+var _results &#x3D; new Array(3);
+var _checkDone &#x3D; function () &#123;
+  for (var i &#x3D; 0; i &lt; _results.length; i++) &#123;
+    var item &#x3D; _results[i];
+    if (item &#x3D;&#x3D;&#x3D; undefined) return false;
+    if (item.result !&#x3D;&#x3D; undefined) &#123;
+      return item.result;
+      return true;
+    &#125;
+    if (item.error) &#123;
+      throw item.error;
+      return true;
+    &#125;
+  &#125;
+  return false;
+&#125;;
+do &#123;
+  var _counter &#x3D; 3;
+  var _done &#x3D; function () &#123;&#125;;
+  if (_counter &lt;&#x3D; 0) break;
+  var _fn0 &#x3D; _x[0];
+  var _hasResult0 &#x3D; false;
+  var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
+  &#x2F;&#x2F; 判断返回是不是promise
+  if (!_promise0 || !_promise0.then)
+    throw new Error(
+      &quot;Tap function (tapPromise) did not return promise (returned &quot; +
+        _promise0 +
+        &quot;)&quot;
+    );
+  _promise0.then(
+    function (_result0) &#123;
+      _hasResult0 &#x3D; true;
+      if (_counter &gt; 0) &#123;
+        if (
+          0 &lt; _results.length &amp;&amp;
+          (_result0 !&#x3D;&#x3D; undefined &amp;&amp; (_results.length &#x3D; 1),
+          (_results[0] &#x3D; &#123; result: _result0 &#125;),
+          _checkDone())
+        ) &#123;
+          _counter &#x3D; 0;
+        &#125; else &#123;
+          if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+        &#125;
+      &#125;
+    &#125;,
+    function (_err0) &#123;
+      if (_hasResult0) throw _err0;
+      if (_counter &gt; 0) &#123;
+        if (
+          0 &lt; _results.length &amp;&amp;
+          ((_results.length &#x3D; 1),
+          (_results[0] &#x3D; &#123; error: _err0 &#125;),
+          _checkDone())
+        ) &#123;
+          _counter &#x3D; 0;
+        &#125; else &#123;
+          if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+        &#125;
+      &#125;
+    &#125;
+  );
+  if (_counter &lt;&#x3D; 0) break;
+  if (1 &gt;&#x3D; _results.length) &#123;
+    if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+  &#125; else &#123;
+    var _fn1 &#x3D; _x[1];
+    var _hasResult1 &#x3D; false;
+    var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
+    &#x2F;&#x2F; ...
+    _promise1.then(
+      function (_result1) &#123;
+        _hasResult1 &#x3D; true;
+        if (_counter &gt; 0) &#123;
+          if (
+            1 &lt; _results.length &amp;&amp;
+            (_result1 !&#x3D;&#x3D; undefined &amp;&amp; (_results.length &#x3D; 2),
+            (_results[1] &#x3D; &#123; result: _result1 &#125;),
+            _checkDone())
+          ) &#123;
+            _counter &#x3D; 0;
+          &#125; else &#123;
+            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+          &#125;
+        &#125;
+      &#125;,
+      function (_err1) &#123;
+        if (_hasResult1) throw _err1;
+        if (_counter &gt; 0) &#123;
+          if (
+            1 &lt; _results.length &amp;&amp;
+            ((_results.length &#x3D; 2),
+            (_results[1] &#x3D; &#123; error: _err1 &#125;),
+            _checkDone())
+          ) &#123;
+            _counter &#x3D; 0;
+          &#125; else &#123;
+            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+          &#125;
+        &#125;
+      &#125;
+    );
+  &#125;
+  if (_counter &lt;&#x3D; 0) break;
+  if (2 &gt;&#x3D; _results.length) &#123;
+    if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+  &#125; else &#123;
+    var _fn2 &#x3D; _x[2];
+    var _hasResult2 &#x3D; false;
+    var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
+    &#x2F;&#x2F; ...
+    _promise2.then(
+      function (_result2) &#123;
+        _hasResult2 &#x3D; true;
+        if (_counter &gt; 0) &#123;
+          if (
+            2 &lt; _results.length &amp;&amp;
+            (_result2 !&#x3D;&#x3D; undefined &amp;&amp; (_results.length &#x3D; 3),
+            (_results[2] &#x3D; &#123; result: _result2 &#125;),
+            _checkDone())
+          ) &#123;
+            _counter &#x3D; 0;
+          &#125; else &#123;
+            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+          &#125;
+        &#125;
+      &#125;,
+      function (_err2) &#123;
+        if (_hasResult2) throw _err2;
+        if (_counter &gt; 0) &#123;
+          if (
+            2 &lt; _results.length &amp;&amp;
+            ((_results.length &#x3D; 3),
+            (_results[2] &#x3D; &#123; error: _err2 &#125;),
+            _checkDone())
+          ) &#123;
+            _counter &#x3D; 0;
+          &#125; else &#123;
+            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+          &#125;
+        &#125;
+      &#125;
+    );
+  &#125;
+&#125; while (false);</code></pre>
+
+<p>参考</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/webpack/tapable">tapable</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dennisj/p/14606902.html">webpack 核心模块 tapable 源码解析</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">三空</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://freeshineit.github.io/2022/11/28/webpack/tapable/">http://freeshineit.github.io/2022/11/28/webpack/tapable/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">三空</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/webpack/">
+                                    <span class="chip bg-color">webpack</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/11/28/gulp/source/">
+                    <div class="card-image">
+                        
+                        <img src="/images/cover/gulp.jpg" class="responsive-img" alt="Gulp 源码分析">
+                        
+                        <span class="card-title">Gulp 源码分析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Gulp 源码分析, 每行代码的含义和执行过程。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/gulp/" class="post-category">
+                                    gulp
+                                </a>
+                            
+                            <a href="/categories/gulp/tool/" class="post-category">
+                                    tool
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/gulp/">
+                        <span class="chip bg-color">gulp</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/11/13/webpack/config/">
+                    <div class="card-image">
+                        
+                        <img src="/images/cover/webpack.png" class="responsive-img" alt="webpack5 配置项">
+                        
+                        <span class="card-title">webpack5 配置项</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            webpack5 配置项说明
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/webpack/" class="post-category">
+                                    webpack
+                                </a>
+                            
+                            <a href="/categories/webpack/tool/" class="post-category">
+                                    tool
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/webpack5/">
+                        <span class="chip bg-color">webpack5</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+
+    <!--其他评论card-->
+    <div class="card" style="padding: 20px;">
+        <script src="https://giscus.app/client.js" data-repo="freeshineit/giscus-comments"
+            data-repo-id="R_kgDOI5ZcuQ" data-category="Q&A" data-category-id="DIC_kwDOI5Zcuc4CT-sM"
+            data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0"
+            data-input-position="top" data-theme="light" data-lang="zh-CN"
+            data-loading="lazy" crossorigin="anonymous" async id="giscus">
+            </script>
+        <!-- 评论 -->
+        <div class="giscus"></div>
+    </div>
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" >
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color" style="min-height: 280px">
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 social-link" style="height: 100px; line-height: 100px; margin-bottom: 20px">
+    <a href="https://github.com/freeshineit" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:xiaoshaoqq@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="https://www.facebook.com/xiaoshaoqq" class="tooltipped" target="_blank" data-tooltip="关注我的Facebook: https://www.facebook.com/xiaoshaoqq" data-position="top" data-delay="50">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+
+
+    <a href="https://twitter.com/xiaoshaoqq" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/xiaoshaoqq" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=842383741" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 842383741" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+        <div class="col s12 copy-right" style="line-height: 30px; margin-bottom: 10px">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <a href="/about" target="_blank">三空</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+
+            
+
+            <br>
+            <!-- 站点总字数 -->
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">18.2k</span>
+            
+            <!-- -->
+            
+            
+                
+            
+
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2023";
+                        var startMonth = "2";
+                        var startDate = "18";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'default';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = '本站已运行 ' + diffDays + ' 天';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } 
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
