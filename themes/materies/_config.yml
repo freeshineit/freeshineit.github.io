@@ -321,7 +321,7 @@ libs:
     fontAwesome: /libs/awesome/css/all.min.css # V6.1.2 20220809
     materialize: /libs/materialize/materialize.min.css # 1.0.0 20211109
     aos: /libs/aos/aos.css
-    animate: /libs/animate/animate.min.css # V3.5.1
+    animate: https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css #/libs/animate/animate.min.css # V3.5.1
     lightgallery: /libs/lightGallery/css/lightgallery.min.css # V1.10.0
     jqcloud: /libs/jqcloud/jqcloud.css
     tocbot: /libs/tocbot/tocbot.css
