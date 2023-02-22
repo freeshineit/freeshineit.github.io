@@ -39,6 +39,8 @@ top: true
 
 ### javascript 的词法分析
 
+https://juejin.cn/post/6943550570515038245
+
 ### 继承
 
 ```ts
@@ -47,7 +49,7 @@ function PersonFn () {}
 
 function SupermanFn() {}
 
-SupermanFn.prototype
+SupermanFn.prototype = new PersonFn()
 
 
 // es6
@@ -59,12 +61,43 @@ class Superman extends Person {}
 ### 洋葱模型
 
 ```ts
+// 类似递归
+// 在 next 中执行下一个function, 依次递归
+// 如果不好理解可以参考`tapable` 中代码的实现, `tapable`是把所有函数铺平，依次嵌套
+// 而下面的实现是对依次嵌套改成了递归嵌套
+// 以上是个人理解
+function compose (middleware) {
+   return async function () {
+      let args = arguments
+      async function dispatch (i) {
+         const fn = middleware[i]
+         if (!fn) return null
+         await fn(function next () {
+            dispatch(i + 1)
+         }, ...args)
+      }
 
+      await dispatch(0)
+   }
+}
 
-type context = function (c any)
+let middleware = []
+middleware.push((next) => {
+	console.log(0)
+	next()
+	console.log("next:", 3.3)
+})
+middleware.push((next) => {
+	console.log(1)
+	next()
+	console.log("next:", 1.1)
+})
+middleware.push(() => {
+    console.log(2)
+})
 
-type FunctionHandle = function () context
-
+let fn = compose(middleware)
+fn() // 0 1 2 next:1.1 next:3.3
 
 ```
 
@@ -86,7 +119,7 @@ type FunctionHandle = function () context
 
 ### 浏览器 GC
 
-### node
+## node
 
 ### npm 执行命令的流程
 
@@ -119,7 +152,6 @@ type FunctionHandle = function () context
 
 ### 网络分层
 
-###
 
 ## TypeScript
 
