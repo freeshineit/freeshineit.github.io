@@ -466,6 +466,74 @@ m&amp;sup3; m³</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>Sass 语法</title>
+    <url>/2022/10/08/css/scss/</url>
+    <content><![CDATA[<h2 id="each-使用说明"><a href="#each-使用说明" class="headerlink" title="@each 使用说明"></a><code>@each</code> 使用说明</h2><p>The <a href="https://sass-lang.com/documentation/at-rules/control/each">@each</a> rule makes it easy to emit styles or evaluate code for each element of a list or each pair in a map. It’s great for repetitive styles that only have a few variations between them. It’s usually written</p>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><pre class="language-scss" data-language="scss"><code class="language-scss">$sizes: 40px, 50px, 80px;
+@each $size in $sizes &#123;
+  .icon-#&#123;$size&#125; &#123;
+    font-size: $size;
+    height: $size;
+    width: $size;
+  &#125;
+&#125;
+
+# result .icon-40px &#123;
+  font-size: 40px;
+  height: 40px;
+  width: 40px;
+&#125;
+
+.icon-50px &#123;
+  font-size: 50px;
+  height: 50px;
+  width: 50px;
+&#125;
+
+.icon-80px &#123;
+  font-size: 80px;
+  height: 80px;
+  width: 80px;
+&#125;</code></pre>
+
+<pre class="language-scss" data-language="scss"><code class="language-scss">&#x2F;&#x2F; 数组
+$countries: ((ad, 376), (ae, 971)), ((az, 994), (ba, 387));
+$offset: -32px;
+
+@each $arr in $countries &#123;
+  &#x2F;&#x2F; get index (form 1)
+  $i: index($countries, $arr); &#x2F;&#x2F; &#x3D;&gt; number | null
+
+  @each $c in $arr &#123;
+    $j: index($arr, $c);
+
+    .flag.flag-#&#123;nth($c, 1)&#125; &#123;
+      background-position: $offset * ($j - 1) $offset * ($i - 1);
+    &#125;
+  &#125;
+&#125;
+
+# result .flag.flag-ad &#123;
+  background-position: 0px 0px;
+&#125;
+.flag.flag-ae &#123;
+  background-position: -32px 0px;
+&#125;
+.flag.flag-az &#123;
+  background-position: 0px -32px;
+&#125;
+.flag.flag-ba &#123;
+  background-position: -32px -32px;
+&#125;</code></pre>]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>Sass</tag>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git 常用命令</title>
     <url>/2023/02/18/git/antic/</url>
     <content><![CDATA[<h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><pre class="language-bash" data-language="bash"><code class="language-bash"># rebase
@@ -533,74 +601,6 @@ git config --global alias.llg &quot;log --color --graph --pretty&#x3D;format:&#3
       <tags>
         <tag>Git</tag>
         <tag>Tool</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Sass 语法</title>
-    <url>/2022/10/08/css/scss/</url>
-    <content><![CDATA[<h2 id="each-使用说明"><a href="#each-使用说明" class="headerlink" title="@each 使用说明"></a><code>@each</code> 使用说明</h2><p>The <a href="https://sass-lang.com/documentation/at-rules/control/each">@each</a> rule makes it easy to emit styles or evaluate code for each element of a list or each pair in a map. It’s great for repetitive styles that only have a few variations between them. It’s usually written</p>
-<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><pre class="language-scss" data-language="scss"><code class="language-scss">$sizes: 40px, 50px, 80px;
-@each $size in $sizes &#123;
-  .icon-#&#123;$size&#125; &#123;
-    font-size: $size;
-    height: $size;
-    width: $size;
-  &#125;
-&#125;
-
-# result .icon-40px &#123;
-  font-size: 40px;
-  height: 40px;
-  width: 40px;
-&#125;
-
-.icon-50px &#123;
-  font-size: 50px;
-  height: 50px;
-  width: 50px;
-&#125;
-
-.icon-80px &#123;
-  font-size: 80px;
-  height: 80px;
-  width: 80px;
-&#125;</code></pre>
-
-<pre class="language-scss" data-language="scss"><code class="language-scss">&#x2F;&#x2F; 数组
-$countries: ((ad, 376), (ae, 971)), ((az, 994), (ba, 387));
-$offset: -32px;
-
-@each $arr in $countries &#123;
-  &#x2F;&#x2F; get index (form 1)
-  $i: index($countries, $arr); &#x2F;&#x2F; &#x3D;&gt; number | null
-
-  @each $c in $arr &#123;
-    $j: index($arr, $c);
-
-    .flag.flag-#&#123;nth($c, 1)&#125; &#123;
-      background-position: $offset * ($j - 1) $offset * ($i - 1);
-    &#125;
-  &#125;
-&#125;
-
-# result .flag.flag-ad &#123;
-  background-position: 0px 0px;
-&#125;
-.flag.flag-ae &#123;
-  background-position: -32px 0px;
-&#125;
-.flag.flag-az &#123;
-  background-position: 0px -32px;
-&#125;
-.flag.flag-ba &#123;
-  background-position: -32px -32px;
-&#125;</code></pre>]]></content>
-      <categories>
-        <category>css</category>
-      </categories>
-      <tags>
-        <tag>Sass</tag>
-        <tag>css</tag>
       </tags>
   </entry>
   <entry>
