@@ -15,12 +15,13 @@
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions#%E8%A7%A3%E6%9E%90%E9%A1%BA%E5%BA%8F">解析顺序</a> 虽然箭头函数中的箭头不是运算符，但箭头函数具有与常规函数不同的特殊运算符优先级解析规则。</li>
 </ul>
 <p><a href="https://juejin.cn/post/6844903805960585224">ES6 - 箭头函数、箭头函数与普通函数的区别</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions">箭头函数</a></p>
-<h3 id="javascript-闭包"><a href="#javascript-闭包" class="headerlink" title="javascript 闭包"></a>javascript 闭包</h3><h3 id="javascript-的作用域"><a href="#javascript-的作用域" class="headerlink" title="javascript 的作用域"></a>javascript 的作用域</h3><h3 id="javascript-变量向上找取的原理-执行上下文"><a href="#javascript-变量向上找取的原理-执行上下文" class="headerlink" title="javascript 变量向上找取的原理(执行上下文)"></a>javascript 变量向上找取的原理(执行上下文)</h3><h3 id="javascript-的语法分析"><a href="#javascript-的语法分析" class="headerlink" title="javascript 的语法分析"></a>javascript 的语法分析</h3><h3 id="javascript-的词法分析"><a href="#javascript-的词法分析" class="headerlink" title="javascript 的词法分析"></a>javascript 的词法分析</h3><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;&#x2F; es5
+<h3 id="javascript-闭包"><a href="#javascript-闭包" class="headerlink" title="javascript 闭包"></a>javascript 闭包</h3><h3 id="javascript-的作用域"><a href="#javascript-的作用域" class="headerlink" title="javascript 的作用域"></a>javascript 的作用域</h3><h3 id="javascript-变量向上找取的原理-执行上下文"><a href="#javascript-变量向上找取的原理-执行上下文" class="headerlink" title="javascript 变量向上找取的原理(执行上下文)"></a>javascript 变量向上找取的原理(执行上下文)</h3><h3 id="javascript-的语法分析"><a href="#javascript-的语法分析" class="headerlink" title="javascript 的语法分析"></a>javascript 的语法分析</h3><h3 id="javascript-的词法分析"><a href="#javascript-的词法分析" class="headerlink" title="javascript 的词法分析"></a>javascript 的词法分析</h3><p><a href="https://juejin.cn/post/6943550570515038245">https://juejin.cn/post/6943550570515038245</a></p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;&#x2F; es5
 function PersonFn () &#123;&#125;
 
 function SupermanFn() &#123;&#125;
 
-SupermanFn.prototype
+SupermanFn.prototype &#x3D; new PersonFn()
 
 
 &#x2F;&#x2F; es6
@@ -28,12 +29,43 @@ class Person () &#123;&#125;
 
 class Superman extends Person &#123;&#125;</code></pre>
 
-<h3 id="洋葱模型"><a href="#洋葱模型" class="headerlink" title="洋葱模型"></a>洋葱模型</h3><pre class="language-typescript" data-language="typescript"><code class="language-typescript">
+<h3 id="洋葱模型"><a href="#洋葱模型" class="headerlink" title="洋葱模型"></a>洋葱模型</h3><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;&#x2F; 类似递归
+&#x2F;&#x2F; 在 next 中执行下一个function, 依次递归
+&#x2F;&#x2F; 如果不好理解可以参考&#96;tapable&#96; 中代码的实现, &#96;tapable&#96;是把所有函数铺平，依次嵌套
+&#x2F;&#x2F; 而下面的实现是对依次嵌套改成了递归嵌套
+&#x2F;&#x2F; 以上是个人理解
+function compose (middleware) &#123;
+   return async function () &#123;
+      let args &#x3D; arguments
+      async function dispatch (i) &#123;
+         const fn &#x3D; middleware[i]
+         if (!fn) return null
+         await fn(function next () &#123;
+            dispatch(i + 1)
+         &#125;, ...args)
+      &#125;
 
-type context &#x3D; function (c any)
+      await dispatch(0)
+   &#125;
+&#125;
 
-type FunctionHandle &#x3D; function () context
+let middleware &#x3D; []
+middleware.push((next) &#x3D;&gt; &#123;
+	console.log(0)
+	next()
+	console.log(&quot;next:&quot;, 3.3)
+&#125;)
+middleware.push((next) &#x3D;&gt; &#123;
+	console.log(1)
+	next()
+	console.log(&quot;next:&quot;, 1.1)
+&#125;)
+middleware.push(() &#x3D;&gt; &#123;
+    console.log(2)
+&#125;)
 
+let fn &#x3D; compose(middleware)
+fn() &#x2F;&#x2F; 0 1 2 next:1.1 next:3.3
 </code></pre>
 
 <h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><h3 id="浏览器的进程（Chrome）"><a href="#浏览器的进程（Chrome）" class="headerlink" title="浏览器的进程（Chrome）"></a>浏览器的进程（Chrome）</h3><ul>
@@ -45,7 +77,7 @@ type FunctionHandle &#x3D; function () context
 </ul>
 <p><a href="https://juejin.cn/post/6844903812642111501">浏览器多线程和 js 单线程</a></p>
 <h3 id="在浏览器输入-URL-回车之后发生了什么"><a href="#在浏览器输入-URL-回车之后发生了什么" class="headerlink" title="在浏览器输入 URL 回车之后发生了什么"></a>在浏览器输入 URL 回车之后发生了什么</h3><p><a href="https://zhuanlan.zhihu.com/p/80551769">在浏览器输入 URL 回车之后发生了什么</a></p>
-<h3 id="浏览器-GC"><a href="#浏览器-GC" class="headerlink" title="浏览器 GC"></a>浏览器 GC</h3><h3 id="node"><a href="#node" class="headerlink" title="node"></a>node</h3><h3 id="npm-执行命令的流程"><a href="#npm-执行命令的流程" class="headerlink" title="npm 执行命令的流程"></a>npm 执行命令的流程</h3><h3 id="eventloop"><a href="#eventloop" class="headerlink" title="eventloop"></a>eventloop</h3><h3 id="前端页面优化"><a href="#前端页面优化" class="headerlink" title="前端页面优化"></a>前端页面优化</h3><ul>
+<h3 id="浏览器-GC"><a href="#浏览器-GC" class="headerlink" title="浏览器 GC"></a>浏览器 GC</h3><h2 id="node"><a href="#node" class="headerlink" title="node"></a>node</h2><h3 id="npm-执行命令的流程"><a href="#npm-执行命令的流程" class="headerlink" title="npm 执行命令的流程"></a>npm 执行命令的流程</h3><h3 id="eventloop"><a href="#eventloop" class="headerlink" title="eventloop"></a>eventloop</h3><h3 id="前端页面优化"><a href="#前端页面优化" class="headerlink" title="前端页面优化"></a>前端页面优化</h3><ul>
 <li>压缩 js&#x2F;css&#x2F;html&#x2F;图片，减少请求流量</li>
 <li>合并小文件都一个文件中，减少请求数</li>
 <li>静态资源使用 CDN</li>
@@ -64,7 +96,7 @@ type FunctionHandle &#x3D; function () context
 <li>如果有必要可以使用Workers</li>
 <li>避免&#x2F;减少重排与重绘</li>
 </ul>
-<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="http1-和-http2-的区别"><a href="#http1-和-http2-的区别" class="headerlink" title="http1 和 http2 的区别"></a>http1 和 http2 的区别</h3><h3 id="网络分层"><a href="#网络分层" class="headerlink" title="网络分层"></a>网络分层</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h2><h3 id="TypeScript-的类型"><a href="#TypeScript-的类型" class="headerlink" title="TypeScript 的类型"></a>TypeScript 的类型</h3><p><code>any</code>,<code>string</code>,<code>number</code>,<code>boolean</code>,<code>Symbol</code>,<code>Array</code>,<code>null</code>,<code>unknow</code>,<code>never</code>,<code>void</code> …</p>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="http1-和-http2-的区别"><a href="#http1-和-http2-的区别" class="headerlink" title="http1 和 http2 的区别"></a>http1 和 http2 的区别</h3><h3 id="网络分层"><a href="#网络分层" class="headerlink" title="网络分层"></a>网络分层</h3><h2 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h2><h3 id="TypeScript-的类型"><a href="#TypeScript-的类型" class="headerlink" title="TypeScript 的类型"></a>TypeScript 的类型</h3><p><code>any</code>,<code>string</code>,<code>number</code>,<code>boolean</code>,<code>Symbol</code>,<code>Array</code>,<code>null</code>,<code>unknow</code>,<code>never</code>,<code>void</code> …</p>
 <h3 id="TypeScript-中-any、never、unknown、null-amp-undefined-和-void-有什么区别？"><a href="#TypeScript-中-any、never、unknown、null-amp-undefined-和-void-有什么区别？" class="headerlink" title="TypeScript 中 any、never、unknown、null &amp; undefined 和 void 有什么区别？"></a>TypeScript 中 any、never、unknown、null &amp; undefined 和 void 有什么区别？</h3><pre class="language-none"><code class="language-none">any: 动态的变量类型（失去了类型检查的作用）。
 never: 永不存在的值的类型。例如：never 类型是那些总是会抛出异常或根本就不会有返回值的函数表达式或箭头函数表达式的返回值类型。
 unknown: 任何类型的值都可以赋给  unknown  类型，但是  unknown  类型的值只能赋给  unknown  本身和  any  类型。
@@ -260,7 +292,7 @@ let hashMap &#x3D; new HashMap();</code></pre>
   </entry>
   <entry>
     <title>Markdown</title>
-    <url>/2023/02/19/markdown/</url>
+    <url>/2023/02/22/markdown/</url>
     <content><![CDATA[<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><p>使用数字加<code>.</code> 加空格开头</p>
 <pre class="language-markdown" data-language="markdown"><code class="language-markdown">1. 有序列表 1
 2. 有序列表 2
@@ -434,74 +466,6 @@ m&amp;sup3; m³</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Sass 语法</title>
-    <url>/2022/10/08/css/scss/</url>
-    <content><![CDATA[<h2 id="each-使用说明"><a href="#each-使用说明" class="headerlink" title="@each 使用说明"></a><code>@each</code> 使用说明</h2><p>The <a href="https://sass-lang.com/documentation/at-rules/control/each">@each</a> rule makes it easy to emit styles or evaluate code for each element of a list or each pair in a map. It’s great for repetitive styles that only have a few variations between them. It’s usually written</p>
-<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><pre class="language-scss" data-language="scss"><code class="language-scss">$sizes: 40px, 50px, 80px;
-@each $size in $sizes &#123;
-  .icon-#&#123;$size&#125; &#123;
-    font-size: $size;
-    height: $size;
-    width: $size;
-  &#125;
-&#125;
-
-# result .icon-40px &#123;
-  font-size: 40px;
-  height: 40px;
-  width: 40px;
-&#125;
-
-.icon-50px &#123;
-  font-size: 50px;
-  height: 50px;
-  width: 50px;
-&#125;
-
-.icon-80px &#123;
-  font-size: 80px;
-  height: 80px;
-  width: 80px;
-&#125;</code></pre>
-
-<pre class="language-scss" data-language="scss"><code class="language-scss">&#x2F;&#x2F; 数组
-$countries: ((ad, 376), (ae, 971)), ((az, 994), (ba, 387));
-$offset: -32px;
-
-@each $arr in $countries &#123;
-  &#x2F;&#x2F; get index (form 1)
-  $i: index($countries, $arr); &#x2F;&#x2F; &#x3D;&gt; number | null
-
-  @each $c in $arr &#123;
-    $j: index($arr, $c);
-
-    .flag.flag-#&#123;nth($c, 1)&#125; &#123;
-      background-position: $offset * ($j - 1) $offset * ($i - 1);
-    &#125;
-  &#125;
-&#125;
-
-# result .flag.flag-ad &#123;
-  background-position: 0px 0px;
-&#125;
-.flag.flag-ae &#123;
-  background-position: -32px 0px;
-&#125;
-.flag.flag-az &#123;
-  background-position: 0px -32px;
-&#125;
-.flag.flag-ba &#123;
-  background-position: -32px -32px;
-&#125;</code></pre>]]></content>
-      <categories>
-        <category>css</category>
-      </categories>
-      <tags>
-        <tag>Sass</tag>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git 常用命令</title>
     <url>/2023/02/18/git/antic/</url>
     <content><![CDATA[<h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><pre class="language-bash" data-language="bash"><code class="language-bash"># rebase
@@ -569,6 +533,74 @@ git config --global alias.llg &quot;log --color --graph --pretty&#x3D;format:&#3
       <tags>
         <tag>Git</tag>
         <tag>Tool</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Sass 语法</title>
+    <url>/2022/10/08/css/scss/</url>
+    <content><![CDATA[<h2 id="each-使用说明"><a href="#each-使用说明" class="headerlink" title="@each 使用说明"></a><code>@each</code> 使用说明</h2><p>The <a href="https://sass-lang.com/documentation/at-rules/control/each">@each</a> rule makes it easy to emit styles or evaluate code for each element of a list or each pair in a map. It’s great for repetitive styles that only have a few variations between them. It’s usually written</p>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><pre class="language-scss" data-language="scss"><code class="language-scss">$sizes: 40px, 50px, 80px;
+@each $size in $sizes &#123;
+  .icon-#&#123;$size&#125; &#123;
+    font-size: $size;
+    height: $size;
+    width: $size;
+  &#125;
+&#125;
+
+# result .icon-40px &#123;
+  font-size: 40px;
+  height: 40px;
+  width: 40px;
+&#125;
+
+.icon-50px &#123;
+  font-size: 50px;
+  height: 50px;
+  width: 50px;
+&#125;
+
+.icon-80px &#123;
+  font-size: 80px;
+  height: 80px;
+  width: 80px;
+&#125;</code></pre>
+
+<pre class="language-scss" data-language="scss"><code class="language-scss">&#x2F;&#x2F; 数组
+$countries: ((ad, 376), (ae, 971)), ((az, 994), (ba, 387));
+$offset: -32px;
+
+@each $arr in $countries &#123;
+  &#x2F;&#x2F; get index (form 1)
+  $i: index($countries, $arr); &#x2F;&#x2F; &#x3D;&gt; number | null
+
+  @each $c in $arr &#123;
+    $j: index($arr, $c);
+
+    .flag.flag-#&#123;nth($c, 1)&#125; &#123;
+      background-position: $offset * ($j - 1) $offset * ($i - 1);
+    &#125;
+  &#125;
+&#125;
+
+# result .flag.flag-ad &#123;
+  background-position: 0px 0px;
+&#125;
+.flag.flag-ae &#123;
+  background-position: -32px 0px;
+&#125;
+.flag.flag-az &#123;
+  background-position: 0px -32px;
+&#125;
+.flag.flag-ba &#123;
+  background-position: -32px -32px;
+&#125;</code></pre>]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>Sass</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
