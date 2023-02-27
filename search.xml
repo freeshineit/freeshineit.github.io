@@ -292,7 +292,7 @@ let hashMap &#x3D; new HashMap();</code></pre>
   </entry>
   <entry>
     <title>Markdown</title>
-    <url>/2023/02/24/markdown/</url>
+    <url>/2023/02/27/markdown/</url>
     <content><![CDATA[<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><p>使用数字加<code>.</code> 加空格开头</p>
 <pre class="language-markdown" data-language="markdown"><code class="language-markdown">1. 有序列表 1
 2. 有序列表 2
@@ -1247,6 +1247,73 @@ img.src &#x3D; url;
       </tags>
   </entry>
   <entry>
+    <title>Mac 工具</title>
+    <url>/2023/02/18/tools/mac/</url>
+    <content><![CDATA[<h2 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a><a href="https://brew.sh/">homebrew</a></h2><p><a href="https://brew.sh/">homebrew</a> 安装 <code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</code></p>
+<ol>
+<li><p>安装插件</p>
+<ul>
+<li>安装 <a href="https://git-scm.com/">git</a></li>
+</ul>
+<p><code>brew install git</code></p>
+<ul>
+<li>安装 <a href="https://github.com/wting/autojump">autojump</a></li>
+</ul>
+<p><code>brew install autojump</code></p>
+<p>在 ~&#x2F;.zshrc 中找到<code>plugins</code> 添加 <code>autojump</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
+</li>
+</ol>
+<h2 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a><a href="https://iterm2.com/">iTerm2</a></h2><ol>
+<li><p>安装插件</p>
+<ul>
+<li>安装 <a href="https://ohmyz.sh/">oh-my-zsh</a> 主题</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash">sh -c &quot;\$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;master&#x2F;tools&#x2F;install.sh)&quot;</code></pre>
+
+<ul>
+<li>安装 <a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a></li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-autosuggestions $&#123;ZSH_CUSTOM:-~&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;plugins&#x2F;zsh-autosuggestions</code></pre>
+
+<p>在 ~&#x2F;.zshrc 中找到<code>plugins</code> 添加 <code>zsh-autosuggestions</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
+<ul>
+<li>安装 <a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a></li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;plugins&#x2F;zsh-syntax-highlighting</code></pre>
+
+<p>在 ~&#x2F;.zshrc 中找到<code>plugins</code> 添加 <code>zsh-syntax-highlighting</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
+<p>最终结果</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">plugins&#x3D;(
+ git
+ zsh-syntax-highlighting
+ zsh-autosuggestions
+ autojump
+)</code></pre></li>
+</ol>
+<h2 id="vim-配置"><a href="#vim-配置" class="headerlink" title="vim 配置"></a>vim 配置</h2><p>可以参考 阮一峰老师的 <a href="https://www.ruanyifeng.com/blog/2018/09/vimrc.html">Vim 配置入门</a></p>
+<p>在 <code>~/.vimrc</code> 配置 (如果没有请自建<code>touch ~/.vimrc</code>)</p>
+<p>我的基本设置</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">set number
+syntax on
+set mouse&#x3D;a
+set encoding&#x3D;utf-8
+set autoindent
+set tabstop&#x3D;2
+set cursorline
+set ruler
+set showmatch
+set incsearch
+set hlsearch</code></pre>
+]]></content>
+      <categories>
+        <category>Tool</category>
+      </categories>
+      <tags>
+        <tag>Tool</tag>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Yarn workspace</title>
     <url>/2021/08/05/tools/yarn_workspace/</url>
     <content><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p><a href="https://yarnpkg.com/features/workspaces">yarn Workspaces</a> 旨在简化 monorepos 的使用，以更具声明性的方式解决 yarn 链接的主要用例之一。简言之，它们允许您的多个项目一起生活在同一个存储库中，并相互交叉引用——对一个项目的源代码的任何修改都会立即应用于其他项目。</p>
@@ -1802,73 +1869,6 @@ const App: FC&lt;IProps&gt; &#x3D; props &#x3D;&gt; &lt;div&gt;&#123;props.child
       </categories>
       <tags>
         <tag>Typescript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mac 工具</title>
-    <url>/2023/02/18/tools/mac/</url>
-    <content><![CDATA[<h2 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a><a href="https://brew.sh/">homebrew</a></h2><p><a href="https://brew.sh/">homebrew</a> 安装 <code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</code></p>
-<ol>
-<li><p>安装插件</p>
-<ul>
-<li>安装 <a href="https://git-scm.com/">git</a></li>
-</ul>
-<p><code>brew install git</code></p>
-<ul>
-<li>安装 <a href="https://github.com/wting/autojump">autojump</a></li>
-</ul>
-<p><code>brew install autojump</code></p>
-<p>在 ~&#x2F;.zshrc 中找到<code>plugins</code> 添加 <code>autojump</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
-</li>
-</ol>
-<h2 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a><a href="https://iterm2.com/">iTerm2</a></h2><ol>
-<li><p>安装插件</p>
-<ul>
-<li>安装 <a href="https://ohmyz.sh/">oh-my-zsh</a> 主题</li>
-</ul>
-<pre class="language-bash" data-language="bash"><code class="language-bash">sh -c &quot;\$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;master&#x2F;tools&#x2F;install.sh)&quot;</code></pre>
-
-<ul>
-<li>安装 <a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a></li>
-</ul>
-<pre class="language-bash" data-language="bash"><code class="language-bash">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-autosuggestions $&#123;ZSH_CUSTOM:-~&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;plugins&#x2F;zsh-autosuggestions</code></pre>
-
-<p>在 ~&#x2F;.zshrc 中找到<code>plugins</code> 添加 <code>zsh-autosuggestions</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
-<ul>
-<li>安装 <a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a></li>
-</ul>
-<pre class="language-bash" data-language="bash"><code class="language-bash">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;plugins&#x2F;zsh-syntax-highlighting</code></pre>
-
-<p>在 ~&#x2F;.zshrc 中找到<code>plugins</code> 添加 <code>zsh-syntax-highlighting</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
-<p>最终结果</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash">plugins&#x3D;(
- git
- zsh-syntax-highlighting
- zsh-autosuggestions
- autojump
-)</code></pre></li>
-</ol>
-<h2 id="vim-配置"><a href="#vim-配置" class="headerlink" title="vim 配置"></a>vim 配置</h2><p>可以参考 阮一峰老师的 <a href="https://www.ruanyifeng.com/blog/2018/09/vimrc.html">Vim 配置入门</a></p>
-<p>在 <code>~/.vimrc</code> 配置 (如果没有请自建<code>touch ~/.vimrc</code>)</p>
-<p>我的基本设置</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash">set number
-syntax on
-set mouse&#x3D;a
-set encoding&#x3D;utf-8
-set autoindent
-set tabstop&#x3D;2
-set cursorline
-set ruler
-set showmatch
-set incsearch
-set hlsearch</code></pre>
-]]></content>
-      <categories>
-        <category>Tool</category>
-      </categories>
-      <tags>
-        <tag>Tool</tag>
-        <tag>Mac</tag>
       </tags>
   </entry>
   <entry>
