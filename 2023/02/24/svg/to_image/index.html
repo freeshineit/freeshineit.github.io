@@ -52,7 +52,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
 </head>
 
 
@@ -361,14 +361,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-27
+                    2024-10-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    89
+                    73
                 </div>
                 
 
@@ -398,21 +398,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="svg-转图片"><a href="#svg-转图片" class="headerlink" title="svg 转图片"></a>svg 转图片</h2><pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 序列化 svg 文件（xml） 转成字符串
-const svgString &#x3D; new XMLSerializer()
-  .serializeToString(document.getElementById(&#39;svg&#39;));
+                <h2 id="svg-转图片"><a href="#svg-转图片" class="headerlink" title="svg 转图片"></a>svg 转图片</h2><pre><code class="highlight js"><span class="comment">// 序列化 svg 文件（xml） 转成字符串</span>
+<span class="keyword">const</span> svgString = <span class="keyword">new</span> <span class="title class_">XMLSerializer</span>()
+  .<span class="title function_">serializeToString</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;svg&#x27;</span>));
 
-const img &#x3D; new Image();
-&#x2F;&#x2F; svgString svg的xml文件字符串
-const svg &#x3D; new Blob([svgString], &#123;type: &quot;image&#x2F;svg+xml;charset&#x3D;utf-8&quot;&#125;);
+<span class="keyword">const</span> img = <span class="keyword">new</span> <span class="title class_">Image</span>();
+<span class="comment">// svgString svg的xml文件字符串</span>
+<span class="keyword">const</span> svg = <span class="keyword">new</span> <span class="title class_">Blob</span>([svgString], &#123;<span class="attr">type</span>: <span class="string">&quot;image/svg+xml;charset=utf-8&quot;</span>&#125;);
 
-const domURL &#x3D; self.URL || self.webkitURL || self;
-const url &#x3D; domURL.createObjectURL(svg);
+<span class="keyword">const</span> domURL = self.<span class="property">URL</span> || self.<span class="property">webkitURL</span> || self;
+<span class="keyword">const</span> url = domURL.<span class="title function_">createObjectURL</span>(svg);
 
-img.src &#x3D; url;
+img.<span class="property">src</span> = url;
 
-&#x2F;&#x2F; append img to body
-&#x2F;&#x2F; ...</code></pre>
+<span class="comment">// append img to body</span>
+<span class="comment">// ...</span></code></pre>
 
 
                 
@@ -543,30 +543,30 @@ img.src &#x3D; url;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/02/27/markdown/">
+                <a href="/2024/10/01/react/cra5_craco7_antd4/">
                     <div class="card-image">
                         
-                        <img src="/images/cover/mac.jpg" class="responsive-img" alt="Markdown">
+                        <img src="/images/cover/react.jpg" class="responsive-img" alt="react-scripts5 + craco7 + antd4 配置">
                         
-                        <span class="card-title">Markdown</span>
+                        <span class="card-title">react-scripts5 + craco7 + antd4 配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Markdown 语法
+                            使用react-scripts@5 结合 @craco/craco@7 配置 antd4
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-27
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-10-01
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Markdown/" class="post-category">
-                                    Markdown
+                            <a href="/categories/React/" class="post-category">
+                                    React
                                 </a>
                             
                             
@@ -576,8 +576,8 @@ img.src &#x3D; url;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Markdown/">
-                        <span class="chip bg-color">Markdown</span>
+                    <a href="/tags/React/">
+                        <span class="chip bg-color">React</span>
                     </a>
                     
                 </div>
@@ -819,7 +819,7 @@ img.src &#x3D; url;
         <div class="col s12 copy-right" style="line-height: 30px; margin-bottom: 10px">
             Copyright&nbsp;&copy;
             
-                <span id="year">2023</span>
+                <span id="year">2023-2024</span>
             
             <a href="/about" target="_blank">三空</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
@@ -830,7 +830,7 @@ img.src &#x3D; url;
             <!-- 站点总字数 -->
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">18.4k</span>
+                        class="white-color">17.2k</span>
             
             <!-- -->
             

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Typescript">
-    <meta name="description" content="Typescript 类型操作 Type Interface Generics, Partial、Required、Readonly、Pick ...">
+    <meta name="keywords" content="React, config">
+    <meta name="description" content="使用react-scripts@5 结合 @craco/craco@7 配置 antd4">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Typescript 类型操作 | 三空</title>
+    <title>react-scripts5 + craco7 + antd4 配置 | 三空</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -300,12 +300,12 @@
 
     
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/cover/ts-banner.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/cover/react-banner.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Typescript 类型操作</h1>
+                    <h1 class="description center-align post-title">react-scripts5 + craco7 + antd4 配置</h1>
                 </div>
             </div>
         </div>
@@ -329,8 +329,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Typescript/">
-                                <span class="chip bg-color">Typescript</span>
+                            <a href="/tags/React/">
+                                <span class="chip bg-color">React</span>
                             </a>
                         
                     </div>
@@ -341,8 +341,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Typescript/" class="post-category">
-                                Typescript
+                            <a href="/categories/React/" class="post-category">
+                                React
                             </a>
                         
                     </div>
@@ -354,7 +354,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-21
+                    2024-10-01
                 </div>
                 
 
@@ -368,14 +368,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    955
+                    694
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    3 分
                 </div>
                 
 
@@ -398,308 +398,96 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Ts-类型操作"><a href="#Ts-类型操作" class="headerlink" title="Ts 类型操作"></a>Ts 类型操作</h2><ul>
-<li>Partial (部分, 把所有字段转为可选字段)</li>
-</ul>
-<pre><code class="highlight ts"><span class="comment">/**</span>
-<span class="comment"> * Make all properties in T optional</span>
-<span class="comment"> */</span>
-<span class="keyword">type</span> <span class="title class_">Partial</span>&lt;T&gt; = &#123;
-  [P <span class="keyword">in</span> keyof T]?: T[P];
-&#125;;</code></pre>
+                <h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><pre><code class="highlight bash">pnpm add less less-loader @craco/craco craco-less babel-plugin-import postcss-px-to-viewport-8-plugin postcss -D</code></pre>
 
-<p>example：</p>
-<pre><code class="highlight ts"><span class="keyword">type</span> partial = &#123;
-  <span class="attr">name</span>: <span class="built_in">string</span>;
-  <span class="title function_">getName</span>(): <span class="built_in">string</span>;
+<h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><p>配置支持 antd4 按需加载、定制主题、支持 px 转 vw 和 配置别名</p>
+<p>在项目的根目录下新建 <code>craco.config.js</code></p>
+<pre><code class="highlight js"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);
+<span class="keyword">const</span> <span class="title class_">CracoLessPlugin</span> = <span class="built_in">require</span>(<span class="string">&quot;craco-less&quot;</span>);
+
+<span class="variable language_">module</span>.<span class="property">exports</span> = &#123;
+  <span class="attr">babel</span>: &#123;
+    <span class="comment">// 配置babel插件</span>
+    <span class="attr">plugins</span>: [
+      [
+        <span class="comment">// 安装 babel-plugin-import  https://www.npmjs.com/package/babel-plugin-import</span>
+        <span class="comment">// https://4x.ant.design/docs/react/customize-theme-cn#%E6%B2%A1%E6%9C%89%E7%94%9F%E6%95%88%EF%BC%9F</span>
+        <span class="string">&quot;import&quot;</span>,
+        &#123;
+          <span class="attr">libraryName</span>: <span class="string">&quot;antd&quot;</span>,
+          <span class="attr">libraryDirectory</span>: <span class="string">&quot;es&quot;</span>,
+          <span class="attr">style</span>: <span class="literal">true</span> <span class="comment">// 加载less文件</span>
+        &#125;
+      ]
+    ]
+  &#125;,
+  <span class="attr">style</span>: &#123;
+    <span class="attr">postcss</span>: &#123;
+      <span class="attr">mode</span>: <span class="string">&quot;exclude&quot;</span>,
+      <span class="attr">loaderOptions</span>: &#123;
+        <span class="attr">postcssOptions</span>: &#123;
+            <span class="comment">// postcss 需要大于等于 8</span>
+          <span class="attr">ident</span>: <span class="string">&quot;postcss&quot;</span>,
+          <span class="attr">plugins</span>: [
+            [
+              <span class="comment">// https://www.npmjs.com/package/postcss-px-to-viewport-8-plugin</span>
+              <span class="string">&quot;postcss-px-to-viewport-8-plugin&quot;</span>,
+              &#123;
+                <span class="attr">unitToConvert</span>: <span class="string">&quot;px&quot;</span>, <span class="comment">// 要转化的单位</span>
+                <span class="attr">viewportWidth</span>: <span class="number">375</span>, <span class="comment">// UI设计稿的宽度</span>
+                <span class="attr">viewportUnit</span>: <span class="string">&quot;vw&quot;</span>, <span class="comment">// 指定需要转换成的视窗单位，建议使用 rem</span>
+                <span class="attr">fontViewportUnit</span>: <span class="string">&quot;vw&quot;</span>, <span class="comment">// 字体使用的视口单位</span>
+                <span class="attr">unitPrecision</span>: <span class="number">13</span>, <span class="comment">// 指定`px`转换为视窗单位值的小数后 x位数</span>
+                <span class="comment">// propList: 当有些属性的单位我们不希望转换的时候，可以添加在数组后面，并在前面加上!号，如propList: [&quot;*&quot;,&quot;!letter-spacing&quot;],这表示：所有css属性的属性的单位都进行转化，除了letter-spacing的</span>
+                <span class="attr">propList</span>: [<span class="string">&quot;*&quot;</span>], <span class="comment">// 指定转换的css属性的单位，*代表全部css属性的单位都进行转换</span>
+                <span class="comment">// 转换的黑名单，在黑名单里面的我们可以写入字符串，只要类名包含有这个字符串，就不会被匹配。比如selectorBlackList: [&#x27;wrap&#x27;],它表示形如wrap,my-wrap,wrapper这样的类名的单位，都不会被转换</span>
+                <span class="attr">selectorBlackList</span>: [<span class="string">&quot;ignore&quot;</span>], <span class="comment">// 指定不转换为视窗单位的类名，</span>
+                <span class="attr">minPixelValue</span>: <span class="number">1</span>, <span class="comment">// 默认值1，小于或等于1px则不进行转换</span>
+                <span class="attr">mediaQuery</span>: <span class="literal">true</span>, <span class="comment">// 是否在媒体查询的css代码中也进行转换，默认false</span>
+                <span class="attr">replace</span>: <span class="literal">true</span>, <span class="comment">// 是否转换后直接更换属性值</span>
+                <span class="attr">exclude</span>: [<span class="regexp">/node_modules/</span>], <span class="comment">// 设置忽略文件，用正则做目录名匹配</span>
+                <span class="attr">landscape</span>: <span class="literal">false</span> <span class="comment">// 是否处理横屏情况</span>
+              &#125;
+            ]
+          ]
+        &#125;
+      &#125;
+    &#125;
+  &#125;,
+  <span class="attr">plugins</span>: [
+    &#123;
+      <span class="attr">plugin</span>: <span class="title class_">CracoLessPlugin</span>,
+      <span class="attr">options</span>: &#123;
+        <span class="attr">lessLoaderOptions</span>: &#123;
+          <span class="attr">lessOptions</span>: &#123; <span class="comment">// less &gt;= 4, less-loader &gt;= 11</span>
+            <span class="attr">modifyVars</span>: &#123;
+              <span class="string">&quot;primary-color&quot;</span>: <span class="string">&quot;#1DA57A&quot;</span>,
+              <span class="string">&quot;link-color&quot;</span>: <span class="string">&quot;#1DA57A&quot;</span>,
+              <span class="string">&quot;border-radius-base&quot;</span>: <span class="string">&quot;2px&quot;</span>
+              <span class="comment">// 更改antd 默认的类名前缀，结合 ConfigProvider 使用 https://4x.ant.design/docs/react/customize-theme-variable-cn#%E4%BB%A3%E7%A0%81%E8%B0%83%E6%95%B4</span>
+              <span class="comment">// &quot;@ant-prefix&quot;: &quot;custom&quot;</span>
+            &#125;,
+            <span class="attr">javascriptEnabled</span>: <span class="literal">true</span> <span class="comment">// 允许less文件中使用js表达式</span>
+          &#125;
+        &#125;
+      &#125;
+    &#125;
+  ],
+  <span class="attr">webpack</span>: &#123;
+    <span class="comment">// .... 其他配置</span>
+    <span class="attr">alias</span>: &#123;
+      <span class="comment">// 文件路径别名</span>
+      <span class="string">&quot;@&quot;</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&quot;src&quot;</span>)
+    &#125;
+  &#125;,
+<span class="comment">//   devServer: &#123;&#125;</span>
 &#125;;
+</code></pre>
 
-<span class="comment">/**</span>
-<span class="comment"> * TPartial 结果</span>
-<span class="comment"> * &#123;</span>
-<span class="comment"> *   name?: string</span>
-<span class="comment"> *   getName()?: string</span>
-<span class="comment"> * &#125;</span>
-<span class="comment"> */</span>
-<span class="keyword">type</span> <span class="title class_">TPartial</span> = <span class="title class_">Partial</span>&lt;partial&gt;;</code></pre>
 
-<ul>
-<li>Required (需要, 把所有字段转为必选字段)</li>
-</ul>
-<pre><code class="highlight ts"><span class="comment">/**</span>
-<span class="comment"> * Make all properties in T required</span>
-<span class="comment"> */</span>
-<span class="keyword">type</span> <span class="title class_">Required</span>&lt;T&gt; = &#123;
-  [P <span class="keyword">in</span> keyof T]-?: T[P];
-&#125;;</code></pre>
 
-<p>example:</p>
-<pre><code class="highlight ts"><span class="keyword">type</span> required = &#123;
-  name?: <span class="built_in">string</span>;
-  <span class="title function_">getName</span>(): <span class="built_in">string</span>;
-&#125;;
-
-<span class="comment">/**</span>
-<span class="comment"> * TRequired 结果</span>
-<span class="comment"> * &#123;</span>
-<span class="comment"> *   name: string</span>
-<span class="comment"> *   getName(): string</span>
-<span class="comment"> * &#125;</span>
-<span class="comment"> */</span>
-<span class="keyword">type</span> <span class="title class_">TRequired</span> = <span class="title class_">Required</span>&lt;required&gt;;</code></pre>
-
-<ul>
-<li>Readonly (只读，把所有字段转为只读字段)</li>
-</ul>
-<pre><code class="highlight ts"><span class="comment">/**</span>
-<span class="comment"> * Make all properties in T readonly</span>
-<span class="comment"> */</span>
-<span class="keyword">type</span> <span class="title class_">Readonly</span>&lt;T&gt; = &#123;
-  <span class="keyword">readonly</span> [P <span class="keyword">in</span> keyof T]: T[P];
-&#125;;</code></pre>
-
-<p>example:</p>
-<pre><code class="highlight ts"><span class="keyword">type</span> <span class="title class_">Treadonly</span> = &#123;
-  name?: <span class="built_in">string</span>;
-  <span class="title function_">getName</span>(): <span class="built_in">string</span>;
-&#125;;
-
-<span class="comment">/**</span>
-<span class="comment"> * TReadonly 结果</span>
-<span class="comment"> * &#123;</span>
-<span class="comment"> *   readonly name?: string</span>
-<span class="comment"> *   readonly getName(): string</span>
-<span class="comment"> * &#125;</span>
-<span class="comment"> */</span>
-<span class="keyword">type</span> <span class="title class_">TReadonly</span> = <span class="title class_">Readonly</span>&lt;<span class="title class_">Treadonly</span>&gt;;</code></pre>
-
-<ul>
-<li>Pick (挑选, 挑选指定的字段)</li>
-</ul>
-<pre><code class="highlight ts"><span class="comment">/**</span>
-<span class="comment"> * From T, pick a set of properties whose keys are in the union K</span>
-<span class="comment"> */</span>
-<span class="keyword">type</span> <span class="title class_">Pick</span>&lt;T, K <span class="keyword">extends</span> keyof T&gt; = &#123;
-  [P <span class="keyword">in</span> K]: T[P];
-&#125;;</code></pre>
-
-<p>example:</p>
-<pre><code class="highlight ts"><span class="keyword">type</span> pick = &#123;
-  name?: <span class="built_in">string</span>;
-  <span class="attr">age</span>: <span class="built_in">number</span>;
-  <span class="title function_">getName</span>(): <span class="built_in">string</span>;
-&#125;;
-
-<span class="comment">/**</span>
-<span class="comment"> * TPick 结果</span>
-<span class="comment"> * &#123;</span>
-<span class="comment"> *   name?: string</span>
-<span class="comment"> *   age: number</span>
-<span class="comment"> * &#125;</span>
-<span class="comment"> */</span>
-<span class="keyword">type</span> <span class="title class_">TPick</span> = <span class="title class_">Pick</span>&lt;pick, <span class="string">&quot;name&quot;</span> | <span class="string">&quot;age&quot;</span>&gt;;</code></pre>
-
-<ul>
-<li>Record(记录,将 K 中所有的属性的值转化为 T 类型)</li>
-</ul>
-<pre><code class="highlight ts"><span class="comment">/**</span>
-<span class="comment"> * Construct a type with a set of properties K of type T</span>
-<span class="comment"> */</span>
-<span class="keyword">type</span> <span class="title class_">Record</span>&lt;K <span class="keyword">extends</span> keyof <span class="built_in">any</span>, T&gt; = &#123;
-  [P <span class="keyword">in</span> K]: T;
-&#125;;</code></pre>
-
-<p>example:</p>
-<pre><code class="highlight ts"><span class="keyword">type</span> record = &#123;
-  name?: <span class="built_in">string</span>;
-  <span class="attr">age</span>: <span class="built_in">number</span>;
-  <span class="title function_">getName</span>(): <span class="built_in">string</span>;
-&#125;;
-
-<span class="comment">/**</span>
-<span class="comment"> * TRecord 结果</span>
-<span class="comment"> * &#123;</span>
-<span class="comment"> *   name: string</span>
-<span class="comment"> *   age: string</span>
-<span class="comment"> *   getName: string</span>
-<span class="comment"> * &#125;</span>
-<span class="comment"> */</span>
-<span class="keyword">type</span> <span class="title class_">TRecord</span> = <span class="title class_">Record</span>&lt;keyof record, <span class="built_in">string</span>&gt;;
-
-<span class="comment">/**</span>
-<span class="comment"> * Ta 结果</span>
-<span class="comment"> * &#123;</span>
-<span class="comment"> *   a: number</span>
-<span class="comment"> *   b: number</span>
-<span class="comment"> *   c: number</span>
-<span class="comment"> *   1: number</span>
-<span class="comment"> * &#125;</span>
-<span class="comment"> */</span>
-<span class="keyword">type</span> <span class="title class_">Ta</span> = <span class="title class_">Record</span>&lt;<span class="string">&quot;a&quot;</span> | <span class="string">&quot;b&quot;</span> | <span class="string">&quot;c&quot;</span> | <span class="number">1</span>, <span class="built_in">number</span>&gt;;</code></pre>
-
-<ul>
-<li>Exclude(排除,从 T 中排除那些可分配给 U 的类型，)</li>
-</ul>
-<pre><code class="highlight ts"><span class="comment">/**</span>
-<span class="comment"> * Exclude from T those types that are assignable to U</span>
-<span class="comment"> */</span>
-<span class="keyword">type</span> <span class="title class_">Exclude</span>&lt;T, U&gt; = T <span class="keyword">extends</span> U ? <span class="built_in">never</span> : T;</code></pre>
-
-<p>example:</p>
-<pre><code class="highlight ts"><span class="keyword">type</span> T = <span class="title class_">Exclude</span>&lt;<span class="number">1</span> | <span class="number">2</span>, <span class="number">1</span> | <span class="number">3</span>&gt;; <span class="comment">// -&gt; 2</span></code></pre>
-
-<ul>
-<li>Extract(提取,从 T 中提取可分配给 U 的类型， 交集)</li>
-</ul>
-<pre><code class="highlight ts"><span class="comment">/**</span>
-<span class="comment"> * Extract from T those types that are assignable to U</span>
-<span class="comment"> */</span>
-<span class="keyword">type</span> <span class="title class_">Extract</span>&lt;T, U&gt; = T <span class="keyword">extends</span> U ? T : <span class="built_in">never</span>;</code></pre>
-
-<p>example:</p>
-<pre><code class="highlight ts"><span class="keyword">type</span> T = <span class="title class_">Extract</span>&lt;<span class="number">1</span> | <span class="number">2</span>, <span class="number">1</span> | <span class="number">3</span>&gt;; <span class="comment">// -&gt; 1</span></code></pre>
-
-<ul>
-<li>Omit (删去, 构造一个除 K 类型外具有 T 属性的类型。)</li>
-</ul>
-<pre><code class="highlight ts"><span class="comment">/**</span>
-<span class="comment"> * Construct a type with the properties of T except for those in type K.</span>
-<span class="comment"> */</span>
-<span class="keyword">type</span> <span class="title class_">Omit</span>&lt;T, K <span class="keyword">extends</span> keyof <span class="built_in">any</span>&gt; = <span class="title class_">Pick</span>&lt;T, <span class="title class_">Exclude</span>&lt;keyof T, K&gt;&gt;;</code></pre>
-
-<p>example:</p>
-<pre><code class="highlight ts"><span class="keyword">interface</span> <span class="title class_">Person</span> &#123;
-  <span class="attr">name</span>: <span class="built_in">string</span>;
-  <span class="attr">age</span>: <span class="built_in">number</span>;
-  <span class="attr">location</span>: <span class="built_in">string</span>;
-&#125;
-
-<span class="comment">/**</span>
-<span class="comment"> * OmitPerson 结果</span>
-<span class="comment"> * &#123;</span>
-<span class="comment"> *   location: string</span>
-<span class="comment"> * &#125;</span>
-<span class="comment"> */</span>
-<span class="keyword">type</span> <span class="title class_">OmitPerson</span> = <span class="title class_">Omit</span>&lt;<span class="title class_">Person</span>, <span class="string">&quot;name&quot;</span> | <span class="string">&quot;age&quot;</span>&gt;;</code></pre>
-
-<ul>
-<li>数组</li>
-</ul>
-<pre><code class="highlight ts"><span class="comment">/** arr1Example 中只可以使用`string`类型填充 */</span>
-<span class="keyword">type</span> arr1 = <span class="built_in">string</span>[]; <span class="comment">// 建议使用[]</span>
-<span class="keyword">const</span> <span class="attr">arr1Example</span>: arr1 = [<span class="string">&quot;123&quot;</span>, <span class="string">&quot;23454&quot;</span>];
-
-<span class="comment">/** arr2Example 中只可以使用[`string`,`number`]类型填充，必须按顺序填充, 个数也有限制 */</span>
-<span class="keyword">type</span> arr2 = [<span class="built_in">string</span>, <span class="built_in">number</span>];
-<span class="keyword">const</span> <span class="attr">arr2Example</span>: arr2 = [<span class="string">&quot;0&quot;</span>, <span class="number">1</span>];
-
-<span class="comment">/** arr3Example 中只可以使用`string`或`number`类型填充，没有顺序要求 */</span>
-<span class="keyword">type</span> arr3 = (<span class="built_in">string</span> | <span class="built_in">number</span>)[];
-<span class="keyword">const</span> <span class="attr">arr3Example</span>: arr3 = [<span class="number">0</span>, <span class="string">&quot;1&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="number">3</span>, <span class="number">4</span>];</code></pre>
-
-<ul>
-<li>对象</li>
-</ul>
-<pre><code class="highlight ts"><span class="keyword">interface</span> <span class="title class_">Persion</span>&lt;T&gt; &#123;
-  [<span class="attr">key</span>: T]: T;
-&#125;</code></pre>
-
-<ul>
-<li><p>extends</p>
-</li>
-<li><p>keyof (对于任何类型 <code>T</code>， <code>keyof T</code>的结果为 <code>T</code>上已知的公共属性名的联合)</p>
-</li>
-</ul>
-<pre><code class="highlight ts"><span class="keyword">interface</span> <span class="title class_">Person</span> &#123;
-  <span class="attr">name</span>: <span class="built_in">string</span>;
-  <span class="attr">age</span>: <span class="built_in">number</span>;
-&#125;
-
-<span class="keyword">type</span> p = keyof <span class="title class_">Person</span>; <span class="comment">// -&gt; p = &#x27;name&#x27; | &#x27;age&#x27;</span></code></pre>
-
-<ul>
-<li>typeof</li>
-</ul>
-<pre><code class="highlight ts"></code></pre>
-
-<ul>
-<li>交叉类型 (交叉类型是将多个类型合并为一个类型)</li>
-</ul>
-<pre><code class="highlight ts"><span class="keyword">interface</span>;</code></pre>
-
-<ul>
-<li>联合类型 (联合类型表示一个值可以是几种类型之一,用竖线<code>｜</code>分隔每个类型)</li>
-</ul>
-<pre><code class="highlight ts"><span class="keyword">function</span> <span class="title function_">getNum</span>(<span class="params"><span class="attr">num</span>: <span class="built_in">number</span> | <span class="built_in">string</span></span>): <span class="built_in">number</span> &#123;
-  <span class="keyword">return</span> +num;
-&#125;</code></pre>
-
-<ul>
-<li>索引类型</li>
-</ul>
-<pre><code class="highlight ts"></code></pre>
-
-<ul>
-<li>映射类型</li>
-</ul>
-<pre><code class="highlight ts"></code></pre>
-
-<ul>
-<li>@4.1</li>
-</ul>
-<pre><code class="highlight ts">  <span class="comment">// @4.1</span>
-<span class="keyword">type</span> <span class="title class_">Getters</span>&lt;T&gt; = &#123;
-  <span class="comment">//</span>
-  [K <span class="keyword">in</span> keyof T <span class="keyword">as</span> <span class="string">`get<span class="subst">$&#123;capitalize K&#125;</span>`</span>]: <span class="function">() =&gt;</span> T[K]
-&#125;
-
-<span class="keyword">interface</span> <span class="title class_">Person</span> &#123;
-	<span class="attr">name</span>: <span class="built_in">string</span>;
-	<span class="attr">age</span>: <span class="built_in">number</span>;
-	<span class="attr">location</span>: <span class="built_in">string</span>;
-&#125;
-
-<span class="comment">/**</span>
-<span class="comment">* LazyPerson 结果</span>
-<span class="comment">* &#123;</span>
-<span class="comment">*   name: string</span>
-<span class="comment">*   age: number</span>
-<span class="comment">*   location: string</span>
-<span class="comment">*   getName: () =&gt; string</span>
-<span class="comment">*   getAge: () =&gt; number</span>
-<span class="comment">*   getLocation: () =&gt; string</span>
-<span class="comment">* &#125;</span>
-<span class="comment">*/</span>
-<span class="keyword">type</span> <span class="title class_">LazyPerson</span> = <span class="title class_">Getters</span>&lt;<span class="title class_">Person</span>&gt;;</code></pre>
-
-<ul>
-<li><p>React 中的类型约束</p>
-<ul>
-<li>FC (函数组件类型)</li>
-</ul>
-<pre><code class="highlight tsx"><span class="keyword">interface</span> <span class="title class_">FunctionComponent</span>&lt;P = &#123;&#125;&gt; &#123;
-  (<span class="attr">props</span>: <span class="title class_">PropsWithChildren</span>&lt;P&gt;, context?: <span class="built_in">any</span>): <span class="title class_">ReactElement</span>&lt;<span class="built_in">any</span>, <span class="built_in">any</span>&gt; | <span class="literal">null</span>;
-  propTypes?: <span class="title class_">WeakValidationMap</span>&lt;P&gt;;
-  contextTypes?: <span class="title class_">ValidationMap</span>&lt;<span class="built_in">any</span>&gt;;
-  defaultProps?: <span class="title class_">Partial</span>&lt;P&gt;;
-  displayName?: <span class="built_in">string</span>;
-&#125;
-
-<span class="keyword">type</span> <span class="variable constant_">FC</span>&lt;P = &#123;&#125;&gt; = <span class="title class_">FunctionComponent</span>&lt;P&gt;;
-
-<span class="comment">// 具体使用</span>
-<span class="keyword">interface</span> <span class="title class_">IProps</span> &#123;&#125;
-<span class="keyword">const</span> <span class="title class_">App</span>: <span class="variable constant_">FC</span>&lt;<span class="title class_">IProps</span>&gt; = <span class="function"><span class="params">props</span> =&gt;</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;props.children&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</code></pre>
-
-<ul>
-<li><p>useState</p>
-<p>React 中使用<code>useState</code>方法去设置 state</p>
-</li>
-</ul>
-<pre><code class="highlight tsx"><span class="keyword">function</span> useState&lt;S&gt;(
-  <span class="attr">initialState</span>: S | (<span class="function">() =&gt;</span> S)
-): [S, <span class="title class_">Dispatch</span>&lt;<span class="title class_">SetStateAction</span>&lt;S&gt;&gt;];</code></pre></li>
-</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://create-react-app.dev/">create-react-app</a><br><a target="_blank" rel="noopener" href="https://craco.js.org/docs/">@craco&#x2F;craco</a><br><a target="_blank" rel="noopener" href="https://4x.ant.design/docs/react/customize-theme-cn">antd4</a><br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/postcss-px-to-viewport-8-plugin">postcss-px-to-viewport-8-plugin</a></p>
+<p>备注：由于 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/react-scripts">react-scripts</a> 不在更新维护，推荐编译工具换成 <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/">vite</a></p>
 
                 
             </div>
@@ -726,7 +514,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://freeshineit.github.io/2020/11/21/typescript/type/">http://freeshineit.github.io/2020/11/21/typescript/type/</a>
+                    <a href="http://freeshineit.github.io/2024/10/01/react/cra5_craco7_antd4/">http://freeshineit.github.io/2024/10/01/react/cra5_craco7_antd4/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -764,8 +552,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Typescript/">
-                                    <span class="chip bg-color">Typescript</span>
+                                <a href="/tags/React/">
+                                    <span class="chip bg-color">React</span>
                                 </a>
                             
                         </div>
@@ -829,30 +617,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/08/05/tools/yarn_workspace/">
+                <a href="/2024/10/01/markdown/">
                     <div class="card-image">
                         
-                        <img src="/images/cover/mac.jpg" class="responsive-img" alt="Yarn workspace">
+                        <img src="/images/cover/mac.jpg" class="responsive-img" alt="Markdown">
                         
-                        <span class="card-title">Yarn workspace</span>
+                        <span class="card-title">Markdown</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Yarn workspace 使用说明
+                            Markdown 语法
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-05
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-10-01
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Yarn/" class="post-category">
-                                    Yarn
+                            <a href="/categories/Markdown/" class="post-category">
+                                    Markdown
                                 </a>
                             
                             
@@ -862,12 +650,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tool/">
-                        <span class="chip bg-color">Tool</span>
-                    </a>
-                    
-                    <a href="/tags/Yarn/">
-                        <span class="chip bg-color">Yarn</span>
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
                     </a>
                     
                 </div>
@@ -878,45 +662,44 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/21/typescript/type/">
+                <a href="/2023/02/24/svg/to_image/">
                     <div class="card-image">
                         
-                        <img src="/images/cover/ts.jpg" class="responsive-img" alt="Typescript 类型操作">
+                        <img src="/images/cover/js.jpg" class="responsive-img" alt="svg 转图片">
                         
-                        <span class="card-title">Typescript 类型操作</span>
+                        <span class="card-title">svg 转图片</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Typescript 类型操作 Type Interface Generics, Partial、Required、Readonly、Pick ...
+                            svg 转图片
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Typescript/" class="post-category">
-                                    Typescript
+                            <a href="/categories/Svg/" class="post-category">
+                                    Svg
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Typescript/">
-                        <span class="chip bg-color">Typescript</span>
+                    <a href="/tags/Svg/">
+                        <span class="chip bg-color">Svg</span>
                     </a>
                     
                 </div>

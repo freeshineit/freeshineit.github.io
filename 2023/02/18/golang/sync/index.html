@@ -52,7 +52,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
 </head>
 
 
@@ -369,14 +369,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-27
+                    2024-10-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    192
+                    179
                 </div>
                 
 
@@ -406,55 +406,55 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="golang-goroutine-同步操作"><a href="#golang-goroutine-同步操作" class="headerlink" title="golang goroutine 同步操作"></a>golang goroutine 同步操作</h2><h3 id="sync-WaitGroup"><a href="#sync-WaitGroup" class="headerlink" title="sync.WaitGroup"></a><a target="_blank" rel="noopener" href="https://golang.org/pkg/sync/#WaitGroup">sync.WaitGroup</a></h3><pre class="language-go" data-language="go"><code class="language-go">package main
+                <h2 id="golang-goroutine-同步操作"><a href="#golang-goroutine-同步操作" class="headerlink" title="golang goroutine 同步操作"></a>golang goroutine 同步操作</h2><h3 id="sync-WaitGroup"><a href="#sync-WaitGroup" class="headerlink" title="sync.WaitGroup"></a><a target="_blank" rel="noopener" href="https://golang.org/pkg/sync/#WaitGroup">sync.WaitGroup</a></h3><pre><code class="highlight go"><span class="keyword">package</span> main
 
-import (
-	&quot;fmt&quot;
-	&quot;sync&quot;
-	&quot;time&quot;
+<span class="keyword">import</span> (
+	<span class="string">&quot;fmt&quot;</span>
+	<span class="string">&quot;sync&quot;</span>
+	<span class="string">&quot;time&quot;</span>
 )
 
-func worker(i int, wg *sync.WaitGroup) &#123;
-	fmt.Printf(&quot;sync worker %d starting\n&quot;, i)
+<span class="function"><span class="keyword">func</span> <span class="title">worker</span><span class="params">(i <span class="type">int</span>, wg *sync.WaitGroup)</span></span> &#123;
+	fmt.Printf(<span class="string">&quot;sync worker %d starting\n&quot;</span>, i)
 	time.Sleep(time.Second)
-	fmt.Printf(&quot;sync worker %d done\n&quot;, i)
-	defer wg.Done()
+	fmt.Printf(<span class="string">&quot;sync worker %d done\n&quot;</span>, i)
+	<span class="keyword">defer</span> wg.Done()
 &#125;
 
-&#x2F;&#x2F; sync.WaitGroup
-func SyncWaitGroup() &#123;
-	var wg sync.WaitGroup
-	fmt.Println(&quot;this is SyncWaitGroup func&quot;)
-	for i :&#x3D; 1; i &lt;&#x3D; 10; i++ &#123;
-		&#x2F;&#x2F; 创建10个 goroutine
-		wg.Add(1)
-		go worker(i, &amp;wg)
+<span class="comment">// sync.WaitGroup</span>
+<span class="function"><span class="keyword">func</span> <span class="title">SyncWaitGroup</span><span class="params">()</span></span> &#123;
+	<span class="keyword">var</span> wg sync.WaitGroup
+	fmt.Println(<span class="string">&quot;this is SyncWaitGroup func&quot;</span>)
+	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++ &#123;
+		<span class="comment">// 创建10个 goroutine</span>
+		wg.Add(<span class="number">1</span>)
+		<span class="keyword">go</span> worker(i, &amp;wg)
 	&#125;
 	wg.Wait()
 &#125;
 </code></pre>
 
-<h3 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a><a target="_blank" rel="noopener" href="https://blog.golang.org/pipelines">Channel</a></h3><pre class="language-go" data-language="go"><code class="language-go">package main
+<h3 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a><a target="_blank" rel="noopener" href="https://blog.golang.org/pipelines">Channel</a></h3><pre><code class="highlight go"><span class="keyword">package</span> main
 
-import (
-	&quot;fmt&quot;
-	&quot;time&quot;
+<span class="keyword">import</span> (
+	<span class="string">&quot;fmt&quot;</span>
+	<span class="string">&quot;time&quot;</span>
 )
 
-func chanWorker(i int, done chan int) &#123;
-	fmt.Printf(&quot;chan worker %d starting\n&quot;, i)
+<span class="function"><span class="keyword">func</span> <span class="title">chanWorker</span><span class="params">(i <span class="type">int</span>, done <span class="keyword">chan</span> <span class="type">int</span>)</span></span> &#123;
+	fmt.Printf(<span class="string">&quot;chan worker %d starting\n&quot;</span>, i)
 	time.Sleep(time.Second)
-	fmt.Printf(&quot;chan worker %d done\n&quot;, i)
+	fmt.Printf(<span class="string">&quot;chan worker %d done\n&quot;</span>, i)
 	done &lt;- i
 &#125;
 
-&#x2F;&#x2F; chan
-func Channel() &#123;
-	c :&#x3D; make(chan int)
-	fmt.Println(&quot;this is Channel func&quot;)
-	for i :&#x3D; 1; i &lt;&#x3D; 10; i++ &#123;
-		&#x2F;&#x2F; 创建10个 goroutine
-		go chanWorker(i, c)
+<span class="comment">// chan</span>
+<span class="function"><span class="keyword">func</span> <span class="title">Channel</span><span class="params">()</span></span> &#123;
+	c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="type">int</span>)
+	fmt.Println(<span class="string">&quot;this is Channel func&quot;</span>)
+	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++ &#123;
+		<span class="comment">// 创建10个 goroutine</span>
+		<span class="keyword">go</span> chanWorker(i, c)
 	&#125;
 	&lt;-c
 &#125;
@@ -868,7 +868,7 @@ func Channel() &#123;
         <div class="col s12 copy-right" style="line-height: 30px; margin-bottom: 10px">
             Copyright&nbsp;&copy;
             
-                <span id="year">2023</span>
+                <span id="year">2023-2024</span>
             
             <a href="/about" target="_blank">三空</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
@@ -879,7 +879,7 @@ func Channel() &#123;
             <!-- 站点总字数 -->
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">18.4k</span>
+                        class="white-color">17.2k</span>
             
             <!-- -->
             

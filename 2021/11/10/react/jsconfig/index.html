@@ -52,7 +52,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
 </head>
 
 
@@ -361,21 +361,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-27
+                    2024-10-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    403
+                    365
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -402,40 +402,40 @@
 <p>使用<a target="_blank" rel="noopener" href="https://create-react-app.dev/">create-react-app</a> 创建 javascript 版 React 项目，安装 <a target="_blank" rel="noopener" href="https://github.com/gsoft-inc/craco"><code>@craco/craco</code></a>。</p>
 <p>具体配置省略，接下来主要说用别名的配置。（想要了解具体配置请参考<a target="_blank" rel="noopener" href="https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#installation%EF%BC%89">https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#installation）</a></p>
 <h2 id="craco-中配置-webpack"><a href="#craco-中配置-webpack" class="headerlink" title="craco 中配置 webpack"></a>craco 中配置 webpack</h2><p>在根目录<code>craco.config.js</code>文件中配置别名</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">module.exports &#x3D; &#123;
-  webpack: &#123;
-    &#x2F;&#x2F; .... 其他配置
-    alias: &#123;
-      &#x2F;&#x2F; 文件路径别名
-      &quot;@&quot;: path.resolve(__dirname, &quot;src&quot;),
-      &quot;@components&quot;: path.resolve(__dirname, &quot;src&#x2F;components&quot;),
-      &quot;@utils&quot;: path.resolve(__dirname, &quot;src&#x2F;utils&quot;),
-      &quot;@assets&quot;: path.resolve(__dirname, &quot;src&#x2F;assets&quot;),
-      &quot;@containers&quot;: path.resolve(__dirname, &quot;src&#x2F;containers&quot;),
-      &quot;@hooks&quot;: path.resolve(__dirname, &quot;src&#x2F;hooks&quot;),
-      &quot;@store&quot;: path.resolve(__dirname, &quot;src&#x2F;store&quot;)
+<pre><code class="highlight js"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;
+  <span class="attr">webpack</span>: &#123;
+    <span class="comment">// .... 其他配置</span>
+    <span class="attr">alias</span>: &#123;
+      <span class="comment">// 文件路径别名</span>
+      <span class="string">&quot;@&quot;</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&quot;src&quot;</span>),
+      <span class="string">&quot;@components&quot;</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&quot;src/components&quot;</span>),
+      <span class="string">&quot;@utils&quot;</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&quot;src/utils&quot;</span>),
+      <span class="string">&quot;@assets&quot;</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&quot;src/assets&quot;</span>),
+      <span class="string">&quot;@containers&quot;</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&quot;src/containers&quot;</span>),
+      <span class="string">&quot;@hooks&quot;</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&quot;src/hooks&quot;</span>),
+      <span class="string">&quot;@store&quot;</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&quot;src/store&quot;</span>)
     &#125;
   &#125;
 &#125;;</code></pre>
 
 <h2 id="jsconfig-json"><a href="#jsconfig-json" class="headerlink" title="jsconfig.json"></a>jsconfig.json</h2><p>在根目录下新建<code>jsconfig.json</code>, 添加下面内容即可。</p>
-<pre class="language-json" data-language="json"><code class="language-json">&#123;
-  &quot;compilerOptions&quot;: &#123;
-    &quot;module&quot;: &quot;commonjs&quot;,
-    &quot;jsx&quot;: &quot;preserve&quot;,
-    &quot;baseUrl&quot;: &quot;.&quot;,
-    &quot;paths&quot;: &#123;
-      &quot;@components&#x2F;*&quot;: [&quot;.&#x2F;src&#x2F;components&#x2F;*&quot;],
-      &quot;@assets&#x2F;*&quot;: [&quot;.&#x2F;src&#x2F;assets&#x2F;*&quot;],
-      &quot;@containers&#x2F;*&quot;: [&quot;.&#x2F;src&#x2F;containers&#x2F;*&quot;],
-      &quot;@hooks&#x2F;*&quot;: [&quot;.&#x2F;src&#x2F;hooks&#x2F;*&quot;],
-      &quot;@store&#x2F;*&quot;: [&quot;.&#x2F;src&#x2F;store&#x2F;*&quot;],
-      &quot;@utils&#x2F;*&quot;: [&quot;.&#x2F;src&#x2F;utils&#x2F;*&quot;]
-    &#125;
-  &#125;,
-  &quot;include&quot;: [&quot;.&#x2F;src&#x2F;**&#x2F;*&quot;],
-  &quot;exclude&quot;: [&quot;node_modules&quot;, &quot;build&quot;, &quot;coverage&quot;, &quot;dist&quot;, &quot;lib&quot;]
-&#125;</code></pre>
+<pre><code class="highlight json"><span class="punctuation">&#123;</span>
+  <span class="attr">&quot;compilerOptions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>
+    <span class="attr">&quot;module&quot;</span><span class="punctuation">:</span> <span class="string">&quot;commonjs&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;jsx&quot;</span><span class="punctuation">:</span> <span class="string">&quot;preserve&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;baseUrl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;.&quot;</span><span class="punctuation">,</span>
+    <span class="attr">&quot;paths&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>
+      <span class="attr">&quot;@components/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;./src/components/*&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span>
+      <span class="attr">&quot;@assets/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;./src/assets/*&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span>
+      <span class="attr">&quot;@containers/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;./src/containers/*&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span>
+      <span class="attr">&quot;@hooks/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;./src/hooks/*&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span>
+      <span class="attr">&quot;@store/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;./src/store/*&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span>
+      <span class="attr">&quot;@utils/*&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;./src/utils/*&quot;</span><span class="punctuation">]</span>
+    <span class="punctuation">&#125;</span>
+  <span class="punctuation">&#125;</span><span class="punctuation">,</span>
+  <span class="attr">&quot;include&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;./src/**/*&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span>
+  <span class="attr">&quot;exclude&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;node_modules&quot;</span><span class="punctuation">,</span> <span class="string">&quot;build&quot;</span><span class="punctuation">,</span> <span class="string">&quot;coverage&quot;</span><span class="punctuation">,</span> <span class="string">&quot;dist&quot;</span><span class="punctuation">,</span> <span class="string">&quot;lib&quot;</span><span class="punctuation">]</span>
+<span class="punctuation">&#125;</span></code></pre>
 
 <p>注意 ⚠️： 这个文件有严格的 json 格式要求， 例如最后一项不能有<code>,</code> 等</p>
 <p>❤️ ❤️ 还是 ts 香 ❤️ ❤️</p>
@@ -848,7 +848,7 @@
         <div class="col s12 copy-right" style="line-height: 30px; margin-bottom: 10px">
             Copyright&nbsp;&copy;
             
-                <span id="year">2023</span>
+                <span id="year">2023-2024</span>
             
             <a href="/about" target="_blank">三空</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
@@ -859,7 +859,7 @@
             <!-- 站点总字数 -->
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">18.4k</span>
+                        class="white-color">17.2k</span>
             
             <!-- -->
             

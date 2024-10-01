@@ -52,7 +52,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
 </head>
 
 
@@ -365,21 +365,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-27
+                    2024-10-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    4 分
                 </div>
                 
 
@@ -402,115 +402,115 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h2><pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+                <h2 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h2><pre><code class="highlight js"><span class="meta">&quot;use strict&quot;</span>;
 
-var util &#x3D; require(&quot;util&quot;);
-&#x2F;&#x2F; https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;undertaker
-&#x2F;&#x2F; undertaker类提供了task，series，parallel，get，set，tree和registry方法
-&#x2F;&#x2F; undertaker类继承于node核心类eventemitter
-var Undertaker &#x3D; require(&quot;undertaker&quot;);
-&#x2F;&#x2F; https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;vinyl-fs
-&#x2F;&#x2F; vinyl是vitual file formate虚拟文件格式，用于描述一个文件。
-&#x2F;&#x2F; 它有两个主要的属性，path属性和contents属性。每一个Vinyl实例代表一个独立的文件、目录或者symlink符号连接。
-var vfs &#x3D; require(&quot;vinyl-fs&quot;);
-&#x2F;&#x2F; https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;glob-watcher
-&#x2F;&#x2F; 观察globs并在更改时执行一个函数，并使用智能默认值取消绑定和排队。
-var watch &#x3D; require(&quot;glob-watcher&quot;);
+<span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">&quot;util&quot;</span>);
+<span class="comment">// https://www.npmjs.com/package/undertaker</span>
+<span class="comment">// undertaker类提供了task，series，parallel，get，set，tree和registry方法</span>
+<span class="comment">// undertaker类继承于node核心类eventemitter</span>
+<span class="keyword">var</span> <span class="title class_">Undertaker</span> = <span class="built_in">require</span>(<span class="string">&quot;undertaker&quot;</span>);
+<span class="comment">// https://www.npmjs.com/package/vinyl-fs</span>
+<span class="comment">// vinyl是vitual file formate虚拟文件格式，用于描述一个文件。</span>
+<span class="comment">// 它有两个主要的属性，path属性和contents属性。每一个Vinyl实例代表一个独立的文件、目录或者symlink符号连接。</span>
+<span class="keyword">var</span> vfs = <span class="built_in">require</span>(<span class="string">&quot;vinyl-fs&quot;</span>);
+<span class="comment">// https://www.npmjs.com/package/glob-watcher</span>
+<span class="comment">// 观察globs并在更改时执行一个函数，并使用智能默认值取消绑定和排队。</span>
+<span class="keyword">var</span> watch = <span class="built_in">require</span>(<span class="string">&quot;glob-watcher&quot;</span>);
 
-function Gulp() &#123;
-  &#x2F;&#x2F; 改变Undertaker的this 指向，指向Gulp
-  Undertaker.call(this);
+<span class="keyword">function</span> <span class="title function_">Gulp</span>(<span class="params"></span>) &#123;
+  <span class="comment">// 改变Undertaker的this 指向，指向Gulp</span>
+  <span class="title class_">Undertaker</span>.<span class="title function_">call</span>(<span class="variable language_">this</span>);
 
-  &#x2F;&#x2F; Bind the functions for destructuring
-  this.watch &#x3D; this.watch.bind(this);
-  &#x2F;&#x2F; 任务。 由undertaker类提供
-  this.task &#x3D; this.task.bind(this);
-  &#x2F;&#x2F; 任务顺序依次执行。 由undertaker类提供
-  this.series &#x3D; this.series.bind(this);
-  &#x2F;&#x2F; 将任务功能或组合操作组合成并行执行的较大操作。 由undertaker类提供
-  this.parallel &#x3D; this.parallel.bind(this);
-  &#x2F;&#x2F; https:&#x2F;&#x2F;www.gulpjs.com.cn&#x2F;docs&#x2F;api&#x2F;registry&#x2F;
-  &#x2F;&#x2F; 允许将自定义的注册表插入到任务系统中，以期提供共享任务或增强功能。
-  &#x2F;&#x2F; 由undertaker类提供
-  this.registry &#x3D; this.registry.bind(this);
-  &#x2F;&#x2F; 获取当前任务依赖关系树。 由undertaker类提供
-  this.tree &#x3D; this.tree.bind(this);
-  &#x2F;&#x2F; 由undertaker类提供
-  this.lastRun &#x3D; this.lastRun.bind(this);
-  &#x2F;&#x2F; 创建一个流，用于从文件系统读取 Vinyl 对象。由 vinyl-fs 提供
-  this.src &#x3D; this.src.bind(this);
-  &#x2F;&#x2F; 创建一个用于将 Vinyl 对象写入到文件系统的流。由 vinyl-fs 提供
-  this.dest &#x3D; this.dest.bind(this);
-  &#x2F;&#x2F; 符号链接。 由 vinyl-fs 提供
-  this.symlink &#x3D; this.symlink.bind(this);
+  <span class="comment">// Bind the functions for destructuring</span>
+  <span class="variable language_">this</span>.<span class="property">watch</span> = <span class="variable language_">this</span>.<span class="property">watch</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>);
+  <span class="comment">// 任务。 由undertaker类提供</span>
+  <span class="variable language_">this</span>.<span class="property">task</span> = <span class="variable language_">this</span>.<span class="property">task</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>);
+  <span class="comment">// 任务顺序依次执行。 由undertaker类提供</span>
+  <span class="variable language_">this</span>.<span class="property">series</span> = <span class="variable language_">this</span>.<span class="property">series</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>);
+  <span class="comment">// 将任务功能或组合操作组合成并行执行的较大操作。 由undertaker类提供</span>
+  <span class="variable language_">this</span>.<span class="property">parallel</span> = <span class="variable language_">this</span>.<span class="property">parallel</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>);
+  <span class="comment">// https://www.gulpjs.com.cn/docs/api/registry/</span>
+  <span class="comment">// 允许将自定义的注册表插入到任务系统中，以期提供共享任务或增强功能。</span>
+  <span class="comment">// 由undertaker类提供</span>
+  <span class="variable language_">this</span>.<span class="property">registry</span> = <span class="variable language_">this</span>.<span class="property">registry</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>);
+  <span class="comment">// 获取当前任务依赖关系树。 由undertaker类提供</span>
+  <span class="variable language_">this</span>.<span class="property">tree</span> = <span class="variable language_">this</span>.<span class="property">tree</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>);
+  <span class="comment">// 由undertaker类提供</span>
+  <span class="variable language_">this</span>.<span class="property">lastRun</span> = <span class="variable language_">this</span>.<span class="property">lastRun</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>);
+  <span class="comment">// 创建一个流，用于从文件系统读取 Vinyl 对象。由 vinyl-fs 提供</span>
+  <span class="variable language_">this</span>.<span class="property">src</span> = <span class="variable language_">this</span>.<span class="property">src</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>);
+  <span class="comment">// 创建一个用于将 Vinyl 对象写入到文件系统的流。由 vinyl-fs 提供</span>
+  <span class="variable language_">this</span>.<span class="property">dest</span> = <span class="variable language_">this</span>.<span class="property">dest</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>);
+  <span class="comment">// 符号链接。 由 vinyl-fs 提供</span>
+  <span class="variable language_">this</span>.<span class="property">symlink</span> = <span class="variable language_">this</span>.<span class="property">symlink</span>.<span class="title function_">bind</span>(<span class="variable language_">this</span>);
 &#125;
 
-&#x2F;&#x2F; https:&#x2F;&#x2F;nodejs.org&#x2F;docs&#x2F;latest&#x2F;api&#x2F;util.html#utilinheritsconstructor-superconstructor
-&#x2F;&#x2F; 继承
-&#x2F;&#x2F; 已经不建议使用了， 最好使用es6的继承方式  extends
-util.inherits(Gulp, Undertaker);
+<span class="comment">// https://nodejs.org/docs/latest/api/util.html#utilinheritsconstructor-superconstructor</span>
+<span class="comment">// 继承</span>
+<span class="comment">// 已经不建议使用了， 最好使用es6的继承方式  extends</span>
+util.<span class="title function_">inherits</span>(<span class="title class_">Gulp</span>, <span class="title class_">Undertaker</span>);
 
-&#x2F;&#x2F; https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;vinyl-fs#options
-&#x2F;&#x2F; vfs.src(globs[, options])
-Gulp.prototype.src &#x3D; vfs.src;
-&#x2F;&#x2F; https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;vinyl-fs#destfolder-options
-&#x2F;&#x2F; vfs.dest(folder[, options])
-&#x2F;&#x2F; 将文件夹路径字符串或函数作为第一个参数，将选项对象作为第二个参数。
-&#x2F;&#x2F; 如果给定一个函数，它将与每个vinyl File对象一起调用，并且必须返回文件夹路径。
-&#x2F;&#x2F; 返回一个流，该流接受vinyl File对象，将它们写入指定文件夹&#x2F;cwd中的磁盘，并将它们传递到下游，这样您就可以继续使用管道。
-&#x2F;&#x2F; 一旦文件写入磁盘后，将尝试确定vinyl File对象的&#96;stat.mode&#96;、&#96;stat.mtime&#96;和&#96;stat.atime&#96;是否与文件系统上的文件不同。
-&#x2F;&#x2F; 如果它们不同，并且正在运行的进程拥有该文件，则会更新相应的文件系统元数据。
-&#x2F;&#x2F; 如果它们没有差异或进程不拥有文件，则会自动跳过尝试。
-&#x2F;&#x2F; 如果文件具有指定目标路径的&#96;symlink&#96;属性，则将创建&#96;symlink&#96;。
-Gulp.prototype.dest &#x3D; vfs.dest;
+<span class="comment">// https://www.npmjs.com/package/vinyl-fs#options</span>
+<span class="comment">// vfs.src(globs[, options])</span>
+<span class="title class_">Gulp</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">src</span> = vfs.<span class="property">src</span>;
+<span class="comment">// https://www.npmjs.com/package/vinyl-fs#destfolder-options</span>
+<span class="comment">// vfs.dest(folder[, options])</span>
+<span class="comment">// 将文件夹路径字符串或函数作为第一个参数，将选项对象作为第二个参数。</span>
+<span class="comment">// 如果给定一个函数，它将与每个vinyl File对象一起调用，并且必须返回文件夹路径。</span>
+<span class="comment">// 返回一个流，该流接受vinyl File对象，将它们写入指定文件夹/cwd中的磁盘，并将它们传递到下游，这样您就可以继续使用管道。</span>
+<span class="comment">// 一旦文件写入磁盘后，将尝试确定vinyl File对象的`stat.mode`、`stat.mtime`和`stat.atime`是否与文件系统上的文件不同。</span>
+<span class="comment">// 如果它们不同，并且正在运行的进程拥有该文件，则会更新相应的文件系统元数据。</span>
+<span class="comment">// 如果它们没有差异或进程不拥有文件，则会自动跳过尝试。</span>
+<span class="comment">// 如果文件具有指定目标路径的`symlink`属性，则将创建`symlink`。</span>
+<span class="title class_">Gulp</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">dest</span> = vfs.<span class="property">dest</span>;
 
-&#x2F;&#x2F; https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;vinyl-fs#symlinkfolder-options
-&#x2F;&#x2F; vfs.symlink(folder[, options])
-&#x2F;&#x2F; 将文件夹路径字符串或函数作为第一个参数，将选项对象作为第二个参数。
-&#x2F;&#x2F; 如果给定一个函数，它将与每个vinyl File对象一起调用，并且必须返回文件夹路径。
-&#x2F;&#x2F; 返回一个流，该流接受vinyl File对象，在指定的文件夹&#x2F;cwd处创建一个&#96;symlink&#96;，并将其传递到下游，这样您就可以继续使用管道传递这些对象。
-Gulp.prototype.symlink &#x3D; vfs.symlink;
-&#x2F;&#x2F; 在 &#96;glob-watcher&#96; 前做校验和兼容
-&#x2F;&#x2F;
-Gulp.prototype.watch &#x3D; function (glob, opt, task) &#123;
-  if (
-    typeof opt &#x3D;&#x3D;&#x3D; &quot;string&quot; ||
-    typeof task &#x3D;&#x3D;&#x3D; &quot;string&quot; ||
-    Array.isArray(opt) ||
-    Array.isArray(task)
+<span class="comment">// https://www.npmjs.com/package/vinyl-fs#symlinkfolder-options</span>
+<span class="comment">// vfs.symlink(folder[, options])</span>
+<span class="comment">// 将文件夹路径字符串或函数作为第一个参数，将选项对象作为第二个参数。</span>
+<span class="comment">// 如果给定一个函数，它将与每个vinyl File对象一起调用，并且必须返回文件夹路径。</span>
+<span class="comment">// 返回一个流，该流接受vinyl File对象，在指定的文件夹/cwd处创建一个`symlink`，并将其传递到下游，这样您就可以继续使用管道传递这些对象。</span>
+<span class="title class_">Gulp</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">symlink</span> = vfs.<span class="property">symlink</span>;
+<span class="comment">// 在 `glob-watcher` 前做校验和兼容</span>
+<span class="comment">//</span>
+<span class="title class_">Gulp</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">watch</span> = <span class="keyword">function</span> (<span class="params">glob, opt, task</span>) &#123;
+  <span class="keyword">if</span> (
+    <span class="keyword">typeof</span> opt === <span class="string">&quot;string&quot;</span> ||
+    <span class="keyword">typeof</span> task === <span class="string">&quot;string&quot;</span> ||
+    <span class="title class_">Array</span>.<span class="title function_">isArray</span>(opt) ||
+    <span class="title class_">Array</span>.<span class="title function_">isArray</span>(task)
   ) &#123;
-    throw new Error(
-      &quot;watching &quot; +
+    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(
+      <span class="string">&quot;watching &quot;</span> +
         glob +
-        &quot;: watch task has to be &quot; +
-        &quot;a function (optionally generated by using gulp.parallel &quot; +
-        &quot;or gulp.series)&quot;
+        <span class="string">&quot;: watch task has to be &quot;</span> +
+        <span class="string">&quot;a function (optionally generated by using gulp.parallel &quot;</span> +
+        <span class="string">&quot;or gulp.series)&quot;</span>
     );
   &#125;
 
-  if (typeof opt &#x3D;&#x3D;&#x3D; &quot;function&quot;) &#123;
-    task &#x3D; opt;
-    opt &#x3D; &#123;&#125;;
+  <span class="keyword">if</span> (<span class="keyword">typeof</span> opt === <span class="string">&quot;function&quot;</span>) &#123;
+    task = opt;
+    opt = &#123;&#125;;
   &#125;
 
-  opt &#x3D; opt || &#123;&#125;;
+  opt = opt || &#123;&#125;;
 
-  var fn;
-  if (typeof task &#x3D;&#x3D;&#x3D; &quot;function&quot;) &#123;
-    fn &#x3D; this.parallel(task);
+  <span class="keyword">var</span> fn;
+  <span class="keyword">if</span> (<span class="keyword">typeof</span> task === <span class="string">&quot;function&quot;</span>) &#123;
+    fn = <span class="variable language_">this</span>.<span class="title function_">parallel</span>(task);
   &#125;
 
-  &#x2F;&#x2F; watch() 方法时通过 &#96;events&#96; 参数进行指定。
-  &#x2F;&#x2F; 可用的事件有 &#39;add&#39;、&#39;addDir&#39;、&#39;change&#39;、&#39;unlink&#39;、&#39;unlinkDir&#39;、&#39;ready&#39;、&#39;error&#39;。
-  &#x2F;&#x2F; 此外，还有一个 &#39;all&#39; 事件，它表示除 &#39;ready&#39; 和 &#39;error&#39; 之外的所有事件。
-  return watch(glob, opt, fn);
+  <span class="comment">// watch() 方法时通过 `events` 参数进行指定。</span>
+  <span class="comment">// 可用的事件有 &#x27;add&#x27;、&#x27;addDir&#x27;、&#x27;change&#x27;、&#x27;unlink&#x27;、&#x27;unlinkDir&#x27;、&#x27;ready&#x27;、&#x27;error&#x27;。</span>
+  <span class="comment">// 此外，还有一个 &#x27;all&#x27; 事件，它表示除 &#x27;ready&#x27; 和 &#x27;error&#x27; 之外的所有事件。</span>
+  <span class="keyword">return</span> <span class="title function_">watch</span>(glob, opt, fn);
 &#125;;
 
-&#x2F;&#x2F; Let people use this class from our instance
-Gulp.prototype.Gulp &#x3D; Gulp;
-&#x2F;&#x2F; Gulp 实例
-var inst &#x3D; new Gulp();
-module.exports &#x3D; inst;</code></pre>
+<span class="comment">// Let people use this class from our instance</span>
+<span class="title class_">Gulp</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">Gulp</span> = <span class="title class_">Gulp</span>;
+<span class="comment">// Gulp 实例</span>
+<span class="keyword">var</span> inst = <span class="keyword">new</span> <span class="title class_">Gulp</span>();
+<span class="variable language_">module</span>.<span class="property">exports</span> = inst;</code></pre>
 
                 
             </div>
@@ -916,7 +916,7 @@ module.exports &#x3D; inst;</code></pre>
         <div class="col s12 copy-right" style="line-height: 30px; margin-bottom: 10px">
             Copyright&nbsp;&copy;
             
-                <span id="year">2023</span>
+                <span id="year">2023-2024</span>
             
             <a href="/about" target="_blank">三空</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
@@ -927,7 +927,7 @@ module.exports &#x3D; inst;</code></pre>
             <!-- 站点总字数 -->
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">18.4k</span>
+                        class="white-color">17.2k</span>
             
             <!-- -->
             

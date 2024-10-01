@@ -52,7 +52,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
 </head>
 
 
@@ -361,21 +361,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-27
+                    2024-10-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.4k
+                    5.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    32 分
+                    27 分
                 </div>
                 
 
@@ -410,1006 +410,1006 @@
 <p>继承<code>HookCodeFactory</code>类需要实现抽象方法<code>content</code>, 返回 <code>call</code>或<code>callAsync</code>或<code>promise</code> 的函数体的实现的代码字符串， 然后使用 <code>Function</code> 生成一个<code>call</code>或<code>callAsync</code>或<code>promise</code> 函数</p>
 <h2 id="SyncHook"><a href="#SyncHook" class="headerlink" title="SyncHook"></a>SyncHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncHook.js?L35:1">SyncHook</a> 按注册的回调函数串行之行。</p>
 <p>简单使用：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new SyncHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncHook&#96;的入参的数组有关系
-hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(1, arg1, arg2, arg3);
-  return &quot;fn0&quot;; &#x2F;&#x2F; 回调函数的返回值之间没有联系
+<pre><code class="highlight js"><span class="keyword">const</span> &#123; <span class="title class_">SyncHook</span> &#125; = <span class="built_in">require</span>(<span class="string">&quot;tapable&quot;</span>);
+<span class="comment">// 简单来说就是实例化 Hooks 类</span>
+<span class="comment">// 接收一个可选参数，参数是一个参数名的字符串数组</span>
+<span class="comment">// 这组参数和注册回调函数的参数有关，</span>
+<span class="keyword">const</span> hook = <span class="keyword">new</span> <span class="title class_">SyncHook</span>([<span class="string">&quot;arg1&quot;</span>, <span class="string">&quot;arg2&quot;</span>, <span class="string">&quot;arg3&quot;</span>]);
+<span class="comment">// 注册</span>
+<span class="comment">// 第一个入参为注册名</span>
+<span class="comment">// 第二个为注册回调方法，参数的形参个数和`SyncHook`的入参的数组有关系</span>
+hook.<span class="title function_">tap</span>(<span class="string">&quot;fn0&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>, arg1, arg2, arg3);
+  <span class="keyword">return</span> <span class="string">&quot;fn0&quot;</span>; <span class="comment">// 回调函数的返回值之间没有联系</span>
 &#125;);
-hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(2, arg1, arg2, arg3);
-  return &quot;fn1&quot;;
+hook.<span class="title function_">tap</span>(<span class="string">&quot;fn1&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>, arg1, arg2, arg3);
+  <span class="keyword">return</span> <span class="string">&quot;fn1&quot;</span>;
 &#125;);
-hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(3, arg1, arg2, arg3);
-  return &quot;fn2&quot;;
+hook.<span class="title function_">tap</span>(<span class="string">&quot;fn2&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>, arg1, arg2, arg3);
+  <span class="keyword">return</span> <span class="string">&quot;fn2&quot;</span>;
 &#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
+<span class="comment">// 执行</span>
+<span class="comment">// 执行顺序则是根据这个实例类型来决定的</span>
+hook.<span class="title function_">call</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>);</code></pre>
 
 <p><code>call</code>由<a target="_blank" rel="noopener" href="https://sourcegraph.com/search?q=context:global+repo:%5Egithub%5C.com/webpack/tapable$+SyncHookCodeFactory&patternType=standard&sm=1">SyncHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
-&#x2F;&#x2F; 这段代码需要使用 &#96;Function&#96; 来生成&#96;call&#96;方法来执行
-&#x2F;&#x2F; 其中&#96;this._x&#96;就是注册的回调函数组成的数组
-&#x2F;&#x2F; 可以看出回调函数的调用就是把数组中的函数展开
-&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-var _fn0 &#x3D; _x[0];
-_fn0(arg3, arg2, arg1); &#x2F;&#x2F; 回调函数 fn0
-var _fn1 &#x3D; _x[1];
-_fn1(arg3, arg2, arg1); &#x2F;&#x2F; 回调函数 fn1
-var _fn2 &#x3D; _x[2];
-_fn2(arg3, arg2, arg1); &#x2F;&#x2F; 回调函数 fn2</code></pre>
+<pre><code class="highlight js"><span class="comment">// 这是一段`call`方法实现的代码字符串</span>
+<span class="comment">// 这段代码需要使用 `Function` 来生成`call`方法来执行</span>
+<span class="comment">// 其中`this._x`就是注册的回调函数组成的数组</span>
+<span class="comment">// 可以看出回调函数的调用就是把数组中的函数展开</span>
+<span class="meta">&quot;use strict&quot;</span>;
+<span class="keyword">var</span> _context;
+<span class="keyword">var</span> _x = <span class="variable language_">this</span>.<span class="property">_x</span>;
+<span class="keyword">var</span> _fn0 = _x[<span class="number">0</span>];
+<span class="title function_">_fn0</span>(arg3, arg2, arg1); <span class="comment">// 回调函数 fn0</span>
+<span class="keyword">var</span> _fn1 = _x[<span class="number">1</span>];
+<span class="title function_">_fn1</span>(arg3, arg2, arg1); <span class="comment">// 回调函数 fn1</span>
+<span class="keyword">var</span> _fn2 = _x[<span class="number">2</span>];
+<span class="title function_">_fn2</span>(arg3, arg2, arg1); <span class="comment">// 回调函数 fn2</span></code></pre>
 
 <h2 id="SyncBailHook"><a href="#SyncBailHook" class="headerlink" title="SyncBailHook"></a>SyncBailHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncBailHook.js?L40:1">SyncBailHook</a> 会对每次执行的结果进行检测，如果结果不是 <code>undefined</code> 就直接 <code>return</code> 了，后面的回调函数就没有机会执行了。</p>
 <p>简单使用：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncBailHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-&#x2F;&#x2F; 同步执行回调函数，回调函数返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了
-const hook &#x3D; new SyncBailHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncBailHook&#96;的入参的数组有关系
-hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-  return undefined;
+<pre><code class="highlight js"><span class="keyword">const</span> &#123; <span class="title class_">SyncBailHook</span> &#125; = <span class="built_in">require</span>(<span class="string">&quot;tapable&quot;</span>);
+<span class="comment">// 简单来说就是实例化 Hooks 类</span>
+<span class="comment">// 接收一个可选参数，参数是一个参数名的字符串数组</span>
+<span class="comment">// 这组参数和注册回调函数的参数有关，</span>
+<span class="comment">// 同步执行回调函数，回调函数返回结果不是 `undefined` 就直接 `return` 了，后面的回调函数就没有机会执行了</span>
+<span class="keyword">const</span> hook = <span class="keyword">new</span> <span class="title class_">SyncBailHook</span>([<span class="string">&quot;arg1&quot;</span>, <span class="string">&quot;arg2&quot;</span>, <span class="string">&quot;arg3&quot;</span>]);
+<span class="comment">// 注册</span>
+<span class="comment">// 第一个入参为注册名</span>
+<span class="comment">// 第二个为注册回调方法，参数的形参个数和`SyncBailHook`的入参的数组有关系</span>
+hook.<span class="title function_">tap</span>(<span class="string">&quot;fn0&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn0&quot;</span>, arg1, arg2, arg3);
+  <span class="keyword">return</span> <span class="literal">undefined</span>;
 &#125;);
-hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-  &#x2F;&#x2F; 如果回调函数的返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了
-  return &quot;fn1&quot;;
+hook.<span class="title function_">tap</span>(<span class="string">&quot;fn1&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn1&quot;</span>, arg1, arg2, arg3);
+  <span class="comment">// 如果回调函数的返回结果不是 `undefined` 就直接 `return` 了，后面的回调函数就没有机会执行了</span>
+  <span class="keyword">return</span> <span class="string">&quot;fn1&quot;</span>;
 &#125;);
-hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-  return undefined;
+hook.<span class="title function_">tap</span>(<span class="string">&quot;fn2&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn2&quot;</span>, arg1, arg2, arg3);
+  <span class="keyword">return</span> <span class="literal">undefined</span>;
 &#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
+<span class="comment">// 执行</span>
+<span class="comment">// 执行顺序则是根据这个实例类型来决定的</span>
+hook.<span class="title function_">call</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>);</code></pre>
 
 <p><code>call</code>由<code>SyncBailHookCodeFactory</code>的<code>content</code>实现, 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
-&#x2F;&#x2F; 参数和SyncHook是一致的，区别在于回调函数的返回值
-&#x2F;&#x2F; 如果回调函数的返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
-&#x2F;&#x2F; 就像一个有限的套娃🪆
-&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-var _fn0 &#x3D; _x[0];
-var _result0 &#x3D; _fn0(arg3, arg2, arg1);
-&#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
-if (_result0 !&#x3D;&#x3D; undefined) &#123;
-  return _result0;
-&#125; else &#123;
-  var _fn1 &#x3D; _x[1];
-  var _result1 &#x3D; _fn1(arg3, arg2, arg1);
-  &#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
-  if (_result1 !&#x3D;&#x3D; undefined) &#123;
-    return _result1;
-  &#125; else &#123;
-    var _fn2 &#x3D; _x[2];
-    var _result2 &#x3D; _fn2(arg3, arg2, arg1);
-    &#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
-    if (_result2 !&#x3D;&#x3D; undefined) &#123;
-      return _result2;
-    &#125; else &#123;
+<pre><code class="highlight js"><span class="comment">// 这是一段`call`方法实现的代码字符串</span>
+<span class="comment">// 参数和SyncHook是一致的，区别在于回调函数的返回值</span>
+<span class="comment">// 如果回调函数的返回结果不是 `undefined` 就直接 `return` 了，后面的回调函数就没有机会执行了。</span>
+<span class="comment">// 就像一个有限的套娃🪆</span>
+<span class="meta">&quot;use strict&quot;</span>;
+<span class="keyword">var</span> _context;
+<span class="keyword">var</span> _x = <span class="variable language_">this</span>.<span class="property">_x</span>;
+<span class="keyword">var</span> _fn0 = _x[<span class="number">0</span>];
+<span class="keyword">var</span> _result0 = <span class="title function_">_fn0</span>(arg3, arg2, arg1);
+<span class="comment">// 如果返回结果不是 `undefined` 就直接 `return` 了，后面的回调函数就没有机会执行了。</span>
+<span class="keyword">if</span> (_result0 !== <span class="literal">undefined</span>) &#123;
+  <span class="keyword">return</span> _result0;
+&#125; <span class="keyword">else</span> &#123;
+  <span class="keyword">var</span> _fn1 = _x[<span class="number">1</span>];
+  <span class="keyword">var</span> _result1 = <span class="title function_">_fn1</span>(arg3, arg2, arg1);
+  <span class="comment">// 如果返回结果不是 `undefined` 就直接 `return` 了，后面的回调函数就没有机会执行了。</span>
+  <span class="keyword">if</span> (_result1 !== <span class="literal">undefined</span>) &#123;
+    <span class="keyword">return</span> _result1;
+  &#125; <span class="keyword">else</span> &#123;
+    <span class="keyword">var</span> _fn2 = _x[<span class="number">2</span>];
+    <span class="keyword">var</span> _result2 = <span class="title function_">_fn2</span>(arg3, arg2, arg1);
+    <span class="comment">// 如果返回结果不是 `undefined` 就直接 `return` 了，后面的回调函数就没有机会执行了。</span>
+    <span class="keyword">if</span> (_result2 !== <span class="literal">undefined</span>) &#123;
+      <span class="keyword">return</span> _result2;
+    &#125; <span class="keyword">else</span> &#123;
     &#125;
   &#125;
 &#125;</code></pre>
 
 <h2 id="SyncLoopHook"><a href="#SyncLoopHook" class="headerlink" title="SyncLoopHook"></a>SyncLoopHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncLoopHook.js?L35:1">SyncLoopHook</a> 会对每次执行的结果进行检测，如果结果不是 <code>undefined</code> 就不停循环第一个回调函数到当前回调函数，直至都返回 <code>undefined</code>。</p>
 <p>简单使用：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncLoopHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new SyncLoopHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
-let _loop &#x3D; 4;
+<pre><code class="highlight js"><span class="keyword">const</span> &#123; <span class="title class_">SyncLoopHook</span> &#125; = <span class="built_in">require</span>(<span class="string">&quot;tapable&quot;</span>);
+<span class="comment">// 简单来说就是实例化 Hooks 类</span>
+<span class="comment">// 接收一个可选参数，参数是一个参数名的字符串数组</span>
+<span class="comment">// 这组参数和注册回调函数的参数有关，</span>
+<span class="keyword">const</span> hook = <span class="keyword">new</span> <span class="title class_">SyncLoopHook</span>([<span class="string">&quot;arg1&quot;</span>, <span class="string">&quot;arg2&quot;</span>, <span class="string">&quot;arg3&quot;</span>]);
+<span class="keyword">let</span> _loop = <span class="number">4</span>;
 
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncLoopHook&#96;的入参的数组有关系
-hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-  return undefined;
+<span class="comment">// 注册</span>
+<span class="comment">// 第一个入参为注册名</span>
+<span class="comment">// 第二个为注册回调方法，参数的形参个数和`SyncLoopHook`的入参的数组有关系</span>
+hook.<span class="title function_">tap</span>(<span class="string">&quot;fn0&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn0&quot;</span>, arg1, arg2, arg3);
+  <span class="keyword">return</span> <span class="literal">undefined</span>;
 &#125;);
-hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-  _loop &#x3D; _loop - 1;
-  &#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就不停循环 &#96;f0&#96; &#96;f1&#96;，直至都返回 &#96;undefined&#96;。
-  return _loop &gt; 0 ? _loop : undefined;
+hook.<span class="title function_">tap</span>(<span class="string">&quot;fn1&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn1&quot;</span>, arg1, arg2, arg3);
+  _loop = _loop - <span class="number">1</span>;
+  <span class="comment">// 如果返回结果不是 `undefined` 就不停循环 `f0` `f1`，直至都返回 `undefined`。</span>
+  <span class="keyword">return</span> _loop &gt; <span class="number">0</span> ? _loop : <span class="literal">undefined</span>;
 &#125;);
-hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-  return undefined;
+hook.<span class="title function_">tap</span>(<span class="string">&quot;fn2&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn2&quot;</span>, arg1, arg2, arg3);
+  <span class="keyword">return</span> <span class="literal">undefined</span>;
 &#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
+<span class="comment">// 执行</span>
+<span class="comment">// 执行顺序则是根据这个实例类型来决定的</span>
+hook.<span class="title function_">call</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>);</code></pre>
 
 <p><code>call</code>由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncLoopHook.js?L10:1">SyncLoopHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
-&#x2F;&#x2F; 参数和SyncHook是一致的，区别在于回调函数的返回值
-&#x2F;&#x2F; 如果结果不是 &#96;undefined&#96; 就不停循环第一个回调函数到当前回调函数，直至都返回 &#96;undefined&#96;
-&#x2F;&#x2F; 注意: 不返回&#96;undefined&#96;就不停循环，容易造成死循环
-&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-var _loop;
-do &#123;
-  _loop &#x3D; false;
-  var _fn0 &#x3D; _x[0];
-  var _result0 &#x3D; _fn0(arg3, arg2, arg1);
-  if (_result0 !&#x3D;&#x3D; undefined) &#123;
-    _loop &#x3D; true;
-  &#125; else &#123;
-    var _fn1 &#x3D; _x[1];
-    var _result1 &#x3D; _fn1(arg3, arg2, arg1);
-    if (_result1 !&#x3D;&#x3D; undefined) &#123;
-      _loop &#x3D; true;
-    &#125; else &#123;
-      var _fn2 &#x3D; _x[2];
-      var _result2 &#x3D; _fn2(arg3, arg2, arg1);
-      if (_result2 !&#x3D;&#x3D; undefined) &#123;
-        _loop &#x3D; true;
-      &#125; else &#123;
-        if (!_loop) &#123;
+<pre><code class="highlight js"><span class="comment">// 这是一段`call`方法实现的代码字符串</span>
+<span class="comment">// 参数和SyncHook是一致的，区别在于回调函数的返回值</span>
+<span class="comment">// 如果结果不是 `undefined` 就不停循环第一个回调函数到当前回调函数，直至都返回 `undefined`</span>
+<span class="comment">// 注意: 不返回`undefined`就不停循环，容易造成死循环</span>
+<span class="meta">&quot;use strict&quot;</span>;
+<span class="keyword">var</span> _context;
+<span class="keyword">var</span> _x = <span class="variable language_">this</span>.<span class="property">_x</span>;
+<span class="keyword">var</span> _loop;
+<span class="keyword">do</span> &#123;
+  _loop = <span class="literal">false</span>;
+  <span class="keyword">var</span> _fn0 = _x[<span class="number">0</span>];
+  <span class="keyword">var</span> _result0 = <span class="title function_">_fn0</span>(arg3, arg2, arg1);
+  <span class="keyword">if</span> (_result0 !== <span class="literal">undefined</span>) &#123;
+    _loop = <span class="literal">true</span>;
+  &#125; <span class="keyword">else</span> &#123;
+    <span class="keyword">var</span> _fn1 = _x[<span class="number">1</span>];
+    <span class="keyword">var</span> _result1 = <span class="title function_">_fn1</span>(arg3, arg2, arg1);
+    <span class="keyword">if</span> (_result1 !== <span class="literal">undefined</span>) &#123;
+      _loop = <span class="literal">true</span>;
+    &#125; <span class="keyword">else</span> &#123;
+      <span class="keyword">var</span> _fn2 = _x[<span class="number">2</span>];
+      <span class="keyword">var</span> _result2 = <span class="title function_">_fn2</span>(arg3, arg2, arg1);
+      <span class="keyword">if</span> (_result2 !== <span class="literal">undefined</span>) &#123;
+        _loop = <span class="literal">true</span>;
+      &#125; <span class="keyword">else</span> &#123;
+        <span class="keyword">if</span> (!_loop) &#123;
         &#125;
       &#125;
     &#125;
   &#125;
-&#125; while (_loop);</code></pre>
+&#125; <span class="keyword">while</span> (_loop);</code></pre>
 
 <h2 id="SyncWaterfallHook"><a href="#SyncWaterfallHook" class="headerlink" title="SyncWaterfallHook"></a>SyncWaterfallHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncWaterfallHook.js?L44">SyncWaterfallHook</a> 会对每次执行的结果当成下一个回调函数的入参（<code>call</code>的入参 ），如果返回值是 <code>undefined</code>，使用上一个参数。</p>
 <p>简单使用：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncWaterfallHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new SyncWaterfallHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+<pre><code class="highlight js"><span class="keyword">const</span> &#123; <span class="title class_">SyncWaterfallHook</span> &#125; = <span class="built_in">require</span>(<span class="string">&quot;tapable&quot;</span>);
+<span class="comment">// 简单来说就是实例化 Hooks 类</span>
+<span class="comment">// 接收一个可选参数，参数是一个参数名的字符串数组</span>
+<span class="comment">// 这组参数和注册回调函数的参数有关，</span>
+<span class="keyword">const</span> hook = <span class="keyword">new</span> <span class="title class_">SyncWaterfallHook</span>([<span class="string">&quot;arg1&quot;</span>, <span class="string">&quot;arg2&quot;</span>, <span class="string">&quot;arg3&quot;</span>]);
 
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncWaterfallHook&#96;的入参的数组有关系
-hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-  return &quot;fn0-result&quot;;
+<span class="comment">// 注册</span>
+<span class="comment">// 第一个入参为注册名</span>
+<span class="comment">// 第二个为注册回调方法，参数的形参个数和`SyncWaterfallHook`的入参的数组有关系</span>
+hook.<span class="title function_">tap</span>(<span class="string">&quot;fn0&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn0&quot;</span>, arg1, arg2, arg3);
+  <span class="keyword">return</span> <span class="string">&quot;fn0-result&quot;</span>;
 &#125;);
-hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-  return undefined;
+hook.<span class="title function_">tap</span>(<span class="string">&quot;fn1&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn1&quot;</span>, arg1, arg2, arg3);
+  <span class="keyword">return</span> <span class="literal">undefined</span>;
 &#125;);
-hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-  return &quot;fn2&quot;;
+hook.<span class="title function_">tap</span>(<span class="string">&quot;fn2&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn2&quot;</span>, arg1, arg2, arg3);
+  <span class="keyword">return</span> <span class="string">&quot;fn2&quot;</span>;
 &#125;);
-hook.tap(&quot;fn3&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn3&quot;, arg1, arg2, arg3);
-  return &quot;fn3&quot;;
+hook.<span class="title function_">tap</span>(<span class="string">&quot;fn3&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn3&quot;</span>, arg1, arg2, arg3);
+  <span class="keyword">return</span> <span class="string">&quot;fn3&quot;</span>;
 &#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
-&#x2F;&#x2F; 执行结果：
-&#x2F;&#x2F; fn0 a b c
-&#x2F;&#x2F; fn1 fn0-result b c
-&#x2F;&#x2F; fn2 fn0-result b c
-&#x2F;&#x2F; fn3 fn2 b c</code></pre>
+<span class="comment">// 执行</span>
+<span class="comment">// 执行顺序则是根据这个实例类型来决定的</span>
+hook.<span class="title function_">call</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>);
+<span class="comment">// 执行结果：</span>
+<span class="comment">// fn0 a b c</span>
+<span class="comment">// fn1 fn0-result b c</span>
+<span class="comment">// fn2 fn0-result b c</span>
+<span class="comment">// fn3 fn2 b c</span></code></pre>
 
 <p><code>call</code>由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncWaterfallHook.js?L10:7">SyncWaterfallHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
-&#x2F;&#x2F; 参数和SyncHook是一致的，区别在于回调函数的返回值
-&#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
-&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-var _fn0 &#x3D; _x[0];
-var _result0 &#x3D; _fn0(arg1, arg2, arg3);
-if (_result0 !&#x3D;&#x3D; undefined) &#123;
-  &#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
-  arg1 &#x3D; _result0;
+<pre><code class="highlight js"><span class="comment">// 这是一段`call`方法实现的代码字符串</span>
+<span class="comment">// 参数和SyncHook是一致的，区别在于回调函数的返回值</span>
+<span class="comment">// 如果返回值是 `undefined` , 使用`call`的参数，否则使用返回的值</span>
+<span class="meta">&quot;use strict&quot;</span>;
+<span class="keyword">var</span> _context;
+<span class="keyword">var</span> _x = <span class="variable language_">this</span>.<span class="property">_x</span>;
+<span class="keyword">var</span> _fn0 = _x[<span class="number">0</span>];
+<span class="keyword">var</span> _result0 = <span class="title function_">_fn0</span>(arg1, arg2, arg3);
+<span class="keyword">if</span> (_result0 !== <span class="literal">undefined</span>) &#123;
+  <span class="comment">// 如果返回值是 `undefined` , 使用`call`的参数，否则使用返回的值</span>
+  arg1 = _result0;
 &#125;
-var _fn1 &#x3D; _x[1];
-var _result1 &#x3D; _fn1(arg1, arg2, arg3);
-if (_result1 !&#x3D;&#x3D; undefined) &#123;
-  &#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
-  arg1 &#x3D; _result1;
+<span class="keyword">var</span> _fn1 = _x[<span class="number">1</span>];
+<span class="keyword">var</span> _result1 = <span class="title function_">_fn1</span>(arg1, arg2, arg3);
+<span class="keyword">if</span> (_result1 !== <span class="literal">undefined</span>) &#123;
+  <span class="comment">// 如果返回值是 `undefined` , 使用`call`的参数，否则使用返回的值</span>
+  arg1 = _result1;
 &#125;
-var _fn2 &#x3D; _x[2];
-var _result2 &#x3D; _fn2(arg1, arg2, arg3);
-if (_result2 !&#x3D;&#x3D; undefined) &#123;
-  &#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
-  arg1 &#x3D; _result2;
+<span class="keyword">var</span> _fn2 = _x[<span class="number">2</span>];
+<span class="keyword">var</span> _result2 = <span class="title function_">_fn2</span>(arg1, arg2, arg3);
+<span class="keyword">if</span> (_result2 !== <span class="literal">undefined</span>) &#123;
+  <span class="comment">// 如果返回值是 `undefined` , 使用`call`的参数，否则使用返回的值</span>
+  arg1 = _result2;
 &#125;
-var _fn3 &#x3D; _x[3];
-var _result3 &#x3D; _fn3(arg1, arg2, arg3);
-if (_result3 !&#x3D;&#x3D; undefined) &#123;
-  arg1 &#x3D; _result3;
+<span class="keyword">var</span> _fn3 = _x[<span class="number">3</span>];
+<span class="keyword">var</span> _result3 = <span class="title function_">_fn3</span>(arg1, arg2, arg3);
+<span class="keyword">if</span> (_result3 !== <span class="literal">undefined</span>) &#123;
+  arg1 = _result3;
 &#125;
-return arg1;</code></pre>
+<span class="keyword">return</span> arg1;</code></pre>
 
 <h2 id="AsyncSeriesHook"><a href="#AsyncSeriesHook" class="headerlink" title="AsyncSeriesHook"></a>AsyncSeriesHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L26:1">AsyncSeriesHook</a>异步串行</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new AsyncSeriesHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+<pre><code class="highlight js"><span class="keyword">const</span> &#123; <span class="title class_">AsyncSeriesHook</span> &#125; = <span class="built_in">require</span>(<span class="string">&quot;tapable&quot;</span>);
+<span class="comment">// 简单来说就是实例化 Hooks 类</span>
+<span class="comment">// 接收一个可选参数，参数是一个参数名的字符串数组</span>
+<span class="comment">// 这组参数和注册回调函数的参数有关，</span>
+<span class="keyword">const</span> hook = <span class="keyword">new</span> <span class="title class_">AsyncSeriesHook</span>([<span class="string">&quot;arg1&quot;</span>, <span class="string">&quot;arg2&quot;</span>, <span class="string">&quot;arg3&quot;</span>]);
 
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesHook&#96;的入参的数组有关系
-hook.tapAsync(&quot;fn0&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  setTimeout(() &#x3D;&gt; &#123;
-    console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-    callback();
-  &#125;, 1000);
+<span class="comment">// 注册</span>
+<span class="comment">// 第一个入参为注册名</span>
+<span class="comment">// 第二个为注册回调方法，参数的形参个数和`AsyncSeriesHook`的入参的数组有关系</span>
+hook.<span class="title function_">tapAsync</span>(<span class="string">&quot;fn0&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3, callback</span>) =&gt;</span> &#123;
+  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn0&quot;</span>, arg1, arg2, arg3);
+    <span class="title function_">callback</span>();
+  &#125;, <span class="number">1000</span>);
 &#125;);
-hook.tapAsync(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  setTimeout(() &#x3D;&gt; &#123;
-    console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-    callback();
-  &#125;, 1000);
+hook.<span class="title function_">tapAsync</span>(<span class="string">&quot;fn1&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3, callback</span>) =&gt;</span> &#123;
+  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn1&quot;</span>, arg1, arg2, arg3);
+    <span class="title function_">callback</span>();
+  &#125;, <span class="number">1000</span>);
 &#125;);
-hook.tapAsync(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  setTimeout(() &#x3D;&gt; &#123;
-    console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-    callback(); &#x2F;&#x2F; 决定 &#96;callAsync&#96; 最后的实参callback是否会被调用
-  &#125;, 1000);
+hook.<span class="title function_">tapAsync</span>(<span class="string">&quot;fn2&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3, callback</span>) =&gt;</span> &#123;
+  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn2&quot;</span>, arg1, arg2, arg3);
+    <span class="title function_">callback</span>(); <span class="comment">// 决定 `callAsync` 最后的实参callback是否会被调用</span>
+  &#125;, <span class="number">1000</span>);
 &#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.callAsync(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, () &#x3D;&gt; &#123;
-  console.log(&quot;AsyncSeriesHook async&quot;);
+<span class="comment">// 执行</span>
+<span class="comment">// 执行顺序则是根据这个实例类型来决定的</span>
+hook.<span class="title function_">callAsync</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>, <span class="function">() =&gt;</span> &#123;
+  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;AsyncSeriesHook async&quot;</span>);
 &#125;);
 
-&#x2F;&#x2F; 执行结果：
-&#x2F;&#x2F; fn0 a b c
-&#x2F;&#x2F; fn1 a b c
-&#x2F;&#x2F; fn2 a b c
-&#x2F;&#x2F; AsyncSeriesHook async</code></pre>
+<span class="comment">// 执行结果：</span>
+<span class="comment">// fn0 a b c</span>
+<span class="comment">// fn1 a b c</span>
+<span class="comment">// fn2 a b c</span>
+<span class="comment">// AsyncSeriesHook async</span></code></pre>
 
 <p><code>callAsync</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L10:1">AsyncSeriesHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L276">callTapsSeries</a>实现。 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-function _next1() &#123;
-  var _fn2 &#x3D; _x[2];
-  _fn2(arg1, arg2, arg3, function (_err2) &#123;
-    &#x2F;&#x2F; ...
+<pre><code class="highlight js"><span class="meta">&quot;use strict&quot;</span>;
+<span class="keyword">var</span> _context;
+<span class="keyword">var</span> _x = <span class="variable language_">this</span>.<span class="property">_x</span>;
+<span class="keyword">function</span> <span class="title function_">_next1</span>(<span class="params"></span>) &#123;
+  <span class="keyword">var</span> _fn2 = _x[<span class="number">2</span>];
+  <span class="title function_">_fn2</span>(arg1, arg2, arg3, <span class="keyword">function</span> (<span class="params">_err2</span>) &#123;
+    <span class="comment">// ...</span>
   &#125;);
 &#125;
-function _next0() &#123;
-  var _fn1 &#x3D; _x[1];
-  _fn1(arg1, arg2, arg3, function (_err1) &#123;
-    &#x2F;&#x2F; ...
-    _next1();
+<span class="keyword">function</span> <span class="title function_">_next0</span>(<span class="params"></span>) &#123;
+  <span class="keyword">var</span> _fn1 = _x[<span class="number">1</span>];
+  <span class="title function_">_fn1</span>(arg1, arg2, arg3, <span class="keyword">function</span> (<span class="params">_err1</span>) &#123;
+    <span class="comment">// ...</span>
+    <span class="title function_">_next1</span>();
   &#125;);
 &#125;
-var _fn0 &#x3D; _x[0];
-_fn0(arg1, arg2, arg3, function (_err0) &#123;
-  &#x2F;&#x2F; ...
-  _next0();
+<span class="keyword">var</span> _fn0 = _x[<span class="number">0</span>];
+<span class="title function_">_fn0</span>(arg1, arg2, arg3, <span class="keyword">function</span> (<span class="params">_err0</span>) &#123;
+  <span class="comment">// ...</span>
+  <span class="title function_">_next0</span>();
 &#125;);</code></pre>
 
 <p><code>Promise</code> 方式</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesHook &#125; &#x3D; require(&quot;tapable&quot;);
+<pre><code class="highlight js"><span class="keyword">const</span> &#123; <span class="title class_">AsyncSeriesHook</span> &#125; = <span class="built_in">require</span>(<span class="string">&quot;tapable&quot;</span>);
 
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new AsyncSeriesHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+<span class="comment">// 简单来说就是实例化 Hooks 类</span>
+<span class="comment">// 接收一个可选参数，参数是一个参数名的字符串数组</span>
+<span class="comment">// 这组参数和注册回调函数的参数有关，</span>
+<span class="keyword">const</span> hook = <span class="keyword">new</span> <span class="title class_">AsyncSeriesHook</span>([<span class="string">&quot;arg1&quot;</span>, <span class="string">&quot;arg2&quot;</span>, <span class="string">&quot;arg3&quot;</span>]);
 
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesHook&#96;的入参的数组有关系
-hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
+<span class="comment">// 注册</span>
+<span class="comment">// 第一个入参为注册名</span>
+<span class="comment">// 第二个为注册回调方法，参数的形参个数和`AsyncSeriesHook`的入参的数组有关系</span>
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn0&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn0&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>();
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn1&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3, callback</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn1&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>();
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn2&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3, callback</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn2&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>();
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
+<span class="comment">// 执行</span>
+<span class="comment">// 执行顺序则是根据这个实例类型来决定的</span>
+hook.<span class="title function_">promise</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>);</code></pre>
 
 <p><code>promise</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L10:1">AsyncSeriesHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L276">callTapsSeries</a>实现。 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-function _next1() &#123;
-  var _fn2 &#x3D; _x[2];
-  var _hasResult2 &#x3D; false;
-  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
-  _promise2.then(function (_result2) &#123;
-    _hasResult2 &#x3D; true;
+<pre><code class="highlight js"><span class="meta">&quot;use strict&quot;</span>;
+<span class="keyword">var</span> _context;
+<span class="keyword">var</span> _x = <span class="variable language_">this</span>.<span class="property">_x</span>;
+<span class="keyword">function</span> <span class="title function_">_next1</span>(<span class="params"></span>) &#123;
+  <span class="keyword">var</span> _fn2 = _x[<span class="number">2</span>];
+  <span class="keyword">var</span> _hasResult2 = <span class="literal">false</span>;
+  <span class="keyword">var</span> _promise2 = <span class="title function_">_fn2</span>(arg1, arg2, arg3);
+  _promise2.<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">_result2</span>) &#123;
+    _hasResult2 = <span class="literal">true</span>;
   &#125;);
 &#125;
-function _next0() &#123;
-  var _fn1 &#x3D; _x[1];
-  var _hasResult1 &#x3D; false;
-  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
-  _promise1.then(function (_result1) &#123;
-    _hasResult1 &#x3D; true;
-    _next1();
+<span class="keyword">function</span> <span class="title function_">_next0</span>(<span class="params"></span>) &#123;
+  <span class="keyword">var</span> _fn1 = _x[<span class="number">1</span>];
+  <span class="keyword">var</span> _hasResult1 = <span class="literal">false</span>;
+  <span class="keyword">var</span> _promise1 = <span class="title function_">_fn1</span>(arg1, arg2, arg3);
+  _promise1.<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">_result1</span>) &#123;
+    _hasResult1 = <span class="literal">true</span>;
+    <span class="title function_">_next1</span>();
   &#125;);
 &#125;
-var _fn0 &#x3D; _x[0];
-var _hasResult0 &#x3D; false;
-var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
-_promise0.then(function (_result0) &#123;
-  _hasResult0 &#x3D; true;
-  _next0();
+<span class="keyword">var</span> _fn0 = _x[<span class="number">0</span>];
+<span class="keyword">var</span> _hasResult0 = <span class="literal">false</span>;
+<span class="keyword">var</span> _promise0 = <span class="title function_">_fn0</span>(arg1, arg2, arg3);
+_promise0.<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">_result0</span>) &#123;
+  _hasResult0 = <span class="literal">true</span>;
+  <span class="title function_">_next0</span>();
 &#125;);</code></pre>
 
 <h2 id="AsyncSeriesBailHook"><a href="#AsyncSeriesBailHook" class="headerlink" title="AsyncSeriesBailHook"></a>AsyncSeriesBailHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesBailHook.js?L31">AsyncSeriesBailHook</a> 会对每次异步执行的结果进行检测，如果结果不是 <code>undefined</code> 就直接 <code>return</code> 了，后面的回调函数就没有机会执行了</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesBailHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new AsyncSeriesBailHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+<pre><code class="highlight js"><span class="keyword">const</span> &#123; <span class="title class_">AsyncSeriesBailHook</span> &#125; = <span class="built_in">require</span>(<span class="string">&quot;tapable&quot;</span>);
+<span class="comment">// 简单来说就是实例化 Hooks 类</span>
+<span class="comment">// 接收一个可选参数，参数是一个参数名的字符串数组</span>
+<span class="comment">// 这组参数和注册回调函数的参数有关，</span>
+<span class="keyword">const</span> hook = <span class="keyword">new</span> <span class="title class_">AsyncSeriesBailHook</span>([<span class="string">&quot;arg1&quot;</span>, <span class="string">&quot;arg2&quot;</span>, <span class="string">&quot;arg3&quot;</span>]);
 
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesBailHook&#96;的入参的数组有关系
-&#x2F;&#x2F; 串行调用
-hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
+<span class="comment">// 注册</span>
+<span class="comment">// 第一个入参为注册名</span>
+<span class="comment">// 第二个为注册回调方法，参数的形参个数和`AsyncSeriesBailHook`的入参的数组有关系</span>
+<span class="comment">// 串行调用</span>
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn0&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn0&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>();
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-      resolve(12); &#x2F;&#x2F; 后面的回调不会执行
-    &#125;, 1000);
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn1&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3, callback</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn1&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>(<span class="number">12</span>); <span class="comment">// 后面的回调不会执行</span>
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn2&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3, callback</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn2&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>();
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+<span class="comment">// 执行</span>
+<span class="comment">// 执行顺序则是根据这个实例类型来决定的</span>
+hook.<span class="title function_">promise</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>);
 
-&#x2F;&#x2F; 执行结果：
-&#x2F;&#x2F; fn0 a b c
-&#x2F;&#x2F; fn1 a b c</code></pre>
+<span class="comment">// 执行结果：</span>
+<span class="comment">// fn0 a b c</span>
+<span class="comment">// fn1 a b c</span></code></pre>
 
 <p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-function _next1() &#123;
-  var _fn2 &#x3D; _x[2];
-  var _hasResult2 &#x3D; false;
-  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
-  &#x2F;&#x2F;...
-  _promise2.then(function (_result2) &#123;
-    _hasResult2 &#x3D; true;
-    if (_result2 !&#x3D;&#x3D; undefined) &#123;
-      return _result2;
-    &#125; else &#123;
+<pre><code class="highlight js"><span class="meta">&quot;use strict&quot;</span>;
+<span class="keyword">var</span> _context;
+<span class="keyword">var</span> _x = <span class="variable language_">this</span>.<span class="property">_x</span>;
+<span class="keyword">function</span> <span class="title function_">_next1</span>(<span class="params"></span>) &#123;
+  <span class="keyword">var</span> _fn2 = _x[<span class="number">2</span>];
+  <span class="keyword">var</span> _hasResult2 = <span class="literal">false</span>;
+  <span class="keyword">var</span> _promise2 = <span class="title function_">_fn2</span>(arg1, arg2, arg3);
+  <span class="comment">//...</span>
+  _promise2.<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">_result2</span>) &#123;
+    _hasResult2 = <span class="literal">true</span>;
+    <span class="keyword">if</span> (_result2 !== <span class="literal">undefined</span>) &#123;
+      <span class="keyword">return</span> _result2;
+    &#125; <span class="keyword">else</span> &#123;
     &#125;
   &#125;);
 &#125;
-function _next0() &#123;
-  var _fn1 &#x3D; _x[1];
-  var _hasResult1 &#x3D; false;
-  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
-  &#x2F;&#x2F;...
-  _promise1.then(
-    function (_result1) &#123;
-      _hasResult1 &#x3D; true;
-      if (_result1 !&#x3D;&#x3D; undefined) &#123;
-        return _result1;
-      &#125; else &#123;
-        return _next1();
+<span class="keyword">function</span> <span class="title function_">_next0</span>(<span class="params"></span>) &#123;
+  <span class="keyword">var</span> _fn1 = _x[<span class="number">1</span>];
+  <span class="keyword">var</span> _hasResult1 = <span class="literal">false</span>;
+  <span class="keyword">var</span> _promise1 = <span class="title function_">_fn1</span>(arg1, arg2, arg3);
+  <span class="comment">//...</span>
+  _promise1.<span class="title function_">then</span>(
+    <span class="keyword">function</span> (<span class="params">_result1</span>) &#123;
+      _hasResult1 = <span class="literal">true</span>;
+      <span class="keyword">if</span> (_result1 !== <span class="literal">undefined</span>) &#123;
+        <span class="keyword">return</span> _result1;
+      &#125; <span class="keyword">else</span> &#123;
+        <span class="keyword">return</span> <span class="title function_">_next1</span>();
       &#125;
     &#125;
-    &#x2F;&#x2F;...
+    <span class="comment">//...</span>
   );
 &#125;
-var _fn0 &#x3D; _x[0];
-var _hasResult0 &#x3D; false;
-var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
-&#x2F;&#x2F;...
-_promise0.then(
-  function (_result0) &#123;
-    _hasResult0 &#x3D; true;
-    if (_result0 !&#x3D;&#x3D; undefined) &#123;
-      return _result0;
-    &#125; else &#123;
-      return _next0();
+<span class="keyword">var</span> _fn0 = _x[<span class="number">0</span>];
+<span class="keyword">var</span> _hasResult0 = <span class="literal">false</span>;
+<span class="keyword">var</span> _promise0 = <span class="title function_">_fn0</span>(arg1, arg2, arg3);
+<span class="comment">//...</span>
+_promise0.<span class="title function_">then</span>(
+  <span class="keyword">function</span> (<span class="params">_result0</span>) &#123;
+    _hasResult0 = <span class="literal">true</span>;
+    <span class="keyword">if</span> (_result0 !== <span class="literal">undefined</span>) &#123;
+      <span class="keyword">return</span> _result0;
+    &#125; <span class="keyword">else</span> &#123;
+      <span class="keyword">return</span> <span class="title function_">_next0</span>();
     &#125;
   &#125;
-  &#x2F;&#x2F;...
+  <span class="comment">//...</span>
 );</code></pre>
 
 <h2 id="AsyncSeriesLoopHook"><a href="#AsyncSeriesLoopHook" class="headerlink" title="AsyncSeriesLoopHook"></a>AsyncSeriesLoopHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesLoopHook.js?L26">AsyncSeriesLoopHook</a>会对每次异步执行的结果进行检测，如果结果不是 <code>undefined</code> 就不停循环第一个回调函数到当前回调函数，直至都返回 <code>undefined</code>。</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesLoopHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new AsyncSeriesLoopHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+<pre><code class="highlight js"><span class="keyword">const</span> &#123; <span class="title class_">AsyncSeriesLoopHook</span> &#125; = <span class="built_in">require</span>(<span class="string">&quot;tapable&quot;</span>);
+<span class="comment">// 简单来说就是实例化 Hooks 类</span>
+<span class="comment">// 接收一个可选参数，参数是一个参数名的字符串数组</span>
+<span class="comment">// 这组参数和注册回调函数的参数有关，</span>
+<span class="keyword">const</span> hook = <span class="keyword">new</span> <span class="title class_">AsyncSeriesLoopHook</span>([<span class="string">&quot;arg1&quot;</span>, <span class="string">&quot;arg2&quot;</span>, <span class="string">&quot;arg3&quot;</span>]);
 
-let _loop &#x3D; 2; &#x2F;&#x2F; 循环两次
+<span class="keyword">let</span> _loop = <span class="number">2</span>; <span class="comment">// 循环两次</span>
 
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesLoopHook&#96;的入参的数组有关系
-hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
+<span class="comment">// 注册</span>
+<span class="comment">// 第一个入参为注册名</span>
+<span class="comment">// 第二个为注册回调方法，参数的形参个数和`AsyncSeriesLoopHook`的入参的数组有关系</span>
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn0&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn0&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>();
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-      resolve(_loop &gt; 0 ? &quot;fn1 result&quot; : undefined);
-      _loop &#x3D; _loop - 1;
-    &#125;, 1000);
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn1&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3, callback</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn1&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>(_loop &gt; <span class="number">0</span> ? <span class="string">&quot;fn1 result&quot;</span> : <span class="literal">undefined</span>);
+      _loop = _loop - <span class="number">1</span>;
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn2&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3, callback</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn2&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>();
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+<span class="comment">// 执行</span>
+<span class="comment">// 执行顺序则是根据这个实例类型来决定的</span>
+hook.<span class="title function_">promise</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>);
 
-&#x2F;&#x2F; 执行结果
-&#x2F;&#x2F; fn0 a b c
-&#x2F;&#x2F; fn1 a b c
-&#x2F;&#x2F; fn0 a b c &#x2F;&#x2F; 循环
-&#x2F;&#x2F; fn1 a b c &#x2F;&#x2F; 循环
-&#x2F;&#x2F; fn0 a b c &#x2F;&#x2F; 循环
-&#x2F;&#x2F; fn1 a b c &#x2F;&#x2F; 循环
-&#x2F;&#x2F; fn2 a b c</code></pre>
+<span class="comment">// 执行结果</span>
+<span class="comment">// fn0 a b c</span>
+<span class="comment">// fn1 a b c</span>
+<span class="comment">// fn0 a b c // 循环</span>
+<span class="comment">// fn1 a b c // 循环</span>
+<span class="comment">// fn0 a b c // 循环</span>
+<span class="comment">// fn1 a b c // 循环</span>
+<span class="comment">// fn2 a b c</span></code></pre>
 
 <p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
 <p><code>promise</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesLoopHook.js?L10:1">AsyncSeriesLoopHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L324:2">callTapsLooping</a>实现。 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-var _looper &#x3D; function () &#123;
-  var _loopAsync &#x3D; false;
-  var _loop;
-  do &#123;
-    _loop &#x3D; false;
-    function _next1() &#123;
-      var _fn2 &#x3D; _x[2];
-      var _hasResult2 &#x3D; false;
-      var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
-      &#x2F;&#x2F; 判断返回是不是promise
-      if (!_promise2 || !_promise2.then)
-        throw new Error(
-          &quot;Tap function (tapPromise) did not return promise (returned &quot; +
+<pre><code class="highlight js"><span class="meta">&quot;use strict&quot;</span>;
+<span class="keyword">var</span> _context;
+<span class="keyword">var</span> _x = <span class="variable language_">this</span>.<span class="property">_x</span>;
+<span class="keyword">var</span> _looper = <span class="keyword">function</span> (<span class="params"></span>) &#123;
+  <span class="keyword">var</span> _loopAsync = <span class="literal">false</span>;
+  <span class="keyword">var</span> _loop;
+  <span class="keyword">do</span> &#123;
+    _loop = <span class="literal">false</span>;
+    <span class="keyword">function</span> <span class="title function_">_next1</span>(<span class="params"></span>) &#123;
+      <span class="keyword">var</span> _fn2 = _x[<span class="number">2</span>];
+      <span class="keyword">var</span> _hasResult2 = <span class="literal">false</span>;
+      <span class="keyword">var</span> _promise2 = <span class="title function_">_fn2</span>(arg1, arg2, arg3);
+      <span class="comment">// 判断返回是不是promise</span>
+      <span class="keyword">if</span> (!_promise2 || !_promise2.<span class="property">then</span>)
+        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(
+          <span class="string">&quot;Tap function (tapPromise) did not return promise (returned &quot;</span> +
             _promise2 +
-            &quot;)&quot;
+            <span class="string">&quot;)&quot;</span>
         );
-      _promise2.then(
-        function (_result2) &#123;
-          _hasResult2 &#x3D; true;
-          if (_result2 !&#x3D;&#x3D; undefined) &#123;
-            _loop &#x3D; true;
-            if (_loopAsync) _looper();
-          &#125; else &#123;
-            if (!_loop) &#123;
+      _promise2.<span class="title function_">then</span>(
+        <span class="keyword">function</span> (<span class="params">_result2</span>) &#123;
+          _hasResult2 = <span class="literal">true</span>;
+          <span class="keyword">if</span> (_result2 !== <span class="literal">undefined</span>) &#123;
+            _loop = <span class="literal">true</span>;
+            <span class="keyword">if</span> (_loopAsync) <span class="title function_">_looper</span>();
+          &#125; <span class="keyword">else</span> &#123;
+            <span class="keyword">if</span> (!_loop) &#123;
             &#125;
           &#125;
         &#125;
-        &#x2F;&#x2F; ... reject 处理
+        <span class="comment">// ... reject 处理</span>
       );
     &#125;
-    function _next0() &#123;
-      var _fn1 &#x3D; _x[1];
-      var _hasResult1 &#x3D; false;
-      var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
-      &#x2F;&#x2F; ...
-      _promise1.then(
-        function (_result1) &#123;
-          _hasResult1 &#x3D; true;
-          if (_result1 !&#x3D;&#x3D; undefined) &#123;
-            _loop &#x3D; true;
-            if (_loopAsync) _looper();
-          &#125; else &#123;
-            _next1();
+    <span class="keyword">function</span> <span class="title function_">_next0</span>(<span class="params"></span>) &#123;
+      <span class="keyword">var</span> _fn1 = _x[<span class="number">1</span>];
+      <span class="keyword">var</span> _hasResult1 = <span class="literal">false</span>;
+      <span class="keyword">var</span> _promise1 = <span class="title function_">_fn1</span>(arg1, arg2, arg3);
+      <span class="comment">// ...</span>
+      _promise1.<span class="title function_">then</span>(
+        <span class="keyword">function</span> (<span class="params">_result1</span>) &#123;
+          _hasResult1 = <span class="literal">true</span>;
+          <span class="keyword">if</span> (_result1 !== <span class="literal">undefined</span>) &#123;
+            _loop = <span class="literal">true</span>;
+            <span class="keyword">if</span> (_loopAsync) <span class="title function_">_looper</span>();
+          &#125; <span class="keyword">else</span> &#123;
+            <span class="title function_">_next1</span>();
           &#125;
         &#125;
-        &#x2F;&#x2F; ... reject 处理
+        <span class="comment">// ... reject 处理</span>
       );
     &#125;
-    var _fn0 &#x3D; _x[0];
-    var _hasResult0 &#x3D; false;
-    var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
-    &#x2F;&#x2F; ...
-    _promise0.then(
-      function (_result0) &#123;
-        _hasResult0 &#x3D; true;
-        if (_result0 !&#x3D;&#x3D; undefined) &#123;
-          _loop &#x3D; true;
-          if (_loopAsync) _looper();
-        &#125; else &#123;
-          _next0();
+    <span class="keyword">var</span> _fn0 = _x[<span class="number">0</span>];
+    <span class="keyword">var</span> _hasResult0 = <span class="literal">false</span>;
+    <span class="keyword">var</span> _promise0 = <span class="title function_">_fn0</span>(arg1, arg2, arg3);
+    <span class="comment">// ...</span>
+    _promise0.<span class="title function_">then</span>(
+      <span class="keyword">function</span> (<span class="params">_result0</span>) &#123;
+        _hasResult0 = <span class="literal">true</span>;
+        <span class="keyword">if</span> (_result0 !== <span class="literal">undefined</span>) &#123;
+          _loop = <span class="literal">true</span>;
+          <span class="keyword">if</span> (_loopAsync) <span class="title function_">_looper</span>();
+        &#125; <span class="keyword">else</span> &#123;
+          <span class="title function_">_next0</span>();
         &#125;
       &#125;
-      &#x2F;&#x2F; ... reject 处理
+      <span class="comment">// ... reject 处理</span>
     );
-  &#125; while (_loop);
-  _loopAsync &#x3D; true;
+  &#125; <span class="keyword">while</span> (_loop);
+  _loopAsync = <span class="literal">true</span>;
 &#125;;
-_looper();</code></pre>
+<span class="title function_">_looper</span>();</code></pre>
 
 <h2 id="AsyncSeriesWaterfallHook"><a href="#AsyncSeriesWaterfallHook" class="headerlink" title="AsyncSeriesWaterfallHook"></a>AsyncSeriesWaterfallHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesWaterfallHook.js?L34">AsyncSeriesWaterfallHook</a>会对每次执行异步函数的结果当成下一个回调函数的入参（<code>callAsync</code>&#x2F;<code>promise</code>的入参 ），如果返回值是 <code>undefined</code>，使用上一个参数。</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesWaterfallHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new AsyncSeriesWaterfallHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+<pre><code class="highlight js"><span class="keyword">const</span> &#123; <span class="title class_">AsyncSeriesWaterfallHook</span> &#125; = <span class="built_in">require</span>(<span class="string">&quot;tapable&quot;</span>);
+<span class="comment">// 简单来说就是实例化 Hooks 类</span>
+<span class="comment">// 接收一个可选参数，参数是一个参数名的字符串数组</span>
+<span class="comment">// 这组参数和注册回调函数的参数有关，</span>
+<span class="keyword">const</span> hook = <span class="keyword">new</span> <span class="title class_">AsyncSeriesWaterfallHook</span>([<span class="string">&quot;arg1&quot;</span>, <span class="string">&quot;arg2&quot;</span>, <span class="string">&quot;arg3&quot;</span>]);
 
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesWaterfallHook&#96;的入参的数组有关系
-hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
+<span class="comment">// 注册</span>
+<span class="comment">// 第一个入参为注册名</span>
+<span class="comment">// 第二个为注册回调方法，参数的形参个数和`AsyncSeriesWaterfallHook`的入参的数组有关系</span>
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn0&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn0&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>();
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-      resolve(&quot;fn1-result&quot;); &#x2F;&#x2F; 返回值作为fn2的第一个入参
-    &#125;, 1000);
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn1&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3, callback</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn1&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>(<span class="string">&quot;fn1-result&quot;</span>); <span class="comment">// 返回值作为fn2的第一个入参</span>
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn2&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3, callback</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn2&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>();
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+<span class="comment">// 执行</span>
+<span class="comment">// 执行顺序则是根据这个实例类型来决定的</span>
+hook.<span class="title function_">promise</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>);
 
-&#x2F;&#x2F; 执行结果
-&#x2F;&#x2F; fn0 a b c
-&#x2F;&#x2F; fn1 a b c
-&#x2F;&#x2F; fn2 fn1-result b c</code></pre>
+<span class="comment">// 执行结果</span>
+<span class="comment">// fn0 a b c</span>
+<span class="comment">// fn1 a b c</span>
+<span class="comment">// fn2 fn1-result b c</span></code></pre>
 
 <p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
 <p><code>promise</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesWaterfallHook.js?L10:1">AsyncSeriesWaterfallHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L276">callTapsSeries</a>实现。 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-function _next2() &#123;
-  var _fn3 &#x3D; _x[3];
-  var _hasResult3 &#x3D; false;
-  var _promise3 &#x3D; _fn3(arg1, arg2, arg3);
-  if (!_promise3 || !_promise3.then)
-    &#x2F;&#x2F; 判断返回是不是promise
-    throw new Error(
-      &quot;Tap function (tapPromise) did not return promise (returned &quot; +
+<pre><code class="highlight js"><span class="meta">&quot;use strict&quot;</span>;
+<span class="keyword">var</span> _context;
+<span class="keyword">var</span> _x = <span class="variable language_">this</span>.<span class="property">_x</span>;
+<span class="keyword">function</span> <span class="title function_">_next2</span>(<span class="params"></span>) &#123;
+  <span class="keyword">var</span> _fn3 = _x[<span class="number">3</span>];
+  <span class="keyword">var</span> _hasResult3 = <span class="literal">false</span>;
+  <span class="keyword">var</span> _promise3 = <span class="title function_">_fn3</span>(arg1, arg2, arg3);
+  <span class="keyword">if</span> (!_promise3 || !_promise3.<span class="property">then</span>)
+    <span class="comment">// 判断返回是不是promise</span>
+    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(
+      <span class="string">&quot;Tap function (tapPromise) did not return promise (returned &quot;</span> +
         _promise3 +
-        &quot;)&quot;
+        <span class="string">&quot;)&quot;</span>
     );
-  _promise3.then(
-    function (_result3) &#123;
-      _hasResult3 &#x3D; true;
-      if (_result3 !&#x3D;&#x3D; undefined) &#123;
-        arg1 &#x3D; _result3;
+  _promise3.<span class="title function_">then</span>(
+    <span class="keyword">function</span> (<span class="params">_result3</span>) &#123;
+      _hasResult3 = <span class="literal">true</span>;
+      <span class="keyword">if</span> (_result3 !== <span class="literal">undefined</span>) &#123;
+        arg1 = _result3;
       &#125;
-      return arg1;
+      <span class="keyword">return</span> arg1;
     &#125;
-    &#x2F;&#x2F; ...
+    <span class="comment">// ...</span>
   );
 &#125;
-function _next1() &#123;
-  var _fn2 &#x3D; _x[2];
-  var _hasResult2 &#x3D; false;
-  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
-  &#x2F;&#x2F; ...
-  _promise2.then(function (_result2) &#123;
-    _hasResult2 &#x3D; true;
-    if (_result2 !&#x3D;&#x3D; undefined) &#123;
-      arg1 &#x3D; _result2;
+<span class="keyword">function</span> <span class="title function_">_next1</span>(<span class="params"></span>) &#123;
+  <span class="keyword">var</span> _fn2 = _x[<span class="number">2</span>];
+  <span class="keyword">var</span> _hasResult2 = <span class="literal">false</span>;
+  <span class="keyword">var</span> _promise2 = <span class="title function_">_fn2</span>(arg1, arg2, arg3);
+  <span class="comment">// ...</span>
+  _promise2.<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params">_result2</span>) &#123;
+    _hasResult2 = <span class="literal">true</span>;
+    <span class="keyword">if</span> (_result2 !== <span class="literal">undefined</span>) &#123;
+      arg1 = _result2;
     &#125;
-    _next2();
+    <span class="title function_">_next2</span>();
   &#125;);
 &#125;
-function _next0() &#123;
-  var _fn1 &#x3D; _x[1];
-  var _hasResult1 &#x3D; false;
-  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
-  &#x2F;&#x2F; ...
-  _promise1.then(
-    function (_result1) &#123;
-      _hasResult1 &#x3D; true;
-      if (_result1 !&#x3D;&#x3D; undefined) &#123;
-        arg1 &#x3D; _result1;
+<span class="keyword">function</span> <span class="title function_">_next0</span>(<span class="params"></span>) &#123;
+  <span class="keyword">var</span> _fn1 = _x[<span class="number">1</span>];
+  <span class="keyword">var</span> _hasResult1 = <span class="literal">false</span>;
+  <span class="keyword">var</span> _promise1 = <span class="title function_">_fn1</span>(arg1, arg2, arg3);
+  <span class="comment">// ...</span>
+  _promise1.<span class="title function_">then</span>(
+    <span class="keyword">function</span> (<span class="params">_result1</span>) &#123;
+      _hasResult1 = <span class="literal">true</span>;
+      <span class="keyword">if</span> (_result1 !== <span class="literal">undefined</span>) &#123;
+        arg1 = _result1;
       &#125;
-      _next1();
+      <span class="title function_">_next1</span>();
     &#125;
-    &#x2F;&#x2F; ...
+    <span class="comment">// ...</span>
   );
 &#125;
-var _fn0 &#x3D; _x[0];
-var _hasResult0 &#x3D; false;
-var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
-&#x2F;&#x2F; ...
-_promise0.then(
-  function (_result0) &#123;
-    _hasResult0 &#x3D; true;
-    if (_result0 !&#x3D;&#x3D; undefined) &#123;
-      arg1 &#x3D; _result0;
+<span class="keyword">var</span> _fn0 = _x[<span class="number">0</span>];
+<span class="keyword">var</span> _hasResult0 = <span class="literal">false</span>;
+<span class="keyword">var</span> _promise0 = <span class="title function_">_fn0</span>(arg1, arg2, arg3);
+<span class="comment">// ...</span>
+_promise0.<span class="title function_">then</span>(
+  <span class="keyword">function</span> (<span class="params">_result0</span>) &#123;
+    _hasResult0 = <span class="literal">true</span>;
+    <span class="keyword">if</span> (_result0 !== <span class="literal">undefined</span>) &#123;
+      arg1 = _result0;
     &#125;
-    _next0();
+    <span class="title function_">_next0</span>();
   &#125;
-  &#x2F;&#x2F; ...
+  <span class="comment">// ...</span>
 );</code></pre>
 
 <h2 id="AsyncParallelHook"><a href="#AsyncParallelHook" class="headerlink" title="AsyncParallelHook"></a>AsyncParallelHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelHook.js?L26:1">AsyncParallelHook</a>并行执行, 不关心回调函数的返回值。</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncParallelHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-&#x2F;&#x2F; 并行执行 不关心回调函数的返回值。
-const hook &#x3D; new AsyncParallelHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+<pre><code class="highlight js"><span class="keyword">const</span> &#123; <span class="title class_">AsyncParallelHook</span> &#125; = <span class="built_in">require</span>(<span class="string">&quot;tapable&quot;</span>);
+<span class="comment">// 简单来说就是实例化 Hooks 类</span>
+<span class="comment">// 接收一个可选参数，参数是一个参数名的字符串数组</span>
+<span class="comment">// 这组参数和注册回调函数的参数有关，</span>
+<span class="comment">// 并行执行 不关心回调函数的返回值。</span>
+<span class="keyword">const</span> hook = <span class="keyword">new</span> <span class="title class_">AsyncParallelHook</span>([<span class="string">&quot;arg1&quot;</span>, <span class="string">&quot;arg2&quot;</span>, <span class="string">&quot;arg3&quot;</span>]);
 
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncParallelHook&#96;的入参的数组有关系
-hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
+<span class="comment">// 注册</span>
+<span class="comment">// 第一个入参为注册名</span>
+<span class="comment">// 第二个为注册回调方法，参数的形参个数和`AsyncParallelHook`的入参的数组有关系</span>
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn0&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn0&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>();
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-      resolve(&quot;fn1-result&quot;);
-    &#125;, 1000);
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn1&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn1&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>(<span class="string">&quot;fn1-result&quot;</span>);
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 500);
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn2&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn2&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>();
+    &#125;, <span class="number">500</span>);
   &#125;);
 &#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+<span class="comment">// 执行</span>
+<span class="comment">// 执行顺序则是根据这个实例类型来决定的</span>
+hook.<span class="title function_">promise</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>);
 
-&#x2F;&#x2F; 执行结果
-&#x2F;&#x2F; fn2 a b c
-&#x2F;&#x2F; fn0 a b c
-&#x2F;&#x2F; fn1 a b c</code></pre>
+<span class="comment">// 执行结果</span>
+<span class="comment">// fn2 a b c</span>
+<span class="comment">// fn0 a b c</span>
+<span class="comment">// fn1 a b c</span></code></pre>
 
 <p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
 <p><code>promise</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelHook.js?L10:1">AsyncParallelHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L376:2">callTapsParallel</a>实现。 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-do &#123;
-  var _counter &#x3D; 3;
-  var _done &#x3D; function () &#123;&#125;;
-  if (_counter &lt;&#x3D; 0) break;
-  var _fn0 &#x3D; _x[0];
-  var _hasResult0 &#x3D; false;
-  var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
+<pre><code class="highlight js"><span class="meta">&quot;use strict&quot;</span>;
+<span class="keyword">var</span> _context;
+<span class="keyword">var</span> _x = <span class="variable language_">this</span>.<span class="property">_x</span>;
+<span class="keyword">do</span> &#123;
+  <span class="keyword">var</span> _counter = <span class="number">3</span>;
+  <span class="keyword">var</span> _done = <span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;;
+  <span class="keyword">if</span> (_counter &lt;= <span class="number">0</span>) <span class="keyword">break</span>;
+  <span class="keyword">var</span> _fn0 = _x[<span class="number">0</span>];
+  <span class="keyword">var</span> _hasResult0 = <span class="literal">false</span>;
+  <span class="keyword">var</span> _promise0 = <span class="title function_">_fn0</span>(arg1, arg2, arg3);
 
-  &#x2F;&#x2F; 判断返回是不是promise
-  if (!_promise0 || !_promise0.then)
-    throw new Error(
-      &quot;Tap function (tapPromise) did not return promise (returned &quot; +
+  <span class="comment">// 判断返回是不是promise</span>
+  <span class="keyword">if</span> (!_promise0 || !_promise0.<span class="property">then</span>)
+    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(
+      <span class="string">&quot;Tap function (tapPromise) did not return promise (returned &quot;</span> +
         _promise0 +
-        &quot;)&quot;
+        <span class="string">&quot;)&quot;</span>
     );
-  _promise0.then(
-    function (_result0) &#123;
-      _hasResult0 &#x3D; true;
-      if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+  _promise0.<span class="title function_">then</span>(
+    <span class="keyword">function</span> (<span class="params">_result0</span>) &#123;
+      _hasResult0 = <span class="literal">true</span>;
+      <span class="keyword">if</span> (--_counter === <span class="number">0</span>) <span class="title function_">_done</span>();
     &#125;,
-    function (_err0) &#123;
-      if (_hasResult0) throw _err0;
-      if (_counter &gt; 0) &#123;
-        throw _err0;
-        _counter &#x3D; 0;
+    <span class="keyword">function</span> (<span class="params">_err0</span>) &#123;
+      <span class="keyword">if</span> (_hasResult0) <span class="keyword">throw</span> _err0;
+      <span class="keyword">if</span> (_counter &gt; <span class="number">0</span>) &#123;
+        <span class="keyword">throw</span> _err0;
+        _counter = <span class="number">0</span>;
       &#125;
     &#125;
   );
-  if (_counter &lt;&#x3D; 0) break;
-  var _fn1 &#x3D; _x[1];
-  var _hasResult1 &#x3D; false;
-  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
-  &#x2F;&#x2F; ...
-  _promise1.then(
-    function (_result1) &#123;
-      _hasResult1 &#x3D; true;
-      if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+  <span class="keyword">if</span> (_counter &lt;= <span class="number">0</span>) <span class="keyword">break</span>;
+  <span class="keyword">var</span> _fn1 = _x[<span class="number">1</span>];
+  <span class="keyword">var</span> _hasResult1 = <span class="literal">false</span>;
+  <span class="keyword">var</span> _promise1 = <span class="title function_">_fn1</span>(arg1, arg2, arg3);
+  <span class="comment">// ...</span>
+  _promise1.<span class="title function_">then</span>(
+    <span class="keyword">function</span> (<span class="params">_result1</span>) &#123;
+      _hasResult1 = <span class="literal">true</span>;
+      <span class="keyword">if</span> (--_counter === <span class="number">0</span>) <span class="title function_">_done</span>();
     &#125;,
-    function (_err1) &#123;
-      if (_hasResult1) throw _err1;
-      if (_counter &gt; 0) &#123;
-        throw _err1;
-        _counter &#x3D; 0;
+    <span class="keyword">function</span> (<span class="params">_err1</span>) &#123;
+      <span class="keyword">if</span> (_hasResult1) <span class="keyword">throw</span> _err1;
+      <span class="keyword">if</span> (_counter &gt; <span class="number">0</span>) &#123;
+        <span class="keyword">throw</span> _err1;
+        _counter = <span class="number">0</span>;
       &#125;
     &#125;
   );
-  if (_counter &lt;&#x3D; 0) break;
-  var _fn2 &#x3D; _x[2];
-  var _hasResult2 &#x3D; false;
-  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
-  &#x2F;&#x2F; ...
-  _promise2.then(
-    function (_result2) &#123;
-      _hasResult2 &#x3D; true;
-      if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+  <span class="keyword">if</span> (_counter &lt;= <span class="number">0</span>) <span class="keyword">break</span>;
+  <span class="keyword">var</span> _fn2 = _x[<span class="number">2</span>];
+  <span class="keyword">var</span> _hasResult2 = <span class="literal">false</span>;
+  <span class="keyword">var</span> _promise2 = <span class="title function_">_fn2</span>(arg1, arg2, arg3);
+  <span class="comment">// ...</span>
+  _promise2.<span class="title function_">then</span>(
+    <span class="keyword">function</span> (<span class="params">_result2</span>) &#123;
+      _hasResult2 = <span class="literal">true</span>;
+      <span class="keyword">if</span> (--_counter === <span class="number">0</span>) <span class="title function_">_done</span>();
     &#125;,
-    function (_err2) &#123;
-      if (_hasResult2) throw _err2;
-      if (_counter &gt; 0) &#123;
-        throw _err2;
-        _counter &#x3D; 0;
+    <span class="keyword">function</span> (<span class="params">_err2</span>) &#123;
+      <span class="keyword">if</span> (_hasResult2) <span class="keyword">throw</span> _err2;
+      <span class="keyword">if</span> (_counter &gt; <span class="number">0</span>) &#123;
+        <span class="keyword">throw</span> _err2;
+        _counter = <span class="number">0</span>;
       &#125;
     &#125;
   );
-&#125; while (false);</code></pre>
+&#125; <span class="keyword">while</span> (<span class="literal">false</span>);</code></pre>
 
 <h2 id="AsyncParallelBailHook"><a href="#AsyncParallelBailHook" class="headerlink" title="AsyncParallelBailHook"></a>AsyncParallelBailHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelBailHook.js?L74:1">AsyncParallelBailHook</a> 只要回调函数的返回值不为 <code>undefined</code>, 就会忽略后面的回调函数执行, 直接跳跃到 <code>callAsync</code> 等触发函数绑定的回调函数, 然后执行这个被绑定的回调函数。</p>
 <p>使用和原理与 SyncBailHook 相似</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncParallelBailHook &#125; &#x3D; require(&quot;tabable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-&#x2F;&#x2F; 并行执行 不关心回调函数的返回值。
-const hook &#x3D; new AsyncParallelBailHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+<pre><code class="highlight js"><span class="keyword">const</span> &#123; <span class="title class_">AsyncParallelBailHook</span> &#125; = <span class="built_in">require</span>(<span class="string">&quot;tabable&quot;</span>);
+<span class="comment">// 简单来说就是实例化 Hooks 类</span>
+<span class="comment">// 接收一个可选参数，参数是一个参数名的字符串数组</span>
+<span class="comment">// 这组参数和注册回调函数的参数有关，</span>
+<span class="comment">// 并行执行 不关心回调函数的返回值。</span>
+<span class="keyword">const</span> hook = <span class="keyword">new</span> <span class="title class_">AsyncParallelBailHook</span>([<span class="string">&quot;arg1&quot;</span>, <span class="string">&quot;arg2&quot;</span>, <span class="string">&quot;arg3&quot;</span>]);
 
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncParallelBailHook&#96;的入参的数组有关系
-hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
+<span class="comment">// 注册</span>
+<span class="comment">// 第一个入参为注册名</span>
+<span class="comment">// 第二个为注册回调方法，参数的形参个数和`AsyncParallelBailHook`的入参的数组有关系</span>
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn0&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn0&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>();
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-      resolve(&quot;fn1-result&quot;);
-    &#125;, 1000);
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn1&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn1&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>(<span class="string">&quot;fn1-result&quot;</span>);
+    &#125;, <span class="number">1000</span>);
   &#125;);
 &#125;);
-hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 500);
+hook.<span class="title function_">tapPromise</span>(<span class="string">&quot;fn2&quot;</span>, <span class="function">(<span class="params">arg1, arg2, arg3</span>) =&gt;</span> &#123;
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;
+      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;fn2&quot;</span>, arg1, arg2, arg3);
+      <span class="title function_">resolve</span>();
+    &#125;, <span class="number">500</span>);
   &#125;);
 &#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+<span class="comment">// 执行</span>
+<span class="comment">// 执行顺序则是根据这个实例类型来决定的</span>
+hook.<span class="title function_">promise</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>);
 
-&#x2F;&#x2F; 执行结果
-&#x2F;&#x2F; fn2 a b c
-&#x2F;&#x2F; fn0 a b c
-&#x2F;&#x2F; fn1 a b c</code></pre>
+<span class="comment">// 执行结果</span>
+<span class="comment">// fn2 a b c</span>
+<span class="comment">// fn0 a b c</span>
+<span class="comment">// fn1 a b c</span></code></pre>
 
 <p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
 <p><code>promise</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelBailHook.js?L10:1">AsyncParallelBailHookCodeFactory</a>的<code>content</code>实现。 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-var _results &#x3D; new Array(3);
-var _checkDone &#x3D; function () &#123;
-  for (var i &#x3D; 0; i &lt; _results.length; i++) &#123;
-    var item &#x3D; _results[i];
-    if (item &#x3D;&#x3D;&#x3D; undefined) return false;
-    if (item.result !&#x3D;&#x3D; undefined) &#123;
-      return item.result;
-      return true;
+<pre><code class="highlight js"><span class="meta">&quot;use strict&quot;</span>;
+<span class="keyword">var</span> _context;
+<span class="keyword">var</span> _x = <span class="variable language_">this</span>.<span class="property">_x</span>;
+<span class="keyword">var</span> _results = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">3</span>);
+<span class="keyword">var</span> _checkDone = <span class="keyword">function</span> (<span class="params"></span>) &#123;
+  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; _results.<span class="property">length</span>; i++) &#123;
+    <span class="keyword">var</span> item = _results[i];
+    <span class="keyword">if</span> (item === <span class="literal">undefined</span>) <span class="keyword">return</span> <span class="literal">false</span>;
+    <span class="keyword">if</span> (item.<span class="property">result</span> !== <span class="literal">undefined</span>) &#123;
+      <span class="keyword">return</span> item.<span class="property">result</span>;
+      <span class="keyword">return</span> <span class="literal">true</span>;
     &#125;
-    if (item.error) &#123;
-      throw item.error;
-      return true;
+    <span class="keyword">if</span> (item.<span class="property">error</span>) &#123;
+      <span class="keyword">throw</span> item.<span class="property">error</span>;
+      <span class="keyword">return</span> <span class="literal">true</span>;
     &#125;
   &#125;
-  return false;
+  <span class="keyword">return</span> <span class="literal">false</span>;
 &#125;;
-do &#123;
-  var _counter &#x3D; 3;
-  var _done &#x3D; function () &#123;&#125;;
-  if (_counter &lt;&#x3D; 0) break;
-  var _fn0 &#x3D; _x[0];
-  var _hasResult0 &#x3D; false;
-  var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
-  &#x2F;&#x2F; 判断返回是不是promise
-  if (!_promise0 || !_promise0.then)
-    throw new Error(
-      &quot;Tap function (tapPromise) did not return promise (returned &quot; +
+<span class="keyword">do</span> &#123;
+  <span class="keyword">var</span> _counter = <span class="number">3</span>;
+  <span class="keyword">var</span> _done = <span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;;
+  <span class="keyword">if</span> (_counter &lt;= <span class="number">0</span>) <span class="keyword">break</span>;
+  <span class="keyword">var</span> _fn0 = _x[<span class="number">0</span>];
+  <span class="keyword">var</span> _hasResult0 = <span class="literal">false</span>;
+  <span class="keyword">var</span> _promise0 = <span class="title function_">_fn0</span>(arg1, arg2, arg3);
+  <span class="comment">// 判断返回是不是promise</span>
+  <span class="keyword">if</span> (!_promise0 || !_promise0.<span class="property">then</span>)
+    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(
+      <span class="string">&quot;Tap function (tapPromise) did not return promise (returned &quot;</span> +
         _promise0 +
-        &quot;)&quot;
+        <span class="string">&quot;)&quot;</span>
     );
-  _promise0.then(
-    function (_result0) &#123;
-      _hasResult0 &#x3D; true;
-      if (_counter &gt; 0) &#123;
-        if (
-          0 &lt; _results.length &amp;&amp;
-          (_result0 !&#x3D;&#x3D; undefined &amp;&amp; (_results.length &#x3D; 1),
-          (_results[0] &#x3D; &#123; result: _result0 &#125;),
-          _checkDone())
+  _promise0.<span class="title function_">then</span>(
+    <span class="keyword">function</span> (<span class="params">_result0</span>) &#123;
+      _hasResult0 = <span class="literal">true</span>;
+      <span class="keyword">if</span> (_counter &gt; <span class="number">0</span>) &#123;
+        <span class="keyword">if</span> (
+          <span class="number">0</span> &lt; _results.<span class="property">length</span> &amp;&amp;
+          (_result0 !== <span class="literal">undefined</span> &amp;&amp; (_results.<span class="property">length</span> = <span class="number">1</span>),
+          (_results[<span class="number">0</span>] = &#123; <span class="attr">result</span>: _result0 &#125;),
+          <span class="title function_">_checkDone</span>())
         ) &#123;
-          _counter &#x3D; 0;
-        &#125; else &#123;
-          if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+          _counter = <span class="number">0</span>;
+        &#125; <span class="keyword">else</span> &#123;
+          <span class="keyword">if</span> (--_counter === <span class="number">0</span>) <span class="title function_">_done</span>();
         &#125;
       &#125;
     &#125;,
-    function (_err0) &#123;
-      if (_hasResult0) throw _err0;
-      if (_counter &gt; 0) &#123;
-        if (
-          0 &lt; _results.length &amp;&amp;
-          ((_results.length &#x3D; 1),
-          (_results[0] &#x3D; &#123; error: _err0 &#125;),
-          _checkDone())
+    <span class="keyword">function</span> (<span class="params">_err0</span>) &#123;
+      <span class="keyword">if</span> (_hasResult0) <span class="keyword">throw</span> _err0;
+      <span class="keyword">if</span> (_counter &gt; <span class="number">0</span>) &#123;
+        <span class="keyword">if</span> (
+          <span class="number">0</span> &lt; _results.<span class="property">length</span> &amp;&amp;
+          ((_results.<span class="property">length</span> = <span class="number">1</span>),
+          (_results[<span class="number">0</span>] = &#123; <span class="attr">error</span>: _err0 &#125;),
+          <span class="title function_">_checkDone</span>())
         ) &#123;
-          _counter &#x3D; 0;
-        &#125; else &#123;
-          if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+          _counter = <span class="number">0</span>;
+        &#125; <span class="keyword">else</span> &#123;
+          <span class="keyword">if</span> (--_counter === <span class="number">0</span>) <span class="title function_">_done</span>();
         &#125;
       &#125;
     &#125;
   );
-  if (_counter &lt;&#x3D; 0) break;
-  if (1 &gt;&#x3D; _results.length) &#123;
-    if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
-  &#125; else &#123;
-    var _fn1 &#x3D; _x[1];
-    var _hasResult1 &#x3D; false;
-    var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
-    &#x2F;&#x2F; ...
-    _promise1.then(
-      function (_result1) &#123;
-        _hasResult1 &#x3D; true;
-        if (_counter &gt; 0) &#123;
-          if (
-            1 &lt; _results.length &amp;&amp;
-            (_result1 !&#x3D;&#x3D; undefined &amp;&amp; (_results.length &#x3D; 2),
-            (_results[1] &#x3D; &#123; result: _result1 &#125;),
-            _checkDone())
+  <span class="keyword">if</span> (_counter &lt;= <span class="number">0</span>) <span class="keyword">break</span>;
+  <span class="keyword">if</span> (<span class="number">1</span> &gt;= _results.<span class="property">length</span>) &#123;
+    <span class="keyword">if</span> (--_counter === <span class="number">0</span>) <span class="title function_">_done</span>();
+  &#125; <span class="keyword">else</span> &#123;
+    <span class="keyword">var</span> _fn1 = _x[<span class="number">1</span>];
+    <span class="keyword">var</span> _hasResult1 = <span class="literal">false</span>;
+    <span class="keyword">var</span> _promise1 = <span class="title function_">_fn1</span>(arg1, arg2, arg3);
+    <span class="comment">// ...</span>
+    _promise1.<span class="title function_">then</span>(
+      <span class="keyword">function</span> (<span class="params">_result1</span>) &#123;
+        _hasResult1 = <span class="literal">true</span>;
+        <span class="keyword">if</span> (_counter &gt; <span class="number">0</span>) &#123;
+          <span class="keyword">if</span> (
+            <span class="number">1</span> &lt; _results.<span class="property">length</span> &amp;&amp;
+            (_result1 !== <span class="literal">undefined</span> &amp;&amp; (_results.<span class="property">length</span> = <span class="number">2</span>),
+            (_results[<span class="number">1</span>] = &#123; <span class="attr">result</span>: _result1 &#125;),
+            <span class="title function_">_checkDone</span>())
           ) &#123;
-            _counter &#x3D; 0;
-          &#125; else &#123;
-            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+            _counter = <span class="number">0</span>;
+          &#125; <span class="keyword">else</span> &#123;
+            <span class="keyword">if</span> (--_counter === <span class="number">0</span>) <span class="title function_">_done</span>();
           &#125;
         &#125;
       &#125;,
-      function (_err1) &#123;
-        if (_hasResult1) throw _err1;
-        if (_counter &gt; 0) &#123;
-          if (
-            1 &lt; _results.length &amp;&amp;
-            ((_results.length &#x3D; 2),
-            (_results[1] &#x3D; &#123; error: _err1 &#125;),
-            _checkDone())
+      <span class="keyword">function</span> (<span class="params">_err1</span>) &#123;
+        <span class="keyword">if</span> (_hasResult1) <span class="keyword">throw</span> _err1;
+        <span class="keyword">if</span> (_counter &gt; <span class="number">0</span>) &#123;
+          <span class="keyword">if</span> (
+            <span class="number">1</span> &lt; _results.<span class="property">length</span> &amp;&amp;
+            ((_results.<span class="property">length</span> = <span class="number">2</span>),
+            (_results[<span class="number">1</span>] = &#123; <span class="attr">error</span>: _err1 &#125;),
+            <span class="title function_">_checkDone</span>())
           ) &#123;
-            _counter &#x3D; 0;
-          &#125; else &#123;
-            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+            _counter = <span class="number">0</span>;
+          &#125; <span class="keyword">else</span> &#123;
+            <span class="keyword">if</span> (--_counter === <span class="number">0</span>) <span class="title function_">_done</span>();
           &#125;
         &#125;
       &#125;
     );
   &#125;
-  if (_counter &lt;&#x3D; 0) break;
-  if (2 &gt;&#x3D; _results.length) &#123;
-    if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
-  &#125; else &#123;
-    var _fn2 &#x3D; _x[2];
-    var _hasResult2 &#x3D; false;
-    var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
-    &#x2F;&#x2F; ...
-    _promise2.then(
-      function (_result2) &#123;
-        _hasResult2 &#x3D; true;
-        if (_counter &gt; 0) &#123;
-          if (
-            2 &lt; _results.length &amp;&amp;
-            (_result2 !&#x3D;&#x3D; undefined &amp;&amp; (_results.length &#x3D; 3),
-            (_results[2] &#x3D; &#123; result: _result2 &#125;),
-            _checkDone())
+  <span class="keyword">if</span> (_counter &lt;= <span class="number">0</span>) <span class="keyword">break</span>;
+  <span class="keyword">if</span> (<span class="number">2</span> &gt;= _results.<span class="property">length</span>) &#123;
+    <span class="keyword">if</span> (--_counter === <span class="number">0</span>) <span class="title function_">_done</span>();
+  &#125; <span class="keyword">else</span> &#123;
+    <span class="keyword">var</span> _fn2 = _x[<span class="number">2</span>];
+    <span class="keyword">var</span> _hasResult2 = <span class="literal">false</span>;
+    <span class="keyword">var</span> _promise2 = <span class="title function_">_fn2</span>(arg1, arg2, arg3);
+    <span class="comment">// ...</span>
+    _promise2.<span class="title function_">then</span>(
+      <span class="keyword">function</span> (<span class="params">_result2</span>) &#123;
+        _hasResult2 = <span class="literal">true</span>;
+        <span class="keyword">if</span> (_counter &gt; <span class="number">0</span>) &#123;
+          <span class="keyword">if</span> (
+            <span class="number">2</span> &lt; _results.<span class="property">length</span> &amp;&amp;
+            (_result2 !== <span class="literal">undefined</span> &amp;&amp; (_results.<span class="property">length</span> = <span class="number">3</span>),
+            (_results[<span class="number">2</span>] = &#123; <span class="attr">result</span>: _result2 &#125;),
+            <span class="title function_">_checkDone</span>())
           ) &#123;
-            _counter &#x3D; 0;
-          &#125; else &#123;
-            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+            _counter = <span class="number">0</span>;
+          &#125; <span class="keyword">else</span> &#123;
+            <span class="keyword">if</span> (--_counter === <span class="number">0</span>) <span class="title function_">_done</span>();
           &#125;
         &#125;
       &#125;,
-      function (_err2) &#123;
-        if (_hasResult2) throw _err2;
-        if (_counter &gt; 0) &#123;
-          if (
-            2 &lt; _results.length &amp;&amp;
-            ((_results.length &#x3D; 3),
-            (_results[2] &#x3D; &#123; error: _err2 &#125;),
-            _checkDone())
+      <span class="keyword">function</span> (<span class="params">_err2</span>) &#123;
+        <span class="keyword">if</span> (_hasResult2) <span class="keyword">throw</span> _err2;
+        <span class="keyword">if</span> (_counter &gt; <span class="number">0</span>) &#123;
+          <span class="keyword">if</span> (
+            <span class="number">2</span> &lt; _results.<span class="property">length</span> &amp;&amp;
+            ((_results.<span class="property">length</span> = <span class="number">3</span>),
+            (_results[<span class="number">2</span>] = &#123; <span class="attr">error</span>: _err2 &#125;),
+            <span class="title function_">_checkDone</span>())
           ) &#123;
-            _counter &#x3D; 0;
-          &#125; else &#123;
-            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+            _counter = <span class="number">0</span>;
+          &#125; <span class="keyword">else</span> &#123;
+            <span class="keyword">if</span> (--_counter === <span class="number">0</span>) <span class="title function_">_done</span>();
           &#125;
         &#125;
       &#125;
     );
   &#125;
-&#125; while (false);</code></pre>
+&#125; <span class="keyword">while</span> (<span class="literal">false</span>);</code></pre>
 
 <p>参考</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/webpack/tapable">tapable</a></p>
@@ -1819,7 +1819,7 @@ do &#123;
         <div class="col s12 copy-right" style="line-height: 30px; margin-bottom: 10px">
             Copyright&nbsp;&copy;
             
-                <span id="year">2023</span>
+                <span id="year">2023-2024</span>
             
             <a href="/about" target="_blank">三空</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
@@ -1830,7 +1830,7 @@ do &#123;
             <!-- 站点总字数 -->
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">18.4k</span>
+                        class="white-color">17.2k</span>
             
             <!-- -->
             
