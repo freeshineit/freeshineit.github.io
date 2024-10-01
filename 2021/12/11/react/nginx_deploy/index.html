@@ -52,7 +52,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
 </head>
 
 
@@ -376,7 +376,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    307
+                    336
                 </div>
                 
 
@@ -406,58 +406,57 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="docker-nginx"><a href="#docker-nginx" class="headerlink" title="docker nginx"></a>docker nginx</h2><ol>
+                <h2 id="docker-nginx"><a class="markdownIt-Anchor" href="#docker-nginx"></a> docker nginx</h2>
+<ol>
 <li>在项目根目录下新建 <code>docker-compose.yml</code>文件</li>
 </ol>
-<pre><code class="highlight yml"><span class="attr">version:</span> <span class="string">&quot;2&quot;</span>
-<span class="attr">services:</span>
-  <span class="comment"># 服务名称</span>
-  <span class="attr">nginx:</span>
-    <span class="comment"># 镜像:版本</span>
-    <span class="attr">image:</span> <span class="string">nginx:latest</span>
-    <span class="comment"># 映射容器80端口到本地80端口</span>
-    <span class="attr">ports:</span>
-      <span class="bullet">-</span> <span class="string">&quot;80:80&quot;</span>
-    <span class="comment"># 数据卷 映射本地文件到容器</span>
-    <span class="comment"># 这个更新起来特别香</span>
-    <span class="attr">volumes:</span>
-      <span class="comment"># 映射nginx.conf文件到容器的/etc/nginx/conf.d目录并覆盖default.conf文件</span>
-      <span class="bullet">-</span> <span class="string">./nginx.conf:/etc/nginx/conf.d/default.conf</span>
-      <span class="comment"># 映射build文件夹到容器的/usr/share/nginx/html文件夹</span>
-      <span class="bullet">-</span> <span class="string">./build:/usr/share/nginx/html</span>
-    <span class="comment"># 覆盖容器启动后默认执行的命令。</span>
-    <span class="attr">command:</span> <span class="string">/bin/bash</span> <span class="string">-c</span> <span class="string">&quot;nginx -g &#x27;daemon off;&#x27;&quot;</span></code></pre>
-
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml">version: &quot;2&quot;
+services:
+  # 服务名称
+  nginx:
+    # 镜像:版本
+    image: nginx:latest
+    # 映射容器80端口到本地80端口
+    ports:
+      - &quot;80:80&quot;
+    # 数据卷 映射本地文件到容器
+    # 这个更新起来特别香
+    volumes:
+      # 映射nginx.conf文件到容器的&#x2F;etc&#x2F;nginx&#x2F;conf.d目录并覆盖default.conf文件
+      - .&#x2F;nginx.conf:&#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;default.conf
+      # 映射build文件夹到容器的&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html文件夹
+      - .&#x2F;build:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html
+    # 覆盖容器启动后默认执行的命令。
+    command: &#x2F;bin&#x2F;bash -c &quot;nginx -g &#39;daemon off;&#39;&quot;</code></pre>
 <p>挂载 nginx 配置</p>
-<pre><code class="highlight bash">location / &#123;
-    root   /usr/share/nginx/html;
+<pre class="language-bash" data-language="bash"><code class="language-bash">location &#x2F; &#123;
+    root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
     index  index.html index.htm;
-    <span class="comment"># 其作用是按顺序检查文件是否存在，返回第一个找到的文件或文件夹（结尾加斜线表示为文件夹），如果所有的文件或文件夹都找不到，会进行一个内部重定向到最后一个参数。</span>
-    try_files <span class="variable">$uri</span> /index.html;
+    # 其作用是按顺序检查文件是否存在，返回第一个找到的文件或文件夹（结尾加斜线表示为文件夹），如果所有的文件或文件夹都找不到，会进行一个内部重定向到最后一个参数。
+    try_files $uri &#x2F;index.html;
 &#125;
 
-<span class="comment"># 接口代理</span>
-location ^~ /api/ &#123;
-    <span class="comment"># proxy_set_header X-Forwarded-Host $host;</span>
-    <span class="comment"># proxy_set_header X-Forwarded-Server $host;</span>
-    <span class="comment"># proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span>
-    proxy_pass http://xxx.xxxxx.xxxx;
+# 接口代理
+location ^~ &#x2F;api&#x2F; &#123;
+    # proxy_set_header X-Forwarded-Host $host;
+    # proxy_set_header X-Forwarded-Server $host;
+    # proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_pass http:&#x2F;&#x2F;xxx.xxxxx.xxxx;
 &#125;</code></pre>
-
 <ol start="2">
 <li>编译 react 项目</li>
 </ol>
-<pre><code class="highlight bash">yarn run build</code></pre>
-
+<pre class="language-bash" data-language="bash"><code class="language-bash">yarn run build</code></pre>
 <ol start="3">
 <li>生成容器并部署</li>
 </ol>
-<pre><code class="highlight bash">docker-compose up -d</code></pre>
-
+<pre class="language-bash" data-language="bash"><code class="language-bash">docker-compose up -d</code></pre>
 <ol start="4">
-<li><p>本地访问 <code>http://localhost/</code></p>
+<li>
+<p>本地访问 <code>http://localhost/</code></p>
 </li>
-<li><p>停止并删除容器 <code>docker-compose down</code></p>
+<li>
+<p>停止并删除容器 <code>docker-compose down</code></p>
 </li>
 </ol>
 
@@ -876,7 +875,7 @@ location ^~ /api/ &#123;
             <!-- 站点总字数 -->
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">17.2k</span>
+                        class="white-color">19.2k</span>
             
             <!-- -->
             

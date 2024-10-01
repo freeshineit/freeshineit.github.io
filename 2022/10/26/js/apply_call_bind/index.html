@@ -52,7 +52,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
 </head>
 
 
@@ -368,7 +368,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    131
+                    155
                 </div>
                 
 
@@ -398,43 +398,48 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="apply-原理"><a href="#apply-原理" class="headerlink" title="apply 原理"></a>apply 原理</h2><p><a href="">apply</a> xxxx</p>
-<h2 id="apply-实现"><a href="#apply-实现" class="headerlink" title="apply 实现"></a>apply 实现</h2><pre><code class="highlight ts"><span class="comment">/**</span>
-<span class="comment"> *</span>
-<span class="comment"> */</span>
-<span class="keyword">function</span> <span class="title function_">_apply</span>(<span class="params"><span class="attr">_this</span>: <span class="built_in">any</span>, <span class="attr">args</span>: <span class="built_in">any</span>[]</span>) &#123;&#125;
+                <h2 id="apply-原理"><a class="markdownIt-Anchor" href="#apply-原理"></a> apply 原理</h2>
+<p><a href="">apply</a> xxxx</p>
+<h2 id="apply-实现"><a class="markdownIt-Anchor" href="#apply-实现"></a> apply 实现</h2>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+ *
+ *&#x2F;
+function _apply(_this: any, args: any[]) &#123;&#125;
 
-(<span class="keyword">function</span> (<span class="params"></span>) &#123;
-  <span class="comment">// npx ts-node app/typeof.ts</span>
-  <span class="comment">// 如果有错 会有打印</span>
-  <span class="keyword">const</span> assert = <span class="built_in">require</span>(<span class="string">&quot;assert&quot;</span>);
+(function () &#123;
+  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
+  &#x2F;&#x2F; 如果有错 会有打印
+  const assert &#x3D; require(&quot;assert&quot;);
 &#125;)();</code></pre>
+<h2 id="call-原理"><a class="markdownIt-Anchor" href="#call-原理"></a> call 原理</h2>
+<p><a href="">call</a> xxxx</p>
+<h2 id="call-实现"><a class="markdownIt-Anchor" href="#call-实现"></a> call 实现</h2>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+ *
+ *&#x2F;
+function _call(_this: any, ...args: any[]) &#123;&#125;
 
-<h2 id="call-原理"><a href="#call-原理" class="headerlink" title="call 原理"></a>call 原理</h2><p><a href="">call</a> xxxx</p>
-<h2 id="call-实现"><a href="#call-实现" class="headerlink" title="call 实现"></a>call 实现</h2><pre><code class="highlight ts"><span class="comment">/**</span>
-<span class="comment"> *</span>
-<span class="comment"> */</span>
-<span class="keyword">function</span> <span class="title function_">_call</span>(<span class="params"><span class="attr">_this</span>: <span class="built_in">any</span>, ...<span class="attr">args</span>: <span class="built_in">any</span>[]</span>) &#123;&#125;
-
-(<span class="keyword">function</span> (<span class="params"></span>) &#123;
-  <span class="comment">// npx ts-node app/typeof.ts</span>
-  <span class="comment">// 如果有错 会有打印</span>
-  <span class="keyword">const</span> assert = <span class="built_in">require</span>(<span class="string">&quot;assert&quot;</span>);
+(function () &#123;
+  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
+  &#x2F;&#x2F; 如果有错 会有打印
+  const assert &#x3D; require(&quot;assert&quot;);
 &#125;)();</code></pre>
+<h2 id="bind-原理"><a class="markdownIt-Anchor" href="#bind-原理"></a> bind 原理</h2>
+<p><a href="">bind</a> xxxx</p>
+<h2 id="bind-实现"><a class="markdownIt-Anchor" href="#bind-实现"></a> bind 实现</h2>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+ *
+ *&#x2F;
+function _bind(_this: any, ...args: any[]) &#123;&#125;
 
-<h2 id="bind-原理"><a href="#bind-原理" class="headerlink" title="bind 原理"></a>bind 原理</h2><p><a href="">bind</a> xxxx</p>
-<h2 id="bind-实现"><a href="#bind-实现" class="headerlink" title="bind 实现"></a>bind 实现</h2><pre><code class="highlight ts"><span class="comment">/**</span>
-<span class="comment"> *</span>
-<span class="comment"> */</span>
-<span class="keyword">function</span> <span class="title function_">_bind</span>(<span class="params"><span class="attr">_this</span>: <span class="built_in">any</span>, ...<span class="attr">args</span>: <span class="built_in">any</span>[]</span>) &#123;&#125;
-
-(<span class="keyword">function</span> (<span class="params"></span>) &#123;
-  <span class="comment">// npx ts-node app/typeof.ts</span>
-  <span class="comment">// 如果有错 会有打印</span>
-  <span class="keyword">const</span> assert = <span class="built_in">require</span>(<span class="string">&quot;assert&quot;</span>);
+(function () &#123;
+  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
+  &#x2F;&#x2F; 如果有错 会有打印
+  const assert &#x3D; require(&quot;assert&quot;);
 &#125;)();</code></pre>
+<h2 id="apply-call-和-bind-共同点"><a class="markdownIt-Anchor" href="#apply-call-和-bind-共同点"></a> apply, call 和 bind 共同点</h2>
+<h2 id="apply-call-和-bind-不同点"><a class="markdownIt-Anchor" href="#apply-call-和-bind-不同点"></a> apply, call 和 bind 不同点</h2>
 
-<h2 id="apply-call-和-bind-共同点"><a href="#apply-call-和-bind-共同点" class="headerlink" title="apply, call 和 bind 共同点"></a>apply, call 和 bind 共同点</h2><h2 id="apply-call-和-bind-不同点"><a href="#apply-call-和-bind-不同点" class="headerlink" title="apply, call 和 bind 不同点"></a>apply, call 和 bind 不同点</h2>
                 
             </div>
             <hr/>
@@ -842,7 +847,7 @@
             <!-- 站点总字数 -->
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">17.2k</span>
+                        class="white-color">19.2k</span>
             
             <!-- -->
             

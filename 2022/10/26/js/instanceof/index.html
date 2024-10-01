@@ -52,7 +52,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
 </head>
 
 
@@ -368,7 +368,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    476
+                    518
                 </div>
                 
 
@@ -398,73 +398,75 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="instanceof-原理"><a href="#instanceof-原理" class="headerlink" title="instanceof 原理"></a>instanceof 原理</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof">instanceof</a> 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="highlight ts"><span class="comment">/**</span>
-<span class="comment"> *</span>
-<span class="comment"> * 简单模拟 instanceof的实现</span>
-<span class="comment"> *</span>
-<span class="comment"> * https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof</span>
-<span class="comment"> *</span>
-<span class="comment"> * instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。</span>
-<span class="comment"> *</span>
-<span class="comment"> * 需要注意的是，如果表达式 obj instanceof Foo 返回 true，则并不意味着该表达式会永远返回 true，</span>
-<span class="comment"> * 因为 Foo.prototype 属性的值有可能会改变，改变之后的值很有可能不存在于 obj 的原型链上，</span>
-<span class="comment"> * 这时原表达式的值就会成为 false。另外一种情况下，原表达式的值也会改变，就是改变对象 obj 的原型链的情况，虽然在目前的 ES 规范中，</span>
-<span class="comment"> * 我们只能读取对象的原型而不能改变它，但借助于非标准的 __proto__ 伪属性，是可以实现的。</span>
-<span class="comment"> * 比如执行 obj.__proto__ = &#123;&#125; 之后，obj instanceof Foo 就会返回 false 了。</span>
-<span class="comment"> *</span>
-<span class="comment"> *</span>
-<span class="comment"> * <span class="doctag">@param</span> instance 实例对象</span>
-<span class="comment"> * <span class="doctag">@param</span> Func 构造函数</span>
-<span class="comment"> * <span class="doctag">@returns</span> <span class="variable">boolean</span></span>
-<span class="comment"> */</span>
-<span class="keyword">function</span> <span class="title function_">_instanceof</span>(<span class="params"><span class="attr">instance</span>: <span class="built_in">any</span>, <span class="title class_">Func</span>: <span class="built_in">any</span></span>) &#123;
-  <span class="keyword">let</span> instance_proto = instance.<span class="property">__proto__</span>;
-  <span class="keyword">let</span> <span class="title class_">FuncProto</span> = <span class="title class_">Func</span>.<span class="property"><span class="keyword">prototype</span></span>;
+                <h2 id="instanceof-原理"><a class="markdownIt-Anchor" href="#instanceof-原理"></a> instanceof 原理</h2>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof">instanceof</a> 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。</p>
+<h2 id="实现"><a class="markdownIt-Anchor" href="#实现"></a> 实现</h2>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+ *
+ * 简单模拟 instanceof的实现
+ *
+ * https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;docs&#x2F;Web&#x2F;JavaScript&#x2F;Reference&#x2F;Operators&#x2F;instanceof
+ *
+ * instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
+ *
+ * 需要注意的是，如果表达式 obj instanceof Foo 返回 true，则并不意味着该表达式会永远返回 true，
+ * 因为 Foo.prototype 属性的值有可能会改变，改变之后的值很有可能不存在于 obj 的原型链上，
+ * 这时原表达式的值就会成为 false。另外一种情况下，原表达式的值也会改变，就是改变对象 obj 的原型链的情况，虽然在目前的 ES 规范中，
+ * 我们只能读取对象的原型而不能改变它，但借助于非标准的 __proto__ 伪属性，是可以实现的。
+ * 比如执行 obj.__proto__ &#x3D; &#123;&#125; 之后，obj instanceof Foo 就会返回 false 了。
+ *
+ *
+ * @param instance 实例对象
+ * @param Func 构造函数
+ * @returns boolean
+ *&#x2F;
+function _instanceof(instance: any, Func: any) &#123;
+  let instance_proto &#x3D; instance.__proto__;
+  let FuncProto &#x3D; Func.prototype;
 
-  <span class="keyword">while</span> (<span class="literal">true</span>) &#123;
-    <span class="keyword">if</span> (instance_proto === <span class="literal">null</span>) &#123;
-      <span class="keyword">return</span> <span class="literal">false</span>;
+  while (true) &#123;
+    if (instance_proto &#x3D;&#x3D;&#x3D; null) &#123;
+      return false;
     &#125;
-    <span class="keyword">if</span> (instance_proto === <span class="title class_">FuncProto</span>) &#123;
-      <span class="keyword">return</span> <span class="literal">true</span>;
+    if (instance_proto &#x3D;&#x3D;&#x3D; FuncProto) &#123;
+      return true;
     &#125;
 
-    instance_proto = instance_proto.<span class="property">__proto__</span>;
+    instance_proto &#x3D; instance_proto.__proto__;
   &#125;
 &#125;
 
-(<span class="keyword">function</span> (<span class="params"></span>) &#123;
-  <span class="comment">// npx ts-node app/typeof.ts</span>
-  <span class="comment">// 如果有错 会有打印</span>
-  <span class="keyword">const</span> assert = <span class="built_in">require</span>(<span class="string">&quot;assert&quot;</span>);
+(function () &#123;
+  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
+  &#x2F;&#x2F; 如果有错 会有打印
+  const assert &#x3D; require(&quot;assert&quot;);
 
-  <span class="comment">// 定义构造函数</span>
-  <span class="keyword">function</span> <span class="title function_">C</span>(<span class="params"></span>) &#123;&#125;
-  <span class="keyword">function</span> <span class="title function_">D</span>(<span class="params"></span>) &#123;&#125;
+  &#x2F;&#x2F; 定义构造函数
+  function C() &#123;&#125;
+  function D() &#123;&#125;
 
-  <span class="keyword">let</span> o = <span class="title function_">new</span> (C <span class="keyword">as</span> <span class="built_in">any</span>)();
+  let o &#x3D; new (C as any)();
 
-  assert.<span class="title function_">equal</span>(o <span class="keyword">instanceof</span> C, <span class="title function_">_instanceof</span>(o, C));
-  assert.<span class="title function_">equal</span>(o <span class="keyword">instanceof</span> <span class="title class_">Object</span>, <span class="title function_">_instanceof</span>(o, <span class="title class_">Object</span>));
-  assert.<span class="title function_">equal</span>(C.<span class="property"><span class="keyword">prototype</span></span> <span class="keyword">instanceof</span> <span class="title class_">Object</span>, <span class="title function_">_instanceof</span>(C.<span class="property"><span class="keyword">prototype</span></span>, <span class="title class_">Object</span>));
+  assert.equal(o instanceof C, _instanceof(o, C));
+  assert.equal(o instanceof Object, _instanceof(o, Object));
+  assert.equal(C.prototype instanceof Object, _instanceof(C.prototype, Object));
 
-  <span class="comment">//</span>
-  C.<span class="property"><span class="keyword">prototype</span></span> = &#123;&#125;;
-  <span class="keyword">let</span> o2 = <span class="title function_">new</span> (C <span class="keyword">as</span> <span class="built_in">any</span>)();
-  assert.<span class="title function_">equal</span>(o <span class="keyword">instanceof</span> C, <span class="title function_">_instanceof</span>(o2, C));
+  &#x2F;&#x2F;
+  C.prototype &#x3D; &#123;&#125;;
+  let o2 &#x3D; new (C as any)();
+  assert.equal(o instanceof C, _instanceof(o2, C));
 
-  <span class="comment">//  false，C.prototype 指向了一个空对象，这个空对象不在 o 的原型链上。</span>
-  assert.<span class="title function_">equal</span>(<span class="literal">false</span>, <span class="title function_">_instanceof</span>(o, C));
+  &#x2F;&#x2F;  false，C.prototype 指向了一个空对象，这个空对象不在 o 的原型链上。
+  assert.equal(false, _instanceof(o, C));
 
-  D.<span class="property"><span class="keyword">prototype</span></span> = <span class="title function_">new</span> (C <span class="keyword">as</span> <span class="built_in">any</span>)(); <span class="comment">// 继承</span>
+  D.prototype &#x3D; new (C as any)(); &#x2F;&#x2F; 继承
 
-  <span class="keyword">let</span> o3 = <span class="title function_">new</span> (D <span class="keyword">as</span> <span class="built_in">any</span>)();
+  let o3 &#x3D; new (D as any)();
 
-  assert.<span class="title function_">equal</span>(o3 <span class="keyword">instanceof</span> D, <span class="title function_">_instanceof</span>(o3, D));
+  assert.equal(o3 instanceof D, _instanceof(o3, D));
 
-  <span class="comment">// true 因为 C.prototype 现在在 o3 的原型链上</span>
-  assert.<span class="title function_">equal</span>(o3 <span class="keyword">instanceof</span> C, <span class="title function_">_instanceof</span>(o3, C));
+  &#x2F;&#x2F; true 因为 C.prototype 现在在 o3 的原型链上
+  assert.equal(o3 instanceof C, _instanceof(o3, C));
 &#125;)();</code></pre>
                 
             </div>
@@ -878,7 +880,7 @@
             <!-- 站点总字数 -->
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">17.2k</span>
+                        class="white-color">19.2k</span>
             
             <!-- -->
             

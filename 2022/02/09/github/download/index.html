@@ -52,7 +52,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
 </head>
 
 
@@ -372,14 +372,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    304
+                    364
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -402,65 +402,64 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="node-实现下载指定文件或文件夹"><a href="#node-实现下载指定文件或文件夹" class="headerlink" title="node 实现下载指定文件或文件夹"></a>node 实现下载指定文件或文件夹</h2><p><a target="_blank" rel="noopener" href="https://github.com/qqxs/got-github-examples">got-github-examples</a></p>
+                <h2 id="node-实现下载指定文件或文件夹"><a class="markdownIt-Anchor" href="#node-实现下载指定文件或文件夹"></a> node 实现下载指定文件或文件夹</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/qqxs/got-github-examples">got-github-examples</a></p>
 <ol>
 <li>创建存储的文件夹</li>
 </ol>
-<pre><code class="highlight ts"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">&quot;fs&quot;</span>;
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript">import fs from &quot;fs&quot;;
 
-<span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">makeDir</span>(<span class="params"></span>
-<span class="params">  <span class="attr">root</span>: <span class="built_in">string</span>,</span>
-<span class="params">  options = &#123; recursive: <span class="literal">true</span> &#125;</span>
-<span class="params"></span>): <span class="title class_">Promise</span>&lt;<span class="built_in">string</span> | <span class="literal">undefined</span>&gt; &#123;
-  <span class="keyword">return</span> fs.<span class="property">promises</span>.<span class="title function_">mkdir</span>(root, options);
+export function makeDir(
+  root: string,
+  options &#x3D; &#123; recursive: true &#125;
+): Promise&lt;string | undefined&gt; &#123;
+  return fs.promises.mkdir(root, options);
 &#125;</code></pre>
-
 <ol start="2">
 <li>下载指定的文件夹或文件</li>
 </ol>
-<pre><code class="highlight ts"><span class="keyword">import</span> got <span class="keyword">from</span> <span class="string">&quot;got&quot;</span>;
-<span class="keyword">import</span> tar <span class="keyword">from</span> <span class="string">&quot;tar&quot;</span>;
-<span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">&quot;path&quot;</span>;
-<span class="keyword">import</span> &#123; <span class="title class_">Stream</span> &#125; <span class="keyword">from</span> <span class="string">&quot;stream&quot;</span>;
-<span class="keyword">import</span> &#123; promisify &#125; <span class="keyword">from</span> <span class="string">&quot;util&quot;</span>;
-<span class="keyword">import</span> &#123; makeDir &#125; <span class="keyword">from</span> <span class="string">&quot;./make-dir&quot;</span>;
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript">import got from &quot;got&quot;;
+import tar from &quot;tar&quot;;
+import path from &quot;path&quot;;
+import &#123; Stream &#125; from &quot;stream&quot;;
+import &#123; promisify &#125; from &quot;util&quot;;
+import &#123; makeDir &#125; from &quot;.&#x2F;make-dir&quot;;
 
-<span class="keyword">const</span> pipeline = <span class="title function_">promisify</span>(<span class="title class_">Stream</span>.<span class="property">pipeline</span>);
+const pipeline &#x3D; promisify(Stream.pipeline);
 
-<span class="comment">// tar extract 内容放置的路径</span>
-<span class="keyword">const</span> root = path.<span class="title function_">resolve</span>(<span class="string">&quot;data-fetch-app&quot;</span>);
+&#x2F;&#x2F; tar extract 内容放置的路径
+const root &#x3D; path.resolve(&quot;data-fetch-app&quot;);
 
-<span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">downloadExample</span>(<span class="params"></span>) &#123;
-  <span class="keyword">await</span> <span class="title function_">makeDir</span>(root);
-  process.<span class="title function_">chdir</span>(root);
-  <span class="keyword">return</span> <span class="title function_">pipeline</span>(
-    got.<span class="title function_">stream</span>(
-      <span class="comment">// `https://codeload.github.com/$&#123;user&#125;/$&#123;repo&#125;/tar.gz/$&#123;branch&#125;`</span>
-      <span class="comment">// example</span>
-      <span class="string">`https://codeload.github.com/qqxs/got-github-examples/tar.gz/main`</span>
+async function downloadExample() &#123;
+  await makeDir(root);
+  process.chdir(root);
+  return pipeline(
+    got.stream(
+      &#x2F;&#x2F; &#96;https:&#x2F;&#x2F;codeload.github.com&#x2F;$&#123;user&#125;&#x2F;$&#123;repo&#125;&#x2F;tar.gz&#x2F;$&#123;branch&#125;&#96;
+      &#x2F;&#x2F; example
+      &#96;https:&#x2F;&#x2F;codeload.github.com&#x2F;qqxs&#x2F;got-github-examples&#x2F;tar.gz&#x2F;main&#96;
     ),
-    tar.<span class="title function_">extract</span>(
+    tar.extract(
       &#123;
-        <span class="attr">cwd</span>: root,
-        <span class="attr">strip</span>: <span class="number">3</span> <span class="comment">// 层级</span>
+        cwd: root,
+        strip: 3 &#x2F;&#x2F; 层级
       &#125;,
-      <span class="comment">// [`$&#123;repo&#125;-$&#123;branch&#125;/$&#123;examplePath&#125;`]</span>
-      <span class="comment">// example</span>
-      [<span class="string">`got-github-examples-main/examples/example01`</span>]
+      &#x2F;&#x2F; [&#96;$&#123;repo&#125;-$&#123;branch&#125;&#x2F;$&#123;examplePath&#125;&#96;]
+      &#x2F;&#x2F; example
+      [&#96;got-github-examples-main&#x2F;examples&#x2F;example01&#96;]
     )
   );
 &#125;
 
-<span class="title function_">downloadExample</span>();</code></pre>
-
+downloadExample();</code></pre>
 <ol start="3">
 <li>执行</li>
 </ol>
-<pre><code class="highlight bash">ts-node index.ts</code></pre>
-
-<h2 id="curl-实现下载指定文件或文件夹"><a href="#curl-实现下载指定文件或文件夹" class="headerlink" title="curl 实现下载指定文件或文件夹"></a>curl 实现下载指定文件或文件夹</h2><pre><code class="highlight bash"><span class="comment"># mkdir my-app &amp;&amp; curl https://codeload.github.com/[user]/[repo]/tar.gz/[branch] | tar -xz -C my-app --strip=2 [repo]-[branch]/[examplePath]</span>
-<span class="comment"># 下载github上`freeshineit/next-examples`的 main分支下 `with-typescript-eslint-jest-app` 文件夹下所有的文件和文件夹</span>
-<span class="built_in">mkdir</span> my-app &amp;&amp; curl https://codeload.github.com/freeshineit/next-examples/tar.gz/main | tar -xz -C my-app --strip=2 next-examples-main/with-typescript-eslint-jest-app</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">ts-node index.ts</code></pre>
+<h2 id="curl-实现下载指定文件或文件夹"><a class="markdownIt-Anchor" href="#curl-实现下载指定文件或文件夹"></a> curl 实现下载指定文件或文件夹</h2>
+<pre class="language-bash" data-language="bash"><code class="language-bash"># mkdir my-app &amp;&amp; curl https:&#x2F;&#x2F;codeload.github.com&#x2F;[user]&#x2F;[repo]&#x2F;tar.gz&#x2F;[branch] | tar -xz -C my-app --strip&#x3D;2 [repo]-[branch]&#x2F;[examplePath]
+# 下载github上&#96;freeshineit&#x2F;next-examples&#96;的 main分支下 &#96;with-typescript-eslint-jest-app&#96; 文件夹下所有的文件和文件夹
+mkdir my-app &amp;&amp; curl https:&#x2F;&#x2F;codeload.github.com&#x2F;freeshineit&#x2F;next-examples&#x2F;tar.gz&#x2F;main | tar -xz -C my-app --strip&#x3D;2 next-examples-main&#x2F;with-typescript-eslint-jest-app</code></pre>
 
                 
             </div>
@@ -885,7 +884,7 @@
             <!-- 站点总字数 -->
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">17.2k</span>
+                        class="white-color">19.2k</span>
             
             <!-- -->
             

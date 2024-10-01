@@ -52,7 +52,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
 </head>
 
 
@@ -368,7 +368,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    73
+                    89
                 </div>
                 
 
@@ -398,22 +398,22 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="svg-转图片"><a href="#svg-转图片" class="headerlink" title="svg 转图片"></a>svg 转图片</h2><pre><code class="highlight js"><span class="comment">// 序列化 svg 文件（xml） 转成字符串</span>
-<span class="keyword">const</span> svgString = <span class="keyword">new</span> <span class="title class_">XMLSerializer</span>()
-  .<span class="title function_">serializeToString</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;svg&#x27;</span>));
+                <h2 id="svg-转图片"><a class="markdownIt-Anchor" href="#svg-转图片"></a> svg 转图片</h2>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 序列化 svg 文件（xml） 转成字符串
+const svgString &#x3D; new XMLSerializer()
+  .serializeToString(document.getElementById(&#39;svg&#39;));
 
-<span class="keyword">const</span> img = <span class="keyword">new</span> <span class="title class_">Image</span>();
-<span class="comment">// svgString svg的xml文件字符串</span>
-<span class="keyword">const</span> svg = <span class="keyword">new</span> <span class="title class_">Blob</span>([svgString], &#123;<span class="attr">type</span>: <span class="string">&quot;image/svg+xml;charset=utf-8&quot;</span>&#125;);
+const img &#x3D; new Image();
+&#x2F;&#x2F; svgString svg的xml文件字符串
+const svg &#x3D; new Blob([svgString], &#123;type: &quot;image&#x2F;svg+xml;charset&#x3D;utf-8&quot;&#125;);
 
-<span class="keyword">const</span> domURL = self.<span class="property">URL</span> || self.<span class="property">webkitURL</span> || self;
-<span class="keyword">const</span> url = domURL.<span class="title function_">createObjectURL</span>(svg);
+const domURL &#x3D; self.URL || self.webkitURL || self;
+const url &#x3D; domURL.createObjectURL(svg);
 
-img.<span class="property">src</span> = url;
+img.src &#x3D; url;
 
-<span class="comment">// append img to body</span>
-<span class="comment">// ...</span></code></pre>
-
+&#x2F;&#x2F; append img to body
+&#x2F;&#x2F; ...</code></pre>
 
                 
             </div>
@@ -830,7 +830,7 @@ img.<span class="property">src</span> = url;
             <!-- 站点总字数 -->
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">17.2k</span>
+                        class="white-color">19.2k</span>
             
             <!-- -->
             

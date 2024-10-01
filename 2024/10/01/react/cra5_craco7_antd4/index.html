@@ -52,7 +52,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
 </head>
 
 
@@ -368,7 +368,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    694
+                    777
                 </div>
                 
 
@@ -398,55 +398,56 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><pre><code class="highlight bash">pnpm add less less-loader @craco/craco craco-less babel-plugin-import postcss-px-to-viewport-8-plugin postcss -D</code></pre>
-
-<h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><p>配置支持 antd4 按需加载、定制主题、支持 px 转 vw 和 配置别名</p>
+                <h2 id="安装依赖"><a class="markdownIt-Anchor" href="#安装依赖"></a> 安装依赖</h2>
+<pre class="language-bash" data-language="bash"><code class="language-bash">pnpm add less less-loader @craco&#x2F;craco craco-less babel-plugin-import postcss-px-to-viewport-8-plugin postcss -D</code></pre>
+<h2 id="config"><a class="markdownIt-Anchor" href="#config"></a> config</h2>
+<p>配置支持 antd4 按需加载、定制主题、支持 px 转 vw 和 配置别名</p>
 <p>在项目的根目录下新建 <code>craco.config.js</code></p>
-<pre><code class="highlight js"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);
-<span class="keyword">const</span> <span class="title class_">CracoLessPlugin</span> = <span class="built_in">require</span>(<span class="string">&quot;craco-less&quot;</span>);
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const path &#x3D; require(&quot;path&quot;);
+const CracoLessPlugin &#x3D; require(&quot;craco-less&quot;);
 
-<span class="variable language_">module</span>.<span class="property">exports</span> = &#123;
-  <span class="attr">babel</span>: &#123;
-    <span class="comment">// 配置babel插件</span>
-    <span class="attr">plugins</span>: [
+module.exports &#x3D; &#123;
+  babel: &#123;
+    &#x2F;&#x2F; 配置babel插件
+    plugins: [
       [
-        <span class="comment">// 安装 babel-plugin-import  https://www.npmjs.com/package/babel-plugin-import</span>
-        <span class="comment">// https://4x.ant.design/docs/react/customize-theme-cn#%E6%B2%A1%E6%9C%89%E7%94%9F%E6%95%88%EF%BC%9F</span>
-        <span class="string">&quot;import&quot;</span>,
+        &#x2F;&#x2F; 安装 babel-plugin-import  https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;babel-plugin-import
+        &#x2F;&#x2F; https:&#x2F;&#x2F;4x.ant.design&#x2F;docs&#x2F;react&#x2F;customize-theme-cn#%E6%B2%A1%E6%9C%89%E7%94%9F%E6%95%88%EF%BC%9F
+        &quot;import&quot;,
         &#123;
-          <span class="attr">libraryName</span>: <span class="string">&quot;antd&quot;</span>,
-          <span class="attr">libraryDirectory</span>: <span class="string">&quot;es&quot;</span>,
-          <span class="attr">style</span>: <span class="literal">true</span> <span class="comment">// 加载less文件</span>
+          libraryName: &quot;antd&quot;,
+          libraryDirectory: &quot;es&quot;,
+          style: true &#x2F;&#x2F; 加载less文件
         &#125;
       ]
     ]
   &#125;,
-  <span class="attr">style</span>: &#123;
-    <span class="attr">postcss</span>: &#123;
-      <span class="attr">mode</span>: <span class="string">&quot;exclude&quot;</span>,
-      <span class="attr">loaderOptions</span>: &#123;
-        <span class="attr">postcssOptions</span>: &#123;
-            <span class="comment">// postcss 需要大于等于 8</span>
-          <span class="attr">ident</span>: <span class="string">&quot;postcss&quot;</span>,
-          <span class="attr">plugins</span>: [
+  style: &#123;
+    postcss: &#123;
+      mode: &quot;exclude&quot;,
+      loaderOptions: &#123;
+        postcssOptions: &#123;
+            &#x2F;&#x2F; postcss 需要大于等于 8
+          ident: &quot;postcss&quot;,
+          plugins: [
             [
-              <span class="comment">// https://www.npmjs.com/package/postcss-px-to-viewport-8-plugin</span>
-              <span class="string">&quot;postcss-px-to-viewport-8-plugin&quot;</span>,
+              &#x2F;&#x2F; https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;postcss-px-to-viewport-8-plugin
+              &quot;postcss-px-to-viewport-8-plugin&quot;,
               &#123;
-                <span class="attr">unitToConvert</span>: <span class="string">&quot;px&quot;</span>, <span class="comment">// 要转化的单位</span>
-                <span class="attr">viewportWidth</span>: <span class="number">375</span>, <span class="comment">// UI设计稿的宽度</span>
-                <span class="attr">viewportUnit</span>: <span class="string">&quot;vw&quot;</span>, <span class="comment">// 指定需要转换成的视窗单位，建议使用 rem</span>
-                <span class="attr">fontViewportUnit</span>: <span class="string">&quot;vw&quot;</span>, <span class="comment">// 字体使用的视口单位</span>
-                <span class="attr">unitPrecision</span>: <span class="number">13</span>, <span class="comment">// 指定`px`转换为视窗单位值的小数后 x位数</span>
-                <span class="comment">// propList: 当有些属性的单位我们不希望转换的时候，可以添加在数组后面，并在前面加上!号，如propList: [&quot;*&quot;,&quot;!letter-spacing&quot;],这表示：所有css属性的属性的单位都进行转化，除了letter-spacing的</span>
-                <span class="attr">propList</span>: [<span class="string">&quot;*&quot;</span>], <span class="comment">// 指定转换的css属性的单位，*代表全部css属性的单位都进行转换</span>
-                <span class="comment">// 转换的黑名单，在黑名单里面的我们可以写入字符串，只要类名包含有这个字符串，就不会被匹配。比如selectorBlackList: [&#x27;wrap&#x27;],它表示形如wrap,my-wrap,wrapper这样的类名的单位，都不会被转换</span>
-                <span class="attr">selectorBlackList</span>: [<span class="string">&quot;ignore&quot;</span>], <span class="comment">// 指定不转换为视窗单位的类名，</span>
-                <span class="attr">minPixelValue</span>: <span class="number">1</span>, <span class="comment">// 默认值1，小于或等于1px则不进行转换</span>
-                <span class="attr">mediaQuery</span>: <span class="literal">true</span>, <span class="comment">// 是否在媒体查询的css代码中也进行转换，默认false</span>
-                <span class="attr">replace</span>: <span class="literal">true</span>, <span class="comment">// 是否转换后直接更换属性值</span>
-                <span class="attr">exclude</span>: [<span class="regexp">/node_modules/</span>], <span class="comment">// 设置忽略文件，用正则做目录名匹配</span>
-                <span class="attr">landscape</span>: <span class="literal">false</span> <span class="comment">// 是否处理横屏情况</span>
+                unitToConvert: &quot;px&quot;, &#x2F;&#x2F; 要转化的单位
+                viewportWidth: 375, &#x2F;&#x2F; UI设计稿的宽度
+                viewportUnit: &quot;vw&quot;, &#x2F;&#x2F; 指定需要转换成的视窗单位，建议使用 rem
+                fontViewportUnit: &quot;vw&quot;, &#x2F;&#x2F; 字体使用的视口单位
+                unitPrecision: 13, &#x2F;&#x2F; 指定&#96;px&#96;转换为视窗单位值的小数后 x位数
+                &#x2F;&#x2F; propList: 当有些属性的单位我们不希望转换的时候，可以添加在数组后面，并在前面加上!号，如propList: [&quot;*&quot;,&quot;!letter-spacing&quot;],这表示：所有css属性的属性的单位都进行转化，除了letter-spacing的
+                propList: [&quot;*&quot;], &#x2F;&#x2F; 指定转换的css属性的单位，*代表全部css属性的单位都进行转换
+                &#x2F;&#x2F; 转换的黑名单，在黑名单里面的我们可以写入字符串，只要类名包含有这个字符串，就不会被匹配。比如selectorBlackList: [&#39;wrap&#39;],它表示形如wrap,my-wrap,wrapper这样的类名的单位，都不会被转换
+                selectorBlackList: [&quot;ignore&quot;], &#x2F;&#x2F; 指定不转换为视窗单位的类名，
+                minPixelValue: 1, &#x2F;&#x2F; 默认值1，小于或等于1px则不进行转换
+                mediaQuery: true, &#x2F;&#x2F; 是否在媒体查询的css代码中也进行转换，默认false
+                replace: true, &#x2F;&#x2F; 是否转换后直接更换属性值
+                exclude: [&#x2F;node_modules&#x2F;], &#x2F;&#x2F; 设置忽略文件，用正则做目录名匹配
+                landscape: false &#x2F;&#x2F; 是否处理横屏情况
               &#125;
             ]
           ]
@@ -454,39 +455,39 @@
       &#125;
     &#125;
   &#125;,
-  <span class="attr">plugins</span>: [
+  plugins: [
     &#123;
-      <span class="attr">plugin</span>: <span class="title class_">CracoLessPlugin</span>,
-      <span class="attr">options</span>: &#123;
-        <span class="attr">lessLoaderOptions</span>: &#123;
-          <span class="attr">lessOptions</span>: &#123; <span class="comment">// less &gt;= 4, less-loader &gt;= 11</span>
-            <span class="attr">modifyVars</span>: &#123;
-              <span class="string">&quot;primary-color&quot;</span>: <span class="string">&quot;#1DA57A&quot;</span>,
-              <span class="string">&quot;link-color&quot;</span>: <span class="string">&quot;#1DA57A&quot;</span>,
-              <span class="string">&quot;border-radius-base&quot;</span>: <span class="string">&quot;2px&quot;</span>
-              <span class="comment">// 更改antd 默认的类名前缀，结合 ConfigProvider 使用 https://4x.ant.design/docs/react/customize-theme-variable-cn#%E4%BB%A3%E7%A0%81%E8%B0%83%E6%95%B4</span>
-              <span class="comment">// &quot;@ant-prefix&quot;: &quot;custom&quot;</span>
+      plugin: CracoLessPlugin,
+      options: &#123;
+        lessLoaderOptions: &#123;
+          lessOptions: &#123; &#x2F;&#x2F; less &gt;&#x3D; 4, less-loader &gt;&#x3D; 11
+            modifyVars: &#123;
+              &quot;primary-color&quot;: &quot;#1DA57A&quot;,
+              &quot;link-color&quot;: &quot;#1DA57A&quot;,
+              &quot;border-radius-base&quot;: &quot;2px&quot;
+              &#x2F;&#x2F; 更改antd 默认的类名前缀，结合 ConfigProvider 使用 https:&#x2F;&#x2F;4x.ant.design&#x2F;docs&#x2F;react&#x2F;customize-theme-variable-cn#%E4%BB%A3%E7%A0%81%E8%B0%83%E6%95%B4
+              &#x2F;&#x2F; &quot;@ant-prefix&quot;: &quot;custom&quot;
             &#125;,
-            <span class="attr">javascriptEnabled</span>: <span class="literal">true</span> <span class="comment">// 允许less文件中使用js表达式</span>
+            javascriptEnabled: true &#x2F;&#x2F; 允许less文件中使用js表达式
           &#125;
         &#125;
       &#125;
     &#125;
   ],
-  <span class="attr">webpack</span>: &#123;
-    <span class="comment">// .... 其他配置</span>
-    <span class="attr">alias</span>: &#123;
-      <span class="comment">// 文件路径别名</span>
-      <span class="string">&quot;@&quot;</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&quot;src&quot;</span>)
+  webpack: &#123;
+    &#x2F;&#x2F; .... 其他配置
+    alias: &#123;
+      &#x2F;&#x2F; 文件路径别名
+      &quot;@&quot;: path.resolve(__dirname, &quot;src&quot;)
     &#125;
   &#125;,
-<span class="comment">//   devServer: &#123;&#125;</span>
-&#125;;
-</code></pre>
-
-
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://create-react-app.dev/">create-react-app</a><br><a target="_blank" rel="noopener" href="https://craco.js.org/docs/">@craco&#x2F;craco</a><br><a target="_blank" rel="noopener" href="https://4x.ant.design/docs/react/customize-theme-cn">antd4</a><br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/postcss-px-to-viewport-8-plugin">postcss-px-to-viewport-8-plugin</a></p>
+&#x2F;&#x2F;   devServer: &#123;&#125;
+&#125;;</code></pre>
+<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
+<p><a target="_blank" rel="noopener" href="https://create-react-app.dev/">create-react-app</a><br />
+<a target="_blank" rel="noopener" href="https://craco.js.org/docs/">@craco/craco</a><br />
+<a target="_blank" rel="noopener" href="https://4x.ant.design/docs/react/customize-theme-cn">antd4</a><br />
+<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/postcss-px-to-viewport-8-plugin">postcss-px-to-viewport-8-plugin</a></p>
 <p>备注：由于 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/react-scripts">react-scripts</a> 不在更新维护，推荐编译工具换成 <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/">vite</a></p>
 
                 
@@ -896,7 +897,7 @@
             <!-- 站点总字数 -->
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">17.2k</span>
+                        class="white-color">19.2k</span>
             
             <!-- -->
             

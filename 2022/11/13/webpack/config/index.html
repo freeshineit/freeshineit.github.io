@@ -52,7 +52,7 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="三空" type="application/atom+xml">
 </head>
 
 
@@ -372,14 +372,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    6 分
                 </div>
                 
 
@@ -402,206 +402,207 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="webpack5-配置项"><a href="#webpack5-配置项" class="headerlink" title="webpack5 配置项"></a>webpack5 配置项</h2><p>webpack <a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/webpack@main/-/blob/declarations/WebpackOptions.d.ts">WebpackOptions</a></p>
+                <h2 id="webpack5-配置项"><a class="markdownIt-Anchor" href="#webpack5-配置项"></a> webpack5 配置项</h2>
+<p>webpack <a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/webpack@main/-/blob/declarations/WebpackOptions.d.ts">WebpackOptions</a></p>
 <p><a target="_blank" rel="noopener" href="https://webpack.docschina.org/configuration/other-options">https://webpack.docschina.org/configuration/other-options</a></p>
-<pre><code class="highlight ts"><span class="keyword">export</span> <span class="keyword">interface</span> <span class="title class_">WebpackOptions</span> &#123;
-  <span class="comment">/**</span>
-<span class="comment">   * 设置`require.amd`和`define.amd`的值。或者禁用AMD支持。</span>
-<span class="comment">   */</span>
-  amd?: <span class="literal">false</span> | &#123; [<span class="attr">k</span>: <span class="built_in">string</span>]: <span class="built_in">any</span> &#125;;
-  <span class="comment">/**</span>
-<span class="comment">   * 在第一个错误出现时抛出失败结果，而不是容忍它;  true: 将会致使 webpack 在发现错误时尽快退出。</span>
-<span class="comment">   */</span>
-  bail?: <span class="built_in">boolean</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * 缓存生成的 modules 和 chunks，以提高多个增量构建的性能。</span>
-<span class="comment">   */</span>
-  cache?: <span class="built_in">boolean</span> | <span class="title class_">MemoryCacheOptions</span> | <span class="title class_">FileCacheOptions</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * 基本目录（绝对路径！）用于解析`entry`选项。如果设置了`output.pathinfo`，则包含的pathinfo将缩短到此目录。</span>
-<span class="comment">   */</span>
-  context?: <span class="built_in">string</span>; <span class="comment">// Context;</span>
-  <span class="comment">/**</span>
-<span class="comment">   * 对要依赖的其他配置的引用。</span>
-<span class="comment">   */</span>
-  dependencies?: <span class="built_in">string</span>[]; <span class="comment">// Dependencies;</span>
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.js.org/configuration/dev-server/</span>
-<span class="comment">   * webpack-dev-server的选项</span>
-<span class="comment">   */</span>
-  devServer?: <span class="title class_">DevServer</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * 用于增强调试的开发工具 (false | eval | [inline-|hidden-|eval-][nosources-][cheap-[module-]]source-map).</span>
-<span class="comment">   */</span>
-  devtool?: <span class="title class_">DevTool</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * 编译的入口点</span>
-<span class="comment">   */</span>
-  entry?: <span class="title class_">Entry</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * 启用/禁用实验（具有relax-SemVer兼容性的实验功能）</span>
-<span class="comment">   */</span>
-  experiments?: <span class="title class_">Experiments</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * 指定不应该由webpack解析，但应该成为结果包的依赖项的依赖项。依赖关系的类型取决于`output.libraryTarget`。</span>
-<span class="comment">   */</span>
-  externals?: <span class="title class_">Externals</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * 为特定目标启用外部预设</span>
-<span class="comment">   */</span>
-  externalsPresets?: <span class="title class_">ExternalsPresets</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * 指定外部的默认类型（&#x27;amd*&#x27;、&#x27;umd*&#x27;，&#x27;system&#x27;和&#x27;jsonp&#x27;取决于设置为相同值的output.libraryTarget）。</span>
-<span class="comment">   */</span>
-  externalsType?: <span class="title class_">ExternalsType</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.docschina.org/configuration/other-options/#ignorewarnings</span>
-<span class="comment">   * 忽略特定警告</span>
-<span class="comment">   */</span>
-  ignoreWarnings?: <span class="title class_">IgnoreWarnings</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.docschina.org/configuration/other-options/#infrastructurelogging</span>
-<span class="comment">   * 用于基础设施水平的日志选项</span>
-<span class="comment">   */</span>
-  infrastructureLogging?: <span class="title class_">InfrastructureLogging</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.docschina.org/configuration/other-options/#loader</span>
-<span class="comment">   * loader上下文中可用的自定义值</span>
-<span class="comment">   */</span>
-  loader?: <span class="title class_">Loader</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * 启用生产优化或开发提示</span>
-<span class="comment">   */</span>
-  mode?: <span class="string">&quot;development&quot;</span> | <span class="string">&quot;production&quot;</span> | <span class="string">&quot;none&quot;</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * 影响正常模块的选项（`NormalModuleFactory`）</span>
-<span class="comment">   */</span>
-  <span class="variable language_">module</span>?: <span class="title class_">ModuleOptions</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.docschina.org/configuration/other-options/#name</span>
-<span class="comment">   * 配置的名称。加载多个配置时使用。</span>
-<span class="comment">   */</span>
-  name?: <span class="built_in">string</span>; <span class="comment">//Name;</span>
-  <span class="comment">/**</span>
-<span class="comment">   * 包括各种节点填充的polyfill或mock</span>
-<span class="comment">   */</span>
-  node?: <span class="title class_">Node</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.docschina.org/configuration/optimization/#root</span>
-<span class="comment">   * 启用/禁用集成优化</span>
-<span class="comment">   */</span>
-  optimization?: <span class="title class_">Optimization</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * Options affecting the output of the compilation. `output` options tell webpack how to write the compiled files to disk.</span>
-<span class="comment">   * 影响编译输出的选项. `output`选项告诉`webpack`如何将编译后的文件写入磁盘。</span>
-<span class="comment">   */</span>
-  output?: <span class="title class_">Output</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.docschina.org/configuration/other-options/#parallelism</span>
-<span class="comment">   * 编译中并行处理的模块数</span>
-<span class="comment">   * 默认 100</span>
-<span class="comment">   */</span>
-  parallelism?: <span class="built_in">number</span>; <span class="comment">//Parallelism;</span>
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.docschina.org/configuration/performance/#root</span>
-<span class="comment">   * web性能建议的配置</span>
-<span class="comment">   */</span>
-  performance?: <span class="title class_">Performance</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.docschina.org/configuration/plugins/#plugins</span>
-<span class="comment">   * 向编译器添加其他插件.</span>
-<span class="comment">   *</span>
-<span class="comment">   * https://sourcegraph.com/github.com/webpack/webpack-cli/-/blob/packages/webpack-cli/src/plugins/CLIPlugin.ts?L11</span>
-<span class="comment">   * webpack-cli 会默认在数组的最前面插入 CLIPlugin 的实例  (why ??) 主要是在控制台输出内容（打印日志）</span>
-<span class="comment">   */</span>
-  plugins?: <span class="title class_">Plugins</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.docschina.org/configuration/other-options/#profile</span>
-<span class="comment">   * 捕获每个模块的计时信息</span>
-<span class="comment">   */</span>
-  profile?: <span class="title class_">Profile</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.docschina.org/configuration/other-options/#recordsinputpath</span>
-<span class="comment">   * 将编译器状态存储到json文件中, 指定读取最后一条记录的文件的名称。这可以用来重命名一个记录文件</span>
-<span class="comment">   */</span>
-  recordsInputPath?: <span class="built_in">string</span> | <span class="literal">false</span>; <span class="comment">// RecordsInputPath;</span>
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.docschina.org/configuration/other-options/#recordsoutputpath</span>
-<span class="comment">   * 从json文件加载编译器状态</span>
-<span class="comment">   */</span>
-  recordsOutputPath?: <span class="built_in">string</span> | <span class="literal">false</span>; <span class="comment">// RecordsOutputPath;</span>
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.docschina.org/configuration/other-options/#recordspath</span>
-<span class="comment">   * 开启这个选项可以生成一个 JSON 文件，其中含有 webpack 的 &quot;records&quot; 记录 - 即「用于存储跨多次构建(across multiple builds)的模块标识符」的数据片段。可以使用此文件来跟踪在每次构建之间的模块变化。只要简单的设置一下路径,就可以生成这个 JSON 文件</span>
-<span class="comment">   */</span>
-  recordsPath?: <span class="title class_">RecordsPath</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * 解析器选项</span>
-<span class="comment">   */</span>
-  resolve?: <span class="title class_">Resolve</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.docschina.org/configuration/resolve/#resolveloader</span>
-<span class="comment">   * 解析loaders时解析程序的选项</span>
-<span class="comment">   */</span>
-  resolveLoader?: <span class="title class_">ResolveLoader</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * 影响文件系统快照创建和验证方式的选</span>
-<span class="comment">   */</span>
-  snapshot?: <span class="title class_">SnapshotOptions</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * 统计选项对象或预设名称</span>
-<span class="comment">   * 默认: &#123;colors:false,preset:&#x27;normal&#x27;&#125;</span>
-<span class="comment">   */</span>
-  stats?: <span class="title class_">StatsValue</span>;
-  <span class="comment">/**</span>
-<span class="comment">   * 要构建的环境。尽可能为所有用户构建一系列环境</span>
-<span class="comment">   */</span>
-  target?: <span class="built_in">string</span> | <span class="literal">false</span> | <span class="built_in">string</span>[]; <span class="comment">// Target;</span>
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.docschina.org/configuration/watch#root</span>
-<span class="comment">   * 启用 Watch 模式，该模式将在文件更改时重建</span>
-<span class="comment">   * Compiler 支持可以监控文件系统的 监听(watching) 机制，并且在文件修改时重新编译。</span>
-<span class="comment">   * 当处于监听模式(watch mode)时， compiler 会触发诸如 watchRun, watchClose 和 invalid 等额外的事件</span>
-<span class="comment">   *</span>
-<span class="comment">   */</span>
-  watch?: <span class="built_in">boolean</span>; <span class="comment">// Watch;</span>
-  <span class="comment">/**</span>
-<span class="comment">   * https://webpack.docschina.org/configuration/watch#watchoptions</span>
-<span class="comment">   * 一组用来定制 watch 模式的选项</span>
-<span class="comment">   */</span>
-  watchOptions?: <span class="title class_">WatchOptions</span>;
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript">export interface WebpackOptions &#123;
+  &#x2F;**
+   * 设置&#96;require.amd&#96;和&#96;define.amd&#96;的值。或者禁用AMD支持。
+   *&#x2F;
+  amd?: false | &#123; [k: string]: any &#125;;
+  &#x2F;**
+   * 在第一个错误出现时抛出失败结果，而不是容忍它;  true: 将会致使 webpack 在发现错误时尽快退出。
+   *&#x2F;
+  bail?: boolean;
+  &#x2F;**
+   * 缓存生成的 modules 和 chunks，以提高多个增量构建的性能。
+   *&#x2F;
+  cache?: boolean | MemoryCacheOptions | FileCacheOptions;
+  &#x2F;**
+   * 基本目录（绝对路径！）用于解析&#96;entry&#96;选项。如果设置了&#96;output.pathinfo&#96;，则包含的pathinfo将缩短到此目录。
+   *&#x2F;
+  context?: string; &#x2F;&#x2F; Context;
+  &#x2F;**
+   * 对要依赖的其他配置的引用。
+   *&#x2F;
+  dependencies?: string[]; &#x2F;&#x2F; Dependencies;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.js.org&#x2F;configuration&#x2F;dev-server&#x2F;
+   * webpack-dev-server的选项
+   *&#x2F;
+  devServer?: DevServer;
+  &#x2F;**
+   * 用于增强调试的开发工具 (false | eval | [inline-|hidden-|eval-][nosources-][cheap-[module-]]source-map).
+   *&#x2F;
+  devtool?: DevTool;
+  &#x2F;**
+   * 编译的入口点
+   *&#x2F;
+  entry?: Entry;
+  &#x2F;**
+   * 启用&#x2F;禁用实验（具有relax-SemVer兼容性的实验功能）
+   *&#x2F;
+  experiments?: Experiments;
+  &#x2F;**
+   * 指定不应该由webpack解析，但应该成为结果包的依赖项的依赖项。依赖关系的类型取决于&#96;output.libraryTarget&#96;。
+   *&#x2F;
+  externals?: Externals;
+  &#x2F;**
+   * 为特定目标启用外部预设
+   *&#x2F;
+  externalsPresets?: ExternalsPresets;
+  &#x2F;**
+   * 指定外部的默认类型（&#39;amd*&#39;、&#39;umd*&#39;，&#39;system&#39;和&#39;jsonp&#39;取决于设置为相同值的output.libraryTarget）。
+   *&#x2F;
+  externalsType?: ExternalsType;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.docschina.org&#x2F;configuration&#x2F;other-options&#x2F;#ignorewarnings
+   * 忽略特定警告
+   *&#x2F;
+  ignoreWarnings?: IgnoreWarnings;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.docschina.org&#x2F;configuration&#x2F;other-options&#x2F;#infrastructurelogging
+   * 用于基础设施水平的日志选项
+   *&#x2F;
+  infrastructureLogging?: InfrastructureLogging;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.docschina.org&#x2F;configuration&#x2F;other-options&#x2F;#loader
+   * loader上下文中可用的自定义值
+   *&#x2F;
+  loader?: Loader;
+  &#x2F;**
+   * 启用生产优化或开发提示
+   *&#x2F;
+  mode?: &quot;development&quot; | &quot;production&quot; | &quot;none&quot;;
+  &#x2F;**
+   * 影响正常模块的选项（&#96;NormalModuleFactory&#96;）
+   *&#x2F;
+  module?: ModuleOptions;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.docschina.org&#x2F;configuration&#x2F;other-options&#x2F;#name
+   * 配置的名称。加载多个配置时使用。
+   *&#x2F;
+  name?: string; &#x2F;&#x2F;Name;
+  &#x2F;**
+   * 包括各种节点填充的polyfill或mock
+   *&#x2F;
+  node?: Node;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.docschina.org&#x2F;configuration&#x2F;optimization&#x2F;#root
+   * 启用&#x2F;禁用集成优化
+   *&#x2F;
+  optimization?: Optimization;
+  &#x2F;**
+   * Options affecting the output of the compilation. &#96;output&#96; options tell webpack how to write the compiled files to disk.
+   * 影响编译输出的选项. &#96;output&#96;选项告诉&#96;webpack&#96;如何将编译后的文件写入磁盘。
+   *&#x2F;
+  output?: Output;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.docschina.org&#x2F;configuration&#x2F;other-options&#x2F;#parallelism
+   * 编译中并行处理的模块数
+   * 默认 100
+   *&#x2F;
+  parallelism?: number; &#x2F;&#x2F;Parallelism;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.docschina.org&#x2F;configuration&#x2F;performance&#x2F;#root
+   * web性能建议的配置
+   *&#x2F;
+  performance?: Performance;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.docschina.org&#x2F;configuration&#x2F;plugins&#x2F;#plugins
+   * 向编译器添加其他插件.
+   *
+   * https:&#x2F;&#x2F;sourcegraph.com&#x2F;github.com&#x2F;webpack&#x2F;webpack-cli&#x2F;-&#x2F;blob&#x2F;packages&#x2F;webpack-cli&#x2F;src&#x2F;plugins&#x2F;CLIPlugin.ts?L11
+   * webpack-cli 会默认在数组的最前面插入 CLIPlugin 的实例  (why ??) 主要是在控制台输出内容（打印日志）
+   *&#x2F;
+  plugins?: Plugins;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.docschina.org&#x2F;configuration&#x2F;other-options&#x2F;#profile
+   * 捕获每个模块的计时信息
+   *&#x2F;
+  profile?: Profile;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.docschina.org&#x2F;configuration&#x2F;other-options&#x2F;#recordsinputpath
+   * 将编译器状态存储到json文件中, 指定读取最后一条记录的文件的名称。这可以用来重命名一个记录文件
+   *&#x2F;
+  recordsInputPath?: string | false; &#x2F;&#x2F; RecordsInputPath;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.docschina.org&#x2F;configuration&#x2F;other-options&#x2F;#recordsoutputpath
+   * 从json文件加载编译器状态
+   *&#x2F;
+  recordsOutputPath?: string | false; &#x2F;&#x2F; RecordsOutputPath;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.docschina.org&#x2F;configuration&#x2F;other-options&#x2F;#recordspath
+   * 开启这个选项可以生成一个 JSON 文件，其中含有 webpack 的 &quot;records&quot; 记录 - 即「用于存储跨多次构建(across multiple builds)的模块标识符」的数据片段。可以使用此文件来跟踪在每次构建之间的模块变化。只要简单的设置一下路径,就可以生成这个 JSON 文件
+   *&#x2F;
+  recordsPath?: RecordsPath;
+  &#x2F;**
+   * 解析器选项
+   *&#x2F;
+  resolve?: Resolve;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.docschina.org&#x2F;configuration&#x2F;resolve&#x2F;#resolveloader
+   * 解析loaders时解析程序的选项
+   *&#x2F;
+  resolveLoader?: ResolveLoader;
+  &#x2F;**
+   * 影响文件系统快照创建和验证方式的选
+   *&#x2F;
+  snapshot?: SnapshotOptions;
+  &#x2F;**
+   * 统计选项对象或预设名称
+   * 默认: &#123;colors:false,preset:&#39;normal&#39;&#125;
+   *&#x2F;
+  stats?: StatsValue;
+  &#x2F;**
+   * 要构建的环境。尽可能为所有用户构建一系列环境
+   *&#x2F;
+  target?: string | false | string[]; &#x2F;&#x2F; Target;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.docschina.org&#x2F;configuration&#x2F;watch#root
+   * 启用 Watch 模式，该模式将在文件更改时重建
+   * Compiler 支持可以监控文件系统的 监听(watching) 机制，并且在文件修改时重新编译。
+   * 当处于监听模式(watch mode)时， compiler 会触发诸如 watchRun, watchClose 和 invalid 等额外的事件
+   *
+   *&#x2F;
+  watch?: boolean; &#x2F;&#x2F; Watch;
+  &#x2F;**
+   * https:&#x2F;&#x2F;webpack.docschina.org&#x2F;configuration&#x2F;watch#watchoptions
+   * 一组用来定制 watch 模式的选项
+   *&#x2F;
+  watchOptions?: WatchOptions;
 &#125;</code></pre>
-
-<h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><pre><code class="highlight ts"><span class="comment">/**</span>
-<span class="comment"> * Custom values available in the loader context.</span>
-<span class="comment"> */</span>
-<span class="keyword">export</span> <span class="keyword">interface</span> <span class="title class_">Loader</span> &#123;
-  [<span class="attr">k</span>: <span class="built_in">string</span>]: <span class="built_in">any</span>;
+<h2 id="loader"><a class="markdownIt-Anchor" href="#loader"></a> loader</h2>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+ * Custom values available in the loader context.
+ *&#x2F;
+export interface Loader &#123;
+  [k: string]: any;
 &#125;</code></pre>
+<h2 id="plugin"><a class="markdownIt-Anchor" href="#plugin"></a> plugin</h2>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+ * 向编译器添加其他插件
+ *&#x2F;
+export type Plugins &#x3D; (WebpackPluginInstance | WebpackPluginFunction)[];
 
-<h2 id="plugin"><a href="#plugin" class="headerlink" title="plugin"></a>plugin</h2><pre><code class="highlight ts"><span class="comment">/**</span>
-<span class="comment"> * 向编译器添加其他插件</span>
-<span class="comment"> */</span>
-<span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">Plugins</span> = (<span class="title class_">WebpackPluginInstance</span> | <span class="title class_">WebpackPluginFunction</span>)[];
-
-<span class="comment">/**</span>
-<span class="comment"> * 插件实例</span>
-<span class="comment"> */</span>
-<span class="keyword">export</span> <span class="keyword">interface</span> <span class="title class_">WebpackPluginInstance</span> &#123;
-  <span class="comment">/**</span>
-<span class="comment">   * The run point of the plugin, required method.</span>
-<span class="comment">   */</span>
-  <span class="attr">apply</span>: <span class="function">(<span class="params"><span class="attr">compiler</span>: <span class="keyword">import</span>(<span class="string">&quot;../lib/Compiler&quot;</span>)</span>) =&gt;</span> <span class="built_in">void</span>;
-  [<span class="attr">k</span>: <span class="built_in">string</span>]: <span class="built_in">any</span>;
+&#x2F;**
+ * 插件实例
+ *&#x2F;
+export interface WebpackPluginInstance &#123;
+  &#x2F;**
+   * The run point of the plugin, required method.
+   *&#x2F;
+  apply: (compiler: import(&quot;..&#x2F;lib&#x2F;Compiler&quot;)) &#x3D;&gt; void;
+  [k: string]: any;
 &#125;
 
-<span class="comment">/**</span>
-<span class="comment"> * Function acting as plugin.</span>
-<span class="comment"> */</span>
-<span class="keyword">export</span> <span class="keyword">type</span> <span class="title class_">WebpackPluginFunction</span> = <span class="function">(<span class="params"></span></span>
-<span class="params"><span class="function">  <span class="attr">this</span>: <span class="keyword">import</span>(<span class="string">&quot;../lib/Compiler&quot;</span>),</span></span>
-<span class="params"><span class="function">  <span class="attr">compiler</span>: <span class="keyword">import</span>(<span class="string">&quot;../lib/Compiler&quot;</span>)</span></span>
-<span class="params"><span class="function"></span>) =&gt;</span> <span class="built_in">void</span>;</code></pre>
+&#x2F;**
+ * Function acting as plugin.
+ *&#x2F;
+export type WebpackPluginFunction &#x3D; (
+  this: import(&quot;..&#x2F;lib&#x2F;Compiler&quot;),
+  compiler: import(&quot;..&#x2F;lib&#x2F;Compiler&quot;)
+) &#x3D;&gt; void;</code></pre>
 
                 
             </div>
@@ -1019,7 +1020,7 @@
             <!-- 站点总字数 -->
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">17.2k</span>
+                        class="white-color">19.2k</span>
             
             <!-- -->
             
