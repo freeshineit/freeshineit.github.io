@@ -5,7 +5,8 @@
     "build": "hexo generate && node nojekyll.js",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
-    "server": "nodemon -e yml,ejs --ignore public/ -L --exec 'hexo server'"
+    "server": "nodemon -e yml,ejs --ignore public/ -L --exec 'hexo server'",
+    "dev": "nodemon -e yml,ejs --ignore public/ -L --exec 'hexo server'"
   },
   "hexo": {
     "version": "6.3.0"
