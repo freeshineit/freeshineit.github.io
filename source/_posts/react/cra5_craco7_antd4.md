@@ -115,3 +115,6 @@ module.exports = {
 [@craco/craco](https://craco.js.org/docs/)
 [antd4](https://4x.ant.design/docs/react/customize-theme-cn)
 [postcss-px-to-viewport-8-plugin](https://www.npmjs.com/package/postcss-px-to-viewport-8-plugin)
+
+
+备注：由于 [react-scripts](https://www.npmjs.com/package/react-scripts) 不在更新维护，推荐编译工具换成 [vite](https://cn.vitejs.dev/guide/)
