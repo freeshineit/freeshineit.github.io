@@ -402,8 +402,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="shell"><a class="markdownIt-Anchor" href="#shell"></a> shell</h1>
-<pre class="language-bash" data-language="bash"><code class="language-bash"># rebase
+                <h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><pre class="language-bash" data-language="bash"><code class="language-bash"># rebase
 git rebase master
 
 # 解决冲突后
@@ -411,6 +410,7 @@ git add .
 
 # continue
 git rebase --continue</code></pre>
+
 <pre class="language-bash" data-language="bash"><code class="language-bash"># discard 丢弃缓存
 git reset HEAD
 
@@ -425,10 +425,10 @@ git commit --amend
 ## 或者使用别名
 git ca
 </code></pre>
-<h3 id="使用-执行多条命令"><a class="markdownIt-Anchor" href="#使用-执行多条命令"></a> 使用<code>;</code> 执行多条命令</h3>
-<pre class="language-bash" data-language="bash"><code class="language-bash">git add .; git status</code></pre>
-<h3 id="配置命令别名aliases"><a class="markdownIt-Anchor" href="#配置命令别名aliases"></a> 配置命令别名（<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh-tw/v2/Git-%E5%9F%BA%E7%A4%8E-Git-Aliases">Aliases</a>）</h3>
-<p>git 默认配置了部分别名，可以使用<code>git config --list</code> 查看</p>
+
+<h3 id="使用-执行多条命令"><a href="#使用-执行多条命令" class="headerlink" title="使用; 执行多条命令"></a>使用<code>;</code> 执行多条命令</h3><pre class="language-bash" data-language="bash"><code class="language-bash">git add .; git status</code></pre>
+
+<h3 id="配置命令别名（Aliases）"><a href="#配置命令别名（Aliases）" class="headerlink" title="配置命令别名（Aliases）"></a>配置命令别名（<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh-tw/v2/Git-%E5%9F%BA%E7%A4%8E-Git-Aliases">Aliases</a>）</h3><p>git 默认配置了部分别名，可以使用<code>git config --list</code> 查看</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash"># git commit -m
 # git config --global alias.cm commit -m
 git cm
@@ -440,12 +440,14 @@ git ll
 # git diff
 # git config --global alias.d diff
 git d</code></pre>
+
 <p>配置别名命令</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash"># 配置别名命令
 git config --global alias.st status
 
 # 使用 git st 相当于 git status
 git st</code></pre>
+
 <p>git log 别名配置</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash"># git l
 git config --global alias.l &quot;log --graph --all --pretty&#x3D;format:&#39;%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset&#39;&quot;

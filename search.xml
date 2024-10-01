@@ -3,10 +3,7 @@
   <entry>
     <title>前端面试</title>
     <url>/2022/11/08/fe-interview/</url>
-    <content><![CDATA[<h2 id="javascript"><a class="markdownIt-Anchor" href="#javascript"></a> javascript</h2>
-<h3 id="this-的指向谁调用指向谁"><a class="markdownIt-Anchor" href="#this-的指向谁调用指向谁"></a> this 的指向（谁调用指向谁）</h3>
-<h3 id="普通函数和箭头函数的区别"><a class="markdownIt-Anchor" href="#普通函数和箭头函数的区别"></a> 普通函数和箭头函数的区别</h3>
-<ul>
+    <content><![CDATA[<h2 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h2><h3 id="this-的指向（谁调用指向谁）"><a href="#this-的指向（谁调用指向谁）" class="headerlink" title="this 的指向（谁调用指向谁）"></a>this 的指向（谁调用指向谁）</h3><h3 id="普通函数和箭头函数的区别"><a href="#普通函数和箭头函数的区别" class="headerlink" title="普通函数和箭头函数的区别"></a>普通函数和箭头函数的区别</h3><ul>
 <li>语法更加简洁、清晰</li>
 <li>箭头函数没有自己的 <code>this</code></li>
 <li>箭头函数继承而来的 <code>this</code> 指向永远不变</li>
@@ -17,16 +14,9 @@
 <li>箭头函数不能用作 <code>Generator</code> 函数，不能使用 <code>yeild</code> 关键字 (为什么)</li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions#%E8%A7%A3%E6%9E%90%E9%A1%BA%E5%BA%8F">解析顺序</a> 虽然箭头函数中的箭头不是运算符，但箭头函数具有与常规函数不同的特殊运算符优先级解析规则。</li>
 </ul>
-<p><a href="https://juejin.cn/post/6844903805960585224">ES6 - 箭头函数、箭头函数与普通函数的区别</a><br />
-<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions">箭头函数</a></p>
-<h3 id="javascript-闭包"><a class="markdownIt-Anchor" href="#javascript-闭包"></a> javascript 闭包</h3>
-<h3 id="javascript-的作用域"><a class="markdownIt-Anchor" href="#javascript-的作用域"></a> javascript 的作用域</h3>
-<h3 id="javascript-变量向上找取的原理执行上下文"><a class="markdownIt-Anchor" href="#javascript-变量向上找取的原理执行上下文"></a> javascript 变量向上找取的原理(执行上下文)</h3>
-<h3 id="javascript-的语法分析"><a class="markdownIt-Anchor" href="#javascript-的语法分析"></a> javascript 的语法分析</h3>
-<h3 id="javascript-的词法分析"><a class="markdownIt-Anchor" href="#javascript-的词法分析"></a> javascript 的词法分析</h3>
-<p><a href="https://juejin.cn/post/6943550570515038245">https://juejin.cn/post/6943550570515038245</a></p>
-<h3 id="继承"><a class="markdownIt-Anchor" href="#继承"></a> 继承</h3>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;&#x2F; es5
+<p><a href="https://juejin.cn/post/6844903805960585224">ES6 - 箭头函数、箭头函数与普通函数的区别</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions">箭头函数</a></p>
+<h3 id="javascript-闭包"><a href="#javascript-闭包" class="headerlink" title="javascript 闭包"></a>javascript 闭包</h3><h3 id="javascript-的作用域"><a href="#javascript-的作用域" class="headerlink" title="javascript 的作用域"></a>javascript 的作用域</h3><h3 id="javascript-变量向上找取的原理-执行上下文"><a href="#javascript-变量向上找取的原理-执行上下文" class="headerlink" title="javascript 变量向上找取的原理(执行上下文)"></a>javascript 变量向上找取的原理(执行上下文)</h3><h3 id="javascript-的语法分析"><a href="#javascript-的语法分析" class="headerlink" title="javascript 的语法分析"></a>javascript 的语法分析</h3><h3 id="javascript-的词法分析"><a href="#javascript-的词法分析" class="headerlink" title="javascript 的词法分析"></a>javascript 的词法分析</h3><p><a href="https://juejin.cn/post/6943550570515038245">https://juejin.cn/post/6943550570515038245</a></p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;&#x2F; es5
 function PersonFn () &#123;&#125;
 
 function SupermanFn() &#123;&#125;
@@ -38,8 +28,8 @@ SupermanFn.prototype &#x3D; new PersonFn()
 class Person () &#123;&#125;
 
 class Superman extends Person &#123;&#125;</code></pre>
-<h3 id="洋葱模型"><a class="markdownIt-Anchor" href="#洋葱模型"></a> 洋葱模型</h3>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;&#x2F; 类似递归
+
+<h3 id="洋葱模型"><a href="#洋葱模型" class="headerlink" title="洋葱模型"></a>洋葱模型</h3><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;&#x2F; 类似递归
 &#x2F;&#x2F; 在 next 中执行下一个function, 依次递归
 &#x2F;&#x2F; 如果不好理解可以参考&#96;tapable&#96; 中代码的实现, &#96;tapable&#96;是把所有函数铺平，依次嵌套
 &#x2F;&#x2F; 而下面的实现是对依次嵌套改成了递归嵌套
@@ -77,9 +67,8 @@ middleware.push(() &#x3D;&gt; &#123;
 let fn &#x3D; compose(middleware)
 fn() &#x2F;&#x2F; 0 1 2 next:1.1 next:3.3
 </code></pre>
-<h2 id="浏览器"><a class="markdownIt-Anchor" href="#浏览器"></a> 浏览器</h2>
-<h3 id="浏览器的进程chrome"><a class="markdownIt-Anchor" href="#浏览器的进程chrome"></a> 浏览器的进程（Chrome）</h3>
-<ul>
+
+<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><h3 id="浏览器的进程（Chrome）"><a href="#浏览器的进程（Chrome）" class="headerlink" title="浏览器的进程（Chrome）"></a>浏览器的进程（Chrome）</h3><ul>
 <li>Browser Process 浏览器的主进程（负责协调、主控） （1）负责包括地址栏，书签栏，前进后退按钮等部分的工作 （2）负责处理浏览器的一些不可见的底层操作，比如网络请求和文件访问 （3）负责各个页面的管理，创建和销毁其他进程</li>
 <li>Utility Process</li>
 <li>Render Process 负责一个 tab 内关于网页呈现的所有事情，页面渲染，脚本执行，事件处理等</li>
@@ -87,23 +76,17 @@ fn() &#x2F;&#x2F; 0 1 2 next:1.1 next:3.3
 <li>Plugin Process 负责处理 GPU 相关的任务</li>
 </ul>
 <p><a href="https://juejin.cn/post/6844903812642111501">浏览器多线程和 js 单线程</a></p>
-<h3 id="在浏览器输入-url-回车之后发生了什么"><a class="markdownIt-Anchor" href="#在浏览器输入-url-回车之后发生了什么"></a> 在浏览器输入 URL 回车之后发生了什么</h3>
-<p><a href="https://zhuanlan.zhihu.com/p/80551769">在浏览器输入 URL 回车之后发生了什么</a></p>
-<h3 id="浏览器-gc"><a class="markdownIt-Anchor" href="#浏览器-gc"></a> 浏览器 GC</h3>
-<h2 id="node"><a class="markdownIt-Anchor" href="#node"></a> node</h2>
-<h3 id="npm-执行命令的流程"><a class="markdownIt-Anchor" href="#npm-执行命令的流程"></a> npm 执行命令的流程</h3>
-<h3 id="eventloop"><a class="markdownIt-Anchor" href="#eventloop"></a> eventloop</h3>
-<h3 id="前端页面优化"><a class="markdownIt-Anchor" href="#前端页面优化"></a> 前端页面优化</h3>
-<ul>
-<li>压缩 js/css/html/图片，减少请求流量</li>
+<h3 id="在浏览器输入-URL-回车之后发生了什么"><a href="#在浏览器输入-URL-回车之后发生了什么" class="headerlink" title="在浏览器输入 URL 回车之后发生了什么"></a>在浏览器输入 URL 回车之后发生了什么</h3><p><a href="https://zhuanlan.zhihu.com/p/80551769">在浏览器输入 URL 回车之后发生了什么</a></p>
+<h3 id="浏览器-GC"><a href="#浏览器-GC" class="headerlink" title="浏览器 GC"></a>浏览器 GC</h3><h2 id="node"><a href="#node" class="headerlink" title="node"></a>node</h2><h3 id="npm-执行命令的流程"><a href="#npm-执行命令的流程" class="headerlink" title="npm 执行命令的流程"></a>npm 执行命令的流程</h3><h3 id="eventloop"><a href="#eventloop" class="headerlink" title="eventloop"></a>eventloop</h3><h3 id="前端页面优化"><a href="#前端页面优化" class="headerlink" title="前端页面优化"></a>前端页面优化</h3><ul>
+<li>压缩 js&#x2F;css&#x2F;html&#x2F;图片，减少请求流量</li>
 <li>合并小文件都一个文件中，减少请求数</li>
 <li>静态资源使用 CDN</li>
 <li>图片尽量使用 webp等压缩效果比较好的图片格式 ， 可以使用picture标签</li>
 <li>服务端开启 gzip等压缩</li>
 <li>使用PWA</li>
 <li>使用缓存</li>
-<li>图片懒加载/使用雪碧图/使用 svg</li>
-<li>使用 js 懒加载/预加载</li>
+<li>图片懒加载&#x2F;使用雪碧图&#x2F;使用 svg</li>
+<li>使用 js 懒加载&#x2F;预加载</li>
 <li>减少 dom 的层级嵌套</li>
 <li>避免 table 布局</li>
 <li>css3 开启 GPU 加速</li>
@@ -111,16 +94,10 @@ fn() &#x2F;&#x2F; 0 1 2 next:1.1 next:3.3
 <li>接口使用异步请求</li>
 <li>尽量减少请求</li>
 <li>如果有必要可以使用Workers</li>
-<li>避免/减少重排与重绘</li>
+<li>避免&#x2F;减少重排与重绘</li>
 </ul>
-<h2 id="网络"><a class="markdownIt-Anchor" href="#网络"></a> 网络</h2>
-<h3 id="http1-和-http2-的区别"><a class="markdownIt-Anchor" href="#http1-和-http2-的区别"></a> http1 和 http2 的区别</h3>
-<h3 id="网络分层"><a class="markdownIt-Anchor" href="#网络分层"></a> 网络分层</h3>
-<h2 id="typescript"><a class="markdownIt-Anchor" href="#typescript"></a> TypeScript</h2>
-<h3 id="typescript-的类型"><a class="markdownIt-Anchor" href="#typescript-的类型"></a> TypeScript 的类型</h3>
-<p><code>any</code>,<code>string</code>,<code>number</code>,<code>boolean</code>,<code>Symbol</code>,<code>Array</code>,<code>null</code>,<code>unknow</code>,<code>never</code>,<code>void</code> …</p>
-<h3 id="typescript-中-any-never-unknown-null-undefined-和-void-有什么区别"><a class="markdownIt-Anchor" href="#typescript-中-any-never-unknown-null-undefined-和-void-有什么区别"></a> TypeScript 中 any、never、unknown、null &amp; undefined 和 void 有什么区别？</h3>
-<pre class="language-none"><code class="language-none">any: 动态的变量类型（失去了类型检查的作用）。
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="http1-和-http2-的区别"><a href="#http1-和-http2-的区别" class="headerlink" title="http1 和 http2 的区别"></a>http1 和 http2 的区别</h3><h3 id="网络分层"><a href="#网络分层" class="headerlink" title="网络分层"></a>网络分层</h3><h2 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h2><h3 id="TypeScript-的类型"><a href="#TypeScript-的类型" class="headerlink" title="TypeScript 的类型"></a>TypeScript 的类型</h3><p><code>any</code>,<code>string</code>,<code>number</code>,<code>boolean</code>,<code>Symbol</code>,<code>Array</code>,<code>null</code>,<code>unknow</code>,<code>never</code>,<code>void</code> …</p>
+<h3 id="TypeScript-中-any、never、unknown、null-undefined-和-void-有什么区别？"><a href="#TypeScript-中-any、never、unknown、null-undefined-和-void-有什么区别？" class="headerlink" title="TypeScript 中 any、never、unknown、null &amp; undefined 和 void 有什么区别？"></a>TypeScript 中 any、never、unknown、null &amp; undefined 和 void 有什么区别？</h3><pre class="language-none"><code class="language-none">any: 动态的变量类型（失去了类型检查的作用）。
 never: 永不存在的值的类型。例如：never 类型是那些总是会抛出异常或根本就不会有返回值的函数表达式或箭头函数表达式的返回值类型。
 unknown: 任何类型的值都可以赋给  unknown  类型，但是  unknown  类型的值只能赋给  unknown  本身和  any  类型。
 null &amp; undefined: 默认情况下 null 和 undefined 是所有类型的子类型。 就是说你可以把  null 和 undefined 赋值给 number 类型的变量。当你指定了 --strictNullChecks 标记，null 和 undefined 只能赋值给 void 和它们各自。
@@ -129,17 +106,15 @@ void: 没有任何类型。例如：一个函数如果没有返回值，那么�
 作者：周姐日常事
 链接：https:&#x2F;&#x2F;juejin.cn&#x2F;post&#x2F;6999985372440559624
 来源：稀土掘金</code></pre>
-<h3 id="typescript-联合类型"><a class="markdownIt-Anchor" href="#typescript-联合类型"></a> TypeScript 联合类型</h3>
-<h3 id="typescript-中如何联合枚举类型的-key"><a class="markdownIt-Anchor" href="#typescript-中如何联合枚举类型的-key"></a> TypeScript 中如何联合枚举类型的 Key?</h3>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">enum str &#123;
+
+<h3 id="TypeScript-联合类型"><a href="#TypeScript-联合类型" class="headerlink" title="TypeScript 联合类型"></a>TypeScript 联合类型</h3><h3 id="TypeScript-中如何联合枚举类型的-Key"><a href="#TypeScript-中如何联合枚举类型的-Key" class="headerlink" title="TypeScript 中如何联合枚举类型的 Key?"></a>TypeScript 中如何联合枚举类型的 Key?</h3><pre class="language-typescript" data-language="typescript"><code class="language-typescript">enum str &#123;
   A,
   B,
   C
 &#125;
 type strUnion &#x3D; keyof typeof str; &#x2F;&#x2F; &#39;A&#39; | &#39;B&#39; | &#39;C&#39;</code></pre>
-<h3 id="type-和-interface-的区别"><a class="markdownIt-Anchor" href="#type-和-interface-的区别"></a> type 和 interface 的区别</h3>
-<h3 id="协变-逆变-双变和抗变的理解"><a class="markdownIt-Anchor" href="#协变-逆变-双变和抗变的理解"></a> 协变、逆变、双变和抗变的理解？</h3>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">协变：X &#x3D; Y Y 类型可以赋值给 X 类型的情况就叫做协变，也可以说是 X 类型兼容 Y 类型
+
+<h3 id="type-和-interface-的区别"><a href="#type-和-interface-的区别" class="headerlink" title="type 和 interface 的区别"></a>type 和 interface 的区别</h3><h3 id="协变、逆变、双变和抗变的理解？"><a href="#协变、逆变、双变和抗变的理解？" class="headerlink" title="协变、逆变、双变和抗变的理解？"></a>协变、逆变、双变和抗变的理解？</h3><pre class="language-typescript" data-language="typescript"><code class="language-typescript">协变：X &#x3D; Y Y 类型可以赋值给 X 类型的情况就叫做协变，也可以说是 X 类型兼容 Y 类型
 interface X &#123; name: string; age: number; &#125;
 interface Y &#123; name: string; age: number; hobbies: string[] &#125;
 let x: X &#x3D; &#123; name: &#39;xiaoming&#39;, age: 16 &#125;
@@ -156,33 +131,12 @@ printY &#x3D; printX
 双变（双向协变）：X &#x3D; Y；Y &#x3D; X父类型可以赋值给子类型，子类型可以赋值给父类型，既逆变又协变，叫做“双向协变”（ts2.x 之前支持这种赋值，之后 ts 加了一个编译选项 strictFunctionTypes，设置为 true 就只支持函数参数的逆变，设置为 false 则支持双向协变）
 抗变（不变）：非父子类型之间不会发生型变，只要类型不一样就会报错
 </code></pre>
-<h3 id="declaredeclare-global-是什么"><a class="markdownIt-Anchor" href="#declaredeclare-global-是什么"></a> declare，declare global 是什么？</h3>
-<p>declare 是用来定义全局变量、全局函数、全局命名空间、js modules、class 等<br />
-declare global 为全局对象 window 增加新的属性</p>
-<h3 id="typescript-类中成员的-public-private-protected-readonly-修饰符的理解"><a class="markdownIt-Anchor" href="#typescript-类中成员的-public-private-protected-readonly-修饰符的理解"></a> TypeScript 类中成员的 public、private、protected、readonly 修饰符的理解</h3>
-<p>public: 成员都默认为 public，被此限定符修饰的成员是可以被外部访问；<br />
-private: 被此限定符修饰的成员是只可以被类的内部访问；<br />
-protected: 被此限定符修饰的成员是只可以被类的内部以及类的子类访问;<br />
-readonly: 关键字将属性设置为只读的。 只读属性必须在声明时或构造函数里被初始化。</p>
-<h3 id="keyof-和-typeof-关键字的作用"><a class="markdownIt-Anchor" href="#keyof-和-typeof-关键字的作用"></a> keyof 和 typeof 关键字的作用</h3>
-<p>keyof 索引类型查询操作符 获取索引类型的属性名，构成联合类型。<br />
-typeof 获取一个变量或对象的类型。</p>
-<h3 id="工具类型-partial-required-readonly-record-extract-returntype-exclude-omit-的作用"><a class="markdownIt-Anchor" href="#工具类型-partial-required-readonly-record-extract-returntype-exclude-omit-的作用"></a> 工具类型 Partial、Required、Readonly、Record、Extract、ReturnType、Exclude、Omit 的作用</h3>
-<h3 id="实现一个递归的类型"><a class="markdownIt-Anchor" href="#实现一个递归的类型"></a> 实现一个递归的类型</h3>
-<h3 id="typescript-中-_-等符号的含义"><a class="markdownIt-Anchor" href="#typescript-中-_-等符号的含义"></a> TypeScript 中 ?.、??、!、!.、_、** 等符号的含义</h3>
-<p>?. 可选链 遇到 null 和 undefined 可以立即停止表达式的运行。<br />
-?? 空值合并运算符 当左侧操作数为 null 或 undefined 时，其返回右侧的操作数，否则返回左侧的操作数。<br />
-! 非空断言运算符 x! 将从 x 值域中排除 null 和 undefined<br />
-!. 在变量名后添加，可以断言排除 undefined 和 null 类型<br />
-_ 数字分割符 分隔符不会改变数值字面量的值，使人更容易读懂数字 .e.g 1_101_324。<br />
-** 求幂</p>
-<h2 id="react"><a class="markdownIt-Anchor" href="#react"></a> React</h2>
-<h3 id="hooks"><a class="markdownIt-Anchor" href="#hooks"></a> hooks</h3>
-<h3 id="react-diff"><a class="markdownIt-Anchor" href="#react-diff"></a> react diff</h3>
-<h3 id="fiber"><a class="markdownIt-Anchor" href="#fiber"></a> fiber</h3>
-<h2 id="算法或代码实现"><a class="markdownIt-Anchor" href="#算法或代码实现"></a> 算法或代码实现</h2>
-<h3 id="异步加法字节"><a class="markdownIt-Anchor" href="#异步加法字节"></a> 异步加法(字节)</h3>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;&#x2F; const addRemote &#x3D; async (a, b) &#x3D;&gt; new Promise(resolve &#x3D;&gt; &#123;
+
+<h3 id="declare，declare-global-是什么？"><a href="#declare，declare-global-是什么？" class="headerlink" title="declare，declare global 是什么？"></a>declare，declare global 是什么？</h3><p>declare 是用来定义全局变量、全局函数、全局命名空间、js modules、class 等<br>declare global 为全局对象 window 增加新的属性</p>
+<h3 id="TypeScript-类中成员的-public、private、protected、readonly-修饰符的理解"><a href="#TypeScript-类中成员的-public、private、protected、readonly-修饰符的理解" class="headerlink" title="TypeScript 类中成员的 public、private、protected、readonly 修饰符的理解"></a>TypeScript 类中成员的 public、private、protected、readonly 修饰符的理解</h3><p>public: 成员都默认为 public，被此限定符修饰的成员是可以被外部访问；<br>private: 被此限定符修饰的成员是只可以被类的内部访问；<br>protected: 被此限定符修饰的成员是只可以被类的内部以及类的子类访问;<br>readonly: 关键字将属性设置为只读的。 只读属性必须在声明时或构造函数里被初始化。</p>
+<h3 id="keyof-和-typeof-关键字的作用"><a href="#keyof-和-typeof-关键字的作用" class="headerlink" title="keyof 和 typeof 关键字的作用"></a>keyof 和 typeof 关键字的作用</h3><p>keyof 索引类型查询操作符 获取索引类型的属性名，构成联合类型。<br>typeof 获取一个变量或对象的类型。</p>
+<h3 id="工具类型-Partial、Required、Readonly、Record、Extract、ReturnType、Exclude、Omit-的作用"><a href="#工具类型-Partial、Required、Readonly、Record、Extract、ReturnType、Exclude、Omit-的作用" class="headerlink" title="工具类型 Partial、Required、Readonly、Record、Extract、ReturnType、Exclude、Omit 的作用"></a>工具类型 Partial、Required、Readonly、Record、Extract、ReturnType、Exclude、Omit 的作用</h3><h3 id="实现一个递归的类型"><a href="#实现一个递归的类型" class="headerlink" title="实现一个递归的类型"></a>实现一个递归的类型</h3><h3 id="TypeScript-中-、-、-、-、-、-等符号的含义"><a href="#TypeScript-中-、-、-、-、-、-等符号的含义" class="headerlink" title="TypeScript 中 ?.、??、!、!.、_、** 等符号的含义"></a>TypeScript 中 ?.、??、!、!.、_、** 等符号的含义</h3><p>?. 可选链 遇到 null 和 undefined 可以立即停止表达式的运行。<br>?? 空值合并运算符 当左侧操作数为 null 或 undefined 时，其返回右侧的操作数，否则返回左侧的操作数。<br>! 非空断言运算符 x! 将从 x 值域中排除 null 和 undefined<br>!. 在变量名后添加，可以断言排除 undefined 和 null 类型<br>_ 数字分割符 分隔符不会改变数值字面量的值，使人更容易读懂数字 .e.g 1_101_324。<br>** 求幂</p>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><h3 id="hooks"><a href="#hooks" class="headerlink" title="hooks"></a>hooks</h3><h3 id="react-diff"><a href="#react-diff" class="headerlink" title="react diff"></a>react diff</h3><h3 id="fiber"><a href="#fiber" class="headerlink" title="fiber"></a>fiber</h3><h2 id="算法或代码实现"><a href="#算法或代码实现" class="headerlink" title="算法或代码实现"></a>算法或代码实现</h2><h3 id="异步加法-字节"><a href="#异步加法-字节" class="headerlink" title="异步加法(字节)"></a>异步加法(字节)</h3><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;&#x2F; const addRemote &#x3D; async (a, b) &#x3D;&gt; new Promise(resolve &#x3D;&gt; &#123;
 &#x2F;&#x2F;     setTimeout(() &#x3D;&gt; resolve(a + b), 1000)
 &#x2F;&#x2F; &#125;)
 
@@ -203,8 +157,8 @@ _ 数字分割符 分隔符不会改变数值字面量的值，使人更容易�
 &#x2F;&#x2F; add(1, 2, 1, 2, 1, 2. 3, 4). then(result &#x3D;&gt; f
 &#x2F;&#x2F; console.log(result): &#x2F;&#x2F; 16
 &#x2F;&#x2F; &#125;)</code></pre>
-<h2 id="实现-eventemitter-模型实现-on-once-off-emit-方法"><a class="markdownIt-Anchor" href="#实现-eventemitter-模型实现-on-once-off-emit-方法"></a> 实现 EventEmitter 模型，实现 <code>on</code>, <code>once</code>, <code>off</code>, <code>emit</code> 方法</h2>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">class EventEmitter &#123;
+
+<h2 id="实现-EventEmitter-模型，实现-on-once-off-emit-方法"><a href="#实现-EventEmitter-模型，实现-on-once-off-emit-方法" class="headerlink" title="实现 EventEmitter 模型，实现 on, once, off, emit 方法"></a>实现 EventEmitter 模型，实现 <code>on</code>, <code>once</code>, <code>off</code>, <code>emit</code> 方法</h2><pre class="language-typescript" data-language="typescript"><code class="language-typescript">class EventEmitter &#123;
   _event: Record&lt;string, Array&lt;Function&gt;&gt;;
   constructor() &#123;
     this._event &#x3D; &#123;&#125;;
@@ -253,10 +207,10 @@ eventEmitter.on(&quot;click&quot;, handle2);
 eventEmitter.once(&quot;click&quot;, handle3);
 eventEmitter.emit(&quot;click&quot;);
 eventEmitter.emit(&quot;click&quot;);</code></pre>
-<h3 id="观察者模式请实现-observable-和-observe-两个函数"><a class="markdownIt-Anchor" href="#观察者模式请实现-observable-和-observe-两个函数"></a> 观察者模式，请实现 observable 和 observe 两个函数</h3>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript"></code></pre>
-<h3 id="字符串隐藏部分内容-阿里"><a class="markdownIt-Anchor" href="#字符串隐藏部分内容-阿里"></a> 字符串隐藏部分内容 (阿里)</h3>
-<p>实现一个方法，接收一个字符串和一个符号，将字符串中间四位按指定符号隐藏</p>
+
+<h3 id="观察者模式，请实现-observable-和-observe-两个函数"><a href="#观察者模式，请实现-observable-和-observe-两个函数" class="headerlink" title="观察者模式，请实现 observable 和 observe 两个函数"></a>观察者模式，请实现 observable 和 observe 两个函数</h3><pre class="language-typescript" data-language="typescript"><code class="language-typescript"></code></pre>
+
+<h3 id="字符串隐藏部分内容-阿里"><a href="#字符串隐藏部分内容-阿里" class="headerlink" title="字符串隐藏部分内容 (阿里)"></a>字符串隐藏部分内容 (阿里)</h3><p>实现一个方法，接收一个字符串和一个符号，将字符串中间四位按指定符号隐藏</p>
 <ol>
 <li>符号无指定时使用星号（*）</li>
 <li>接收的字符串小于或等于四位时，返回同样长度的符号串，等同于全隐藏，如 123，隐藏后是***</li>
@@ -268,6 +222,7 @@ mask(&quot;85022088&quot;); &#x2F;&#x2F; 85****88
 mask(&quot;hello&quot;); &#x2F;&#x2F; ****o
 mask(&quot;abc&quot;, &quot;?&quot;); &#x2F;&#x2F; ???
 mask(&quot;阿里巴巴集团&quot;, &quot;?&quot;); &#x2F;&#x2F; 阿????团</code></pre>
+
 <p>实现</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">function mask(str, char &#x3D; &quot;*&quot;) &#123;
   if (str.length &lt;&#x3D; 4) return char.repeat(str.length);
@@ -288,9 +243,9 @@ mask(&quot;阿里巴巴集团&quot;, &quot;?&quot;); &#x2F;&#x2F; 阿????团</co
   &#125;
   return result;
 &#125;</code></pre>
+
 <p>实现来源：<a href="https://github.com/FrankKai/FrankKai.github.io/issues/245">https://github.com/FrankKai/FrankKai.github.io/issues/245</a></p>
-<h3 id="hashmap"><a class="markdownIt-Anchor" href="#hashmap"></a> HashMap</h3>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">function HashMap() &#123;
+<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><pre class="language-typescript" data-language="typescript"><code class="language-typescript">function HashMap() &#123;
   this.map &#x3D; &#123;&#125;;
 &#125;
 HashMap.prototype &#x3D; &#123;
@@ -325,10 +280,8 @@ HashMap.prototype &#x3D; &#123;
 &#125;;
 HashMap.prototype.constructor &#x3D; HashMap;
 let hashMap &#x3D; new HashMap();</code></pre>
-<h3 id="lru"><a class="markdownIt-Anchor" href="#lru"></a> LRU</h3>
-<h3 id="dfs-深度优先"><a class="markdownIt-Anchor" href="#dfs-深度优先"></a> DFS 深度优先</h3>
-<h3 id="广度优先"><a class="markdownIt-Anchor" href="#广度优先"></a> 广度优先</h3>
-]]></content>
+
+<h3 id="LRU"><a href="#LRU" class="headerlink" title="LRU"></a>LRU</h3><h3 id="DFS-深度优先"><a href="#DFS-深度优先" class="headerlink" title="DFS 深度优先"></a>DFS 深度优先</h3><h3 id="广度优先"><a href="#广度优先" class="headerlink" title="广度优先"></a>广度优先</h3>]]></content>
       <categories>
         <category>面试</category>
       </categories>
@@ -338,216 +291,10 @@ let hashMap &#x3D; new HashMap();</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Markdown</title>
-    <url>/2024/10/01/markdown/</url>
-    <content><![CDATA[<h2 id="有序列表"><a class="markdownIt-Anchor" href="#有序列表"></a> 有序列表</h2>
-<p>使用数字加<code>.</code> 加空格开头</p>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">1. 有序列表 1
-2. 有序列表 2
-3. 有序列表 3</code></pre>
-<ol>
-<li>有序列表 1</li>
-<li>有序列表 2</li>
-<li>有序列表 3</li>
-</ol>
-<h2 id="无序列表"><a class="markdownIt-Anchor" href="#无序列表"></a> 无序列表</h2>
-<p>使用<code>-</code> 加空格开头</p>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">- 无序列表
-- 无序列表
-- 无序列表
-  - 无序列表
-  - 无序列表</code></pre>
-<ul>
-<li>无序列表</li>
-<li>无序列表</li>
-<li>无序列表
-<ul>
-<li>无序列表</li>
-<li>无序列表</li>
-</ul>
-</li>
-</ul>
-<h2 id="标题"><a class="markdownIt-Anchor" href="#标题"></a> 标题</h2>
-<p>使用<code>#</code>加空格开头</p>
-<h3 id="heading-h3"><a class="markdownIt-Anchor" href="#heading-h3"></a> Heading H3</h3>
-<h4 id="heading-h4"><a class="markdownIt-Anchor" href="#heading-h4"></a> Heading H4</h4>
-<h2 id="引用"><a class="markdownIt-Anchor" href="#引用"></a> 引用</h2>
-<p>使用<code>&gt;</code>开头</p>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">&gt; 对于美德，我们仅止于认识是不够的，我们还必须努力培养它，运用它，或是采取种种方法，以使我们成为良善之人。 --莎士比亚
-
-&gt; &gt; 黑夜无论怎样悠长，白昼总会到来。
-
-&gt; &gt; &gt; To be or not to be,that&#39;s a question. --莎士比亚</code></pre>
-<blockquote>
-<p>对于美德，我们仅止于认识是不够的，我们还必须努力培养它，运用它，或是采取种种方法，以使我们成为良善之人。 --莎士比亚</p>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>黑夜无论怎样悠长，白昼总会到来。</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>To be or not to be,that’s a question. --莎士比亚</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2 id="粗体"><a class="markdownIt-Anchor" href="#粗体"></a> 粗体</h2>
-<p>使用<code>**</code>进行包括</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash">**粗体**</code></pre>
-<p><strong>粗体</strong></p>
-<h2 id="斜体"><a class="markdownIt-Anchor" href="#斜体"></a> 斜体</h2>
-<p>使用<code>*</code>或<code>_</code>进行包括</p>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">_斜体_</code></pre>
-<p><em>斜体</em></p>
-<h2 id="斜体加粗"><a class="markdownIt-Anchor" href="#斜体加粗"></a> 斜体加粗</h2>
-<p>使用<code>**</code>进行包括</p>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">**_斜体_**</code></pre>
-<p><strong><em>斜体</em></strong></p>
-<h2 id="图片"><a class="markdownIt-Anchor" href="#图片"></a> 图片</h2>
-<p><code>![img alt的值](图片地址)</code></p>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">![ShineShao](https:&#x2F;&#x2F;avatars2.githubusercontent.com&#x2F;u&#x2F;16034259?s&#x3D;460&amp;u&#x3D;7caff2589de5d263f44675662d8f1a5b91a1d706&amp;v&#x3D;4)</code></pre>
-<p><img src="https://avatars2.githubusercontent.com/u/16034259?s=460&amp;u=7caff2589de5d263f44675662d8f1a5b91a1d706&amp;v=4" alt="ShineShao" /></p>
-<h2 id="链接"><a class="markdownIt-Anchor" href="#链接"></a> 链接</h2>
-<p><code>[链接名](链接地址)</code></p>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">&#123;&#x2F;_ 链接 _&#x2F;&#125;
-[ShineShao](https:&#x2F;&#x2F;github.com&#x2F;freeshineit)
-
-&#123;&#x2F;_ 图片链接 _&#x2F;&#125;
-[![ShineShao](https:&#x2F;&#x2F;avatars2.githubusercontent.com&#x2F;u&#x2F;16034259?s&#x3D;460&amp;u&#x3D;7caff2589de5d263f44675662d8f1a5b91a1d706&amp;v&#x3D;4)](https:&#x2F;&#x2F;github.com&#x2F;freeshineit)</code></pre>
-<p><a href="https://github.com/freeshineit">ShineShao</a></p>
-<p><a href="https://github.com/freeshineit"><img src="https://avatars2.githubusercontent.com/u/16034259?s=460&amp;u=7caff2589de5d263f44675662d8f1a5b91a1d706&amp;v=4" alt="ShineShao" /></a></p>
-<h2 id="分割线"><a class="markdownIt-Anchor" href="#分割线"></a> 分割线</h2>
-<p>使用至少连续的三个<code>-</code></p>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">---</code></pre>
-<hr />
-<h2 id="删除线"><a class="markdownIt-Anchor" href="#删除线"></a> 删除线</h2>
-<p>使用<code>~~</code>进行包括</p>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">~~分割线~~</code></pre>
-<p><s>分割线</s></p>
-<h2 id="表格"><a class="markdownIt-Anchor" href="#表格"></a> 表格</h2>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">| 表头     |   表头   |     表头 |
-| :------- | :------: | -------: |
-| 内容居左 | 内容居中 | 内容居右 |</code></pre>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">表头</th>
-<th style="text-align:center">表头</th>
-<th style="text-align:right">表头</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">单元格</td>
-<td style="text-align:center">单元格</td>
-<td style="text-align:right">单元格单元格单元格单元格</td>
-</tr>
-<tr>
-<td style="text-align:left">单元格</td>
-<td style="text-align:center">单元格单元格单元格单元格</td>
-<td style="text-align:right">单元格</td>
-</tr>
-</tbody>
-</table>
-<h2 id="代码块"><a class="markdownIt-Anchor" href="#代码块"></a> 代码块</h2>
-<pre class="language-go" data-language="go"><code class="language-go">package main;
-
-import &quot;fmt&quot;;
-
-func main () &#123;
-  fmt.Println(&quot;Hello World&quot;)
-&#125;</code></pre>
-<h2 id="diff"><a class="markdownIt-Anchor" href="#diff"></a> diff</h2>
-<pre class="language-diff" data-language="diff"><code class="language-diff">+ 123
-- 123412</code></pre>
-<h2 id="普通文本"><a class="markdownIt-Anchor" href="#普通文本"></a> 普通文本</h2>
-<p>每个人都会有缺陷，就像被上帝咬过的苹果，有的人缺陷比较大，正是因为上帝特别喜欢他的芬芳。</p>
-<h2 id="checkbox"><a class="markdownIt-Anchor" href="#checkbox"></a> checkbox</h2>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">- [ ] 任务一 未做任务 &#96;- + 空格 + [ ]&#96;
-- [x] 任务二 已做任务 &#96;- + 空格 + [x]&#96;</code></pre>
-<ul>
-<li>[ ] 任务一 未做任务 <code>- + 空格 + [ ]</code></li>
-<li>[x] 任务二 已做任务 <code>- + 空格 + [x]</code></li>
-</ul>
-<h2 id="注释"><a class="markdownIt-Anchor" href="#注释"></a> 注释</h2>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">[&#x2F;&#x2F;]: # &quot;注释&quot;</code></pre>
-<h2 id="特殊字符"><a class="markdownIt-Anchor" href="#特殊字符"></a> 特殊字符</h2>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">&amp;nbsp; 空格
-&lt; &lt;
-&gt; &gt;
-&amp; &amp;
-&amp;yen; ¥
-&amp;copy; ©
-&amp;reg; ®
-&amp;deg;C °C
-&amp;plusmn; ±
-&amp;times; ×
-&amp;divide; ÷
-m&amp;sup2; m²
-m&amp;sup3; m³</code></pre>
-<p> <br />
-&lt;<br />
-&gt;<br />
-&amp;<br />
-¥<br />
-©<br />
-®<br />
-°C<br />
-±<br />
-×<br />
-÷<br />
-m²<br />
-m³</p>
-<h2 id="details"><a class="markdownIt-Anchor" href="#details"></a> details</h2>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">&lt;details&gt;
-  &lt;summary&gt;展开&lt;&#x2F;summary&gt;
-  Something small enough to escape casual notice.
-&lt;&#x2F;details&gt;</code></pre>
-<details>
-  <summary>展开</summary>
-  Something small enough to escape casual notice.
-</details>
-<h2 id="表情"><a class="markdownIt-Anchor" href="#表情"></a> 表情</h2>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">🐶 👍
-😁 🔕</code></pre>
-<p>🐶 👍<br />
-😁 🔕</p>
-<h2 id="脚注"><a class="markdownIt-Anchor" href="#脚注"></a> 脚注</h2>
-<pre class="language-markdown" data-language="markdown"><code class="language-markdown">使用 &#96;Markdown&#96;[^1]可以效率的书写文档, 直接转换成 &#96;HTML&#96;[^2], 你可以使用 &#96;Typora&#96;[^t] 编辑器进行书写。
-
-[^1]: Markdown 是一种纯文本标记语言
-[^2]: HyperText Markup Language 超文本标记语言
-[^t]: [NEW WAY TO READ &amp; WRITE MARKDOWN.](https:&#x2F;&#x2F;www.baidu.com)</code></pre>
-<p>使用 <code>Markdown</code><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>可以效率的书写文档, 直接转换成 <code>HTML</code><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>, 你可以使用 <code>Typora</code><sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> 编辑器进行书写。</p>
-<p><a href="LICENSE">MIT</a> © <a href="https://github.com/freeshineit">ShineShao</a></p>
-<hr class="footnotes-sep" />
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>Markdown 是一种纯文本标记语言 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p>HyperText Markup Language 超文本标记语言 <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn3" class="footnote-item"><p><a href="https://www.baidu.com">NEW WAY TO READ &amp; WRITE MARKDOWN.</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-]]></content>
-      <categories>
-        <category>Markdown</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Sass 语法</title>
     <url>/2022/10/08/css/scss/</url>
-    <content><![CDATA[<h2 id="each-使用说明"><a class="markdownIt-Anchor" href="#each-使用说明"></a> <code>@each</code> 使用说明</h2>
-<p>The <a href="https://sass-lang.com/documentation/at-rules/control/each">@each</a> rule makes it easy to emit styles or evaluate code for each element of a list or each pair in a map. It’s great for repetitive styles that only have a few variations between them. It’s usually written</p>
-<h2 id="code"><a class="markdownIt-Anchor" href="#code"></a> code</h2>
-<pre class="language-scss" data-language="scss"><code class="language-scss">$sizes: 40px, 50px, 80px;
+    <content><![CDATA[<h2 id="each-使用说明"><a href="#each-使用说明" class="headerlink" title="@each 使用说明"></a><code>@each</code> 使用说明</h2><p>The <a href="https://sass-lang.com/documentation/at-rules/control/each">@each</a> rule makes it easy to emit styles or evaluate code for each element of a list or each pair in a map. It’s great for repetitive styles that only have a few variations between them. It’s usually written</p>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><pre class="language-scss" data-language="scss"><code class="language-scss">$sizes: 40px, 50px, 80px;
 @each $size in $sizes &#123;
   .icon-#&#123;$size&#125; &#123;
     font-size: $size;
@@ -573,6 +320,7 @@ m³</p>
   height: 80px;
   width: 80px;
 &#125;</code></pre>
+
 <pre class="language-scss" data-language="scss"><code class="language-scss">&#x2F;&#x2F; 数组
 $countries: ((ad, 376), (ae, 971)), ((az, 994), (ba, 387));
 $offset: -32px;
@@ -613,8 +361,7 @@ $offset: -32px;
   <entry>
     <title>Git 常用命令</title>
     <url>/2023/02/18/git/antic/</url>
-    <content><![CDATA[<h1 id="shell"><a class="markdownIt-Anchor" href="#shell"></a> shell</h1>
-<pre class="language-bash" data-language="bash"><code class="language-bash"># rebase
+    <content><![CDATA[<h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><pre class="language-bash" data-language="bash"><code class="language-bash"># rebase
 git rebase master
 
 # 解决冲突后
@@ -622,6 +369,7 @@ git add .
 
 # continue
 git rebase --continue</code></pre>
+
 <pre class="language-bash" data-language="bash"><code class="language-bash"># discard 丢弃缓存
 git reset HEAD
 
@@ -636,10 +384,10 @@ git commit --amend
 ## 或者使用别名
 git ca
 </code></pre>
-<h3 id="使用-执行多条命令"><a class="markdownIt-Anchor" href="#使用-执行多条命令"></a> 使用<code>;</code> 执行多条命令</h3>
-<pre class="language-bash" data-language="bash"><code class="language-bash">git add .; git status</code></pre>
-<h3 id="配置命令别名aliases"><a class="markdownIt-Anchor" href="#配置命令别名aliases"></a> 配置命令别名（<a href="https://git-scm.com/book/zh-tw/v2/Git-%E5%9F%BA%E7%A4%8E-Git-Aliases">Aliases</a>）</h3>
-<p>git 默认配置了部分别名，可以使用<code>git config --list</code> 查看</p>
+
+<h3 id="使用-执行多条命令"><a href="#使用-执行多条命令" class="headerlink" title="使用; 执行多条命令"></a>使用<code>;</code> 执行多条命令</h3><pre class="language-bash" data-language="bash"><code class="language-bash">git add .; git status</code></pre>
+
+<h3 id="配置命令别名（Aliases）"><a href="#配置命令别名（Aliases）" class="headerlink" title="配置命令别名（Aliases）"></a>配置命令别名（<a href="https://git-scm.com/book/zh-tw/v2/Git-%E5%9F%BA%E7%A4%8E-Git-Aliases">Aliases</a>）</h3><p>git 默认配置了部分别名，可以使用<code>git config --list</code> 查看</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash"># git commit -m
 # git config --global alias.cm commit -m
 git cm
@@ -651,12 +399,14 @@ git ll
 # git diff
 # git config --global alias.d diff
 git d</code></pre>
+
 <p>配置别名命令</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash"># 配置别名命令
 git config --global alias.st status
 
 # 使用 git st 相当于 git status
 git st</code></pre>
+
 <p>git log 别名配置</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash"># git l
 git config --global alias.l &quot;log --graph --all --pretty&#x3D;format:&#39;%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset&#39;&quot;
@@ -679,10 +429,184 @@ git config --global alias.llg &quot;log --color --graph --pretty&#x3D;format:&#3
       </tags>
   </entry>
   <entry>
+    <title>Markdown</title>
+    <url>/2024/10/01/markdown/</url>
+    <content><![CDATA[<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><p>使用数字加<code>.</code> 加空格开头</p>
+<pre class="language-markdown" data-language="markdown"><code class="language-markdown">1. 有序列表 1
+2. 有序列表 2
+3. 有序列表 3</code></pre>
+
+<ol>
+<li>有序列表 1</li>
+<li>有序列表 2</li>
+<li>有序列表 3</li>
+</ol>
+<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><p>使用<code>-</code> 加空格开头</p>
+<pre class="language-markdown" data-language="markdown"><code class="language-markdown">- 无序列表
+- 无序列表
+- 无序列表
+  - 无序列表
+  - 无序列表</code></pre>
+
+<ul>
+<li>无序列表</li>
+<li>无序列表</li>
+<li>无序列表<ul>
+<li>无序列表</li>
+<li>无序列表</li>
+</ul>
+</li>
+</ul>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>使用<code>#</code>加空格开头</p>
+<h3 id="Heading-H3"><a href="#Heading-H3" class="headerlink" title="Heading H3"></a>Heading H3</h3><h4 id="Heading-H4"><a href="#Heading-H4" class="headerlink" title="Heading H4"></a>Heading H4</h4><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>使用<code>&gt;</code>开头</p>
+<pre class="language-markdown" data-language="markdown"><code class="language-markdown">&gt; 对于美德，我们仅止于认识是不够的，我们还必须努力培养它，运用它，或是采取种种方法，以使我们成为良善之人。 --莎士比亚
+
+&gt; &gt; 黑夜无论怎样悠长，白昼总会到来。
+
+&gt; &gt; &gt; To be or not to be,that&#39;s a question. --莎士比亚</code></pre>
+
+<blockquote>
+<p>对于美德，我们仅止于认识是不够的，我们还必须努力培养它，运用它，或是采取种种方法，以使我们成为良善之人。 –莎士比亚</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>黑夜无论怎样悠长，白昼总会到来。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>To be or not to be,that’s a question. –莎士比亚</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a>粗体</h2><p>使用<code>**</code>进行包括</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">**粗体**</code></pre>
+
+<p><strong>粗体</strong></p>
+<h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h2><p>使用<code>*</code>或<code>_</code>进行包括</p>
+<pre class="language-markdown" data-language="markdown"><code class="language-markdown">_斜体_</code></pre>
+
+<p><em>斜体</em></p>
+<h2 id="斜体加粗"><a href="#斜体加粗" class="headerlink" title="斜体加粗"></a>斜体加粗</h2><p>使用<code>**</code>进行包括</p>
+<pre class="language-markdown" data-language="markdown"><code class="language-markdown">**_斜体_**</code></pre>
+
+<p><strong><em>斜体</em></strong></p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><code>![img alt的值](图片地址)</code></p>
+<pre class="language-markdown" data-language="markdown"><code class="language-markdown">![ShineShao](https:&#x2F;&#x2F;avatars2.githubusercontent.com&#x2F;u&#x2F;16034259?s&#x3D;460&amp;u&#x3D;7caff2589de5d263f44675662d8f1a5b91a1d706&amp;v&#x3D;4)</code></pre>
+
+<p><img src="https://avatars2.githubusercontent.com/u/16034259?s=460&u=7caff2589de5d263f44675662d8f1a5b91a1d706&v=4" alt="ShineShao"></p>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><code>[链接名](链接地址)</code></p>
+<pre class="language-markdown" data-language="markdown"><code class="language-markdown">&#123;&#x2F;_ 链接 _&#x2F;&#125;
+[ShineShao](https:&#x2F;&#x2F;github.com&#x2F;freeshineit)
+
+&#123;&#x2F;_ 图片链接 _&#x2F;&#125;
+[![ShineShao](https:&#x2F;&#x2F;avatars2.githubusercontent.com&#x2F;u&#x2F;16034259?s&#x3D;460&amp;u&#x3D;7caff2589de5d263f44675662d8f1a5b91a1d706&amp;v&#x3D;4)](https:&#x2F;&#x2F;github.com&#x2F;freeshineit)</code></pre>
+
+<p><a href="https://github.com/freeshineit">ShineShao</a></p>
+<p><a href="https://github.com/freeshineit"><img src="https://avatars2.githubusercontent.com/u/16034259?s=460&u=7caff2589de5d263f44675662d8f1a5b91a1d706&v=4" alt="ShineShao"></a></p>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>使用至少连续的三个<code>-</code></p>
+<pre class="language-markdown" data-language="markdown"><code class="language-markdown">---</code></pre>
+
+<hr>
+<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><p>使用<code>~~</code>进行包括</p>
+<pre class="language-markdown" data-language="markdown"><code class="language-markdown">~~分割线~~</code></pre>
+
+<p><del>分割线</del></p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><pre class="language-markdown" data-language="markdown"><code class="language-markdown">| 表头     |   表头   |     表头 |
+| :------- | :------: | -------: |
+| 内容居左 | 内容居中 | 内容居右 |</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">表头</th>
+<th align="center">表头</th>
+<th align="right">表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单元格</td>
+<td align="center">单元格</td>
+<td align="right">单元格单元格单元格单元格</td>
+</tr>
+<tr>
+<td align="left">单元格</td>
+<td align="center">单元格单元格单元格单元格</td>
+<td align="right">单元格</td>
+</tr>
+</tbody></table>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><pre class="language-go" data-language="go"><code class="language-go">package main;
+
+import &quot;fmt&quot;;
+
+func main () &#123;
+  fmt.Println(&quot;Hello World&quot;)
+&#125;</code></pre>
+
+<h2 id="diff"><a href="#diff" class="headerlink" title="diff"></a>diff</h2><pre class="language-diff" data-language="diff"><code class="language-diff">+ 123
+- 123412</code></pre>
+
+<h2 id="普通文本"><a href="#普通文本" class="headerlink" title="普通文本"></a>普通文本</h2><p>每个人都会有缺陷，就像被上帝咬过的苹果，有的人缺陷比较大，正是因为上帝特别喜欢他的芬芳。</p>
+<h2 id="checkbox"><a href="#checkbox" class="headerlink" title="checkbox"></a>checkbox</h2><pre class="language-markdown" data-language="markdown"><code class="language-markdown">- [ ] 任务一 未做任务 &#96;- + 空格 + [ ]&#96;
+- [x] 任务二 已做任务 &#96;- + 空格 + [x]&#96;</code></pre>
+
+<ul>
+<li><input disabled="" type="checkbox"> 任务一 未做任务 <code>- + 空格 + [ ]</code></li>
+<li><input checked="" disabled="" type="checkbox"> 任务二 已做任务 <code>- + 空格 + [x]</code></li>
+</ul>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><pre class="language-markdown" data-language="markdown"><code class="language-markdown">[&#x2F;&#x2F;]: # &quot;注释&quot;</code></pre>
+
+<h2 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h2><pre class="language-markdown" data-language="markdown"><code class="language-markdown">&amp;nbsp; 空格
+&lt; &lt;
+&gt; &gt;
+&amp; &amp;
+&amp;yen; ¥
+&amp;copy; ©
+&amp;reg; ®
+&amp;deg;C °C
+&amp;plusmn; ±
+&amp;times; ×
+&amp;divide; ÷
+m&amp;sup2; m²
+m&amp;sup3; m³</code></pre>
+
+<p>&nbsp;<br>&lt;<br>&gt;<br>&amp;<br>&yen;<br>&copy;<br>&reg;<br>&deg;C<br>&plusmn;<br>&times;<br>&divide;<br>m&sup2;<br>m&sup3;</p>
+<h2 id="details"><a href="#details" class="headerlink" title="details"></a>details</h2><pre class="language-markdown" data-language="markdown"><code class="language-markdown">&lt;details&gt;
+  &lt;summary&gt;展开&lt;&#x2F;summary&gt;
+  Something small enough to escape casual notice.
+&lt;&#x2F;details&gt;</code></pre>
+
+<details>
+  <summary>展开</summary>
+  Something small enough to escape casual notice.
+</details>
+
+<h2 id="表情"><a href="#表情" class="headerlink" title="表情"></a>表情</h2><pre class="language-markdown" data-language="markdown"><code class="language-markdown">🐶 👍
+😁 🔕</code></pre>
+
+<p>🐶 👍<br>😁 🔕</p>
+<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><pre class="language-markdown" data-language="markdown"><code class="language-markdown">使用 &#96;Markdown&#96;[^1]可以效率的书写文档, 直接转换成 &#96;HTML&#96;[^2], 你可以使用 &#96;Typora&#96;[^t] 编辑器进行书写。
+
+[^1]: Markdown 是一种纯文本标记语言
+[^2]: HyperText Markup Language 超文本标记语言
+[^t]: [NEW WAY TO READ &amp; WRITE MARKDOWN.](https:&#x2F;&#x2F;www.baidu.com)</code></pre>
+
+<p>使用 <code>Markdown</code>[^1]可以效率的书写文档, 直接转换成 <code>HTML</code>[^2], 你可以使用 <code>Typora</code>[^t] 编辑器进行书写。</p>
+<p>[^1]: Markdown 是一种纯文本标记语言<br>[^2]: HyperText Markup Language 超文本标记语言<br>[^t]: <a href="https://www.baidu.com/">NEW WAY TO READ &amp; WRITE MARKDOWN.</a></p>
+<p><a href="LICENSE">MIT</a> © <a href="https://github.com/freeshineit">ShineShao</a></p>
+]]></content>
+      <categories>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>下载github上项目指定的文件夹</title>
     <url>/2022/02/09/github/download/</url>
-    <content><![CDATA[<h2 id="node-实现下载指定文件或文件夹"><a class="markdownIt-Anchor" href="#node-实现下载指定文件或文件夹"></a> node 实现下载指定文件或文件夹</h2>
-<p><a href="https://github.com/qqxs/got-github-examples">got-github-examples</a></p>
+    <content><![CDATA[<h2 id="node-实现下载指定文件或文件夹"><a href="#node-实现下载指定文件或文件夹" class="headerlink" title="node 实现下载指定文件或文件夹"></a>node 实现下载指定文件或文件夹</h2><p><a href="https://github.com/qqxs/got-github-examples">got-github-examples</a></p>
 <ol>
 <li>创建存储的文件夹</li>
 </ol>
@@ -694,6 +618,7 @@ export function makeDir(
 ): Promise&lt;string | undefined&gt; &#123;
   return fs.promises.mkdir(root, options);
 &#125;</code></pre>
+
 <ol start="2">
 <li>下载指定的文件夹或文件</li>
 </ol>
@@ -731,12 +656,13 @@ async function downloadExample() &#123;
 &#125;
 
 downloadExample();</code></pre>
+
 <ol start="3">
 <li>执行</li>
 </ol>
 <pre class="language-bash" data-language="bash"><code class="language-bash">ts-node index.ts</code></pre>
-<h2 id="curl-实现下载指定文件或文件夹"><a class="markdownIt-Anchor" href="#curl-实现下载指定文件或文件夹"></a> curl 实现下载指定文件或文件夹</h2>
-<pre class="language-bash" data-language="bash"><code class="language-bash"># mkdir my-app &amp;&amp; curl https:&#x2F;&#x2F;codeload.github.com&#x2F;[user]&#x2F;[repo]&#x2F;tar.gz&#x2F;[branch] | tar -xz -C my-app --strip&#x3D;2 [repo]-[branch]&#x2F;[examplePath]
+
+<h2 id="curl-实现下载指定文件或文件夹"><a href="#curl-实现下载指定文件或文件夹" class="headerlink" title="curl 实现下载指定文件或文件夹"></a>curl 实现下载指定文件或文件夹</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># mkdir my-app &amp;&amp; curl https:&#x2F;&#x2F;codeload.github.com&#x2F;[user]&#x2F;[repo]&#x2F;tar.gz&#x2F;[branch] | tar -xz -C my-app --strip&#x3D;2 [repo]-[branch]&#x2F;[examplePath]
 # 下载github上&#96;freeshineit&#x2F;next-examples&#96;的 main分支下 &#96;with-typescript-eslint-jest-app&#96; 文件夹下所有的文件和文件夹
 mkdir my-app &amp;&amp; curl https:&#x2F;&#x2F;codeload.github.com&#x2F;freeshineit&#x2F;next-examples&#x2F;tar.gz&#x2F;main | tar -xz -C my-app --strip&#x3D;2 next-examples-main&#x2F;with-typescript-eslint-jest-app</code></pre>
 ]]></content>
@@ -751,9 +677,7 @@ mkdir my-app &amp;&amp; curl https:&#x2F;&#x2F;codeload.github.com&#x2F;freeshin
   <entry>
     <title>Golang Sync</title>
     <url>/2023/02/18/golang/sync/</url>
-    <content><![CDATA[<h2 id="golang-goroutine-同步操作"><a class="markdownIt-Anchor" href="#golang-goroutine-同步操作"></a> golang goroutine 同步操作</h2>
-<h3 id="syncwaitgroup"><a class="markdownIt-Anchor" href="#syncwaitgroup"></a> <a href="https://golang.org/pkg/sync/#WaitGroup">sync.WaitGroup</a></h3>
-<pre class="language-go" data-language="go"><code class="language-go">package main
+    <content><![CDATA[<h2 id="golang-goroutine-同步操作"><a href="#golang-goroutine-同步操作" class="headerlink" title="golang goroutine 同步操作"></a>golang goroutine 同步操作</h2><h3 id="sync-WaitGroup"><a href="#sync-WaitGroup" class="headerlink" title="sync.WaitGroup"></a><a href="https://golang.org/pkg/sync/#WaitGroup">sync.WaitGroup</a></h3><pre class="language-go" data-language="go"><code class="language-go">package main
 
 import (
 	&quot;fmt&quot;
@@ -780,8 +704,8 @@ func SyncWaitGroup() &#123;
 	wg.Wait()
 &#125;
 </code></pre>
-<h3 id="channel"><a class="markdownIt-Anchor" href="#channel"></a> <a href="https://blog.golang.org/pipelines">Channel</a></h3>
-<pre class="language-go" data-language="go"><code class="language-go">package main
+
+<h3 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a><a href="https://blog.golang.org/pipelines">Channel</a></h3><pre class="language-go" data-language="go"><code class="language-go">package main
 
 import (
 	&quot;fmt&quot;
@@ -819,8 +743,7 @@ func Channel() &#123;
   <entry>
     <title>Gulp 源码分析</title>
     <url>/2022/11/28/gulp/source/</url>
-    <content><![CDATA[<h2 id="gulp"><a class="markdownIt-Anchor" href="#gulp"></a> Gulp</h2>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+    <content><![CDATA[<h2 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h2><pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
 
 var util &#x3D; require(&quot;util&quot;);
 &#x2F;&#x2F; https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;undertaker
@@ -939,12 +862,57 @@ module.exports &#x3D; inst;</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>javascript apply,call和bind</title>
+    <url>/2022/10/26/js/apply_call_bind/</url>
+    <content><![CDATA[<h2 id="apply-原理"><a href="#apply-原理" class="headerlink" title="apply 原理"></a>apply 原理</h2><p><a href="">apply</a> xxxx</p>
+<h2 id="apply-实现"><a href="#apply-实现" class="headerlink" title="apply 实现"></a>apply 实现</h2><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+ *
+ *&#x2F;
+function _apply(_this: any, args: any[]) &#123;&#125;
+
+(function () &#123;
+  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
+  &#x2F;&#x2F; 如果有错 会有打印
+  const assert &#x3D; require(&quot;assert&quot;);
+&#125;)();</code></pre>
+
+<h2 id="call-原理"><a href="#call-原理" class="headerlink" title="call 原理"></a>call 原理</h2><p><a href="">call</a> xxxx</p>
+<h2 id="call-实现"><a href="#call-实现" class="headerlink" title="call 实现"></a>call 实现</h2><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+ *
+ *&#x2F;
+function _call(_this: any, ...args: any[]) &#123;&#125;
+
+(function () &#123;
+  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
+  &#x2F;&#x2F; 如果有错 会有打印
+  const assert &#x3D; require(&quot;assert&quot;);
+&#125;)();</code></pre>
+
+<h2 id="bind-原理"><a href="#bind-原理" class="headerlink" title="bind 原理"></a>bind 原理</h2><p><a href="">bind</a> xxxx</p>
+<h2 id="bind-实现"><a href="#bind-实现" class="headerlink" title="bind 实现"></a>bind 实现</h2><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+ *
+ *&#x2F;
+function _bind(_this: any, ...args: any[]) &#123;&#125;
+
+(function () &#123;
+  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
+  &#x2F;&#x2F; 如果有错 会有打印
+  const assert &#x3D; require(&quot;assert&quot;);
+&#125;)();</code></pre>
+
+<h2 id="apply-call-和-bind-共同点"><a href="#apply-call-和-bind-共同点" class="headerlink" title="apply, call 和 bind 共同点"></a>apply, call 和 bind 共同点</h2><h2 id="apply-call-和-bind-不同点"><a href="#apply-call-和-bind-不同点" class="headerlink" title="apply, call 和 bind 不同点"></a>apply, call 和 bind 不同点</h2>]]></content>
+      <categories>
+        <category>Javascript</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>javascript instanceof 原理</title>
     <url>/2022/10/26/js/instanceof/</url>
-    <content><![CDATA[<h2 id="instanceof-原理"><a class="markdownIt-Anchor" href="#instanceof-原理"></a> instanceof 原理</h2>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof">instanceof</a> 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。</p>
-<h2 id="实现"><a class="markdownIt-Anchor" href="#实现"></a> 实现</h2>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+    <content><![CDATA[<h2 id="instanceof-原理"><a href="#instanceof-原理" class="headerlink" title="instanceof 原理"></a>instanceof 原理</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof">instanceof</a> 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
  *
  * 简单模拟 instanceof的实现
  *
@@ -1019,168 +987,11 @@ function _instanceof(instance: any, Func: any) &#123;
       </tags>
   </entry>
   <entry>
-    <title>javascript apply,call和bind</title>
-    <url>/2022/10/26/js/apply_call_bind/</url>
-    <content><![CDATA[<h2 id="apply-原理"><a class="markdownIt-Anchor" href="#apply-原理"></a> apply 原理</h2>
-<p><a href="">apply</a> xxxx</p>
-<h2 id="apply-实现"><a class="markdownIt-Anchor" href="#apply-实现"></a> apply 实现</h2>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
- *
- *&#x2F;
-function _apply(_this: any, args: any[]) &#123;&#125;
-
-(function () &#123;
-  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
-  &#x2F;&#x2F; 如果有错 会有打印
-  const assert &#x3D; require(&quot;assert&quot;);
-&#125;)();</code></pre>
-<h2 id="call-原理"><a class="markdownIt-Anchor" href="#call-原理"></a> call 原理</h2>
-<p><a href="">call</a> xxxx</p>
-<h2 id="call-实现"><a class="markdownIt-Anchor" href="#call-实现"></a> call 实现</h2>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
- *
- *&#x2F;
-function _call(_this: any, ...args: any[]) &#123;&#125;
-
-(function () &#123;
-  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
-  &#x2F;&#x2F; 如果有错 会有打印
-  const assert &#x3D; require(&quot;assert&quot;);
-&#125;)();</code></pre>
-<h2 id="bind-原理"><a class="markdownIt-Anchor" href="#bind-原理"></a> bind 原理</h2>
-<p><a href="">bind</a> xxxx</p>
-<h2 id="bind-实现"><a class="markdownIt-Anchor" href="#bind-实现"></a> bind 实现</h2>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
- *
- *&#x2F;
-function _bind(_this: any, ...args: any[]) &#123;&#125;
-
-(function () &#123;
-  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
-  &#x2F;&#x2F; 如果有错 会有打印
-  const assert &#x3D; require(&quot;assert&quot;);
-&#125;)();</code></pre>
-<h2 id="apply-call-和-bind-共同点"><a class="markdownIt-Anchor" href="#apply-call-和-bind-共同点"></a> apply, call 和 bind 共同点</h2>
-<h2 id="apply-call-和-bind-不同点"><a class="markdownIt-Anchor" href="#apply-call-和-bind-不同点"></a> apply, call 和 bind 不同点</h2>
-]]></content>
-      <categories>
-        <category>Javascript</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>react-scripts5 + craco7 + antd4 配置</title>
-    <url>/2024/10/01/react/cra5_craco7_antd4/</url>
-    <content><![CDATA[<h2 id="安装依赖"><a class="markdownIt-Anchor" href="#安装依赖"></a> 安装依赖</h2>
-<pre class="language-bash" data-language="bash"><code class="language-bash">pnpm add less less-loader @craco&#x2F;craco craco-less babel-plugin-import postcss-px-to-viewport-8-plugin postcss -D</code></pre>
-<h2 id="config"><a class="markdownIt-Anchor" href="#config"></a> config</h2>
-<p>配置支持 antd4 按需加载、定制主题、支持 px 转 vw 和 配置别名</p>
-<p>在项目的根目录下新建 <code>craco.config.js</code></p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const path &#x3D; require(&quot;path&quot;);
-const CracoLessPlugin &#x3D; require(&quot;craco-less&quot;);
-
-module.exports &#x3D; &#123;
-  babel: &#123;
-    &#x2F;&#x2F; 配置babel插件
-    plugins: [
-      [
-        &#x2F;&#x2F; 安装 babel-plugin-import  https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;babel-plugin-import
-        &#x2F;&#x2F; https:&#x2F;&#x2F;4x.ant.design&#x2F;docs&#x2F;react&#x2F;customize-theme-cn#%E6%B2%A1%E6%9C%89%E7%94%9F%E6%95%88%EF%BC%9F
-        &quot;import&quot;,
-        &#123;
-          libraryName: &quot;antd&quot;,
-          libraryDirectory: &quot;es&quot;,
-          style: true &#x2F;&#x2F; 加载less文件
-        &#125;
-      ]
-    ]
-  &#125;,
-  style: &#123;
-    postcss: &#123;
-      mode: &quot;exclude&quot;,
-      loaderOptions: &#123;
-        postcssOptions: &#123;
-            &#x2F;&#x2F; postcss 需要大于等于 8
-          ident: &quot;postcss&quot;,
-          plugins: [
-            [
-              &#x2F;&#x2F; https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;postcss-px-to-viewport-8-plugin
-              &quot;postcss-px-to-viewport-8-plugin&quot;,
-              &#123;
-                unitToConvert: &quot;px&quot;, &#x2F;&#x2F; 要转化的单位
-                viewportWidth: 375, &#x2F;&#x2F; UI设计稿的宽度
-                viewportUnit: &quot;vw&quot;, &#x2F;&#x2F; 指定需要转换成的视窗单位，建议使用 rem
-                fontViewportUnit: &quot;vw&quot;, &#x2F;&#x2F; 字体使用的视口单位
-                unitPrecision: 13, &#x2F;&#x2F; 指定&#96;px&#96;转换为视窗单位值的小数后 x位数
-                &#x2F;&#x2F; propList: 当有些属性的单位我们不希望转换的时候，可以添加在数组后面，并在前面加上!号，如propList: [&quot;*&quot;,&quot;!letter-spacing&quot;],这表示：所有css属性的属性的单位都进行转化，除了letter-spacing的
-                propList: [&quot;*&quot;], &#x2F;&#x2F; 指定转换的css属性的单位，*代表全部css属性的单位都进行转换
-                &#x2F;&#x2F; 转换的黑名单，在黑名单里面的我们可以写入字符串，只要类名包含有这个字符串，就不会被匹配。比如selectorBlackList: [&#39;wrap&#39;],它表示形如wrap,my-wrap,wrapper这样的类名的单位，都不会被转换
-                selectorBlackList: [&quot;ignore&quot;], &#x2F;&#x2F; 指定不转换为视窗单位的类名，
-                minPixelValue: 1, &#x2F;&#x2F; 默认值1，小于或等于1px则不进行转换
-                mediaQuery: true, &#x2F;&#x2F; 是否在媒体查询的css代码中也进行转换，默认false
-                replace: true, &#x2F;&#x2F; 是否转换后直接更换属性值
-                exclude: [&#x2F;node_modules&#x2F;], &#x2F;&#x2F; 设置忽略文件，用正则做目录名匹配
-                landscape: false &#x2F;&#x2F; 是否处理横屏情况
-              &#125;
-            ]
-          ]
-        &#125;
-      &#125;
-    &#125;
-  &#125;,
-  plugins: [
-    &#123;
-      plugin: CracoLessPlugin,
-      options: &#123;
-        lessLoaderOptions: &#123;
-          lessOptions: &#123; &#x2F;&#x2F; less &gt;&#x3D; 4, less-loader &gt;&#x3D; 11
-            modifyVars: &#123;
-              &quot;primary-color&quot;: &quot;#1DA57A&quot;,
-              &quot;link-color&quot;: &quot;#1DA57A&quot;,
-              &quot;border-radius-base&quot;: &quot;2px&quot;
-              &#x2F;&#x2F; 更改antd 默认的类名前缀，结合 ConfigProvider 使用 https:&#x2F;&#x2F;4x.ant.design&#x2F;docs&#x2F;react&#x2F;customize-theme-variable-cn#%E4%BB%A3%E7%A0%81%E8%B0%83%E6%95%B4
-              &#x2F;&#x2F; &quot;@ant-prefix&quot;: &quot;custom&quot;
-            &#125;,
-            javascriptEnabled: true &#x2F;&#x2F; 允许less文件中使用js表达式
-          &#125;
-        &#125;
-      &#125;
-    &#125;
-  ],
-  webpack: &#123;
-    &#x2F;&#x2F; .... 其他配置
-    alias: &#123;
-      &#x2F;&#x2F; 文件路径别名
-      &quot;@&quot;: path.resolve(__dirname, &quot;src&quot;)
-    &#125;
-  &#125;,
-&#x2F;&#x2F;   devServer: &#123;&#125;
-&#125;;</code></pre>
-<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
-<p><a href="https://create-react-app.dev/">create-react-app</a><br />
-<a href="https://craco.js.org/docs/">@craco/craco</a><br />
-<a href="https://4x.ant.design/docs/react/customize-theme-cn">antd4</a><br />
-<a href="https://www.npmjs.com/package/postcss-px-to-viewport-8-plugin">postcss-px-to-viewport-8-plugin</a></p>
-<p>备注：由于 <a href="https://www.npmjs.com/package/react-scripts">react-scripts</a> 不在更新维护，推荐编译工具换成 <a href="https://cn.vitejs.dev/guide/">vite</a></p>
-]]></content>
-      <categories>
-        <category>React</category>
-      </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>javascript typeof 原理</title>
     <url>/2022/10/25/js/typeof/</url>
-    <content><![CDATA[<h2 id="typeof-原理"><a class="markdownIt-Anchor" href="#typeof-原理"></a> typeof 原理</h2>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof">typeof</a> 运算符返回一个字符串，表示操作数的类型。</p>
-<p>javascript 在底层存储变量的时候,会在变量的机器码的低位(前三位) 1-3 位存储其类型信息: 对象:000 (null 是 000， 这也是 null 的 typeof 值为什么是 object 的原因) 浮点数:010 字符串:100 布尔:110 ”。<br />
-<code>typeof</code>直接根据变量值得内存标识符进行判断并返回的是对应字符串形式的值。</p>
-<h2 id="实现"><a class="markdownIt-Anchor" href="#实现"></a> 实现</h2>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+    <content><![CDATA[<h2 id="typeof-原理"><a href="#typeof-原理" class="headerlink" title="typeof 原理"></a>typeof 原理</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof">typeof</a> 运算符返回一个字符串，表示操作数的类型。</p>
+<p>javascript 在底层存储变量的时候,会在变量的机器码的低位(前三位) 1-3 位存储其类型信息: 对象:000 (null 是 000， 这也是 null 的 typeof 值为什么是 object 的原因) 浮点数:010 字符串:100 布尔:110 ”。<br><code>typeof</code>直接根据变量值得内存标识符进行判断并返回的是对应字符串形式的值。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
  * 模拟 typeof
  *
  * typeof原理：
@@ -1290,14 +1101,112 @@ assert.equal(typeof point, _typeof(point));</code></pre>]]></content>
       </tags>
   </entry>
   <entry>
+    <title>react-scripts5 + craco7 + antd4 配置</title>
+    <url>/2024/10/01/react/cra5_craco7_antd4/</url>
+    <content><![CDATA[<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><pre class="language-bash" data-language="bash"><code class="language-bash">pnpm add less less-loader @craco&#x2F;craco craco-less babel-plugin-import postcss-px-to-viewport-8-plugin postcss -D</code></pre>
+
+<h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><p>配置支持 antd4 按需加载、定制主题、支持 px 转 vw 和 配置别名</p>
+<p>在项目的根目录下新建 <code>craco.config.js</code></p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const path &#x3D; require(&quot;path&quot;);
+const CracoLessPlugin &#x3D; require(&quot;craco-less&quot;);
+
+module.exports &#x3D; &#123;
+  babel: &#123;
+    &#x2F;&#x2F; 配置babel插件
+    plugins: [
+      [
+        &#x2F;&#x2F; 安装 babel-plugin-import  https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;babel-plugin-import
+        &#x2F;&#x2F; https:&#x2F;&#x2F;4x.ant.design&#x2F;docs&#x2F;react&#x2F;customize-theme-cn#%E6%B2%A1%E6%9C%89%E7%94%9F%E6%95%88%EF%BC%9F
+        &quot;import&quot;,
+        &#123;
+          libraryName: &quot;antd&quot;,
+          libraryDirectory: &quot;es&quot;,
+          style: true &#x2F;&#x2F; 加载less文件
+        &#125;
+      ]
+    ]
+  &#125;,
+  style: &#123;
+    postcss: &#123;
+      mode: &quot;exclude&quot;,
+      loaderOptions: &#123;
+        postcssOptions: &#123;
+            &#x2F;&#x2F; postcss 需要大于等于 8
+          ident: &quot;postcss&quot;,
+          plugins: [
+            [
+              &#x2F;&#x2F; https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;postcss-px-to-viewport-8-plugin
+              &quot;postcss-px-to-viewport-8-plugin&quot;,
+              &#123;
+                unitToConvert: &quot;px&quot;, &#x2F;&#x2F; 要转化的单位
+                viewportWidth: 375, &#x2F;&#x2F; UI设计稿的宽度
+                viewportUnit: &quot;vw&quot;, &#x2F;&#x2F; 指定需要转换成的视窗单位，建议使用 rem
+                fontViewportUnit: &quot;vw&quot;, &#x2F;&#x2F; 字体使用的视口单位
+                unitPrecision: 13, &#x2F;&#x2F; 指定&#96;px&#96;转换为视窗单位值的小数后 x位数
+                &#x2F;&#x2F; propList: 当有些属性的单位我们不希望转换的时候，可以添加在数组后面，并在前面加上!号，如propList: [&quot;*&quot;,&quot;!letter-spacing&quot;],这表示：所有css属性的属性的单位都进行转化，除了letter-spacing的
+                propList: [&quot;*&quot;], &#x2F;&#x2F; 指定转换的css属性的单位，*代表全部css属性的单位都进行转换
+                &#x2F;&#x2F; 转换的黑名单，在黑名单里面的我们可以写入字符串，只要类名包含有这个字符串，就不会被匹配。比如selectorBlackList: [&#39;wrap&#39;],它表示形如wrap,my-wrap,wrapper这样的类名的单位，都不会被转换
+                selectorBlackList: [&quot;ignore&quot;], &#x2F;&#x2F; 指定不转换为视窗单位的类名，
+                minPixelValue: 1, &#x2F;&#x2F; 默认值1，小于或等于1px则不进行转换
+                mediaQuery: true, &#x2F;&#x2F; 是否在媒体查询的css代码中也进行转换，默认false
+                replace: true, &#x2F;&#x2F; 是否转换后直接更换属性值
+                exclude: [&#x2F;node_modules&#x2F;], &#x2F;&#x2F; 设置忽略文件，用正则做目录名匹配
+                landscape: false &#x2F;&#x2F; 是否处理横屏情况
+              &#125;
+            ]
+          ]
+        &#125;
+      &#125;
+    &#125;
+  &#125;,
+  plugins: [
+    &#123;
+      plugin: CracoLessPlugin,
+      options: &#123;
+        lessLoaderOptions: &#123;
+          lessOptions: &#123; &#x2F;&#x2F; less &gt;&#x3D; 4, less-loader &gt;&#x3D; 11
+            modifyVars: &#123;
+              &quot;primary-color&quot;: &quot;#1DA57A&quot;,
+              &quot;link-color&quot;: &quot;#1DA57A&quot;,
+              &quot;border-radius-base&quot;: &quot;2px&quot;
+              &#x2F;&#x2F; 更改antd 默认的类名前缀，结合 ConfigProvider 使用 https:&#x2F;&#x2F;4x.ant.design&#x2F;docs&#x2F;react&#x2F;customize-theme-variable-cn#%E4%BB%A3%E7%A0%81%E8%B0%83%E6%95%B4
+              &#x2F;&#x2F; &quot;@ant-prefix&quot;: &quot;custom&quot;
+            &#125;,
+            javascriptEnabled: true &#x2F;&#x2F; 允许less文件中使用js表达式
+          &#125;
+        &#125;
+      &#125;
+    &#125;
+  ],
+  webpack: &#123;
+    &#x2F;&#x2F; .... 其他配置
+    alias: &#123;
+      &#x2F;&#x2F; 文件路径别名
+      &quot;@&quot;: path.resolve(__dirname, &quot;src&quot;)
+    &#125;
+  &#125;,
+&#x2F;&#x2F;   devServer: &#123;&#125;
+&#125;;</code></pre>
+
+
+<p>demo <a href="https://github.com/freeshineit/cra-app">cra-app</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://create-react-app.dev/">create-react-app</a><br><a href="https://craco.js.org/docs/">@craco&#x2F;craco</a><br><a href="https://4x.ant.design/docs/react/customize-theme-cn">antd4</a><br><a href="https://www.npmjs.com/package/postcss-px-to-viewport-8-plugin">postcss-px-to-viewport-8-plugin</a></p>
+<p>备注：由于 <a href="https://www.npmjs.com/package/react-scripts">react-scripts</a> 不在更新维护，推荐编译工具换成 <a href="https://cn.vitejs.dev/guide/">vite</a></p>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>javascript 版 React 别名（alias）</title>
     <url>/2021/11/10/react/jsconfig/</url>
-    <content><![CDATA[<h2 id="说明"><a class="markdownIt-Anchor" href="#说明"></a> 说明</h2>
-<p>虽然说近几年已经不在写 javascript 版 React 了，一直在用 typescript 但是最近接了个外包，其他小伙伴不太熟 typescript。所以就打算配置一下使用 javascript 环境项目的别名。</p>
+    <content><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>虽然说近几年已经不在写 javascript 版 React 了，一直在用 typescript 但是最近接了个外包，其他小伙伴不太熟 typescript。所以就打算配置一下使用 javascript 环境项目的别名。</p>
 <p>使用<a href="https://create-react-app.dev/">create-react-app</a> 创建 javascript 版 React 项目，安装 <a href="https://github.com/gsoft-inc/craco"><code>@craco/craco</code></a>。</p>
 <p>具体配置省略，接下来主要说用别名的配置。（想要了解具体配置请参考<a href="https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#installation%EF%BC%89">https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#installation）</a></p>
-<h2 id="craco-中配置-webpack"><a class="markdownIt-Anchor" href="#craco-中配置-webpack"></a> craco 中配置 webpack</h2>
-<p>在根目录<code>craco.config.js</code>文件中配置别名</p>
+<h2 id="craco-中配置-webpack"><a href="#craco-中配置-webpack" class="headerlink" title="craco 中配置 webpack"></a>craco 中配置 webpack</h2><p>在根目录<code>craco.config.js</code>文件中配置别名</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">module.exports &#x3D; &#123;
   webpack: &#123;
     &#x2F;&#x2F; .... 其他配置
@@ -1313,8 +1222,8 @@ assert.equal(typeof point, _typeof(point));</code></pre>]]></content>
     &#125;
   &#125;
 &#125;;</code></pre>
-<h2 id="jsconfigjson"><a class="markdownIt-Anchor" href="#jsconfigjson"></a> jsconfig.json</h2>
-<p>在根目录下新建<code>jsconfig.json</code>, 添加下面内容即可。</p>
+
+<h2 id="jsconfig-json"><a href="#jsconfig-json" class="headerlink" title="jsconfig.json"></a>jsconfig.json</h2><p>在根目录下新建<code>jsconfig.json</code>, 添加下面内容即可。</p>
 <pre class="language-json" data-language="json"><code class="language-json">&#123;
   &quot;compilerOptions&quot;: &#123;
     &quot;module&quot;: &quot;commonjs&quot;,
@@ -1332,6 +1241,7 @@ assert.equal(typeof point, _typeof(point));</code></pre>]]></content>
   &quot;include&quot;: [&quot;.&#x2F;src&#x2F;**&#x2F;*&quot;],
   &quot;exclude&quot;: [&quot;node_modules&quot;, &quot;build&quot;, &quot;coverage&quot;, &quot;dist&quot;, &quot;lib&quot;]
 &#125;</code></pre>
+
 <p>注意 ⚠️： 这个文件有严格的 json 格式要求， 例如最后一项不能有<code>,</code> 等</p>
 <p>❤️ ❤️ 还是 ts 香 ❤️ ❤️</p>
 ]]></content>
@@ -1345,8 +1255,7 @@ assert.equal(typeof point, _typeof(point));</code></pre>]]></content>
   <entry>
     <title>docker nginx 部署React项目</title>
     <url>/2021/12/11/react/nginx_deploy/</url>
-    <content><![CDATA[<h2 id="docker-nginx"><a class="markdownIt-Anchor" href="#docker-nginx"></a> docker nginx</h2>
-<ol>
+    <content><![CDATA[<h2 id="docker-nginx"><a href="#docker-nginx" class="headerlink" title="docker nginx"></a>docker nginx</h2><ol>
 <li>在项目根目录下新建 <code>docker-compose.yml</code>文件</li>
 </ol>
 <pre class="language-yaml" data-language="yaml"><code class="language-yaml">version: &quot;2&quot;
@@ -1367,6 +1276,7 @@ services:
       - .&#x2F;build:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html
     # 覆盖容器启动后默认执行的命令。
     command: &#x2F;bin&#x2F;bash -c &quot;nginx -g &#39;daemon off;&#39;&quot;</code></pre>
+
 <p>挂载 nginx 配置</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">location &#x2F; &#123;
     root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
@@ -1382,20 +1292,21 @@ location ^~ &#x2F;api&#x2F; &#123;
     # proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_pass http:&#x2F;&#x2F;xxx.xxxxx.xxxx;
 &#125;</code></pre>
+
 <ol start="2">
 <li>编译 react 项目</li>
 </ol>
 <pre class="language-bash" data-language="bash"><code class="language-bash">yarn run build</code></pre>
+
 <ol start="3">
 <li>生成容器并部署</li>
 </ol>
 <pre class="language-bash" data-language="bash"><code class="language-bash">docker-compose up -d</code></pre>
+
 <ol start="4">
-<li>
-<p>本地访问 <code>http://localhost/</code></p>
+<li><p>本地访问 <code>http://localhost/</code></p>
 </li>
-<li>
-<p>停止并删除容器 <code>docker-compose down</code></p>
+<li><p>停止并删除容器 <code>docker-compose down</code></p>
 </li>
 </ol>
 ]]></content>
@@ -1411,8 +1322,7 @@ location ^~ &#x2F;api&#x2F; &#123;
   <entry>
     <title>svg 转图片</title>
     <url>/2023/02/24/svg/to_image/</url>
-    <content><![CDATA[<h2 id="svg-转图片"><a class="markdownIt-Anchor" href="#svg-转图片"></a> svg 转图片</h2>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 序列化 svg 文件（xml） 转成字符串
+    <content><![CDATA[<h2 id="svg-转图片"><a href="#svg-转图片" class="headerlink" title="svg 转图片"></a>svg 转图片</h2><pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 序列化 svg 文件（xml） 转成字符串
 const svgString &#x3D; new XMLSerializer()
   .serializeToString(document.getElementById(&#39;svg&#39;));
 
@@ -1427,6 +1337,7 @@ img.src &#x3D; url;
 
 &#x2F;&#x2F; append img to body
 &#x2F;&#x2F; ...</code></pre>
+
 ]]></content>
       <categories>
         <category>Svg</category>
@@ -1438,11 +1349,9 @@ img.src &#x3D; url;
   <entry>
     <title>Mac 工具</title>
     <url>/2023/02/18/tools/mac/</url>
-    <content><![CDATA[<h2 id="homebrew"><a class="markdownIt-Anchor" href="#homebrew"></a> <a href="https://brew.sh/">homebrew</a></h2>
-<p><a href="https://brew.sh/">homebrew</a> 安装 <code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</code></p>
+    <content><![CDATA[<h2 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a><a href="https://brew.sh/">homebrew</a></h2><p><a href="https://brew.sh/">homebrew</a> 安装 <code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</code></p>
 <ol>
-<li>
-<p>安装插件</p>
+<li><p>安装插件</p>
 <ul>
 <li>安装 <a href="https://git-scm.com/">git</a></li>
 </ul>
@@ -1451,38 +1360,37 @@ img.src &#x3D; url;
 <li>安装 <a href="https://github.com/wting/autojump">autojump</a></li>
 </ul>
 <p><code>brew install autojump</code></p>
-<p>在 ~/.zshrc 中找到<code>plugins</code> 添加 <code>autojump</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
+<p>在 ~&#x2F;.zshrc 中找到<code>plugins</code> 添加 <code>autojump</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
 </li>
 </ol>
-<h2 id="iterm2"><a class="markdownIt-Anchor" href="#iterm2"></a> <a href="https://iterm2.com/">iTerm2</a></h2>
-<ol>
-<li>
-<p>安装插件</p>
+<h2 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a><a href="https://iterm2.com/">iTerm2</a></h2><ol>
+<li><p>安装插件</p>
 <ul>
 <li>安装 <a href="https://ohmyz.sh/">oh-my-zsh</a> 主题</li>
 </ul>
 <pre class="language-bash" data-language="bash"><code class="language-bash">sh -c &quot;\$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;master&#x2F;tools&#x2F;install.sh)&quot;</code></pre>
+
 <ul>
 <li>安装 <a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a></li>
 </ul>
 <pre class="language-bash" data-language="bash"><code class="language-bash">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-autosuggestions $&#123;ZSH_CUSTOM:-~&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;plugins&#x2F;zsh-autosuggestions</code></pre>
-<p>在 ~/.zshrc 中找到<code>plugins</code> 添加 <code>zsh-autosuggestions</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
+
+<p>在 ~&#x2F;.zshrc 中找到<code>plugins</code> 添加 <code>zsh-autosuggestions</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
 <ul>
 <li>安装 <a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a></li>
 </ul>
 <pre class="language-bash" data-language="bash"><code class="language-bash">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;plugins&#x2F;zsh-syntax-highlighting</code></pre>
-<p>在 ~/.zshrc 中找到<code>plugins</code> 添加 <code>zsh-syntax-highlighting</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
+
+<p>在 ~&#x2F;.zshrc 中找到<code>plugins</code> 添加 <code>zsh-syntax-highlighting</code>, 注意 ⚠️ 每个插件间用空格隔开</p>
 <p>最终结果</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">plugins&#x3D;(
  git
  zsh-syntax-highlighting
  zsh-autosuggestions
  autojump
-)</code></pre>
-</li>
+)</code></pre></li>
 </ol>
-<h2 id="vim-配置"><a class="markdownIt-Anchor" href="#vim-配置"></a> vim 配置</h2>
-<p>可以参考 阮一峰老师的 <a href="https://www.ruanyifeng.com/blog/2018/09/vimrc.html">Vim 配置入门</a></p>
+<h2 id="vim-配置"><a href="#vim-配置" class="headerlink" title="vim 配置"></a>vim 配置</h2><p>可以参考 阮一峰老师的 <a href="https://www.ruanyifeng.com/blog/2018/09/vimrc.html">Vim 配置入门</a></p>
 <p>在 <code>~/.vimrc</code> 配置 (如果没有请自建<code>touch ~/.vimrc</code>)</p>
 <p>我的基本设置</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">set number
@@ -1508,11 +1416,9 @@ set hlsearch</code></pre>
   <entry>
     <title>Yarn workspace</title>
     <url>/2021/08/05/tools/yarn_workspace/</url>
-    <content><![CDATA[<h2 id="说明"><a class="markdownIt-Anchor" href="#说明"></a> 说明</h2>
-<p><a href="https://yarnpkg.com/features/workspaces">yarn Workspaces</a> 旨在简化 monorepos 的使用，以更具声明性的方式解决 yarn 链接的主要用例之一。简言之，它们允许您的多个项目一起生活在同一个存储库中，并相互交叉引用——对一个项目的源代码的任何修改都会立即应用于其他项目。</p>
+    <content><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p><a href="https://yarnpkg.com/features/workspaces">yarn Workspaces</a> 旨在简化 monorepos 的使用，以更具声明性的方式解决 yarn 链接的主要用例之一。简言之，它们允许您的多个项目一起生活在同一个存储库中，并相互交叉引用——对一个项目的源代码的任何修改都会立即应用于其他项目。</p>
 <p>首先，一些词汇：在工作区特性的上下文中，项目是组成工作区的整个目录树（通常是存储库本身）。工作区是由同一项目中您自己的源组成的本地包。最后，工作树是为列出自己的子工作空间的工作空间指定的名称。项目包含一个或多个工作树，这些工作树本身可能包含任意数量的工作空间。任何项目都至少包含一个工作区：根工作区。</p>
-<h2 id="创建"><a class="markdownIt-Anchor" href="#创建"></a> 创建</h2>
-<ul>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><ul>
 <li>初始化</li>
 </ul>
 <pre class="language-bash" data-language="bash"><code class="language-bash">mkdir yarn_workspaces &amp;&amp; cd yarn_workspaces
@@ -1527,6 +1433,7 @@ mkdir packages
 # &quot;workspaces&quot;: [
 #  &quot;packages&#x2F;*&quot;
 # ]</code></pre>
+
 <ul>
 <li>配置根目录下<code>package.json</code></li>
 </ul>
@@ -1534,9 +1441,9 @@ mkdir packages
   &quot;private&quot;: true,
   &quot;workspaces&quot;: [&quot;packages&#x2F;*&quot;]
 &#125;</code></pre>
+
 <ul>
-<li>
-<p>create common package (components、utils…)</p>
+<li><p>create common package (components、utils…)</p>
 <ul>
 <li>初始化 <code>@mono/common</code> package</li>
 </ul>
@@ -1545,6 +1452,7 @@ mkdir packages
 yarn init -y
 
 mkdir components &amp;&amp; mkdir utils</code></pre>
+
 <ul>
 <li>配置 <code>package.json</code></li>
 </ul>
@@ -1552,10 +1460,10 @@ mkdir components &amp;&amp; mkdir utils</code></pre>
   &quot;name&quot;: &quot;@mono&#x2F;common&quot;,
   &quot;main&quot;: &quot;index.ts&quot;
 &#125;</code></pre>
+
 <p>注：由于整个项目都是基于<code>typescript</code>的, 所以 <code>main</code> 就直接指定 <code>index.ts</code>。如果要发布到 npm 上最好还是使用<code>.js</code>。</p>
 </li>
-<li>
-<p>create mobile web app (html5)</p>
+<li><p>create mobile web app (html5)</p>
 <ul>
 <li>初始化 app</li>
 </ul>
@@ -1564,8 +1472,7 @@ mkdir components &amp;&amp; mkdir utils</code></pre>
 # 创建 index.html
 touch index.html</code></pre>
 </li>
-<li>
-<p>create web app (react spa)</p>
+<li><p>create web app (react spa)</p>
 <ul>
 <li>初始化 app</li>
 </ul>
@@ -1573,6 +1480,7 @@ touch index.html</code></pre>
 
 # 创建 react spa app
 yarn create react-app my-app --template typescript</code></pre>
+
 <ul>
 <li>scripts</li>
 </ul>
@@ -1580,12 +1488,14 @@ yarn create react-app my-app --template typescript</code></pre>
 <pre class="language-json" data-language="json"><code class="language-json">&#123;
   &quot;react-sap-app&quot;: &quot;yarn workspace react-spa-app start&quot;
 &#125;</code></pre>
+
 <ul>
 <li>配置使用本地 package</li>
 </ul>
 <pre class="language-bash" data-language="bash"><code class="language-bash"># 安装 @craco&#x2F;craco
 # 在不执行&#96;eject&#96;的条件下注入webpacke等 配置
 yarn add @craco&#x2F;craco -D</code></pre>
+
 <p>在<code>react-spa-app</code>根目录下新建创建<code>craco.config.js</code>文件</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">const path &#x3D; require(&quot;path&quot;);
 const &#123; getLoader, loaderByName &#125; &#x3D; require(&quot;@craco&#x2F;craco&quot;);
@@ -1615,8 +1525,7 @@ module.exports &#x3D; &#123;
   &#125;
 &#125;;</code></pre>
 </li>
-<li>
-<p>create ssr web app (next.js)</p>
+<li><p>create ssr web app (next.js)</p>
 <ul>
 <li>初始化 ssr web app</li>
 </ul>
@@ -1624,6 +1533,7 @@ module.exports &#x3D; &#123;
 
 # 创建 react ssr app
 yarn create next-app --example with-typescript nextjs-app</code></pre>
+
 <ul>
 <li>scripts</li>
 </ul>
@@ -1631,22 +1541,22 @@ yarn create next-app --example with-typescript nextjs-app</code></pre>
 <pre class="language-json" data-language="json"><code class="language-json">&#123;
   &quot;react-sap-app&quot;: &quot;yarn workspace nextjs-app dev&quot;
 &#125;</code></pre>
+
 <ul>
 <li>配置使用本地 package</li>
 </ul>
 <pre class="language-bash" data-language="bash"><code class="language-bash"># 注意⚠️ &#96;next-transpile-modules&#96;版本有很大区别
 # https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;next-transpile-modules#user-content-compatibility-table
 yarn add next-transpile-modules -D</code></pre>
+
 <p>在<code>nextjs-app</code>根目录下新建创建<code>next.config.js</code>文件</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; pass the modules you would like to see transpiled
 const withTM &#x3D; require(&quot;next-transpile-modules&quot;)([&quot;@mono&#x2F;common&quot;]);
 module.exports &#x3D; withTM();</code></pre>
 </li>
-<li>
-<p>配置</p>
+<li><p>配置</p>
 </li>
-<li>
-<p>create service app (koa service)</p>
+<li><p>create service app (koa service)</p>
 <ul>
 <li>初始化 service app</li>
 </ul>
@@ -1659,6 +1569,7 @@ yarn init -y
 touch server.ts
 
 yarn add typescript ts-node @types&#x2F;node nodemon -D</code></pre>
+
 <ul>
 <li>scripts</li>
 </ul>
@@ -1666,14 +1577,13 @@ yarn add typescript ts-node @types&#x2F;node nodemon -D</code></pre>
 <pre class="language-json" data-language="json"><code class="language-json">&#123;
   &quot;dev&quot;: &quot;nodemon --watch &#39;.&#x2F;**&#x2F;*.ts&#39; --watch &#39;..&#x2F;common&#x2F;**&#x2F;*.ts&#39; --exec &#39;ts-node&#39; server.ts&quot;
 &#125;</code></pre>
+
 <p>在项目根目录下<code>package.json</code>中<code>scripts</code>添加下面脚本</p>
 <pre class="language-json" data-language="json"><code class="language-json">&#123;
   &quot;koa-service-app&quot;: &quot;yarn workspace koa-service-app dev&quot;
-&#125;</code></pre>
-</li>
+&#125;</code></pre></li>
 </ul>
-<h2 id="scripts-说明"><a class="markdownIt-Anchor" href="#scripts-说明"></a> scripts 说明</h2>
-<pre class="language-bash" data-language="bash"><code class="language-bash"># 启动 mobile app
+<h2 id="scripts-说明"><a href="#scripts-说明" class="headerlink" title="scripts 说明"></a>scripts 说明</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># 启动 mobile app
 # 首先已经安装 http-server
 http-server -p .&#x2F;package&#x2F;mobile
 
@@ -1685,8 +1595,8 @@ yarn workspace nextjs-app dev
 
 # 启动 koa node server
 yarn workspace koa-service-app start</code></pre>
-<h2 id="yarn-workspace-cli"><a class="markdownIt-Anchor" href="#yarn-workspace-cli"></a> yarn workspace cli</h2>
-<pre class="language-bash" data-language="bash"><code class="language-bash"># root install dependency xxxxx
+
+<h2 id="yarn-workspace-cli"><a href="#yarn-workspace-cli" class="headerlink" title="yarn workspace cli"></a>yarn workspace cli</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># root install dependency xxxxx
 yarn add -W -D xxxxx
 
 # root remove dependency xxxxx
@@ -1700,8 +1610,8 @@ yarn workspace app1 dev
 
 # build all package
 yarn workspaces run build</code></pre>
-<h2 id="提取公共依赖包"><a class="markdownIt-Anchor" href="#提取公共依赖包"></a> 提取公共依赖包</h2>
-<p>把各个项目中公共依赖提取到根目录<code>package.json</code>中方便统一管理</p>
+
+<h2 id="提取公共依赖包"><a href="#提取公共依赖包" class="headerlink" title="提取公共依赖包"></a>提取公共依赖包</h2><p>把各个项目中公共依赖提取到根目录<code>package.json</code>中方便统一管理</p>
 <pre class="language-json" data-language="json"><code class="language-json">&#123;
   &quot;dependencies&quot;: &#123;
     &quot;react&quot;: &quot;^17.0.2&quot;,
@@ -1725,16 +1635,14 @@ yarn workspaces run build</code></pre>
     &quot;react-scripts&quot;: &quot;4.0.3&quot;
   &#125;
 &#125;</code></pre>
-<h2 id="注意事项"><a class="markdownIt-Anchor" href="#注意事项"></a> 注意事项</h2>
-<ul>
+
+
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
 <li>如果本地新增 package 记得执行 <code>yarn install</code></li>
 </ul>
-<h2 id="版本管理"><a class="markdownIt-Anchor" href="#版本管理"></a> 版本管理</h2>
-<p>如果想对版本进行管理可以结合 <a href="https://lerna.js.org/">leran</a></p>
-<h2 id="github-地址"><a class="markdownIt-Anchor" href="#github-地址"></a> github 地址</h2>
-<p><a href="https://github.com/qqxs/monorepo">yarn workspaces monorepo</a></p>
-<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
-<ul>
+<h2 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h2><p>如果想对版本进行管理可以结合 <a href="https://lerna.js.org/">leran</a></p>
+<h2 id="github-地址"><a href="#github-地址" class="headerlink" title="github 地址"></a>github 地址</h2><p><a href="https://github.com/qqxs/monorepo">yarn workspaces monorepo</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://yarnpkg.com/features/workspaces">yarn workspace</a></li>
 <li><a href="https://create-react-app.dev/docs/adding-typescript">create-react-app</a></li>
 <li><a href="https://nextjs.org/">next.js</a></li>
@@ -1751,1027 +1659,9 @@ yarn workspaces run build</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>tapable 使用随笔</title>
-    <url>/2022/11/28/webpack/tapable/</url>
-    <content><![CDATA[<h2 id="tapable"><a class="markdownIt-Anchor" href="#tapable"></a> tapable</h2>
-<p>The <a href="https://github.com/webpack/tapable">tapable</a> package expose many Hook classes, which can be used to create hooks for plugins.</p>
-<p><code>tapable</code> 是一个发布订阅模式的实现，它提供了很多应对业务的 <code>hooks</code> 实现和抽象。主要分为两大类同步和异步。</p>
-<h2 id="base-hooks"><a class="markdownIt-Anchor" href="#base-hooks"></a> Base Hooks</h2>
-<ul>
-<li><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/Hook.js?L25:1">Hooks</a></li>
-</ul>
-<p>继承 <code>Hooks</code> 的类需要自己实现<code>compile</code>抽象方法。</p>
-<ul>
-<li><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a></li>
-</ul>
-<p>继承<code>HookCodeFactory</code>类需要实现抽象方法<code>content</code>, 返回 <code>call</code>或<code>callAsync</code>或<code>promise</code> 的函数体的实现的代码字符串， 然后使用 <code>Function</code> 生成一个<code>call</code>或<code>callAsync</code>或<code>promise</code> 函数</p>
-<h2 id="synchook"><a class="markdownIt-Anchor" href="#synchook"></a> SyncHook</h2>
-<p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncHook.js?L35:1">SyncHook</a> 按注册的回调函数串行之行。</p>
-<p>简单使用：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new SyncHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncHook&#96;的入参的数组有关系
-hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(1, arg1, arg2, arg3);
-  return &quot;fn0&quot;; &#x2F;&#x2F; 回调函数的返回值之间没有联系
-&#125;);
-hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(2, arg1, arg2, arg3);
-  return &quot;fn1&quot;;
-&#125;);
-hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(3, arg1, arg2, arg3);
-  return &quot;fn2&quot;;
-&#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
-<p><code>call</code>由<a href="https://sourcegraph.com/search?q=context:global+repo:%5Egithub%5C.com/webpack/tapable%24+SyncHookCodeFactory&amp;patternType=standard&amp;sm=1">SyncHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
-&#x2F;&#x2F; 这段代码需要使用 &#96;Function&#96; 来生成&#96;call&#96;方法来执行
-&#x2F;&#x2F; 其中&#96;this._x&#96;就是注册的回调函数组成的数组
-&#x2F;&#x2F; 可以看出回调函数的调用就是把数组中的函数展开
-&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-var _fn0 &#x3D; _x[0];
-_fn0(arg3, arg2, arg1); &#x2F;&#x2F; 回调函数 fn0
-var _fn1 &#x3D; _x[1];
-_fn1(arg3, arg2, arg1); &#x2F;&#x2F; 回调函数 fn1
-var _fn2 &#x3D; _x[2];
-_fn2(arg3, arg2, arg1); &#x2F;&#x2F; 回调函数 fn2</code></pre>
-<h2 id="syncbailhook"><a class="markdownIt-Anchor" href="#syncbailhook"></a> SyncBailHook</h2>
-<p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncBailHook.js?L40:1">SyncBailHook</a> 会对每次执行的结果进行检测，如果结果不是 <code>undefined</code> 就直接 <code>return</code> 了，后面的回调函数就没有机会执行了。</p>
-<p>简单使用：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncBailHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-&#x2F;&#x2F; 同步执行回调函数，回调函数返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了
-const hook &#x3D; new SyncBailHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncBailHook&#96;的入参的数组有关系
-hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-  return undefined;
-&#125;);
-hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-  &#x2F;&#x2F; 如果回调函数的返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了
-  return &quot;fn1&quot;;
-&#125;);
-hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-  return undefined;
-&#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
-<p><code>call</code>由<code>SyncBailHookCodeFactory</code>的<code>content</code>实现, 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
-&#x2F;&#x2F; 参数和SyncHook是一致的，区别在于回调函数的返回值
-&#x2F;&#x2F; 如果回调函数的返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
-&#x2F;&#x2F; 就像一个有限的套娃🪆
-&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-var _fn0 &#x3D; _x[0];
-var _result0 &#x3D; _fn0(arg3, arg2, arg1);
-&#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
-if (_result0 !&#x3D;&#x3D; undefined) &#123;
-  return _result0;
-&#125; else &#123;
-  var _fn1 &#x3D; _x[1];
-  var _result1 &#x3D; _fn1(arg3, arg2, arg1);
-  &#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
-  if (_result1 !&#x3D;&#x3D; undefined) &#123;
-    return _result1;
-  &#125; else &#123;
-    var _fn2 &#x3D; _x[2];
-    var _result2 &#x3D; _fn2(arg3, arg2, arg1);
-    &#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
-    if (_result2 !&#x3D;&#x3D; undefined) &#123;
-      return _result2;
-    &#125; else &#123;
-    &#125;
-  &#125;
-&#125;</code></pre>
-<h2 id="syncloophook"><a class="markdownIt-Anchor" href="#syncloophook"></a> SyncLoopHook</h2>
-<p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncLoopHook.js?L35:1">SyncLoopHook</a> 会对每次执行的结果进行检测，如果结果不是 <code>undefined</code> 就不停循环第一个回调函数到当前回调函数，直至都返回 <code>undefined</code>。</p>
-<p>简单使用：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncLoopHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new SyncLoopHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
-let _loop &#x3D; 4;
-
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncLoopHook&#96;的入参的数组有关系
-hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-  return undefined;
-&#125;);
-hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-  _loop &#x3D; _loop - 1;
-  &#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就不停循环 &#96;f0&#96; &#96;f1&#96;，直至都返回 &#96;undefined&#96;。
-  return _loop &gt; 0 ? _loop : undefined;
-&#125;);
-hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-  return undefined;
-&#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
-<p><code>call</code>由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncLoopHook.js?L10:1">SyncLoopHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
-&#x2F;&#x2F; 参数和SyncHook是一致的，区别在于回调函数的返回值
-&#x2F;&#x2F; 如果结果不是 &#96;undefined&#96; 就不停循环第一个回调函数到当前回调函数，直至都返回 &#96;undefined&#96;
-&#x2F;&#x2F; 注意: 不返回&#96;undefined&#96;就不停循环，容易造成死循环
-&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-var _loop;
-do &#123;
-  _loop &#x3D; false;
-  var _fn0 &#x3D; _x[0];
-  var _result0 &#x3D; _fn0(arg3, arg2, arg1);
-  if (_result0 !&#x3D;&#x3D; undefined) &#123;
-    _loop &#x3D; true;
-  &#125; else &#123;
-    var _fn1 &#x3D; _x[1];
-    var _result1 &#x3D; _fn1(arg3, arg2, arg1);
-    if (_result1 !&#x3D;&#x3D; undefined) &#123;
-      _loop &#x3D; true;
-    &#125; else &#123;
-      var _fn2 &#x3D; _x[2];
-      var _result2 &#x3D; _fn2(arg3, arg2, arg1);
-      if (_result2 !&#x3D;&#x3D; undefined) &#123;
-        _loop &#x3D; true;
-      &#125; else &#123;
-        if (!_loop) &#123;
-        &#125;
-      &#125;
-    &#125;
-  &#125;
-&#125; while (_loop);</code></pre>
-<h2 id="syncwaterfallhook"><a class="markdownIt-Anchor" href="#syncwaterfallhook"></a> SyncWaterfallHook</h2>
-<p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncWaterfallHook.js?L44">SyncWaterfallHook</a> 会对每次执行的结果当成下一个回调函数的入参（<code>call</code>的入参 ），如果返回值是 <code>undefined</code>，使用上一个参数。</p>
-<p>简单使用：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncWaterfallHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new SyncWaterfallHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
-
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncWaterfallHook&#96;的入参的数组有关系
-hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-  return &quot;fn0-result&quot;;
-&#125;);
-hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-  return undefined;
-&#125;);
-hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-  return &quot;fn2&quot;;
-&#125;);
-hook.tap(&quot;fn3&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  console.log(&quot;fn3&quot;, arg1, arg2, arg3);
-  return &quot;fn3&quot;;
-&#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
-&#x2F;&#x2F; 执行结果：
-&#x2F;&#x2F; fn0 a b c
-&#x2F;&#x2F; fn1 fn0-result b c
-&#x2F;&#x2F; fn2 fn0-result b c
-&#x2F;&#x2F; fn3 fn2 b c</code></pre>
-<p><code>call</code>由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncWaterfallHook.js?L10:7">SyncWaterfallHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
-&#x2F;&#x2F; 参数和SyncHook是一致的，区别在于回调函数的返回值
-&#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
-&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-var _fn0 &#x3D; _x[0];
-var _result0 &#x3D; _fn0(arg1, arg2, arg3);
-if (_result0 !&#x3D;&#x3D; undefined) &#123;
-  &#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
-  arg1 &#x3D; _result0;
-&#125;
-var _fn1 &#x3D; _x[1];
-var _result1 &#x3D; _fn1(arg1, arg2, arg3);
-if (_result1 !&#x3D;&#x3D; undefined) &#123;
-  &#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
-  arg1 &#x3D; _result1;
-&#125;
-var _fn2 &#x3D; _x[2];
-var _result2 &#x3D; _fn2(arg1, arg2, arg3);
-if (_result2 !&#x3D;&#x3D; undefined) &#123;
-  &#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
-  arg1 &#x3D; _result2;
-&#125;
-var _fn3 &#x3D; _x[3];
-var _result3 &#x3D; _fn3(arg1, arg2, arg3);
-if (_result3 !&#x3D;&#x3D; undefined) &#123;
-  arg1 &#x3D; _result3;
-&#125;
-return arg1;</code></pre>
-<h2 id="asyncserieshook"><a class="markdownIt-Anchor" href="#asyncserieshook"></a> AsyncSeriesHook</h2>
-<p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L26:1">AsyncSeriesHook</a>异步串行</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new AsyncSeriesHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
-
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesHook&#96;的入参的数组有关系
-hook.tapAsync(&quot;fn0&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  setTimeout(() &#x3D;&gt; &#123;
-    console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-    callback();
-  &#125;, 1000);
-&#125;);
-hook.tapAsync(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  setTimeout(() &#x3D;&gt; &#123;
-    console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-    callback();
-  &#125;, 1000);
-&#125;);
-hook.tapAsync(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  setTimeout(() &#x3D;&gt; &#123;
-    console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-    callback(); &#x2F;&#x2F; 决定 &#96;callAsync&#96; 最后的实参callback是否会被调用
-  &#125;, 1000);
-&#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.callAsync(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, () &#x3D;&gt; &#123;
-  console.log(&quot;AsyncSeriesHook async&quot;);
-&#125;);
-
-&#x2F;&#x2F; 执行结果：
-&#x2F;&#x2F; fn0 a b c
-&#x2F;&#x2F; fn1 a b c
-&#x2F;&#x2F; fn2 a b c
-&#x2F;&#x2F; AsyncSeriesHook async</code></pre>
-<p><code>callAsync</code> 由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L10:1">AsyncSeriesHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L276">callTapsSeries</a>实现。 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-function _next1() &#123;
-  var _fn2 &#x3D; _x[2];
-  _fn2(arg1, arg2, arg3, function (_err2) &#123;
-    &#x2F;&#x2F; ...
-  &#125;);
-&#125;
-function _next0() &#123;
-  var _fn1 &#x3D; _x[1];
-  _fn1(arg1, arg2, arg3, function (_err1) &#123;
-    &#x2F;&#x2F; ...
-    _next1();
-  &#125;);
-&#125;
-var _fn0 &#x3D; _x[0];
-_fn0(arg1, arg2, arg3, function (_err0) &#123;
-  &#x2F;&#x2F; ...
-  _next0();
-&#125;);</code></pre>
-<p><code>Promise</code> 方式</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesHook &#125; &#x3D; require(&quot;tapable&quot;);
-
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new AsyncSeriesHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
-
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesHook&#96;的入参的数组有关系
-hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
-  &#125;);
-&#125;);
-hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
-  &#125;);
-&#125;);
-hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
-  &#125;);
-&#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
-<p><code>promise</code> 由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L10:1">AsyncSeriesHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L276">callTapsSeries</a>实现。 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-function _next1() &#123;
-  var _fn2 &#x3D; _x[2];
-  var _hasResult2 &#x3D; false;
-  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
-  _promise2.then(function (_result2) &#123;
-    _hasResult2 &#x3D; true;
-  &#125;);
-&#125;
-function _next0() &#123;
-  var _fn1 &#x3D; _x[1];
-  var _hasResult1 &#x3D; false;
-  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
-  _promise1.then(function (_result1) &#123;
-    _hasResult1 &#x3D; true;
-    _next1();
-  &#125;);
-&#125;
-var _fn0 &#x3D; _x[0];
-var _hasResult0 &#x3D; false;
-var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
-_promise0.then(function (_result0) &#123;
-  _hasResult0 &#x3D; true;
-  _next0();
-&#125;);</code></pre>
-<h2 id="asyncseriesbailhook"><a class="markdownIt-Anchor" href="#asyncseriesbailhook"></a> AsyncSeriesBailHook</h2>
-<p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesBailHook.js?L31">AsyncSeriesBailHook</a> 会对每次异步执行的结果进行检测，如果结果不是 <code>undefined</code> 就直接 <code>return</code> 了，后面的回调函数就没有机会执行了</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesBailHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new AsyncSeriesBailHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
-
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesBailHook&#96;的入参的数组有关系
-&#x2F;&#x2F; 串行调用
-hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
-  &#125;);
-&#125;);
-hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-      resolve(12); &#x2F;&#x2F; 后面的回调不会执行
-    &#125;, 1000);
-  &#125;);
-&#125;);
-hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
-  &#125;);
-&#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
-
-&#x2F;&#x2F; 执行结果：
-&#x2F;&#x2F; fn0 a b c
-&#x2F;&#x2F; fn1 a b c</code></pre>
-<p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-function _next1() &#123;
-  var _fn2 &#x3D; _x[2];
-  var _hasResult2 &#x3D; false;
-  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
-  &#x2F;&#x2F;...
-  _promise2.then(function (_result2) &#123;
-    _hasResult2 &#x3D; true;
-    if (_result2 !&#x3D;&#x3D; undefined) &#123;
-      return _result2;
-    &#125; else &#123;
-    &#125;
-  &#125;);
-&#125;
-function _next0() &#123;
-  var _fn1 &#x3D; _x[1];
-  var _hasResult1 &#x3D; false;
-  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
-  &#x2F;&#x2F;...
-  _promise1.then(
-    function (_result1) &#123;
-      _hasResult1 &#x3D; true;
-      if (_result1 !&#x3D;&#x3D; undefined) &#123;
-        return _result1;
-      &#125; else &#123;
-        return _next1();
-      &#125;
-    &#125;
-    &#x2F;&#x2F;...
-  );
-&#125;
-var _fn0 &#x3D; _x[0];
-var _hasResult0 &#x3D; false;
-var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
-&#x2F;&#x2F;...
-_promise0.then(
-  function (_result0) &#123;
-    _hasResult0 &#x3D; true;
-    if (_result0 !&#x3D;&#x3D; undefined) &#123;
-      return _result0;
-    &#125; else &#123;
-      return _next0();
-    &#125;
-  &#125;
-  &#x2F;&#x2F;...
-);</code></pre>
-<h2 id="asyncseriesloophook"><a class="markdownIt-Anchor" href="#asyncseriesloophook"></a> AsyncSeriesLoopHook</h2>
-<p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesLoopHook.js?L26">AsyncSeriesLoopHook</a>会对每次异步执行的结果进行检测，如果结果不是 <code>undefined</code> 就不停循环第一个回调函数到当前回调函数，直至都返回 <code>undefined</code>。</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesLoopHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new AsyncSeriesLoopHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
-
-let _loop &#x3D; 2; &#x2F;&#x2F; 循环两次
-
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesLoopHook&#96;的入参的数组有关系
-hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
-  &#125;);
-&#125;);
-hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-      resolve(_loop &gt; 0 ? &quot;fn1 result&quot; : undefined);
-      _loop &#x3D; _loop - 1;
-    &#125;, 1000);
-  &#125;);
-&#125;);
-hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
-  &#125;);
-&#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
-
-&#x2F;&#x2F; 执行结果
-&#x2F;&#x2F; fn0 a b c
-&#x2F;&#x2F; fn1 a b c
-&#x2F;&#x2F; fn0 a b c &#x2F;&#x2F; 循环
-&#x2F;&#x2F; fn1 a b c &#x2F;&#x2F; 循环
-&#x2F;&#x2F; fn0 a b c &#x2F;&#x2F; 循环
-&#x2F;&#x2F; fn1 a b c &#x2F;&#x2F; 循环
-&#x2F;&#x2F; fn2 a b c</code></pre>
-<p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
-<p><code>promise</code> 由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesLoopHook.js?L10:1">AsyncSeriesLoopHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L324:2">callTapsLooping</a>实现。 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-var _looper &#x3D; function () &#123;
-  var _loopAsync &#x3D; false;
-  var _loop;
-  do &#123;
-    _loop &#x3D; false;
-    function _next1() &#123;
-      var _fn2 &#x3D; _x[2];
-      var _hasResult2 &#x3D; false;
-      var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
-      &#x2F;&#x2F; 判断返回是不是promise
-      if (!_promise2 || !_promise2.then)
-        throw new Error(
-          &quot;Tap function (tapPromise) did not return promise (returned &quot; +
-            _promise2 +
-            &quot;)&quot;
-        );
-      _promise2.then(
-        function (_result2) &#123;
-          _hasResult2 &#x3D; true;
-          if (_result2 !&#x3D;&#x3D; undefined) &#123;
-            _loop &#x3D; true;
-            if (_loopAsync) _looper();
-          &#125; else &#123;
-            if (!_loop) &#123;
-            &#125;
-          &#125;
-        &#125;
-        &#x2F;&#x2F; ... reject 处理
-      );
-    &#125;
-    function _next0() &#123;
-      var _fn1 &#x3D; _x[1];
-      var _hasResult1 &#x3D; false;
-      var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
-      &#x2F;&#x2F; ...
-      _promise1.then(
-        function (_result1) &#123;
-          _hasResult1 &#x3D; true;
-          if (_result1 !&#x3D;&#x3D; undefined) &#123;
-            _loop &#x3D; true;
-            if (_loopAsync) _looper();
-          &#125; else &#123;
-            _next1();
-          &#125;
-        &#125;
-        &#x2F;&#x2F; ... reject 处理
-      );
-    &#125;
-    var _fn0 &#x3D; _x[0];
-    var _hasResult0 &#x3D; false;
-    var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
-    &#x2F;&#x2F; ...
-    _promise0.then(
-      function (_result0) &#123;
-        _hasResult0 &#x3D; true;
-        if (_result0 !&#x3D;&#x3D; undefined) &#123;
-          _loop &#x3D; true;
-          if (_loopAsync) _looper();
-        &#125; else &#123;
-          _next0();
-        &#125;
-      &#125;
-      &#x2F;&#x2F; ... reject 处理
-    );
-  &#125; while (_loop);
-  _loopAsync &#x3D; true;
-&#125;;
-_looper();</code></pre>
-<h2 id="asyncserieswaterfallhook"><a class="markdownIt-Anchor" href="#asyncserieswaterfallhook"></a> AsyncSeriesWaterfallHook</h2>
-<p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesWaterfallHook.js?L34">AsyncSeriesWaterfallHook</a>会对每次执行异步函数的结果当成下一个回调函数的入参（<code>callAsync</code>/<code>promise</code>的入参 ），如果返回值是 <code>undefined</code>，使用上一个参数。</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesWaterfallHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-const hook &#x3D; new AsyncSeriesWaterfallHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
-
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesWaterfallHook&#96;的入参的数组有关系
-hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
-  &#125;);
-&#125;);
-hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-      resolve(&quot;fn1-result&quot;); &#x2F;&#x2F; 返回值作为fn2的第一个入参
-    &#125;, 1000);
-  &#125;);
-&#125;);
-hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
-  &#125;);
-&#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
-
-&#x2F;&#x2F; 执行结果
-&#x2F;&#x2F; fn0 a b c
-&#x2F;&#x2F; fn1 a b c
-&#x2F;&#x2F; fn2 fn1-result b c</code></pre>
-<p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
-<p><code>promise</code> 由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesWaterfallHook.js?L10:1">AsyncSeriesWaterfallHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L276">callTapsSeries</a>实现。 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-function _next2() &#123;
-  var _fn3 &#x3D; _x[3];
-  var _hasResult3 &#x3D; false;
-  var _promise3 &#x3D; _fn3(arg1, arg2, arg3);
-  if (!_promise3 || !_promise3.then)
-    &#x2F;&#x2F; 判断返回是不是promise
-    throw new Error(
-      &quot;Tap function (tapPromise) did not return promise (returned &quot; +
-        _promise3 +
-        &quot;)&quot;
-    );
-  _promise3.then(
-    function (_result3) &#123;
-      _hasResult3 &#x3D; true;
-      if (_result3 !&#x3D;&#x3D; undefined) &#123;
-        arg1 &#x3D; _result3;
-      &#125;
-      return arg1;
-    &#125;
-    &#x2F;&#x2F; ...
-  );
-&#125;
-function _next1() &#123;
-  var _fn2 &#x3D; _x[2];
-  var _hasResult2 &#x3D; false;
-  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
-  &#x2F;&#x2F; ...
-  _promise2.then(function (_result2) &#123;
-    _hasResult2 &#x3D; true;
-    if (_result2 !&#x3D;&#x3D; undefined) &#123;
-      arg1 &#x3D; _result2;
-    &#125;
-    _next2();
-  &#125;);
-&#125;
-function _next0() &#123;
-  var _fn1 &#x3D; _x[1];
-  var _hasResult1 &#x3D; false;
-  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
-  &#x2F;&#x2F; ...
-  _promise1.then(
-    function (_result1) &#123;
-      _hasResult1 &#x3D; true;
-      if (_result1 !&#x3D;&#x3D; undefined) &#123;
-        arg1 &#x3D; _result1;
-      &#125;
-      _next1();
-    &#125;
-    &#x2F;&#x2F; ...
-  );
-&#125;
-var _fn0 &#x3D; _x[0];
-var _hasResult0 &#x3D; false;
-var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
-&#x2F;&#x2F; ...
-_promise0.then(
-  function (_result0) &#123;
-    _hasResult0 &#x3D; true;
-    if (_result0 !&#x3D;&#x3D; undefined) &#123;
-      arg1 &#x3D; _result0;
-    &#125;
-    _next0();
-  &#125;
-  &#x2F;&#x2F; ...
-);</code></pre>
-<h2 id="asyncparallelhook"><a class="markdownIt-Anchor" href="#asyncparallelhook"></a> AsyncParallelHook</h2>
-<p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelHook.js?L26:1">AsyncParallelHook</a>并行执行, 不关心回调函数的返回值。</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncParallelHook &#125; &#x3D; require(&quot;tapable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-&#x2F;&#x2F; 并行执行 不关心回调函数的返回值。
-const hook &#x3D; new AsyncParallelHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
-
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncParallelHook&#96;的入参的数组有关系
-hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
-  &#125;);
-&#125;);
-hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-      resolve(&quot;fn1-result&quot;);
-    &#125;, 1000);
-  &#125;);
-&#125;);
-hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 500);
-  &#125;);
-&#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
-
-&#x2F;&#x2F; 执行结果
-&#x2F;&#x2F; fn2 a b c
-&#x2F;&#x2F; fn0 a b c
-&#x2F;&#x2F; fn1 a b c</code></pre>
-<p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
-<p><code>promise</code> 由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelHook.js?L10:1">AsyncParallelHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L376:2">callTapsParallel</a>实现。 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-do &#123;
-  var _counter &#x3D; 3;
-  var _done &#x3D; function () &#123;&#125;;
-  if (_counter &lt;&#x3D; 0) break;
-  var _fn0 &#x3D; _x[0];
-  var _hasResult0 &#x3D; false;
-  var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
-
-  &#x2F;&#x2F; 判断返回是不是promise
-  if (!_promise0 || !_promise0.then)
-    throw new Error(
-      &quot;Tap function (tapPromise) did not return promise (returned &quot; +
-        _promise0 +
-        &quot;)&quot;
-    );
-  _promise0.then(
-    function (_result0) &#123;
-      _hasResult0 &#x3D; true;
-      if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
-    &#125;,
-    function (_err0) &#123;
-      if (_hasResult0) throw _err0;
-      if (_counter &gt; 0) &#123;
-        throw _err0;
-        _counter &#x3D; 0;
-      &#125;
-    &#125;
-  );
-  if (_counter &lt;&#x3D; 0) break;
-  var _fn1 &#x3D; _x[1];
-  var _hasResult1 &#x3D; false;
-  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
-  &#x2F;&#x2F; ...
-  _promise1.then(
-    function (_result1) &#123;
-      _hasResult1 &#x3D; true;
-      if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
-    &#125;,
-    function (_err1) &#123;
-      if (_hasResult1) throw _err1;
-      if (_counter &gt; 0) &#123;
-        throw _err1;
-        _counter &#x3D; 0;
-      &#125;
-    &#125;
-  );
-  if (_counter &lt;&#x3D; 0) break;
-  var _fn2 &#x3D; _x[2];
-  var _hasResult2 &#x3D; false;
-  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
-  &#x2F;&#x2F; ...
-  _promise2.then(
-    function (_result2) &#123;
-      _hasResult2 &#x3D; true;
-      if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
-    &#125;,
-    function (_err2) &#123;
-      if (_hasResult2) throw _err2;
-      if (_counter &gt; 0) &#123;
-        throw _err2;
-        _counter &#x3D; 0;
-      &#125;
-    &#125;
-  );
-&#125; while (false);</code></pre>
-<h2 id="asyncparallelbailhook"><a class="markdownIt-Anchor" href="#asyncparallelbailhook"></a> AsyncParallelBailHook</h2>
-<p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelBailHook.js?L74:1">AsyncParallelBailHook</a> 只要回调函数的返回值不为 <code>undefined</code>, 就会忽略后面的回调函数执行, 直接跳跃到 <code>callAsync</code> 等触发函数绑定的回调函数, 然后执行这个被绑定的回调函数。</p>
-<p>使用和原理与 SyncBailHook 相似</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncParallelBailHook &#125; &#x3D; require(&quot;tabable&quot;);
-&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
-&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
-&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
-&#x2F;&#x2F; 并行执行 不关心回调函数的返回值。
-const hook &#x3D; new AsyncParallelBailHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
-
-&#x2F;&#x2F; 注册
-&#x2F;&#x2F; 第一个入参为注册名
-&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncParallelBailHook&#96;的入参的数组有关系
-hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 1000);
-  &#125;);
-&#125;);
-hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
-      resolve(&quot;fn1-result&quot;);
-    &#125;, 1000);
-  &#125;);
-&#125;);
-hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
-  return new Promise((resolve, reject) &#x3D;&gt; &#123;
-    setTimeout(() &#x3D;&gt; &#123;
-      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
-      resolve();
-    &#125;, 500);
-  &#125;);
-&#125;);
-&#x2F;&#x2F; 执行
-&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
-hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
-
-&#x2F;&#x2F; 执行结果
-&#x2F;&#x2F; fn2 a b c
-&#x2F;&#x2F; fn0 a b c
-&#x2F;&#x2F; fn1 a b c</code></pre>
-<p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
-<p><code>promise</code> 由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelBailHook.js?L10:1">AsyncParallelBailHookCodeFactory</a>的<code>content</code>实现。 结果如下：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
-var _context;
-var _x &#x3D; this._x;
-var _results &#x3D; new Array(3);
-var _checkDone &#x3D; function () &#123;
-  for (var i &#x3D; 0; i &lt; _results.length; i++) &#123;
-    var item &#x3D; _results[i];
-    if (item &#x3D;&#x3D;&#x3D; undefined) return false;
-    if (item.result !&#x3D;&#x3D; undefined) &#123;
-      return item.result;
-      return true;
-    &#125;
-    if (item.error) &#123;
-      throw item.error;
-      return true;
-    &#125;
-  &#125;
-  return false;
-&#125;;
-do &#123;
-  var _counter &#x3D; 3;
-  var _done &#x3D; function () &#123;&#125;;
-  if (_counter &lt;&#x3D; 0) break;
-  var _fn0 &#x3D; _x[0];
-  var _hasResult0 &#x3D; false;
-  var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
-  &#x2F;&#x2F; 判断返回是不是promise
-  if (!_promise0 || !_promise0.then)
-    throw new Error(
-      &quot;Tap function (tapPromise) did not return promise (returned &quot; +
-        _promise0 +
-        &quot;)&quot;
-    );
-  _promise0.then(
-    function (_result0) &#123;
-      _hasResult0 &#x3D; true;
-      if (_counter &gt; 0) &#123;
-        if (
-          0 &lt; _results.length &amp;&amp;
-          (_result0 !&#x3D;&#x3D; undefined &amp;&amp; (_results.length &#x3D; 1),
-          (_results[0] &#x3D; &#123; result: _result0 &#125;),
-          _checkDone())
-        ) &#123;
-          _counter &#x3D; 0;
-        &#125; else &#123;
-          if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
-        &#125;
-      &#125;
-    &#125;,
-    function (_err0) &#123;
-      if (_hasResult0) throw _err0;
-      if (_counter &gt; 0) &#123;
-        if (
-          0 &lt; _results.length &amp;&amp;
-          ((_results.length &#x3D; 1),
-          (_results[0] &#x3D; &#123; error: _err0 &#125;),
-          _checkDone())
-        ) &#123;
-          _counter &#x3D; 0;
-        &#125; else &#123;
-          if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
-        &#125;
-      &#125;
-    &#125;
-  );
-  if (_counter &lt;&#x3D; 0) break;
-  if (1 &gt;&#x3D; _results.length) &#123;
-    if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
-  &#125; else &#123;
-    var _fn1 &#x3D; _x[1];
-    var _hasResult1 &#x3D; false;
-    var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
-    &#x2F;&#x2F; ...
-    _promise1.then(
-      function (_result1) &#123;
-        _hasResult1 &#x3D; true;
-        if (_counter &gt; 0) &#123;
-          if (
-            1 &lt; _results.length &amp;&amp;
-            (_result1 !&#x3D;&#x3D; undefined &amp;&amp; (_results.length &#x3D; 2),
-            (_results[1] &#x3D; &#123; result: _result1 &#125;),
-            _checkDone())
-          ) &#123;
-            _counter &#x3D; 0;
-          &#125; else &#123;
-            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
-          &#125;
-        &#125;
-      &#125;,
-      function (_err1) &#123;
-        if (_hasResult1) throw _err1;
-        if (_counter &gt; 0) &#123;
-          if (
-            1 &lt; _results.length &amp;&amp;
-            ((_results.length &#x3D; 2),
-            (_results[1] &#x3D; &#123; error: _err1 &#125;),
-            _checkDone())
-          ) &#123;
-            _counter &#x3D; 0;
-          &#125; else &#123;
-            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
-          &#125;
-        &#125;
-      &#125;
-    );
-  &#125;
-  if (_counter &lt;&#x3D; 0) break;
-  if (2 &gt;&#x3D; _results.length) &#123;
-    if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
-  &#125; else &#123;
-    var _fn2 &#x3D; _x[2];
-    var _hasResult2 &#x3D; false;
-    var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
-    &#x2F;&#x2F; ...
-    _promise2.then(
-      function (_result2) &#123;
-        _hasResult2 &#x3D; true;
-        if (_counter &gt; 0) &#123;
-          if (
-            2 &lt; _results.length &amp;&amp;
-            (_result2 !&#x3D;&#x3D; undefined &amp;&amp; (_results.length &#x3D; 3),
-            (_results[2] &#x3D; &#123; result: _result2 &#125;),
-            _checkDone())
-          ) &#123;
-            _counter &#x3D; 0;
-          &#125; else &#123;
-            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
-          &#125;
-        &#125;
-      &#125;,
-      function (_err2) &#123;
-        if (_hasResult2) throw _err2;
-        if (_counter &gt; 0) &#123;
-          if (
-            2 &lt; _results.length &amp;&amp;
-            ((_results.length &#x3D; 3),
-            (_results[2] &#x3D; &#123; error: _err2 &#125;),
-            _checkDone())
-          ) &#123;
-            _counter &#x3D; 0;
-          &#125; else &#123;
-            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
-          &#125;
-        &#125;
-      &#125;
-    );
-  &#125;
-&#125; while (false);</code></pre>
-<p>参考</p>
-<p><a href="https://github.com/webpack/tapable">tapable</a></p>
-<p><a href="https://www.cnblogs.com/dennisj/p/14606902.html">webpack 核心模块 tapable 源码解析</a></p>
-]]></content>
-      <categories>
-        <category>Webpack</category>
-      </categories>
-      <tags>
-        <tag>Webpack</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Typescript 类型操作</title>
     <url>/2020/11/21/typescript/type/</url>
-    <content><![CDATA[<h2 id="ts-类型操作"><a class="markdownIt-Anchor" href="#ts-类型操作"></a> Ts 类型操作</h2>
-<ul>
+    <content><![CDATA[<h2 id="Ts-类型操作"><a href="#Ts-类型操作" class="headerlink" title="Ts 类型操作"></a>Ts 类型操作</h2><ul>
 <li>Partial (部分, 把所有字段转为可选字段)</li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
@@ -2780,6 +1670,7 @@ do &#123;
 type Partial&lt;T&gt; &#x3D; &#123;
   [P in keyof T]?: T[P];
 &#125;;</code></pre>
+
 <p>example：</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">type partial &#x3D; &#123;
   name: string;
@@ -2794,6 +1685,7 @@ type Partial&lt;T&gt; &#x3D; &#123;
  * &#125;
  *&#x2F;
 type TPartial &#x3D; Partial&lt;partial&gt;;</code></pre>
+
 <ul>
 <li>Required (需要, 把所有字段转为必选字段)</li>
 </ul>
@@ -2803,6 +1695,7 @@ type TPartial &#x3D; Partial&lt;partial&gt;;</code></pre>
 type Required&lt;T&gt; &#x3D; &#123;
   [P in keyof T]-?: T[P];
 &#125;;</code></pre>
+
 <p>example:</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">type required &#x3D; &#123;
   name?: string;
@@ -2817,6 +1710,7 @@ type Required&lt;T&gt; &#x3D; &#123;
  * &#125;
  *&#x2F;
 type TRequired &#x3D; Required&lt;required&gt;;</code></pre>
+
 <ul>
 <li>Readonly (只读，把所有字段转为只读字段)</li>
 </ul>
@@ -2826,6 +1720,7 @@ type TRequired &#x3D; Required&lt;required&gt;;</code></pre>
 type Readonly&lt;T&gt; &#x3D; &#123;
   readonly [P in keyof T]: T[P];
 &#125;;</code></pre>
+
 <p>example:</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">type Treadonly &#x3D; &#123;
   name?: string;
@@ -2840,6 +1735,7 @@ type Readonly&lt;T&gt; &#x3D; &#123;
  * &#125;
  *&#x2F;
 type TReadonly &#x3D; Readonly&lt;Treadonly&gt;;</code></pre>
+
 <ul>
 <li>Pick (挑选, 挑选指定的字段)</li>
 </ul>
@@ -2849,6 +1745,7 @@ type TReadonly &#x3D; Readonly&lt;Treadonly&gt;;</code></pre>
 type Pick&lt;T, K extends keyof T&gt; &#x3D; &#123;
   [P in K]: T[P];
 &#125;;</code></pre>
+
 <p>example:</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">type pick &#x3D; &#123;
   name?: string;
@@ -2864,6 +1761,7 @@ type Pick&lt;T, K extends keyof T&gt; &#x3D; &#123;
  * &#125;
  *&#x2F;
 type TPick &#x3D; Pick&lt;pick, &quot;name&quot; | &quot;age&quot;&gt;;</code></pre>
+
 <ul>
 <li>Record(记录,将 K 中所有的属性的值转化为 T 类型)</li>
 </ul>
@@ -2873,6 +1771,7 @@ type TPick &#x3D; Pick&lt;pick, &quot;name&quot; | &quot;age&quot;&gt;;</code></
 type Record&lt;K extends keyof any, T&gt; &#x3D; &#123;
   [P in K]: T;
 &#125;;</code></pre>
+
 <p>example:</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">type record &#x3D; &#123;
   name?: string;
@@ -2900,6 +1799,7 @@ type TRecord &#x3D; Record&lt;keyof record, string&gt;;
  * &#125;
  *&#x2F;
 type Ta &#x3D; Record&lt;&quot;a&quot; | &quot;b&quot; | &quot;c&quot; | 1, number&gt;;</code></pre>
+
 <ul>
 <li>Exclude(排除,从 T 中排除那些可分配给 U 的类型，)</li>
 </ul>
@@ -2907,8 +1807,10 @@ type Ta &#x3D; Record&lt;&quot;a&quot; | &quot;b&quot; | &quot;c&quot; | 1, numb
  * Exclude from T those types that are assignable to U
  *&#x2F;
 type Exclude&lt;T, U&gt; &#x3D; T extends U ? never : T;</code></pre>
+
 <p>example:</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">type T &#x3D; Exclude&lt;1 | 2, 1 | 3&gt;; &#x2F;&#x2F; -&gt; 2</code></pre>
+
 <ul>
 <li>Extract(提取,从 T 中提取可分配给 U 的类型， 交集)</li>
 </ul>
@@ -2916,8 +1818,10 @@ type Exclude&lt;T, U&gt; &#x3D; T extends U ? never : T;</code></pre>
  * Extract from T those types that are assignable to U
  *&#x2F;
 type Extract&lt;T, U&gt; &#x3D; T extends U ? T : never;</code></pre>
+
 <p>example:</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">type T &#x3D; Extract&lt;1 | 2, 1 | 3&gt;; &#x2F;&#x2F; -&gt; 1</code></pre>
+
 <ul>
 <li>Omit (删去, 构造一个除 K 类型外具有 T 属性的类型。)</li>
 </ul>
@@ -2925,6 +1829,7 @@ type Extract&lt;T, U&gt; &#x3D; T extends U ? T : never;</code></pre>
  * Construct a type with the properties of T except for those in type K.
  *&#x2F;
 type Omit&lt;T, K extends keyof any&gt; &#x3D; Pick&lt;T, Exclude&lt;keyof T, K&gt;&gt;;</code></pre>
+
 <p>example:</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">interface Person &#123;
   name: string;
@@ -2939,6 +1844,7 @@ type Omit&lt;T, K extends keyof any&gt; &#x3D; Pick&lt;T, Exclude&lt;keyof T, K&
  * &#125;
  *&#x2F;
 type OmitPerson &#x3D; Omit&lt;Person, &quot;name&quot; | &quot;age&quot;&gt;;</code></pre>
+
 <ul>
 <li>数组</li>
 </ul>
@@ -2953,18 +1859,18 @@ const arr2Example: arr2 &#x3D; [&quot;0&quot;, 1];
 &#x2F;** arr3Example 中只可以使用&#96;string&#96;或&#96;number&#96;类型填充，没有顺序要求 *&#x2F;
 type arr3 &#x3D; (string | number)[];
 const arr3Example: arr3 &#x3D; [0, &quot;1&quot;, &quot;2&quot;, 3, 4];</code></pre>
+
 <ul>
 <li>对象</li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">interface Persion&lt;T&gt; &#123;
   [key: T]: T;
 &#125;</code></pre>
+
 <ul>
-<li>
-<p>extends</p>
+<li><p>extends</p>
 </li>
-<li>
-<p>keyof (对于任何类型 <code>T</code>， <code>keyof T</code>的结果为 <code>T</code>上已知的公共属性名的联合)</p>
+<li><p>keyof (对于任何类型 <code>T</code>， <code>keyof T</code>的结果为 <code>T</code>上已知的公共属性名的联合)</p>
 </li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">interface Person &#123;
@@ -2973,28 +1879,34 @@ const arr3Example: arr3 &#x3D; [0, &quot;1&quot;, &quot;2&quot;, 3, 4];</code></
 &#125;
 
 type p &#x3D; keyof Person; &#x2F;&#x2F; -&gt; p &#x3D; &#39;name&#39; | &#39;age&#39;</code></pre>
+
 <ul>
 <li>typeof</li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript"></code></pre>
+
 <ul>
 <li>交叉类型 (交叉类型是将多个类型合并为一个类型)</li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">interface;</code></pre>
+
 <ul>
 <li>联合类型 (联合类型表示一个值可以是几种类型之一,用竖线<code>｜</code>分隔每个类型)</li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">function getNum(num: number | string): number &#123;
   return +num;
 &#125;</code></pre>
+
 <ul>
 <li>索引类型</li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript"></code></pre>
+
 <ul>
 <li>映射类型</li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript"></code></pre>
+
 <ul>
 <li>@4.1</li>
 </ul>
@@ -3022,9 +1934,9 @@ interface Person &#123;
 * &#125;
 *&#x2F;
 type LazyPerson &#x3D; Getters&lt;Person&gt;;</code></pre>
+
 <ul>
-<li>
-<p>React 中的类型约束</p>
+<li><p>React 中的类型约束</p>
 <ul>
 <li>FC (函数组件类型)</li>
 </ul>
@@ -3041,16 +1953,15 @@ type FC&lt;P &#x3D; &#123;&#125;&gt; &#x3D; FunctionComponent&lt;P&gt;;
 &#x2F;&#x2F; 具体使用
 interface IProps &#123;&#125;
 const App: FC&lt;IProps&gt; &#x3D; props &#x3D;&gt; &lt;div&gt;&#123;props.children&#125;&lt;&#x2F;div&gt;;</code></pre>
+
 <ul>
-<li>
-<p>useState</p>
+<li><p>useState</p>
 <p>React 中使用<code>useState</code>方法去设置 state</p>
 </li>
 </ul>
 <pre class="language-tsx" data-language="tsx"><code class="language-tsx">function useState&lt;S&gt;(
   initialState: S | (() &#x3D;&gt; S)
-): [S, Dispatch&lt;SetStateAction&lt;S&gt;&gt;];</code></pre>
-</li>
+): [S, Dispatch&lt;SetStateAction&lt;S&gt;&gt;];</code></pre></li>
 </ul>
 ]]></content>
       <categories>
@@ -3063,8 +1974,7 @@ const App: FC&lt;IProps&gt; &#x3D; props &#x3D;&gt; &lt;div&gt;&#123;props.child
   <entry>
     <title>webpack5 配置项</title>
     <url>/2022/11/13/webpack/config/</url>
-    <content><![CDATA[<h2 id="webpack5-配置项"><a class="markdownIt-Anchor" href="#webpack5-配置项"></a> webpack5 配置项</h2>
-<p>webpack <a href="https://sourcegraph.com/github.com/webpack/webpack@main/-/blob/declarations/WebpackOptions.d.ts">WebpackOptions</a></p>
+    <content><![CDATA[<h2 id="webpack5-配置项"><a href="#webpack5-配置项" class="headerlink" title="webpack5 配置项"></a>webpack5 配置项</h2><p>webpack <a href="https://sourcegraph.com/github.com/webpack/webpack@main/-/blob/declarations/WebpackOptions.d.ts">WebpackOptions</a></p>
 <p><a href="https://webpack.docschina.org/configuration/other-options">https://webpack.docschina.org/configuration/other-options</a></p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">export interface WebpackOptions &#123;
   &#x2F;**
@@ -3233,15 +2143,15 @@ const App: FC&lt;IProps&gt; &#x3D; props &#x3D;&gt; &lt;div&gt;&#123;props.child
    *&#x2F;
   watchOptions?: WatchOptions;
 &#125;</code></pre>
-<h2 id="loader"><a class="markdownIt-Anchor" href="#loader"></a> loader</h2>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+
+<h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
  * Custom values available in the loader context.
  *&#x2F;
 export interface Loader &#123;
   [k: string]: any;
 &#125;</code></pre>
-<h2 id="plugin"><a class="markdownIt-Anchor" href="#plugin"></a> plugin</h2>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+
+<h2 id="plugin"><a href="#plugin" class="headerlink" title="plugin"></a>plugin</h2><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
  * 向编译器添加其他插件
  *&#x2F;
 export type Plugins &#x3D; (WebpackPluginInstance | WebpackPluginFunction)[];
@@ -3271,6 +2181,1033 @@ export type WebpackPluginFunction &#x3D; (
       <tags>
         <tag>Tool</tag>
         <tag>Webpack5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>tapable 使用随笔</title>
+    <url>/2022/11/28/webpack/tapable/</url>
+    <content><![CDATA[<h2 id="tapable"><a href="#tapable" class="headerlink" title="tapable"></a>tapable</h2><p>The <a href="https://github.com/webpack/tapable">tapable</a> package expose many Hook classes, which can be used to create hooks for plugins.</p>
+<p><code>tapable</code> 是一个发布订阅模式的实现，它提供了很多应对业务的 <code>hooks</code> 实现和抽象。主要分为两大类同步和异步。</p>
+<h2 id="Base-Hooks"><a href="#Base-Hooks" class="headerlink" title="Base Hooks"></a>Base Hooks</h2><ul>
+<li><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/Hook.js?L25:1">Hooks</a></li>
+</ul>
+<p>继承 <code>Hooks</code> 的类需要自己实现<code>compile</code>抽象方法。</p>
+<ul>
+<li><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a></li>
+</ul>
+<p>继承<code>HookCodeFactory</code>类需要实现抽象方法<code>content</code>, 返回 <code>call</code>或<code>callAsync</code>或<code>promise</code> 的函数体的实现的代码字符串， 然后使用 <code>Function</code> 生成一个<code>call</code>或<code>callAsync</code>或<code>promise</code> 函数</p>
+<h2 id="SyncHook"><a href="#SyncHook" class="headerlink" title="SyncHook"></a>SyncHook</h2><p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncHook.js?L35:1">SyncHook</a> 按注册的回调函数串行之行。</p>
+<p>简单使用：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new SyncHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncHook&#96;的入参的数组有关系
+hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(1, arg1, arg2, arg3);
+  return &quot;fn0&quot;; &#x2F;&#x2F; 回调函数的返回值之间没有联系
+&#125;);
+hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(2, arg1, arg2, arg3);
+  return &quot;fn1&quot;;
+&#125;);
+hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(3, arg1, arg2, arg3);
+  return &quot;fn2&quot;;
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
+
+<p><code>call</code>由<a href="https://sourcegraph.com/search?q=context:global+repo:%5Egithub%5C.com/webpack/tapable$+SyncHookCodeFactory&patternType=standard&sm=1">SyncHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
+&#x2F;&#x2F; 这段代码需要使用 &#96;Function&#96; 来生成&#96;call&#96;方法来执行
+&#x2F;&#x2F; 其中&#96;this._x&#96;就是注册的回调函数组成的数组
+&#x2F;&#x2F; 可以看出回调函数的调用就是把数组中的函数展开
+&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+var _fn0 &#x3D; _x[0];
+_fn0(arg3, arg2, arg1); &#x2F;&#x2F; 回调函数 fn0
+var _fn1 &#x3D; _x[1];
+_fn1(arg3, arg2, arg1); &#x2F;&#x2F; 回调函数 fn1
+var _fn2 &#x3D; _x[2];
+_fn2(arg3, arg2, arg1); &#x2F;&#x2F; 回调函数 fn2</code></pre>
+
+<h2 id="SyncBailHook"><a href="#SyncBailHook" class="headerlink" title="SyncBailHook"></a>SyncBailHook</h2><p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncBailHook.js?L40:1">SyncBailHook</a> 会对每次执行的结果进行检测，如果结果不是 <code>undefined</code> 就直接 <code>return</code> 了，后面的回调函数就没有机会执行了。</p>
+<p>简单使用：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncBailHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+&#x2F;&#x2F; 同步执行回调函数，回调函数返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了
+const hook &#x3D; new SyncBailHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncBailHook&#96;的入参的数组有关系
+hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+  return undefined;
+&#125;);
+hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+  &#x2F;&#x2F; 如果回调函数的返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了
+  return &quot;fn1&quot;;
+&#125;);
+hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+  return undefined;
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
+
+<p><code>call</code>由<code>SyncBailHookCodeFactory</code>的<code>content</code>实现, 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
+&#x2F;&#x2F; 参数和SyncHook是一致的，区别在于回调函数的返回值
+&#x2F;&#x2F; 如果回调函数的返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
+&#x2F;&#x2F; 就像一个有限的套娃🪆
+&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+var _fn0 &#x3D; _x[0];
+var _result0 &#x3D; _fn0(arg3, arg2, arg1);
+&#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
+if (_result0 !&#x3D;&#x3D; undefined) &#123;
+  return _result0;
+&#125; else &#123;
+  var _fn1 &#x3D; _x[1];
+  var _result1 &#x3D; _fn1(arg3, arg2, arg1);
+  &#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
+  if (_result1 !&#x3D;&#x3D; undefined) &#123;
+    return _result1;
+  &#125; else &#123;
+    var _fn2 &#x3D; _x[2];
+    var _result2 &#x3D; _fn2(arg3, arg2, arg1);
+    &#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就直接 &#96;return&#96; 了，后面的回调函数就没有机会执行了。
+    if (_result2 !&#x3D;&#x3D; undefined) &#123;
+      return _result2;
+    &#125; else &#123;
+    &#125;
+  &#125;
+&#125;</code></pre>
+
+<h2 id="SyncLoopHook"><a href="#SyncLoopHook" class="headerlink" title="SyncLoopHook"></a>SyncLoopHook</h2><p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncLoopHook.js?L35:1">SyncLoopHook</a> 会对每次执行的结果进行检测，如果结果不是 <code>undefined</code> 就不停循环第一个回调函数到当前回调函数，直至都返回 <code>undefined</code>。</p>
+<p>简单使用：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncLoopHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new SyncLoopHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+let _loop &#x3D; 4;
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncLoopHook&#96;的入参的数组有关系
+hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+  return undefined;
+&#125;);
+hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+  _loop &#x3D; _loop - 1;
+  &#x2F;&#x2F; 如果返回结果不是 &#96;undefined&#96; 就不停循环 &#96;f0&#96; &#96;f1&#96;，直至都返回 &#96;undefined&#96;。
+  return _loop &gt; 0 ? _loop : undefined;
+&#125;);
+hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+  return undefined;
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
+
+<p><code>call</code>由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncLoopHook.js?L10:1">SyncLoopHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
+&#x2F;&#x2F; 参数和SyncHook是一致的，区别在于回调函数的返回值
+&#x2F;&#x2F; 如果结果不是 &#96;undefined&#96; 就不停循环第一个回调函数到当前回调函数，直至都返回 &#96;undefined&#96;
+&#x2F;&#x2F; 注意: 不返回&#96;undefined&#96;就不停循环，容易造成死循环
+&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+var _loop;
+do &#123;
+  _loop &#x3D; false;
+  var _fn0 &#x3D; _x[0];
+  var _result0 &#x3D; _fn0(arg3, arg2, arg1);
+  if (_result0 !&#x3D;&#x3D; undefined) &#123;
+    _loop &#x3D; true;
+  &#125; else &#123;
+    var _fn1 &#x3D; _x[1];
+    var _result1 &#x3D; _fn1(arg3, arg2, arg1);
+    if (_result1 !&#x3D;&#x3D; undefined) &#123;
+      _loop &#x3D; true;
+    &#125; else &#123;
+      var _fn2 &#x3D; _x[2];
+      var _result2 &#x3D; _fn2(arg3, arg2, arg1);
+      if (_result2 !&#x3D;&#x3D; undefined) &#123;
+        _loop &#x3D; true;
+      &#125; else &#123;
+        if (!_loop) &#123;
+        &#125;
+      &#125;
+    &#125;
+  &#125;
+&#125; while (_loop);</code></pre>
+
+<h2 id="SyncWaterfallHook"><a href="#SyncWaterfallHook" class="headerlink" title="SyncWaterfallHook"></a>SyncWaterfallHook</h2><p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncWaterfallHook.js?L44">SyncWaterfallHook</a> 会对每次执行的结果当成下一个回调函数的入参（<code>call</code>的入参 ），如果返回值是 <code>undefined</code>，使用上一个参数。</p>
+<p>简单使用：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncWaterfallHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new SyncWaterfallHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;SyncWaterfallHook&#96;的入参的数组有关系
+hook.tap(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+  return &quot;fn0-result&quot;;
+&#125;);
+hook.tap(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+  return undefined;
+&#125;);
+hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+  return &quot;fn2&quot;;
+&#125;);
+hook.tap(&quot;fn3&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  console.log(&quot;fn3&quot;, arg1, arg2, arg3);
+  return &quot;fn3&quot;;
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+&#x2F;&#x2F; 执行结果：
+&#x2F;&#x2F; fn0 a b c
+&#x2F;&#x2F; fn1 fn0-result b c
+&#x2F;&#x2F; fn2 fn0-result b c
+&#x2F;&#x2F; fn3 fn2 b c</code></pre>
+
+<p><code>call</code>由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncWaterfallHook.js?L10:7">SyncWaterfallHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
+&#x2F;&#x2F; 参数和SyncHook是一致的，区别在于回调函数的返回值
+&#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
+&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+var _fn0 &#x3D; _x[0];
+var _result0 &#x3D; _fn0(arg1, arg2, arg3);
+if (_result0 !&#x3D;&#x3D; undefined) &#123;
+  &#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
+  arg1 &#x3D; _result0;
+&#125;
+var _fn1 &#x3D; _x[1];
+var _result1 &#x3D; _fn1(arg1, arg2, arg3);
+if (_result1 !&#x3D;&#x3D; undefined) &#123;
+  &#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
+  arg1 &#x3D; _result1;
+&#125;
+var _fn2 &#x3D; _x[2];
+var _result2 &#x3D; _fn2(arg1, arg2, arg3);
+if (_result2 !&#x3D;&#x3D; undefined) &#123;
+  &#x2F;&#x2F; 如果返回值是 &#96;undefined&#96; , 使用&#96;call&#96;的参数，否则使用返回的值
+  arg1 &#x3D; _result2;
+&#125;
+var _fn3 &#x3D; _x[3];
+var _result3 &#x3D; _fn3(arg1, arg2, arg3);
+if (_result3 !&#x3D;&#x3D; undefined) &#123;
+  arg1 &#x3D; _result3;
+&#125;
+return arg1;</code></pre>
+
+<h2 id="AsyncSeriesHook"><a href="#AsyncSeriesHook" class="headerlink" title="AsyncSeriesHook"></a>AsyncSeriesHook</h2><p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L26:1">AsyncSeriesHook</a>异步串行</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new AsyncSeriesHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesHook&#96;的入参的数组有关系
+hook.tapAsync(&quot;fn0&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  setTimeout(() &#x3D;&gt; &#123;
+    console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+    callback();
+  &#125;, 1000);
+&#125;);
+hook.tapAsync(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  setTimeout(() &#x3D;&gt; &#123;
+    console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+    callback();
+  &#125;, 1000);
+&#125;);
+hook.tapAsync(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  setTimeout(() &#x3D;&gt; &#123;
+    console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+    callback(); &#x2F;&#x2F; 决定 &#96;callAsync&#96; 最后的实参callback是否会被调用
+  &#125;, 1000);
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.callAsync(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, () &#x3D;&gt; &#123;
+  console.log(&quot;AsyncSeriesHook async&quot;);
+&#125;);
+
+&#x2F;&#x2F; 执行结果：
+&#x2F;&#x2F; fn0 a b c
+&#x2F;&#x2F; fn1 a b c
+&#x2F;&#x2F; fn2 a b c
+&#x2F;&#x2F; AsyncSeriesHook async</code></pre>
+
+<p><code>callAsync</code> 由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L10:1">AsyncSeriesHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L276">callTapsSeries</a>实现。 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+function _next1() &#123;
+  var _fn2 &#x3D; _x[2];
+  _fn2(arg1, arg2, arg3, function (_err2) &#123;
+    &#x2F;&#x2F; ...
+  &#125;);
+&#125;
+function _next0() &#123;
+  var _fn1 &#x3D; _x[1];
+  _fn1(arg1, arg2, arg3, function (_err1) &#123;
+    &#x2F;&#x2F; ...
+    _next1();
+  &#125;);
+&#125;
+var _fn0 &#x3D; _x[0];
+_fn0(arg1, arg2, arg3, function (_err0) &#123;
+  &#x2F;&#x2F; ...
+  _next0();
+&#125;);</code></pre>
+
+<p><code>Promise</code> 方式</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesHook &#125; &#x3D; require(&quot;tapable&quot;);
+
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new AsyncSeriesHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesHook&#96;的入参的数组有关系
+hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
+
+<p><code>promise</code> 由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L10:1">AsyncSeriesHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L276">callTapsSeries</a>实现。 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+function _next1() &#123;
+  var _fn2 &#x3D; _x[2];
+  var _hasResult2 &#x3D; false;
+  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
+  _promise2.then(function (_result2) &#123;
+    _hasResult2 &#x3D; true;
+  &#125;);
+&#125;
+function _next0() &#123;
+  var _fn1 &#x3D; _x[1];
+  var _hasResult1 &#x3D; false;
+  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
+  _promise1.then(function (_result1) &#123;
+    _hasResult1 &#x3D; true;
+    _next1();
+  &#125;);
+&#125;
+var _fn0 &#x3D; _x[0];
+var _hasResult0 &#x3D; false;
+var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
+_promise0.then(function (_result0) &#123;
+  _hasResult0 &#x3D; true;
+  _next0();
+&#125;);</code></pre>
+
+<h2 id="AsyncSeriesBailHook"><a href="#AsyncSeriesBailHook" class="headerlink" title="AsyncSeriesBailHook"></a>AsyncSeriesBailHook</h2><p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesBailHook.js?L31">AsyncSeriesBailHook</a> 会对每次异步执行的结果进行检测，如果结果不是 <code>undefined</code> 就直接 <code>return</code> 了，后面的回调函数就没有机会执行了</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesBailHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new AsyncSeriesBailHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesBailHook&#96;的入参的数组有关系
+&#x2F;&#x2F; 串行调用
+hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+      resolve(12); &#x2F;&#x2F; 后面的回调不会执行
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+
+&#x2F;&#x2F; 执行结果：
+&#x2F;&#x2F; fn0 a b c
+&#x2F;&#x2F; fn1 a b c</code></pre>
+
+<p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+function _next1() &#123;
+  var _fn2 &#x3D; _x[2];
+  var _hasResult2 &#x3D; false;
+  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
+  &#x2F;&#x2F;...
+  _promise2.then(function (_result2) &#123;
+    _hasResult2 &#x3D; true;
+    if (_result2 !&#x3D;&#x3D; undefined) &#123;
+      return _result2;
+    &#125; else &#123;
+    &#125;
+  &#125;);
+&#125;
+function _next0() &#123;
+  var _fn1 &#x3D; _x[1];
+  var _hasResult1 &#x3D; false;
+  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
+  &#x2F;&#x2F;...
+  _promise1.then(
+    function (_result1) &#123;
+      _hasResult1 &#x3D; true;
+      if (_result1 !&#x3D;&#x3D; undefined) &#123;
+        return _result1;
+      &#125; else &#123;
+        return _next1();
+      &#125;
+    &#125;
+    &#x2F;&#x2F;...
+  );
+&#125;
+var _fn0 &#x3D; _x[0];
+var _hasResult0 &#x3D; false;
+var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
+&#x2F;&#x2F;...
+_promise0.then(
+  function (_result0) &#123;
+    _hasResult0 &#x3D; true;
+    if (_result0 !&#x3D;&#x3D; undefined) &#123;
+      return _result0;
+    &#125; else &#123;
+      return _next0();
+    &#125;
+  &#125;
+  &#x2F;&#x2F;...
+);</code></pre>
+
+<h2 id="AsyncSeriesLoopHook"><a href="#AsyncSeriesLoopHook" class="headerlink" title="AsyncSeriesLoopHook"></a>AsyncSeriesLoopHook</h2><p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesLoopHook.js?L26">AsyncSeriesLoopHook</a>会对每次异步执行的结果进行检测，如果结果不是 <code>undefined</code> 就不停循环第一个回调函数到当前回调函数，直至都返回 <code>undefined</code>。</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesLoopHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new AsyncSeriesLoopHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+let _loop &#x3D; 2; &#x2F;&#x2F; 循环两次
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesLoopHook&#96;的入参的数组有关系
+hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+      resolve(_loop &gt; 0 ? &quot;fn1 result&quot; : undefined);
+      _loop &#x3D; _loop - 1;
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+
+&#x2F;&#x2F; 执行结果
+&#x2F;&#x2F; fn0 a b c
+&#x2F;&#x2F; fn1 a b c
+&#x2F;&#x2F; fn0 a b c &#x2F;&#x2F; 循环
+&#x2F;&#x2F; fn1 a b c &#x2F;&#x2F; 循环
+&#x2F;&#x2F; fn0 a b c &#x2F;&#x2F; 循环
+&#x2F;&#x2F; fn1 a b c &#x2F;&#x2F; 循环
+&#x2F;&#x2F; fn2 a b c</code></pre>
+
+<p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
+<p><code>promise</code> 由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesLoopHook.js?L10:1">AsyncSeriesLoopHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L324:2">callTapsLooping</a>实现。 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+var _looper &#x3D; function () &#123;
+  var _loopAsync &#x3D; false;
+  var _loop;
+  do &#123;
+    _loop &#x3D; false;
+    function _next1() &#123;
+      var _fn2 &#x3D; _x[2];
+      var _hasResult2 &#x3D; false;
+      var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
+      &#x2F;&#x2F; 判断返回是不是promise
+      if (!_promise2 || !_promise2.then)
+        throw new Error(
+          &quot;Tap function (tapPromise) did not return promise (returned &quot; +
+            _promise2 +
+            &quot;)&quot;
+        );
+      _promise2.then(
+        function (_result2) &#123;
+          _hasResult2 &#x3D; true;
+          if (_result2 !&#x3D;&#x3D; undefined) &#123;
+            _loop &#x3D; true;
+            if (_loopAsync) _looper();
+          &#125; else &#123;
+            if (!_loop) &#123;
+            &#125;
+          &#125;
+        &#125;
+        &#x2F;&#x2F; ... reject 处理
+      );
+    &#125;
+    function _next0() &#123;
+      var _fn1 &#x3D; _x[1];
+      var _hasResult1 &#x3D; false;
+      var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
+      &#x2F;&#x2F; ...
+      _promise1.then(
+        function (_result1) &#123;
+          _hasResult1 &#x3D; true;
+          if (_result1 !&#x3D;&#x3D; undefined) &#123;
+            _loop &#x3D; true;
+            if (_loopAsync) _looper();
+          &#125; else &#123;
+            _next1();
+          &#125;
+        &#125;
+        &#x2F;&#x2F; ... reject 处理
+      );
+    &#125;
+    var _fn0 &#x3D; _x[0];
+    var _hasResult0 &#x3D; false;
+    var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
+    &#x2F;&#x2F; ...
+    _promise0.then(
+      function (_result0) &#123;
+        _hasResult0 &#x3D; true;
+        if (_result0 !&#x3D;&#x3D; undefined) &#123;
+          _loop &#x3D; true;
+          if (_loopAsync) _looper();
+        &#125; else &#123;
+          _next0();
+        &#125;
+      &#125;
+      &#x2F;&#x2F; ... reject 处理
+    );
+  &#125; while (_loop);
+  _loopAsync &#x3D; true;
+&#125;;
+_looper();</code></pre>
+
+<h2 id="AsyncSeriesWaterfallHook"><a href="#AsyncSeriesWaterfallHook" class="headerlink" title="AsyncSeriesWaterfallHook"></a>AsyncSeriesWaterfallHook</h2><p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesWaterfallHook.js?L34">AsyncSeriesWaterfallHook</a>会对每次执行异步函数的结果当成下一个回调函数的入参（<code>callAsync</code>&#x2F;<code>promise</code>的入参 ），如果返回值是 <code>undefined</code>，使用上一个参数。</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesWaterfallHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+const hook &#x3D; new AsyncSeriesWaterfallHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncSeriesWaterfallHook&#96;的入参的数组有关系
+hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+      resolve(&quot;fn1-result&quot;); &#x2F;&#x2F; 返回值作为fn2的第一个入参
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+
+&#x2F;&#x2F; 执行结果
+&#x2F;&#x2F; fn0 a b c
+&#x2F;&#x2F; fn1 a b c
+&#x2F;&#x2F; fn2 fn1-result b c</code></pre>
+
+<p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
+<p><code>promise</code> 由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesWaterfallHook.js?L10:1">AsyncSeriesWaterfallHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L276">callTapsSeries</a>实现。 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+function _next2() &#123;
+  var _fn3 &#x3D; _x[3];
+  var _hasResult3 &#x3D; false;
+  var _promise3 &#x3D; _fn3(arg1, arg2, arg3);
+  if (!_promise3 || !_promise3.then)
+    &#x2F;&#x2F; 判断返回是不是promise
+    throw new Error(
+      &quot;Tap function (tapPromise) did not return promise (returned &quot; +
+        _promise3 +
+        &quot;)&quot;
+    );
+  _promise3.then(
+    function (_result3) &#123;
+      _hasResult3 &#x3D; true;
+      if (_result3 !&#x3D;&#x3D; undefined) &#123;
+        arg1 &#x3D; _result3;
+      &#125;
+      return arg1;
+    &#125;
+    &#x2F;&#x2F; ...
+  );
+&#125;
+function _next1() &#123;
+  var _fn2 &#x3D; _x[2];
+  var _hasResult2 &#x3D; false;
+  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
+  &#x2F;&#x2F; ...
+  _promise2.then(function (_result2) &#123;
+    _hasResult2 &#x3D; true;
+    if (_result2 !&#x3D;&#x3D; undefined) &#123;
+      arg1 &#x3D; _result2;
+    &#125;
+    _next2();
+  &#125;);
+&#125;
+function _next0() &#123;
+  var _fn1 &#x3D; _x[1];
+  var _hasResult1 &#x3D; false;
+  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
+  &#x2F;&#x2F; ...
+  _promise1.then(
+    function (_result1) &#123;
+      _hasResult1 &#x3D; true;
+      if (_result1 !&#x3D;&#x3D; undefined) &#123;
+        arg1 &#x3D; _result1;
+      &#125;
+      _next1();
+    &#125;
+    &#x2F;&#x2F; ...
+  );
+&#125;
+var _fn0 &#x3D; _x[0];
+var _hasResult0 &#x3D; false;
+var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
+&#x2F;&#x2F; ...
+_promise0.then(
+  function (_result0) &#123;
+    _hasResult0 &#x3D; true;
+    if (_result0 !&#x3D;&#x3D; undefined) &#123;
+      arg1 &#x3D; _result0;
+    &#125;
+    _next0();
+  &#125;
+  &#x2F;&#x2F; ...
+);</code></pre>
+
+<h2 id="AsyncParallelHook"><a href="#AsyncParallelHook" class="headerlink" title="AsyncParallelHook"></a>AsyncParallelHook</h2><p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelHook.js?L26:1">AsyncParallelHook</a>并行执行, 不关心回调函数的返回值。</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncParallelHook &#125; &#x3D; require(&quot;tapable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+&#x2F;&#x2F; 并行执行 不关心回调函数的返回值。
+const hook &#x3D; new AsyncParallelHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncParallelHook&#96;的入参的数组有关系
+hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+      resolve(&quot;fn1-result&quot;);
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 500);
+  &#125;);
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+
+&#x2F;&#x2F; 执行结果
+&#x2F;&#x2F; fn2 a b c
+&#x2F;&#x2F; fn0 a b c
+&#x2F;&#x2F; fn1 a b c</code></pre>
+
+<p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
+<p><code>promise</code> 由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelHook.js?L10:1">AsyncParallelHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L376:2">callTapsParallel</a>实现。 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+do &#123;
+  var _counter &#x3D; 3;
+  var _done &#x3D; function () &#123;&#125;;
+  if (_counter &lt;&#x3D; 0) break;
+  var _fn0 &#x3D; _x[0];
+  var _hasResult0 &#x3D; false;
+  var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
+
+  &#x2F;&#x2F; 判断返回是不是promise
+  if (!_promise0 || !_promise0.then)
+    throw new Error(
+      &quot;Tap function (tapPromise) did not return promise (returned &quot; +
+        _promise0 +
+        &quot;)&quot;
+    );
+  _promise0.then(
+    function (_result0) &#123;
+      _hasResult0 &#x3D; true;
+      if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+    &#125;,
+    function (_err0) &#123;
+      if (_hasResult0) throw _err0;
+      if (_counter &gt; 0) &#123;
+        throw _err0;
+        _counter &#x3D; 0;
+      &#125;
+    &#125;
+  );
+  if (_counter &lt;&#x3D; 0) break;
+  var _fn1 &#x3D; _x[1];
+  var _hasResult1 &#x3D; false;
+  var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
+  &#x2F;&#x2F; ...
+  _promise1.then(
+    function (_result1) &#123;
+      _hasResult1 &#x3D; true;
+      if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+    &#125;,
+    function (_err1) &#123;
+      if (_hasResult1) throw _err1;
+      if (_counter &gt; 0) &#123;
+        throw _err1;
+        _counter &#x3D; 0;
+      &#125;
+    &#125;
+  );
+  if (_counter &lt;&#x3D; 0) break;
+  var _fn2 &#x3D; _x[2];
+  var _hasResult2 &#x3D; false;
+  var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
+  &#x2F;&#x2F; ...
+  _promise2.then(
+    function (_result2) &#123;
+      _hasResult2 &#x3D; true;
+      if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+    &#125;,
+    function (_err2) &#123;
+      if (_hasResult2) throw _err2;
+      if (_counter &gt; 0) &#123;
+        throw _err2;
+        _counter &#x3D; 0;
+      &#125;
+    &#125;
+  );
+&#125; while (false);</code></pre>
+
+<h2 id="AsyncParallelBailHook"><a href="#AsyncParallelBailHook" class="headerlink" title="AsyncParallelBailHook"></a>AsyncParallelBailHook</h2><p><a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelBailHook.js?L74:1">AsyncParallelBailHook</a> 只要回调函数的返回值不为 <code>undefined</code>, 就会忽略后面的回调函数执行, 直接跳跃到 <code>callAsync</code> 等触发函数绑定的回调函数, 然后执行这个被绑定的回调函数。</p>
+<p>使用和原理与 SyncBailHook 相似</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncParallelBailHook &#125; &#x3D; require(&quot;tabable&quot;);
+&#x2F;&#x2F; 简单来说就是实例化 Hooks 类
+&#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
+&#x2F;&#x2F; 这组参数和注册回调函数的参数有关，
+&#x2F;&#x2F; 并行执行 不关心回调函数的返回值。
+const hook &#x3D; new AsyncParallelBailHook([&quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;]);
+
+&#x2F;&#x2F; 注册
+&#x2F;&#x2F; 第一个入参为注册名
+&#x2F;&#x2F; 第二个为注册回调方法，参数的形参个数和&#96;AsyncParallelBailHook&#96;的入参的数组有关系
+hook.tapPromise(&quot;fn0&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn0&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn1&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn1&quot;, arg1, arg2, arg3);
+      resolve(&quot;fn1-result&quot;);
+    &#125;, 1000);
+  &#125;);
+&#125;);
+hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
+  return new Promise((resolve, reject) &#x3D;&gt; &#123;
+    setTimeout(() &#x3D;&gt; &#123;
+      console.log(&quot;fn2&quot;, arg1, arg2, arg3);
+      resolve();
+    &#125;, 500);
+  &#125;);
+&#125;);
+&#x2F;&#x2F; 执行
+&#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
+hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
+
+&#x2F;&#x2F; 执行结果
+&#x2F;&#x2F; fn2 a b c
+&#x2F;&#x2F; fn0 a b c
+&#x2F;&#x2F; fn1 a b c</code></pre>
+
+<p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
+<p><code>promise</code> 由<a href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelBailHook.js?L10:1">AsyncParallelBailHookCodeFactory</a>的<code>content</code>实现。 结果如下：</p>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
+var _context;
+var _x &#x3D; this._x;
+var _results &#x3D; new Array(3);
+var _checkDone &#x3D; function () &#123;
+  for (var i &#x3D; 0; i &lt; _results.length; i++) &#123;
+    var item &#x3D; _results[i];
+    if (item &#x3D;&#x3D;&#x3D; undefined) return false;
+    if (item.result !&#x3D;&#x3D; undefined) &#123;
+      return item.result;
+      return true;
+    &#125;
+    if (item.error) &#123;
+      throw item.error;
+      return true;
+    &#125;
+  &#125;
+  return false;
+&#125;;
+do &#123;
+  var _counter &#x3D; 3;
+  var _done &#x3D; function () &#123;&#125;;
+  if (_counter &lt;&#x3D; 0) break;
+  var _fn0 &#x3D; _x[0];
+  var _hasResult0 &#x3D; false;
+  var _promise0 &#x3D; _fn0(arg1, arg2, arg3);
+  &#x2F;&#x2F; 判断返回是不是promise
+  if (!_promise0 || !_promise0.then)
+    throw new Error(
+      &quot;Tap function (tapPromise) did not return promise (returned &quot; +
+        _promise0 +
+        &quot;)&quot;
+    );
+  _promise0.then(
+    function (_result0) &#123;
+      _hasResult0 &#x3D; true;
+      if (_counter &gt; 0) &#123;
+        if (
+          0 &lt; _results.length &amp;&amp;
+          (_result0 !&#x3D;&#x3D; undefined &amp;&amp; (_results.length &#x3D; 1),
+          (_results[0] &#x3D; &#123; result: _result0 &#125;),
+          _checkDone())
+        ) &#123;
+          _counter &#x3D; 0;
+        &#125; else &#123;
+          if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+        &#125;
+      &#125;
+    &#125;,
+    function (_err0) &#123;
+      if (_hasResult0) throw _err0;
+      if (_counter &gt; 0) &#123;
+        if (
+          0 &lt; _results.length &amp;&amp;
+          ((_results.length &#x3D; 1),
+          (_results[0] &#x3D; &#123; error: _err0 &#125;),
+          _checkDone())
+        ) &#123;
+          _counter &#x3D; 0;
+        &#125; else &#123;
+          if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+        &#125;
+      &#125;
+    &#125;
+  );
+  if (_counter &lt;&#x3D; 0) break;
+  if (1 &gt;&#x3D; _results.length) &#123;
+    if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+  &#125; else &#123;
+    var _fn1 &#x3D; _x[1];
+    var _hasResult1 &#x3D; false;
+    var _promise1 &#x3D; _fn1(arg1, arg2, arg3);
+    &#x2F;&#x2F; ...
+    _promise1.then(
+      function (_result1) &#123;
+        _hasResult1 &#x3D; true;
+        if (_counter &gt; 0) &#123;
+          if (
+            1 &lt; _results.length &amp;&amp;
+            (_result1 !&#x3D;&#x3D; undefined &amp;&amp; (_results.length &#x3D; 2),
+            (_results[1] &#x3D; &#123; result: _result1 &#125;),
+            _checkDone())
+          ) &#123;
+            _counter &#x3D; 0;
+          &#125; else &#123;
+            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+          &#125;
+        &#125;
+      &#125;,
+      function (_err1) &#123;
+        if (_hasResult1) throw _err1;
+        if (_counter &gt; 0) &#123;
+          if (
+            1 &lt; _results.length &amp;&amp;
+            ((_results.length &#x3D; 2),
+            (_results[1] &#x3D; &#123; error: _err1 &#125;),
+            _checkDone())
+          ) &#123;
+            _counter &#x3D; 0;
+          &#125; else &#123;
+            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+          &#125;
+        &#125;
+      &#125;
+    );
+  &#125;
+  if (_counter &lt;&#x3D; 0) break;
+  if (2 &gt;&#x3D; _results.length) &#123;
+    if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+  &#125; else &#123;
+    var _fn2 &#x3D; _x[2];
+    var _hasResult2 &#x3D; false;
+    var _promise2 &#x3D; _fn2(arg1, arg2, arg3);
+    &#x2F;&#x2F; ...
+    _promise2.then(
+      function (_result2) &#123;
+        _hasResult2 &#x3D; true;
+        if (_counter &gt; 0) &#123;
+          if (
+            2 &lt; _results.length &amp;&amp;
+            (_result2 !&#x3D;&#x3D; undefined &amp;&amp; (_results.length &#x3D; 3),
+            (_results[2] &#x3D; &#123; result: _result2 &#125;),
+            _checkDone())
+          ) &#123;
+            _counter &#x3D; 0;
+          &#125; else &#123;
+            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+          &#125;
+        &#125;
+      &#125;,
+      function (_err2) &#123;
+        if (_hasResult2) throw _err2;
+        if (_counter &gt; 0) &#123;
+          if (
+            2 &lt; _results.length &amp;&amp;
+            ((_results.length &#x3D; 3),
+            (_results[2] &#x3D; &#123; error: _err2 &#125;),
+            _checkDone())
+          ) &#123;
+            _counter &#x3D; 0;
+          &#125; else &#123;
+            if (--_counter &#x3D;&#x3D;&#x3D; 0) _done();
+          &#125;
+        &#125;
+      &#125;
+    );
+  &#125;
+&#125; while (false);</code></pre>
+
+<p>参考</p>
+<p><a href="https://github.com/webpack/tapable">tapable</a></p>
+<p><a href="https://www.cnblogs.com/dennisj/p/14606902.html">webpack 核心模块 tapable 源码解析</a></p>
+]]></content>
+      <categories>
+        <category>Webpack</category>
+      </categories>
+      <tags>
+        <tag>Webpack</tag>
       </tags>
   </entry>
 </search>

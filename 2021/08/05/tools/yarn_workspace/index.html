@@ -402,11 +402,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="说明"><a class="markdownIt-Anchor" href="#说明"></a> 说明</h2>
-<p><a target="_blank" rel="noopener" href="https://yarnpkg.com/features/workspaces">yarn Workspaces</a> 旨在简化 monorepos 的使用，以更具声明性的方式解决 yarn 链接的主要用例之一。简言之，它们允许您的多个项目一起生活在同一个存储库中，并相互交叉引用——对一个项目的源代码的任何修改都会立即应用于其他项目。</p>
+                <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p><a target="_blank" rel="noopener" href="https://yarnpkg.com/features/workspaces">yarn Workspaces</a> 旨在简化 monorepos 的使用，以更具声明性的方式解决 yarn 链接的主要用例之一。简言之，它们允许您的多个项目一起生活在同一个存储库中，并相互交叉引用——对一个项目的源代码的任何修改都会立即应用于其他项目。</p>
 <p>首先，一些词汇：在工作区特性的上下文中，项目是组成工作区的整个目录树（通常是存储库本身）。工作区是由同一项目中您自己的源组成的本地包。最后，工作树是为列出自己的子工作空间的工作空间指定的名称。项目包含一个或多个工作树，这些工作树本身可能包含任意数量的工作空间。任何项目都至少包含一个工作区：根工作区。</p>
-<h2 id="创建"><a class="markdownIt-Anchor" href="#创建"></a> 创建</h2>
-<ul>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><ul>
 <li>初始化</li>
 </ul>
 <pre class="language-bash" data-language="bash"><code class="language-bash">mkdir yarn_workspaces &amp;&amp; cd yarn_workspaces
@@ -421,6 +419,7 @@ mkdir packages
 # &quot;workspaces&quot;: [
 #  &quot;packages&#x2F;*&quot;
 # ]</code></pre>
+
 <ul>
 <li>配置根目录下<code>package.json</code></li>
 </ul>
@@ -428,9 +427,9 @@ mkdir packages
   &quot;private&quot;: true,
   &quot;workspaces&quot;: [&quot;packages&#x2F;*&quot;]
 &#125;</code></pre>
+
 <ul>
-<li>
-<p>create common package (components、utils…)</p>
+<li><p>create common package (components、utils…)</p>
 <ul>
 <li>初始化 <code>@mono/common</code> package</li>
 </ul>
@@ -439,6 +438,7 @@ mkdir packages
 yarn init -y
 
 mkdir components &amp;&amp; mkdir utils</code></pre>
+
 <ul>
 <li>配置 <code>package.json</code></li>
 </ul>
@@ -446,10 +446,10 @@ mkdir components &amp;&amp; mkdir utils</code></pre>
   &quot;name&quot;: &quot;@mono&#x2F;common&quot;,
   &quot;main&quot;: &quot;index.ts&quot;
 &#125;</code></pre>
+
 <p>注：由于整个项目都是基于<code>typescript</code>的, 所以 <code>main</code> 就直接指定 <code>index.ts</code>。如果要发布到 npm 上最好还是使用<code>.js</code>。</p>
 </li>
-<li>
-<p>create mobile web app (html5)</p>
+<li><p>create mobile web app (html5)</p>
 <ul>
 <li>初始化 app</li>
 </ul>
@@ -458,8 +458,7 @@ mkdir components &amp;&amp; mkdir utils</code></pre>
 # 创建 index.html
 touch index.html</code></pre>
 </li>
-<li>
-<p>create web app (react spa)</p>
+<li><p>create web app (react spa)</p>
 <ul>
 <li>初始化 app</li>
 </ul>
@@ -467,6 +466,7 @@ touch index.html</code></pre>
 
 # 创建 react spa app
 yarn create react-app my-app --template typescript</code></pre>
+
 <ul>
 <li>scripts</li>
 </ul>
@@ -474,12 +474,14 @@ yarn create react-app my-app --template typescript</code></pre>
 <pre class="language-json" data-language="json"><code class="language-json">&#123;
   &quot;react-sap-app&quot;: &quot;yarn workspace react-spa-app start&quot;
 &#125;</code></pre>
+
 <ul>
 <li>配置使用本地 package</li>
 </ul>
 <pre class="language-bash" data-language="bash"><code class="language-bash"># 安装 @craco&#x2F;craco
 # 在不执行&#96;eject&#96;的条件下注入webpacke等 配置
 yarn add @craco&#x2F;craco -D</code></pre>
+
 <p>在<code>react-spa-app</code>根目录下新建创建<code>craco.config.js</code>文件</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">const path &#x3D; require(&quot;path&quot;);
 const &#123; getLoader, loaderByName &#125; &#x3D; require(&quot;@craco&#x2F;craco&quot;);
@@ -509,8 +511,7 @@ module.exports &#x3D; &#123;
   &#125;
 &#125;;</code></pre>
 </li>
-<li>
-<p>create ssr web app (next.js)</p>
+<li><p>create ssr web app (next.js)</p>
 <ul>
 <li>初始化 ssr web app</li>
 </ul>
@@ -518,6 +519,7 @@ module.exports &#x3D; &#123;
 
 # 创建 react ssr app
 yarn create next-app --example with-typescript nextjs-app</code></pre>
+
 <ul>
 <li>scripts</li>
 </ul>
@@ -525,22 +527,22 @@ yarn create next-app --example with-typescript nextjs-app</code></pre>
 <pre class="language-json" data-language="json"><code class="language-json">&#123;
   &quot;react-sap-app&quot;: &quot;yarn workspace nextjs-app dev&quot;
 &#125;</code></pre>
+
 <ul>
 <li>配置使用本地 package</li>
 </ul>
 <pre class="language-bash" data-language="bash"><code class="language-bash"># 注意⚠️ &#96;next-transpile-modules&#96;版本有很大区别
 # https:&#x2F;&#x2F;www.npmjs.com&#x2F;package&#x2F;next-transpile-modules#user-content-compatibility-table
 yarn add next-transpile-modules -D</code></pre>
+
 <p>在<code>nextjs-app</code>根目录下新建创建<code>next.config.js</code>文件</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; pass the modules you would like to see transpiled
 const withTM &#x3D; require(&quot;next-transpile-modules&quot;)([&quot;@mono&#x2F;common&quot;]);
 module.exports &#x3D; withTM();</code></pre>
 </li>
-<li>
-<p>配置</p>
+<li><p>配置</p>
 </li>
-<li>
-<p>create service app (koa service)</p>
+<li><p>create service app (koa service)</p>
 <ul>
 <li>初始化 service app</li>
 </ul>
@@ -553,6 +555,7 @@ yarn init -y
 touch server.ts
 
 yarn add typescript ts-node @types&#x2F;node nodemon -D</code></pre>
+
 <ul>
 <li>scripts</li>
 </ul>
@@ -560,14 +563,13 @@ yarn add typescript ts-node @types&#x2F;node nodemon -D</code></pre>
 <pre class="language-json" data-language="json"><code class="language-json">&#123;
   &quot;dev&quot;: &quot;nodemon --watch &#39;.&#x2F;**&#x2F;*.ts&#39; --watch &#39;..&#x2F;common&#x2F;**&#x2F;*.ts&#39; --exec &#39;ts-node&#39; server.ts&quot;
 &#125;</code></pre>
+
 <p>在项目根目录下<code>package.json</code>中<code>scripts</code>添加下面脚本</p>
 <pre class="language-json" data-language="json"><code class="language-json">&#123;
   &quot;koa-service-app&quot;: &quot;yarn workspace koa-service-app dev&quot;
-&#125;</code></pre>
-</li>
+&#125;</code></pre></li>
 </ul>
-<h2 id="scripts-说明"><a class="markdownIt-Anchor" href="#scripts-说明"></a> scripts 说明</h2>
-<pre class="language-bash" data-language="bash"><code class="language-bash"># 启动 mobile app
+<h2 id="scripts-说明"><a href="#scripts-说明" class="headerlink" title="scripts 说明"></a>scripts 说明</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># 启动 mobile app
 # 首先已经安装 http-server
 http-server -p .&#x2F;package&#x2F;mobile
 
@@ -579,8 +581,8 @@ yarn workspace nextjs-app dev
 
 # 启动 koa node server
 yarn workspace koa-service-app start</code></pre>
-<h2 id="yarn-workspace-cli"><a class="markdownIt-Anchor" href="#yarn-workspace-cli"></a> yarn workspace cli</h2>
-<pre class="language-bash" data-language="bash"><code class="language-bash"># root install dependency xxxxx
+
+<h2 id="yarn-workspace-cli"><a href="#yarn-workspace-cli" class="headerlink" title="yarn workspace cli"></a>yarn workspace cli</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># root install dependency xxxxx
 yarn add -W -D xxxxx
 
 # root remove dependency xxxxx
@@ -594,8 +596,8 @@ yarn workspace app1 dev
 
 # build all package
 yarn workspaces run build</code></pre>
-<h2 id="提取公共依赖包"><a class="markdownIt-Anchor" href="#提取公共依赖包"></a> 提取公共依赖包</h2>
-<p>把各个项目中公共依赖提取到根目录<code>package.json</code>中方便统一管理</p>
+
+<h2 id="提取公共依赖包"><a href="#提取公共依赖包" class="headerlink" title="提取公共依赖包"></a>提取公共依赖包</h2><p>把各个项目中公共依赖提取到根目录<code>package.json</code>中方便统一管理</p>
 <pre class="language-json" data-language="json"><code class="language-json">&#123;
   &quot;dependencies&quot;: &#123;
     &quot;react&quot;: &quot;^17.0.2&quot;,
@@ -619,16 +621,14 @@ yarn workspaces run build</code></pre>
     &quot;react-scripts&quot;: &quot;4.0.3&quot;
   &#125;
 &#125;</code></pre>
-<h2 id="注意事项"><a class="markdownIt-Anchor" href="#注意事项"></a> 注意事项</h2>
-<ul>
+
+
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
 <li>如果本地新增 package 记得执行 <code>yarn install</code></li>
 </ul>
-<h2 id="版本管理"><a class="markdownIt-Anchor" href="#版本管理"></a> 版本管理</h2>
-<p>如果想对版本进行管理可以结合 <a target="_blank" rel="noopener" href="https://lerna.js.org/">leran</a></p>
-<h2 id="github-地址"><a class="markdownIt-Anchor" href="#github-地址"></a> github 地址</h2>
-<p><a target="_blank" rel="noopener" href="https://github.com/qqxs/monorepo">yarn workspaces monorepo</a></p>
-<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
-<ul>
+<h2 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h2><p>如果想对版本进行管理可以结合 <a target="_blank" rel="noopener" href="https://lerna.js.org/">leran</a></p>
+<h2 id="github-地址"><a href="#github-地址" class="headerlink" title="github 地址"></a>github 地址</h2><p><a target="_blank" rel="noopener" href="https://github.com/qqxs/monorepo">yarn workspaces monorepo</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://yarnpkg.com/features/workspaces">yarn workspace</a></li>
 <li><a target="_blank" rel="noopener" href="https://create-react-app.dev/docs/adding-typescript">create-react-app</a></li>
 <li><a target="_blank" rel="noopener" href="https://nextjs.org/">next.js</a></li>

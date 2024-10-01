@@ -398,12 +398,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="typeof-原理"><a class="markdownIt-Anchor" href="#typeof-原理"></a> typeof 原理</h2>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof">typeof</a> 运算符返回一个字符串，表示操作数的类型。</p>
-<p>javascript 在底层存储变量的时候,会在变量的机器码的低位(前三位) 1-3 位存储其类型信息: 对象:000 (null 是 000， 这也是 null 的 typeof 值为什么是 object 的原因) 浮点数:010 字符串:100 布尔:110 ”。<br />
-<code>typeof</code>直接根据变量值得内存标识符进行判断并返回的是对应字符串形式的值。</p>
-<h2 id="实现"><a class="markdownIt-Anchor" href="#实现"></a> 实现</h2>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+                <h2 id="typeof-原理"><a href="#typeof-原理" class="headerlink" title="typeof 原理"></a>typeof 原理</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof">typeof</a> 运算符返回一个字符串，表示操作数的类型。</p>
+<p>javascript 在底层存储变量的时候,会在变量的机器码的低位(前三位) 1-3 位存储其类型信息: 对象:000 (null 是 000， 这也是 null 的 typeof 值为什么是 object 的原因) 浮点数:010 字符串:100 布尔:110 ”。<br><code>typeof</code>直接根据变量值得内存标识符进行判断并返回的是对应字符串形式的值。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
  * 模拟 typeof
  *
  * typeof原理：

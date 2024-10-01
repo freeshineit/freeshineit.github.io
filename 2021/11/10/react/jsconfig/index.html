@@ -368,7 +368,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    405
+                    403
                 </div>
                 
 
@@ -398,12 +398,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="说明"><a class="markdownIt-Anchor" href="#说明"></a> 说明</h2>
-<p>虽然说近几年已经不在写 javascript 版 React 了，一直在用 typescript 但是最近接了个外包，其他小伙伴不太熟 typescript。所以就打算配置一下使用 javascript 环境项目的别名。</p>
+                <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>虽然说近几年已经不在写 javascript 版 React 了，一直在用 typescript 但是最近接了个外包，其他小伙伴不太熟 typescript。所以就打算配置一下使用 javascript 环境项目的别名。</p>
 <p>使用<a target="_blank" rel="noopener" href="https://create-react-app.dev/">create-react-app</a> 创建 javascript 版 React 项目，安装 <a target="_blank" rel="noopener" href="https://github.com/gsoft-inc/craco"><code>@craco/craco</code></a>。</p>
 <p>具体配置省略，接下来主要说用别名的配置。（想要了解具体配置请参考<a target="_blank" rel="noopener" href="https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#installation%EF%BC%89">https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#installation）</a></p>
-<h2 id="craco-中配置-webpack"><a class="markdownIt-Anchor" href="#craco-中配置-webpack"></a> craco 中配置 webpack</h2>
-<p>在根目录<code>craco.config.js</code>文件中配置别名</p>
+<h2 id="craco-中配置-webpack"><a href="#craco-中配置-webpack" class="headerlink" title="craco 中配置 webpack"></a>craco 中配置 webpack</h2><p>在根目录<code>craco.config.js</code>文件中配置别名</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">module.exports &#x3D; &#123;
   webpack: &#123;
     &#x2F;&#x2F; .... 其他配置
@@ -419,8 +417,8 @@
     &#125;
   &#125;
 &#125;;</code></pre>
-<h2 id="jsconfigjson"><a class="markdownIt-Anchor" href="#jsconfigjson"></a> jsconfig.json</h2>
-<p>在根目录下新建<code>jsconfig.json</code>, 添加下面内容即可。</p>
+
+<h2 id="jsconfig-json"><a href="#jsconfig-json" class="headerlink" title="jsconfig.json"></a>jsconfig.json</h2><p>在根目录下新建<code>jsconfig.json</code>, 添加下面内容即可。</p>
 <pre class="language-json" data-language="json"><code class="language-json">&#123;
   &quot;compilerOptions&quot;: &#123;
     &quot;module&quot;: &quot;commonjs&quot;,
@@ -438,6 +436,7 @@
   &quot;include&quot;: [&quot;.&#x2F;src&#x2F;**&#x2F;*&quot;],
   &quot;exclude&quot;: [&quot;node_modules&quot;, &quot;build&quot;, &quot;coverage&quot;, &quot;dist&quot;, &quot;lib&quot;]
 &#125;</code></pre>
+
 <p>注意 ⚠️： 这个文件有严格的 json 格式要求， 例如最后一项不能有<code>,</code> 等</p>
 <p>❤️ ❤️ 还是 ts 香 ❤️ ❤️</p>
 

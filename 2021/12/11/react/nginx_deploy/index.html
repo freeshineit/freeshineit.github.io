@@ -406,8 +406,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="docker-nginx"><a class="markdownIt-Anchor" href="#docker-nginx"></a> docker nginx</h2>
-<ol>
+                <h2 id="docker-nginx"><a href="#docker-nginx" class="headerlink" title="docker nginx"></a>docker nginx</h2><ol>
 <li>在项目根目录下新建 <code>docker-compose.yml</code>文件</li>
 </ol>
 <pre class="language-yaml" data-language="yaml"><code class="language-yaml">version: &quot;2&quot;
@@ -428,6 +427,7 @@ services:
       - .&#x2F;build:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html
     # 覆盖容器启动后默认执行的命令。
     command: &#x2F;bin&#x2F;bash -c &quot;nginx -g &#39;daemon off;&#39;&quot;</code></pre>
+
 <p>挂载 nginx 配置</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">location &#x2F; &#123;
     root   &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
@@ -443,20 +443,21 @@ location ^~ &#x2F;api&#x2F; &#123;
     # proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_pass http:&#x2F;&#x2F;xxx.xxxxx.xxxx;
 &#125;</code></pre>
+
 <ol start="2">
 <li>编译 react 项目</li>
 </ol>
 <pre class="language-bash" data-language="bash"><code class="language-bash">yarn run build</code></pre>
+
 <ol start="3">
 <li>生成容器并部署</li>
 </ol>
 <pre class="language-bash" data-language="bash"><code class="language-bash">docker-compose up -d</code></pre>
+
 <ol start="4">
-<li>
-<p>本地访问 <code>http://localhost/</code></p>
+<li><p>本地访问 <code>http://localhost/</code></p>
 </li>
-<li>
-<p>停止并删除容器 <code>docker-compose down</code></p>
+<li><p>停止并删除容器 <code>docker-compose down</code></p>
 </li>
 </ol>
 

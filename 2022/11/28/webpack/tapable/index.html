@@ -398,11 +398,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="tapable"><a class="markdownIt-Anchor" href="#tapable"></a> tapable</h2>
-<p>The <a target="_blank" rel="noopener" href="https://github.com/webpack/tapable">tapable</a> package expose many Hook classes, which can be used to create hooks for plugins.</p>
+                <h2 id="tapable"><a href="#tapable" class="headerlink" title="tapable"></a>tapable</h2><p>The <a target="_blank" rel="noopener" href="https://github.com/webpack/tapable">tapable</a> package expose many Hook classes, which can be used to create hooks for plugins.</p>
 <p><code>tapable</code> 是一个发布订阅模式的实现，它提供了很多应对业务的 <code>hooks</code> 实现和抽象。主要分为两大类同步和异步。</p>
-<h2 id="base-hooks"><a class="markdownIt-Anchor" href="#base-hooks"></a> Base Hooks</h2>
-<ul>
+<h2 id="Base-Hooks"><a href="#Base-Hooks" class="headerlink" title="Base Hooks"></a>Base Hooks</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/Hook.js?L25:1">Hooks</a></li>
 </ul>
 <p>继承 <code>Hooks</code> 的类需要自己实现<code>compile</code>抽象方法。</p>
@@ -410,8 +408,7 @@
 <li><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a></li>
 </ul>
 <p>继承<code>HookCodeFactory</code>类需要实现抽象方法<code>content</code>, 返回 <code>call</code>或<code>callAsync</code>或<code>promise</code> 的函数体的实现的代码字符串， 然后使用 <code>Function</code> 生成一个<code>call</code>或<code>callAsync</code>或<code>promise</code> 函数</p>
-<h2 id="synchook"><a class="markdownIt-Anchor" href="#synchook"></a> SyncHook</h2>
-<p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncHook.js?L35:1">SyncHook</a> 按注册的回调函数串行之行。</p>
+<h2 id="SyncHook"><a href="#SyncHook" class="headerlink" title="SyncHook"></a>SyncHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncHook.js?L35:1">SyncHook</a> 按注册的回调函数串行之行。</p>
 <p>简单使用：</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncHook &#125; &#x3D; require(&quot;tapable&quot;);
 &#x2F;&#x2F; 简单来说就是实例化 Hooks 类
@@ -436,7 +433,8 @@ hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
 &#x2F;&#x2F; 执行
 &#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
 hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
-<p><code>call</code>由<a target="_blank" rel="noopener" href="https://sourcegraph.com/search?q=context:global+repo:%5Egithub%5C.com/webpack/tapable%24+SyncHookCodeFactory&amp;patternType=standard&amp;sm=1">SyncHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
+
+<p><code>call</code>由<a target="_blank" rel="noopener" href="https://sourcegraph.com/search?q=context:global+repo:%5Egithub%5C.com/webpack/tapable$+SyncHookCodeFactory&patternType=standard&sm=1">SyncHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
 &#x2F;&#x2F; 这段代码需要使用 &#96;Function&#96; 来生成&#96;call&#96;方法来执行
 &#x2F;&#x2F; 其中&#96;this._x&#96;就是注册的回调函数组成的数组
@@ -450,8 +448,8 @@ var _fn1 &#x3D; _x[1];
 _fn1(arg3, arg2, arg1); &#x2F;&#x2F; 回调函数 fn1
 var _fn2 &#x3D; _x[2];
 _fn2(arg3, arg2, arg1); &#x2F;&#x2F; 回调函数 fn2</code></pre>
-<h2 id="syncbailhook"><a class="markdownIt-Anchor" href="#syncbailhook"></a> SyncBailHook</h2>
-<p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncBailHook.js?L40:1">SyncBailHook</a> 会对每次执行的结果进行检测，如果结果不是 <code>undefined</code> 就直接 <code>return</code> 了，后面的回调函数就没有机会执行了。</p>
+
+<h2 id="SyncBailHook"><a href="#SyncBailHook" class="headerlink" title="SyncBailHook"></a>SyncBailHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncBailHook.js?L40:1">SyncBailHook</a> 会对每次执行的结果进行检测，如果结果不是 <code>undefined</code> 就直接 <code>return</code> 了，后面的回调函数就没有机会执行了。</p>
 <p>简单使用：</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncBailHook &#125; &#x3D; require(&quot;tapable&quot;);
 &#x2F;&#x2F; 简单来说就是实例化 Hooks 类
@@ -478,6 +476,7 @@ hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
 &#x2F;&#x2F; 执行
 &#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
 hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
+
 <p><code>call</code>由<code>SyncBailHookCodeFactory</code>的<code>content</code>实现, 结果如下：</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
 &#x2F;&#x2F; 参数和SyncHook是一致的，区别在于回调函数的返回值
@@ -507,8 +506,8 @@ if (_result0 !&#x3D;&#x3D; undefined) &#123;
     &#125;
   &#125;
 &#125;</code></pre>
-<h2 id="syncloophook"><a class="markdownIt-Anchor" href="#syncloophook"></a> SyncLoopHook</h2>
-<p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncLoopHook.js?L35:1">SyncLoopHook</a> 会对每次执行的结果进行检测，如果结果不是 <code>undefined</code> 就不停循环第一个回调函数到当前回调函数，直至都返回 <code>undefined</code>。</p>
+
+<h2 id="SyncLoopHook"><a href="#SyncLoopHook" class="headerlink" title="SyncLoopHook"></a>SyncLoopHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncLoopHook.js?L35:1">SyncLoopHook</a> 会对每次执行的结果进行检测，如果结果不是 <code>undefined</code> 就不停循环第一个回调函数到当前回调函数，直至都返回 <code>undefined</code>。</p>
 <p>简单使用：</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncLoopHook &#125; &#x3D; require(&quot;tapable&quot;);
 &#x2F;&#x2F; 简单来说就是实例化 Hooks 类
@@ -537,6 +536,7 @@ hook.tap(&quot;fn2&quot;, (arg1, arg2, arg3) &#x3D;&gt; &#123;
 &#x2F;&#x2F; 执行
 &#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
 hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
+
 <p><code>call</code>由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncLoopHook.js?L10:1">SyncLoopHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
 &#x2F;&#x2F; 参数和SyncHook是一致的，区别在于回调函数的返回值
@@ -569,8 +569,8 @@ do &#123;
     &#125;
   &#125;
 &#125; while (_loop);</code></pre>
-<h2 id="syncwaterfallhook"><a class="markdownIt-Anchor" href="#syncwaterfallhook"></a> SyncWaterfallHook</h2>
-<p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncWaterfallHook.js?L44">SyncWaterfallHook</a> 会对每次执行的结果当成下一个回调函数的入参（<code>call</code>的入参 ），如果返回值是 <code>undefined</code>，使用上一个参数。</p>
+
+<h2 id="SyncWaterfallHook"><a href="#SyncWaterfallHook" class="headerlink" title="SyncWaterfallHook"></a>SyncWaterfallHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncWaterfallHook.js?L44">SyncWaterfallHook</a> 会对每次执行的结果当成下一个回调函数的入参（<code>call</code>的入参 ），如果返回值是 <code>undefined</code>，使用上一个参数。</p>
 <p>简单使用：</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; SyncWaterfallHook &#125; &#x3D; require(&quot;tapable&quot;);
 &#x2F;&#x2F; 简单来说就是实例化 Hooks 类
@@ -605,6 +605,7 @@ hook.call(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
 &#x2F;&#x2F; fn1 fn0-result b c
 &#x2F;&#x2F; fn2 fn0-result b c
 &#x2F;&#x2F; fn3 fn2 b c</code></pre>
+
 <p><code>call</code>由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/SyncWaterfallHook.js?L10:7">SyncWaterfallHookCodeFactory</a>的<code>content</code>实现, 结果如下：</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 这是一段&#96;call&#96;方法实现的代码字符串
 &#x2F;&#x2F; 参数和SyncHook是一致的，区别在于回调函数的返回值
@@ -636,8 +637,8 @@ if (_result3 !&#x3D;&#x3D; undefined) &#123;
   arg1 &#x3D; _result3;
 &#125;
 return arg1;</code></pre>
-<h2 id="asyncserieshook"><a class="markdownIt-Anchor" href="#asyncserieshook"></a> AsyncSeriesHook</h2>
-<p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L26:1">AsyncSeriesHook</a>异步串行</p>
+
+<h2 id="AsyncSeriesHook"><a href="#AsyncSeriesHook" class="headerlink" title="AsyncSeriesHook"></a>AsyncSeriesHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L26:1">AsyncSeriesHook</a>异步串行</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesHook &#125; &#x3D; require(&quot;tapable&quot;);
 &#x2F;&#x2F; 简单来说就是实例化 Hooks 类
 &#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
@@ -676,6 +677,7 @@ hook.callAsync(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, () &#x3D;&gt; &#123;
 &#x2F;&#x2F; fn1 a b c
 &#x2F;&#x2F; fn2 a b c
 &#x2F;&#x2F; AsyncSeriesHook async</code></pre>
+
 <p><code>callAsync</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L10:1">AsyncSeriesHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L276">callTapsSeries</a>实现。 结果如下：</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
 var _context;
@@ -698,6 +700,7 @@ _fn0(arg1, arg2, arg3, function (_err0) &#123;
   &#x2F;&#x2F; ...
   _next0();
 &#125;);</code></pre>
+
 <p><code>Promise</code> 方式</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesHook &#125; &#x3D; require(&quot;tapable&quot;);
 
@@ -736,6 +739,7 @@ hook.tapPromise(&quot;fn2&quot;, (arg1, arg2, arg3, callback) &#x3D;&gt; &#123;
 &#x2F;&#x2F; 执行
 &#x2F;&#x2F; 执行顺序则是根据这个实例类型来决定的
 hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</code></pre>
+
 <p><code>promise</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesHook.js?L10:1">AsyncSeriesHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L276">callTapsSeries</a>实现。 结果如下：</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
 var _context;
@@ -764,8 +768,8 @@ _promise0.then(function (_result0) &#123;
   _hasResult0 &#x3D; true;
   _next0();
 &#125;);</code></pre>
-<h2 id="asyncseriesbailhook"><a class="markdownIt-Anchor" href="#asyncseriesbailhook"></a> AsyncSeriesBailHook</h2>
-<p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesBailHook.js?L31">AsyncSeriesBailHook</a> 会对每次异步执行的结果进行检测，如果结果不是 <code>undefined</code> 就直接 <code>return</code> 了，后面的回调函数就没有机会执行了</p>
+
+<h2 id="AsyncSeriesBailHook"><a href="#AsyncSeriesBailHook" class="headerlink" title="AsyncSeriesBailHook"></a>AsyncSeriesBailHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesBailHook.js?L31">AsyncSeriesBailHook</a> 会对每次异步执行的结果进行检测，如果结果不是 <code>undefined</code> 就直接 <code>return</code> 了，后面的回调函数就没有机会执行了</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesBailHook &#125; &#x3D; require(&quot;tapable&quot;);
 &#x2F;&#x2F; 简单来说就是实例化 Hooks 类
 &#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
@@ -807,6 +811,7 @@ hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
 &#x2F;&#x2F; 执行结果：
 &#x2F;&#x2F; fn0 a b c
 &#x2F;&#x2F; fn1 a b c</code></pre>
+
 <p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
 var _context;
@@ -856,8 +861,8 @@ _promise0.then(
   &#125;
   &#x2F;&#x2F;...
 );</code></pre>
-<h2 id="asyncseriesloophook"><a class="markdownIt-Anchor" href="#asyncseriesloophook"></a> AsyncSeriesLoopHook</h2>
-<p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesLoopHook.js?L26">AsyncSeriesLoopHook</a>会对每次异步执行的结果进行检测，如果结果不是 <code>undefined</code> 就不停循环第一个回调函数到当前回调函数，直至都返回 <code>undefined</code>。</p>
+
+<h2 id="AsyncSeriesLoopHook"><a href="#AsyncSeriesLoopHook" class="headerlink" title="AsyncSeriesLoopHook"></a>AsyncSeriesLoopHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesLoopHook.js?L26">AsyncSeriesLoopHook</a>会对每次异步执行的结果进行检测，如果结果不是 <code>undefined</code> 就不停循环第一个回调函数到当前回调函数，直至都返回 <code>undefined</code>。</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesLoopHook &#125; &#x3D; require(&quot;tapable&quot;);
 &#x2F;&#x2F; 简单来说就是实例化 Hooks 类
 &#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
@@ -906,6 +911,7 @@ hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
 &#x2F;&#x2F; fn0 a b c &#x2F;&#x2F; 循环
 &#x2F;&#x2F; fn1 a b c &#x2F;&#x2F; 循环
 &#x2F;&#x2F; fn2 a b c</code></pre>
+
 <p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
 <p><code>promise</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesLoopHook.js?L10:1">AsyncSeriesLoopHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L324:2">callTapsLooping</a>实现。 结果如下：</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
@@ -979,8 +985,8 @@ var _looper &#x3D; function () &#123;
   _loopAsync &#x3D; true;
 &#125;;
 _looper();</code></pre>
-<h2 id="asyncserieswaterfallhook"><a class="markdownIt-Anchor" href="#asyncserieswaterfallhook"></a> AsyncSeriesWaterfallHook</h2>
-<p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesWaterfallHook.js?L34">AsyncSeriesWaterfallHook</a>会对每次执行异步函数的结果当成下一个回调函数的入参（<code>callAsync</code>/<code>promise</code>的入参 ），如果返回值是 <code>undefined</code>，使用上一个参数。</p>
+
+<h2 id="AsyncSeriesWaterfallHook"><a href="#AsyncSeriesWaterfallHook" class="headerlink" title="AsyncSeriesWaterfallHook"></a>AsyncSeriesWaterfallHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesWaterfallHook.js?L34">AsyncSeriesWaterfallHook</a>会对每次执行异步函数的结果当成下一个回调函数的入参（<code>callAsync</code>&#x2F;<code>promise</code>的入参 ），如果返回值是 <code>undefined</code>，使用上一个参数。</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncSeriesWaterfallHook &#125; &#x3D; require(&quot;tapable&quot;);
 &#x2F;&#x2F; 简单来说就是实例化 Hooks 类
 &#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
@@ -1022,6 +1028,7 @@ hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
 &#x2F;&#x2F; fn0 a b c
 &#x2F;&#x2F; fn1 a b c
 &#x2F;&#x2F; fn2 fn1-result b c</code></pre>
+
 <p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
 <p><code>promise</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncSeriesWaterfallHook.js?L10:1">AsyncSeriesWaterfallHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L276">callTapsSeries</a>实现。 结果如下：</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
@@ -1092,8 +1099,8 @@ _promise0.then(
   &#125;
   &#x2F;&#x2F; ...
 );</code></pre>
-<h2 id="asyncparallelhook"><a class="markdownIt-Anchor" href="#asyncparallelhook"></a> AsyncParallelHook</h2>
-<p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelHook.js?L26:1">AsyncParallelHook</a>并行执行, 不关心回调函数的返回值。</p>
+
+<h2 id="AsyncParallelHook"><a href="#AsyncParallelHook" class="headerlink" title="AsyncParallelHook"></a>AsyncParallelHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelHook.js?L26:1">AsyncParallelHook</a>并行执行, 不关心回调函数的返回值。</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncParallelHook &#125; &#x3D; require(&quot;tapable&quot;);
 &#x2F;&#x2F; 简单来说就是实例化 Hooks 类
 &#x2F;&#x2F; 接收一个可选参数，参数是一个参数名的字符串数组
@@ -1136,6 +1143,7 @@ hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
 &#x2F;&#x2F; fn2 a b c
 &#x2F;&#x2F; fn0 a b c
 &#x2F;&#x2F; fn1 a b c</code></pre>
+
 <p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
 <p><code>promise</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelHook.js?L10:1">AsyncParallelHookCodeFactory</a>的<code>content</code>实现, 更深层次来说应该是由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L7:1">HookCodeFactory</a>的<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/HookCodeFactory.js?L376:2">callTapsParallel</a>实现。 结果如下：</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
@@ -1206,8 +1214,8 @@ do &#123;
     &#125;
   );
 &#125; while (false);</code></pre>
-<h2 id="asyncparallelbailhook"><a class="markdownIt-Anchor" href="#asyncparallelbailhook"></a> AsyncParallelBailHook</h2>
-<p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelBailHook.js?L74:1">AsyncParallelBailHook</a> 只要回调函数的返回值不为 <code>undefined</code>, 就会忽略后面的回调函数执行, 直接跳跃到 <code>callAsync</code> 等触发函数绑定的回调函数, 然后执行这个被绑定的回调函数。</p>
+
+<h2 id="AsyncParallelBailHook"><a href="#AsyncParallelBailHook" class="headerlink" title="AsyncParallelBailHook"></a>AsyncParallelBailHook</h2><p><a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelBailHook.js?L74:1">AsyncParallelBailHook</a> 只要回调函数的返回值不为 <code>undefined</code>, 就会忽略后面的回调函数执行, 直接跳跃到 <code>callAsync</code> 等触发函数绑定的回调函数, 然后执行这个被绑定的回调函数。</p>
 <p>使用和原理与 SyncBailHook 相似</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">const &#123; AsyncParallelBailHook &#125; &#x3D; require(&quot;tabable&quot;);
 &#x2F;&#x2F; 简单来说就是实例化 Hooks 类
@@ -1251,6 +1259,7 @@ hook.promise(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);
 &#x2F;&#x2F; fn2 a b c
 &#x2F;&#x2F; fn0 a b c
 &#x2F;&#x2F; fn1 a b c</code></pre>
+
 <p><code>tapAsync</code> 和 <code>callAsync</code>的组合同理</p>
 <p><code>promise</code> 由<a target="_blank" rel="noopener" href="https://sourcegraph.com/github.com/webpack/tapable/-/blob/lib/AsyncParallelBailHook.js?L10:1">AsyncParallelBailHookCodeFactory</a>的<code>content</code>实现。 结果如下：</p>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript">&quot;use strict&quot;;
@@ -1401,6 +1410,7 @@ do &#123;
     );
   &#125;
 &#125; while (false);</code></pre>
+
 <p>参考</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/webpack/tapable">tapable</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dennisj/p/14606902.html">webpack 核心模块 tapable 源码解析</a></p>

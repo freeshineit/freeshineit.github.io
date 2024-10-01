@@ -398,8 +398,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="ts-类型操作"><a class="markdownIt-Anchor" href="#ts-类型操作"></a> Ts 类型操作</h2>
-<ul>
+                <h2 id="Ts-类型操作"><a href="#Ts-类型操作" class="headerlink" title="Ts 类型操作"></a>Ts 类型操作</h2><ul>
 <li>Partial (部分, 把所有字段转为可选字段)</li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
@@ -408,6 +407,7 @@
 type Partial&lt;T&gt; &#x3D; &#123;
   [P in keyof T]?: T[P];
 &#125;;</code></pre>
+
 <p>example：</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">type partial &#x3D; &#123;
   name: string;
@@ -422,6 +422,7 @@ type Partial&lt;T&gt; &#x3D; &#123;
  * &#125;
  *&#x2F;
 type TPartial &#x3D; Partial&lt;partial&gt;;</code></pre>
+
 <ul>
 <li>Required (需要, 把所有字段转为必选字段)</li>
 </ul>
@@ -431,6 +432,7 @@ type TPartial &#x3D; Partial&lt;partial&gt;;</code></pre>
 type Required&lt;T&gt; &#x3D; &#123;
   [P in keyof T]-?: T[P];
 &#125;;</code></pre>
+
 <p>example:</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">type required &#x3D; &#123;
   name?: string;
@@ -445,6 +447,7 @@ type Required&lt;T&gt; &#x3D; &#123;
  * &#125;
  *&#x2F;
 type TRequired &#x3D; Required&lt;required&gt;;</code></pre>
+
 <ul>
 <li>Readonly (只读，把所有字段转为只读字段)</li>
 </ul>
@@ -454,6 +457,7 @@ type TRequired &#x3D; Required&lt;required&gt;;</code></pre>
 type Readonly&lt;T&gt; &#x3D; &#123;
   readonly [P in keyof T]: T[P];
 &#125;;</code></pre>
+
 <p>example:</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">type Treadonly &#x3D; &#123;
   name?: string;
@@ -468,6 +472,7 @@ type Readonly&lt;T&gt; &#x3D; &#123;
  * &#125;
  *&#x2F;
 type TReadonly &#x3D; Readonly&lt;Treadonly&gt;;</code></pre>
+
 <ul>
 <li>Pick (挑选, 挑选指定的字段)</li>
 </ul>
@@ -477,6 +482,7 @@ type TReadonly &#x3D; Readonly&lt;Treadonly&gt;;</code></pre>
 type Pick&lt;T, K extends keyof T&gt; &#x3D; &#123;
   [P in K]: T[P];
 &#125;;</code></pre>
+
 <p>example:</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">type pick &#x3D; &#123;
   name?: string;
@@ -492,6 +498,7 @@ type Pick&lt;T, K extends keyof T&gt; &#x3D; &#123;
  * &#125;
  *&#x2F;
 type TPick &#x3D; Pick&lt;pick, &quot;name&quot; | &quot;age&quot;&gt;;</code></pre>
+
 <ul>
 <li>Record(记录,将 K 中所有的属性的值转化为 T 类型)</li>
 </ul>
@@ -501,6 +508,7 @@ type TPick &#x3D; Pick&lt;pick, &quot;name&quot; | &quot;age&quot;&gt;;</code></
 type Record&lt;K extends keyof any, T&gt; &#x3D; &#123;
   [P in K]: T;
 &#125;;</code></pre>
+
 <p>example:</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">type record &#x3D; &#123;
   name?: string;
@@ -528,6 +536,7 @@ type TRecord &#x3D; Record&lt;keyof record, string&gt;;
  * &#125;
  *&#x2F;
 type Ta &#x3D; Record&lt;&quot;a&quot; | &quot;b&quot; | &quot;c&quot; | 1, number&gt;;</code></pre>
+
 <ul>
 <li>Exclude(排除,从 T 中排除那些可分配给 U 的类型，)</li>
 </ul>
@@ -535,8 +544,10 @@ type Ta &#x3D; Record&lt;&quot;a&quot; | &quot;b&quot; | &quot;c&quot; | 1, numb
  * Exclude from T those types that are assignable to U
  *&#x2F;
 type Exclude&lt;T, U&gt; &#x3D; T extends U ? never : T;</code></pre>
+
 <p>example:</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">type T &#x3D; Exclude&lt;1 | 2, 1 | 3&gt;; &#x2F;&#x2F; -&gt; 2</code></pre>
+
 <ul>
 <li>Extract(提取,从 T 中提取可分配给 U 的类型， 交集)</li>
 </ul>
@@ -544,8 +555,10 @@ type Exclude&lt;T, U&gt; &#x3D; T extends U ? never : T;</code></pre>
  * Extract from T those types that are assignable to U
  *&#x2F;
 type Extract&lt;T, U&gt; &#x3D; T extends U ? T : never;</code></pre>
+
 <p>example:</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">type T &#x3D; Extract&lt;1 | 2, 1 | 3&gt;; &#x2F;&#x2F; -&gt; 1</code></pre>
+
 <ul>
 <li>Omit (删去, 构造一个除 K 类型外具有 T 属性的类型。)</li>
 </ul>
@@ -553,6 +566,7 @@ type Extract&lt;T, U&gt; &#x3D; T extends U ? T : never;</code></pre>
  * Construct a type with the properties of T except for those in type K.
  *&#x2F;
 type Omit&lt;T, K extends keyof any&gt; &#x3D; Pick&lt;T, Exclude&lt;keyof T, K&gt;&gt;;</code></pre>
+
 <p>example:</p>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">interface Person &#123;
   name: string;
@@ -567,6 +581,7 @@ type Omit&lt;T, K extends keyof any&gt; &#x3D; Pick&lt;T, Exclude&lt;keyof T, K&
  * &#125;
  *&#x2F;
 type OmitPerson &#x3D; Omit&lt;Person, &quot;name&quot; | &quot;age&quot;&gt;;</code></pre>
+
 <ul>
 <li>数组</li>
 </ul>
@@ -581,18 +596,18 @@ const arr2Example: arr2 &#x3D; [&quot;0&quot;, 1];
 &#x2F;** arr3Example 中只可以使用&#96;string&#96;或&#96;number&#96;类型填充，没有顺序要求 *&#x2F;
 type arr3 &#x3D; (string | number)[];
 const arr3Example: arr3 &#x3D; [0, &quot;1&quot;, &quot;2&quot;, 3, 4];</code></pre>
+
 <ul>
 <li>对象</li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">interface Persion&lt;T&gt; &#123;
   [key: T]: T;
 &#125;</code></pre>
+
 <ul>
-<li>
-<p>extends</p>
+<li><p>extends</p>
 </li>
-<li>
-<p>keyof (对于任何类型 <code>T</code>， <code>keyof T</code>的结果为 <code>T</code>上已知的公共属性名的联合)</p>
+<li><p>keyof (对于任何类型 <code>T</code>， <code>keyof T</code>的结果为 <code>T</code>上已知的公共属性名的联合)</p>
 </li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">interface Person &#123;
@@ -601,28 +616,34 @@ const arr3Example: arr3 &#x3D; [0, &quot;1&quot;, &quot;2&quot;, 3, 4];</code></
 &#125;
 
 type p &#x3D; keyof Person; &#x2F;&#x2F; -&gt; p &#x3D; &#39;name&#39; | &#39;age&#39;</code></pre>
+
 <ul>
 <li>typeof</li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript"></code></pre>
+
 <ul>
 <li>交叉类型 (交叉类型是将多个类型合并为一个类型)</li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">interface;</code></pre>
+
 <ul>
 <li>联合类型 (联合类型表示一个值可以是几种类型之一,用竖线<code>｜</code>分隔每个类型)</li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript">function getNum(num: number | string): number &#123;
   return +num;
 &#125;</code></pre>
+
 <ul>
 <li>索引类型</li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript"></code></pre>
+
 <ul>
 <li>映射类型</li>
 </ul>
 <pre class="language-typescript" data-language="typescript"><code class="language-typescript"></code></pre>
+
 <ul>
 <li>@4.1</li>
 </ul>
@@ -650,9 +671,9 @@ interface Person &#123;
 * &#125;
 *&#x2F;
 type LazyPerson &#x3D; Getters&lt;Person&gt;;</code></pre>
+
 <ul>
-<li>
-<p>React 中的类型约束</p>
+<li><p>React 中的类型约束</p>
 <ul>
 <li>FC (函数组件类型)</li>
 </ul>
@@ -669,16 +690,15 @@ type FC&lt;P &#x3D; &#123;&#125;&gt; &#x3D; FunctionComponent&lt;P&gt;;
 &#x2F;&#x2F; 具体使用
 interface IProps &#123;&#125;
 const App: FC&lt;IProps&gt; &#x3D; props &#x3D;&gt; &lt;div&gt;&#123;props.children&#125;&lt;&#x2F;div&gt;;</code></pre>
+
 <ul>
-<li>
-<p>useState</p>
+<li><p>useState</p>
 <p>React 中使用<code>useState</code>方法去设置 state</p>
 </li>
 </ul>
 <pre class="language-tsx" data-language="tsx"><code class="language-tsx">function useState&lt;S&gt;(
   initialState: S | (() &#x3D;&gt; S)
-): [S, Dispatch&lt;SetStateAction&lt;S&gt;&gt;];</code></pre>
-</li>
+): [S, Dispatch&lt;SetStateAction&lt;S&gt;&gt;];</code></pre></li>
 </ul>
 
                 
