@@ -291,146 +291,8 @@ let hashMap &#x3D; new HashMap();</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Sass 语法</title>
-    <url>/2022/10/08/css/scss/</url>
-    <content><![CDATA[<h2 id="each-使用说明"><a href="#each-使用说明" class="headerlink" title="@each 使用说明"></a><code>@each</code> 使用说明</h2><p>The <a href="https://sass-lang.com/documentation/at-rules/control/each">@each</a> rule makes it easy to emit styles or evaluate code for each element of a list or each pair in a map. It’s great for repetitive styles that only have a few variations between them. It’s usually written</p>
-<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><pre class="language-scss" data-language="scss"><code class="language-scss">$sizes: 40px, 50px, 80px;
-@each $size in $sizes &#123;
-  .icon-#&#123;$size&#125; &#123;
-    font-size: $size;
-    height: $size;
-    width: $size;
-  &#125;
-&#125;
-
-# result .icon-40px &#123;
-  font-size: 40px;
-  height: 40px;
-  width: 40px;
-&#125;
-
-.icon-50px &#123;
-  font-size: 50px;
-  height: 50px;
-  width: 50px;
-&#125;
-
-.icon-80px &#123;
-  font-size: 80px;
-  height: 80px;
-  width: 80px;
-&#125;</code></pre>
-
-<pre class="language-scss" data-language="scss"><code class="language-scss">&#x2F;&#x2F; 数组
-$countries: ((ad, 376), (ae, 971)), ((az, 994), (ba, 387));
-$offset: -32px;
-
-@each $arr in $countries &#123;
-  &#x2F;&#x2F; get index (form 1)
-  $i: index($countries, $arr); &#x2F;&#x2F; &#x3D;&gt; number | null
-
-  @each $c in $arr &#123;
-    $j: index($arr, $c);
-
-    .flag.flag-#&#123;nth($c, 1)&#125; &#123;
-      background-position: $offset * ($j - 1) $offset * ($i - 1);
-    &#125;
-  &#125;
-&#125;
-
-# result .flag.flag-ad &#123;
-  background-position: 0px 0px;
-&#125;
-.flag.flag-ae &#123;
-  background-position: -32px 0px;
-&#125;
-.flag.flag-az &#123;
-  background-position: 0px -32px;
-&#125;
-.flag.flag-ba &#123;
-  background-position: -32px -32px;
-&#125;</code></pre>]]></content>
-      <categories>
-        <category>css</category>
-      </categories>
-      <tags>
-        <tag>Sass</tag>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git 常用命令</title>
-    <url>/2023/02/18/git/antic/</url>
-    <content><![CDATA[<h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><pre class="language-bash" data-language="bash"><code class="language-bash"># rebase
-git rebase master
-
-# 解决冲突后
-git add .
-
-# continue
-git rebase --continue</code></pre>
-
-<pre class="language-bash" data-language="bash"><code class="language-bash"># discard 丢弃缓存
-git reset HEAD
-
-# 丢弃指定文件缓存
-git reset HEAD &lt;file&gt;
-
-# 撤销最新的commit
-git reset HEAD^
-
-# 修改最新的一次commit 日志
-git commit --amend
-## 或者使用别名
-git ca
-</code></pre>
-
-<h3 id="使用-执行多条命令"><a href="#使用-执行多条命令" class="headerlink" title="使用; 执行多条命令"></a>使用<code>;</code> 执行多条命令</h3><pre class="language-bash" data-language="bash"><code class="language-bash">git add .; git status</code></pre>
-
-<h3 id="配置命令别名（Aliases）"><a href="#配置命令别名（Aliases）" class="headerlink" title="配置命令别名（Aliases）"></a>配置命令别名（<a href="https://git-scm.com/book/zh-tw/v2/Git-%E5%9F%BA%E7%A4%8E-Git-Aliases">Aliases</a>）</h3><p>git 默认配置了部分别名，可以使用<code>git config --list</code> 查看</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash"># git commit -m
-# git config --global alias.cm commit -m
-git cm
-
-# git log --stat --abbrev-commit
-# git config --global alias.ll log --stat --abbrev-commit
-git ll
-
-# git diff
-# git config --global alias.d diff
-git d</code></pre>
-
-<p>配置别名命令</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash"># 配置别名命令
-git config --global alias.st status
-
-# 使用 git st 相当于 git status
-git st</code></pre>
-
-<p>git log 别名配置</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash"># git l
-git config --global alias.l &quot;log --graph --all --pretty&#x3D;format:&#39;%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset&#39;&quot;
-
-# git ll
-git config --global alias.ll &quot;log --stat --abbrev-commit&quot;
-
-# git lg
-git config --global alias.lg &quot;log --color --graph --pretty&#x3D;format:&#39;%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit --date&#x3D;relative&quot;
-
-# git llg
-git config --global alias.llg &quot;log --color --graph --pretty&#x3D;format:&#39;%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an &lt;%ae&gt;%Creset %C(bold green)%cr (%ci)&#39; --abbrev-commit&quot;</code></pre>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>Tool</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown</title>
-    <url>/2024/10/01/markdown/</url>
+    <url>/2024/10/05/markdown/</url>
     <content><![CDATA[<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><p>使用数字加<code>.</code> 加空格开头</p>
 <pre class="language-markdown" data-language="markdown"><code class="language-markdown">1. 有序列表 1
 2. 有序列表 2
@@ -604,74 +466,188 @@ m&amp;sup3; m³</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>下载github上项目指定的文件夹</title>
-    <url>/2022/02/09/github/download/</url>
-    <content><![CDATA[<h2 id="node-实现下载指定文件或文件夹"><a href="#node-实现下载指定文件或文件夹" class="headerlink" title="node 实现下载指定文件或文件夹"></a>node 实现下载指定文件或文件夹</h2><p><a href="https://github.com/qqxs/got-github-examples">got-github-examples</a></p>
-<ol>
-<li>创建存储的文件夹</li>
-</ol>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">import fs from &quot;fs&quot;;
-
-export function makeDir(
-  root: string,
-  options &#x3D; &#123; recursive: true &#125;
-): Promise&lt;string | undefined&gt; &#123;
-  return fs.promises.mkdir(root, options);
-&#125;</code></pre>
-
-<ol start="2">
-<li>下载指定的文件夹或文件</li>
-</ol>
-<pre class="language-typescript" data-language="typescript"><code class="language-typescript">import got from &quot;got&quot;;
-import tar from &quot;tar&quot;;
-import path from &quot;path&quot;;
-import &#123; Stream &#125; from &quot;stream&quot;;
-import &#123; promisify &#125; from &quot;util&quot;;
-import &#123; makeDir &#125; from &quot;.&#x2F;make-dir&quot;;
-
-const pipeline &#x3D; promisify(Stream.pipeline);
-
-&#x2F;&#x2F; tar extract 内容放置的路径
-const root &#x3D; path.resolve(&quot;data-fetch-app&quot;);
-
-async function downloadExample() &#123;
-  await makeDir(root);
-  process.chdir(root);
-  return pipeline(
-    got.stream(
-      &#x2F;&#x2F; &#96;https:&#x2F;&#x2F;codeload.github.com&#x2F;$&#123;user&#125;&#x2F;$&#123;repo&#125;&#x2F;tar.gz&#x2F;$&#123;branch&#125;&#96;
-      &#x2F;&#x2F; example
-      &#96;https:&#x2F;&#x2F;codeload.github.com&#x2F;qqxs&#x2F;got-github-examples&#x2F;tar.gz&#x2F;main&#96;
-    ),
-    tar.extract(
-      &#123;
-        cwd: root,
-        strip: 3 &#x2F;&#x2F; 层级
-      &#125;,
-      &#x2F;&#x2F; [&#96;$&#123;repo&#125;-$&#123;branch&#125;&#x2F;$&#123;examplePath&#125;&#96;]
-      &#x2F;&#x2F; example
-      [&#96;got-github-examples-main&#x2F;examples&#x2F;example01&#96;]
-    )
-  );
+    <title>Sass 语法</title>
+    <url>/2022/10/08/css/scss/</url>
+    <content><![CDATA[<h2 id="each-使用说明"><a href="#each-使用说明" class="headerlink" title="@each 使用说明"></a><code>@each</code> 使用说明</h2><p>The <a href="https://sass-lang.com/documentation/at-rules/control/each">@each</a> rule makes it easy to emit styles or evaluate code for each element of a list or each pair in a map. It’s great for repetitive styles that only have a few variations between them. It’s usually written</p>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><pre class="language-scss" data-language="scss"><code class="language-scss">$sizes: 40px, 50px, 80px;
+@each $size in $sizes &#123;
+  .icon-#&#123;$size&#125; &#123;
+    font-size: $size;
+    height: $size;
+    width: $size;
+  &#125;
 &#125;
 
-downloadExample();</code></pre>
+# result .icon-40px &#123;
+  font-size: 40px;
+  height: 40px;
+  width: 40px;
+&#125;
 
-<ol start="3">
-<li>执行</li>
-</ol>
-<pre class="language-bash" data-language="bash"><code class="language-bash">ts-node index.ts</code></pre>
+.icon-50px &#123;
+  font-size: 50px;
+  height: 50px;
+  width: 50px;
+&#125;
 
-<h2 id="curl-实现下载指定文件或文件夹"><a href="#curl-实现下载指定文件或文件夹" class="headerlink" title="curl 实现下载指定文件或文件夹"></a>curl 实现下载指定文件或文件夹</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># mkdir my-app &amp;&amp; curl https:&#x2F;&#x2F;codeload.github.com&#x2F;[user]&#x2F;[repo]&#x2F;tar.gz&#x2F;[branch] | tar -xz -C my-app --strip&#x3D;2 [repo]-[branch]&#x2F;[examplePath]
-# 下载github上&#96;freeshineit&#x2F;next-examples&#96;的 main分支下 &#96;with-typescript-eslint-jest-app&#96; 文件夹下所有的文件和文件夹
-mkdir my-app &amp;&amp; curl https:&#x2F;&#x2F;codeload.github.com&#x2F;freeshineit&#x2F;next-examples&#x2F;tar.gz&#x2F;main | tar -xz -C my-app --strip&#x3D;2 next-examples-main&#x2F;with-typescript-eslint-jest-app</code></pre>
-]]></content>
+.icon-80px &#123;
+  font-size: 80px;
+  height: 80px;
+  width: 80px;
+&#125;</code></pre>
+
+<pre class="language-scss" data-language="scss"><code class="language-scss">&#x2F;&#x2F; 数组
+$countries: ((ad, 376), (ae, 971)), ((az, 994), (ba, 387));
+$offset: -32px;
+
+@each $arr in $countries &#123;
+  &#x2F;&#x2F; get index (form 1)
+  $i: index($countries, $arr); &#x2F;&#x2F; &#x3D;&gt; number | null
+
+  @each $c in $arr &#123;
+    $j: index($arr, $c);
+
+    .flag.flag-#&#123;nth($c, 1)&#125; &#123;
+      background-position: $offset * ($j - 1) $offset * ($i - 1);
+    &#125;
+  &#125;
+&#125;
+
+# result .flag.flag-ad &#123;
+  background-position: 0px 0px;
+&#125;
+.flag.flag-ae &#123;
+  background-position: -32px 0px;
+&#125;
+.flag.flag-az &#123;
+  background-position: 0px -32px;
+&#125;
+.flag.flag-ba &#123;
+  background-position: -32px -32px;
+&#125;</code></pre>]]></content>
       <categories>
-        <category>Github</category>
+        <category>css</category>
       </categories>
       <tags>
-        <tag>Github</tag>
-        <tag>got</tag>
+        <tag>Sass</tag>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git 常用命令</title>
+    <url>/2023/02/18/git/antic/</url>
+    <content><![CDATA[<h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><pre class="language-bash" data-language="bash"><code class="language-bash"># rebase
+git rebase master
+
+# 解决冲突后
+git add .
+
+# continue
+git rebase --continue</code></pre>
+
+<pre class="language-bash" data-language="bash"><code class="language-bash"># discard 丢弃缓存
+git reset HEAD
+
+# 丢弃指定文件缓存
+git reset HEAD &lt;file&gt;
+
+# 撤销最新的commit
+git reset HEAD^
+
+# 修改最新的一次commit 日志
+git commit --amend
+## 或者使用别名
+git ca
+</code></pre>
+
+<h3 id="使用-执行多条命令"><a href="#使用-执行多条命令" class="headerlink" title="使用; 执行多条命令"></a>使用<code>;</code> 执行多条命令</h3><pre class="language-bash" data-language="bash"><code class="language-bash">git add .; git status</code></pre>
+
+<h3 id="配置命令别名（Aliases）"><a href="#配置命令别名（Aliases）" class="headerlink" title="配置命令别名（Aliases）"></a>配置命令别名（<a href="https://git-scm.com/book/zh-tw/v2/Git-%E5%9F%BA%E7%A4%8E-Git-Aliases">Aliases</a>）</h3><p>git 默认配置了部分别名，可以使用<code>git config --list</code> 查看</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"># git commit -m
+# git config --global alias.cm commit -m
+git cm
+
+# git log --stat --abbrev-commit
+# git config --global alias.ll log --stat --abbrev-commit
+git ll
+
+# git diff
+# git config --global alias.d diff
+git d</code></pre>
+
+<p>配置别名命令</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"># 配置别名命令
+git config --global alias.st status
+
+# 使用 git st 相当于 git status
+git st</code></pre>
+
+<p>git log 别名配置</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"># git l
+git config --global alias.l &quot;log --graph --all --pretty&#x3D;format:&#39;%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset&#39;&quot;
+
+# git ll
+git config --global alias.ll &quot;log --stat --abbrev-commit&quot;
+
+# git lg
+git config --global alias.lg &quot;log --color --graph --pretty&#x3D;format:&#39;%C(bold white)%h%Creset -%C(bold green)%d%Creset %s %C(bold green)(%cr)%Creset %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit --date&#x3D;relative&quot;
+
+# git llg
+git config --global alias.llg &quot;log --color --graph --pretty&#x3D;format:&#39;%C(bold white)%H %d%Creset%n%s%n%+b%C(bold blue)%an &lt;%ae&gt;%Creset %C(bold green)%cr (%ci)&#39; --abbrev-commit&quot;</code></pre>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Tool</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>javascript apply,call和bind</title>
+    <url>/2022/10/26/js/apply_call_bind/</url>
+    <content><![CDATA[<h2 id="apply-原理"><a href="#apply-原理" class="headerlink" title="apply 原理"></a>apply 原理</h2><p><a href="">apply</a> xxxx</p>
+<h2 id="apply-实现"><a href="#apply-实现" class="headerlink" title="apply 实现"></a>apply 实现</h2><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+ *
+ *&#x2F;
+function _apply(_this: any, args: any[]) &#123;&#125;
+
+(function () &#123;
+  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
+  &#x2F;&#x2F; 如果有错 会有打印
+  const assert &#x3D; require(&quot;assert&quot;);
+&#125;)();</code></pre>
+
+<h2 id="call-原理"><a href="#call-原理" class="headerlink" title="call 原理"></a>call 原理</h2><p><a href="">call</a> xxxx</p>
+<h2 id="call-实现"><a href="#call-实现" class="headerlink" title="call 实现"></a>call 实现</h2><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+ *
+ *&#x2F;
+function _call(_this: any, ...args: any[]) &#123;&#125;
+
+(function () &#123;
+  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
+  &#x2F;&#x2F; 如果有错 会有打印
+  const assert &#x3D; require(&quot;assert&quot;);
+&#125;)();</code></pre>
+
+<h2 id="bind-原理"><a href="#bind-原理" class="headerlink" title="bind 原理"></a>bind 原理</h2><p><a href="">bind</a> xxxx</p>
+<h2 id="bind-实现"><a href="#bind-实现" class="headerlink" title="bind 实现"></a>bind 实现</h2><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
+ *
+ *&#x2F;
+function _bind(_this: any, ...args: any[]) &#123;&#125;
+
+(function () &#123;
+  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
+  &#x2F;&#x2F; 如果有错 会有打印
+  const assert &#x3D; require(&quot;assert&quot;);
+&#125;)();</code></pre>
+
+<h2 id="apply-call-和-bind-共同点"><a href="#apply-call-和-bind-共同点" class="headerlink" title="apply, call 和 bind 共同点"></a>apply, call 和 bind 共同点</h2><h2 id="apply-call-和-bind-不同点"><a href="#apply-call-和-bind-不同点" class="headerlink" title="apply, call 和 bind 不同点"></a>apply, call 和 bind 不同点</h2>]]></content>
+      <categories>
+        <category>Javascript</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -862,53 +838,6 @@ module.exports &#x3D; inst;</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>javascript apply,call和bind</title>
-    <url>/2022/10/26/js/apply_call_bind/</url>
-    <content><![CDATA[<h2 id="apply-原理"><a href="#apply-原理" class="headerlink" title="apply 原理"></a>apply 原理</h2><p><a href="">apply</a> xxxx</p>
-<h2 id="apply-实现"><a href="#apply-实现" class="headerlink" title="apply 实现"></a>apply 实现</h2><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
- *
- *&#x2F;
-function _apply(_this: any, args: any[]) &#123;&#125;
-
-(function () &#123;
-  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
-  &#x2F;&#x2F; 如果有错 会有打印
-  const assert &#x3D; require(&quot;assert&quot;);
-&#125;)();</code></pre>
-
-<h2 id="call-原理"><a href="#call-原理" class="headerlink" title="call 原理"></a>call 原理</h2><p><a href="">call</a> xxxx</p>
-<h2 id="call-实现"><a href="#call-实现" class="headerlink" title="call 实现"></a>call 实现</h2><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
- *
- *&#x2F;
-function _call(_this: any, ...args: any[]) &#123;&#125;
-
-(function () &#123;
-  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
-  &#x2F;&#x2F; 如果有错 会有打印
-  const assert &#x3D; require(&quot;assert&quot;);
-&#125;)();</code></pre>
-
-<h2 id="bind-原理"><a href="#bind-原理" class="headerlink" title="bind 原理"></a>bind 原理</h2><p><a href="">bind</a> xxxx</p>
-<h2 id="bind-实现"><a href="#bind-实现" class="headerlink" title="bind 实现"></a>bind 实现</h2><pre class="language-typescript" data-language="typescript"><code class="language-typescript">&#x2F;**
- *
- *&#x2F;
-function _bind(_this: any, ...args: any[]) &#123;&#125;
-
-(function () &#123;
-  &#x2F;&#x2F; npx ts-node app&#x2F;typeof.ts
-  &#x2F;&#x2F; 如果有错 会有打印
-  const assert &#x3D; require(&quot;assert&quot;);
-&#125;)();</code></pre>
-
-<h2 id="apply-call-和-bind-共同点"><a href="#apply-call-和-bind-共同点" class="headerlink" title="apply, call 和 bind 共同点"></a>apply, call 和 bind 共同点</h2><h2 id="apply-call-和-bind-不同点"><a href="#apply-call-和-bind-不同点" class="headerlink" title="apply, call 和 bind 不同点"></a>apply, call 和 bind 不同点</h2>]]></content>
-      <categories>
-        <category>Javascript</category>
-      </categories>
-      <tags>
-        <tag>Javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>javascript instanceof 原理</title>
     <url>/2022/10/26/js/instanceof/</url>
     <content><![CDATA[<h2 id="instanceof-原理"><a href="#instanceof-原理" class="headerlink" title="instanceof 原理"></a>instanceof 原理</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof">instanceof</a> 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。</p>
@@ -984,6 +913,77 @@ function _instanceof(instance: any, Func: any) &#123;
       </categories>
       <tags>
         <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>下载github上项目指定的文件夹</title>
+    <url>/2022/02/09/github/download/</url>
+    <content><![CDATA[<h2 id="node-实现下载指定文件或文件夹"><a href="#node-实现下载指定文件或文件夹" class="headerlink" title="node 实现下载指定文件或文件夹"></a>node 实现下载指定文件或文件夹</h2><p><a href="https://github.com/qqxs/got-github-examples">got-github-examples</a></p>
+<ol>
+<li>创建存储的文件夹</li>
+</ol>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript">import fs from &quot;fs&quot;;
+
+export function makeDir(
+  root: string,
+  options &#x3D; &#123; recursive: true &#125;
+): Promise&lt;string | undefined&gt; &#123;
+  return fs.promises.mkdir(root, options);
+&#125;</code></pre>
+
+<ol start="2">
+<li>下载指定的文件夹或文件</li>
+</ol>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript">import got from &quot;got&quot;;
+import tar from &quot;tar&quot;;
+import path from &quot;path&quot;;
+import &#123; Stream &#125; from &quot;stream&quot;;
+import &#123; promisify &#125; from &quot;util&quot;;
+import &#123; makeDir &#125; from &quot;.&#x2F;make-dir&quot;;
+
+const pipeline &#x3D; promisify(Stream.pipeline);
+
+&#x2F;&#x2F; tar extract 内容放置的路径
+const root &#x3D; path.resolve(&quot;data-fetch-app&quot;);
+
+async function downloadExample() &#123;
+  await makeDir(root);
+  process.chdir(root);
+  return pipeline(
+    got.stream(
+      &#x2F;&#x2F; &#96;https:&#x2F;&#x2F;codeload.github.com&#x2F;$&#123;user&#125;&#x2F;$&#123;repo&#125;&#x2F;tar.gz&#x2F;$&#123;branch&#125;&#96;
+      &#x2F;&#x2F; example
+      &#96;https:&#x2F;&#x2F;codeload.github.com&#x2F;qqxs&#x2F;got-github-examples&#x2F;tar.gz&#x2F;main&#96;
+    ),
+    tar.extract(
+      &#123;
+        cwd: root,
+        strip: 3 &#x2F;&#x2F; 层级
+      &#125;,
+      &#x2F;&#x2F; [&#96;$&#123;repo&#125;-$&#123;branch&#125;&#x2F;$&#123;examplePath&#125;&#96;]
+      &#x2F;&#x2F; example
+      [&#96;got-github-examples-main&#x2F;examples&#x2F;example01&#96;]
+    )
+  );
+&#125;
+
+downloadExample();</code></pre>
+
+<ol start="3">
+<li>执行</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">ts-node index.ts</code></pre>
+
+<h2 id="curl-实现下载指定文件或文件夹"><a href="#curl-实现下载指定文件或文件夹" class="headerlink" title="curl 实现下载指定文件或文件夹"></a>curl 实现下载指定文件或文件夹</h2><pre class="language-bash" data-language="bash"><code class="language-bash"># mkdir my-app &amp;&amp; curl https:&#x2F;&#x2F;codeload.github.com&#x2F;[user]&#x2F;[repo]&#x2F;tar.gz&#x2F;[branch] | tar -xz -C my-app --strip&#x3D;2 [repo]-[branch]&#x2F;[examplePath]
+# 下载github上&#96;freeshineit&#x2F;next-examples&#96;的 main分支下 &#96;with-typescript-eslint-jest-app&#96; 文件夹下所有的文件和文件夹
+mkdir my-app &amp;&amp; curl https:&#x2F;&#x2F;codeload.github.com&#x2F;freeshineit&#x2F;next-examples&#x2F;tar.gz&#x2F;main | tar -xz -C my-app --strip&#x3D;2 next-examples-main&#x2F;with-typescript-eslint-jest-app</code></pre>
+]]></content>
+      <categories>
+        <category>Github</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+        <tag>got</tag>
       </tags>
   </entry>
   <entry>
@@ -1320,33 +1320,6 @@ location ^~ &#x2F;api&#x2F; &#123;
       </tags>
   </entry>
   <entry>
-    <title>svg 转图片</title>
-    <url>/2023/02/24/svg/to_image/</url>
-    <content><![CDATA[<h2 id="svg-转图片"><a href="#svg-转图片" class="headerlink" title="svg 转图片"></a>svg 转图片</h2><pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 序列化 svg 文件（xml） 转成字符串
-const svgString &#x3D; new XMLSerializer()
-  .serializeToString(document.getElementById(&#39;svg&#39;));
-
-const img &#x3D; new Image();
-&#x2F;&#x2F; svgString svg的xml文件字符串
-const svg &#x3D; new Blob([svgString], &#123;type: &quot;image&#x2F;svg+xml;charset&#x3D;utf-8&quot;&#125;);
-
-const domURL &#x3D; self.URL || self.webkitURL || self;
-const url &#x3D; domURL.createObjectURL(svg);
-
-img.src &#x3D; url;
-
-&#x2F;&#x2F; append img to body
-&#x2F;&#x2F; ...</code></pre>
-
-]]></content>
-      <categories>
-        <category>Svg</category>
-      </categories>
-      <tags>
-        <tag>Svg</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mac 工具</title>
     <url>/2023/02/18/tools/mac/</url>
     <content><![CDATA[<h2 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a><a href="https://brew.sh/">homebrew</a></h2><p><a href="https://brew.sh/">homebrew</a> 安装 <code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</code></p>
@@ -1411,6 +1384,33 @@ set hlsearch</code></pre>
       <tags>
         <tag>Tool</tag>
         <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>svg 转图片</title>
+    <url>/2023/02/24/svg/to_image/</url>
+    <content><![CDATA[<h2 id="svg-转图片"><a href="#svg-转图片" class="headerlink" title="svg 转图片"></a>svg 转图片</h2><pre class="language-javascript" data-language="javascript"><code class="language-javascript">&#x2F;&#x2F; 序列化 svg 文件（xml） 转成字符串
+const svgString &#x3D; new XMLSerializer()
+  .serializeToString(document.getElementById(&#39;svg&#39;));
+
+const img &#x3D; new Image();
+&#x2F;&#x2F; svgString svg的xml文件字符串
+const svg &#x3D; new Blob([svgString], &#123;type: &quot;image&#x2F;svg+xml;charset&#x3D;utf-8&quot;&#125;);
+
+const domURL &#x3D; self.URL || self.webkitURL || self;
+const url &#x3D; domURL.createObjectURL(svg);
+
+img.src &#x3D; url;
+
+&#x2F;&#x2F; append img to body
+&#x2F;&#x2F; ...</code></pre>
+
+]]></content>
+      <categories>
+        <category>Svg</category>
+      </categories>
+      <tags>
+        <tag>Svg</tag>
       </tags>
   </entry>
   <entry>
