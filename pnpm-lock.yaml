@@ -53,10 +53,10 @@ dependencies:
 
 devDependencies:
   nodemon:
-    specifier: ^2.0.20
+    specifier: ^2.0.22
     version: 2.0.22
   rimraf:
-    specifier: ^4.1.2
+    specifier: ^4.4.1
     version: 4.4.1
   shelljs:
     specifier: ^0.8.5
@@ -70,8 +70,8 @@ packages:
       katex: 0.12.0
     dev: false
 
-  /@tootallnate/once@2.0.0:
-    resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
+  /@tootallnate/once@2.0.1:
+    resolution: {integrity: sha512-HqmEUIGRJ5fSXchkVgR5F7qn48bDBzv0kWj/Kfu5e6uci4UlEeng4331LnBkWffb++Ei3FOVLxo8JJWMFBDMeQ==}
     engines: {node: '>= 10'}
     dev: false
 
@@ -979,7 +979,7 @@ packages:
     resolution: {integrity: sha512-n2hY8YdoRE1i7r6M0w9DIw5GgZN0G25P8zLCRQ8rjXtTU3vsNFBI/vWK/UIeE6g5MUUz6avwAPXmL6Fy9D/90w==}
     engines: {node: '>= 6'}
     dependencies:
-      '@tootallnate/once': 2.0.0
+      '@tootallnate/once': 2.0.1
       agent-base: 6.0.2
       debug: 4.3.7
     transitivePeerDependencies:
